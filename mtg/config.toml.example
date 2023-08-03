@@ -1,0 +1,11 @@
+groupsize=3
+[app]
+client-id=""
+session-id=""
+private-key=""
+pin-token=""
+pin=""
+[genesis]
+members=""
+threshold=1
+timestamp=0
