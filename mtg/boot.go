@@ -6,10 +6,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/MixinNetwork/mixin/logger"
-	"github.com/MixinNetwork/tip/messenger"
 	"github.com/MixinNetwork/trusted-group/mtg"
 	"github.com/fox-one/mixin-sdk-go"
+	"github.com/mvg-fi/common/logger"
+	"github.com/mvg-fi/common/messenger"
 	"github.com/mvg-fi/mvg-bridge/store"
 	"github.com/urfave/cli/v2"
 )

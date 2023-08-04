@@ -4,7 +4,8 @@ import (
 	"context"
 	"encoding/binary"
 
-	"github.com/MixinNetwork/nfo/store"
+	//"github.com/MixinNetwork/nfo/store"
+	"github.com/mvg-fi/common/store"
 )
 
 type BadgerStore struct {

@@ -3,12 +3,10 @@ module github.com/mvg-fi/mvg-bridge
 go 1.20
 
 require (
-	github.com/MixinNetwork/mixin v0.15.2
-	github.com/MixinNetwork/nfo v0.3.4-0.20230416161707-2d828d09d6ca
-	github.com/MixinNetwork/tip v0.0.0-20220718172842-5937b26d132a
-	github.com/MixinNetwork/trusted-group v0.4.9
+	github.com/MixinNetwork/trusted-group v0.5.0
 	github.com/dgraph-io/badger v1.6.2
 	github.com/fox-one/mixin-sdk-go v1.7.9
+	github.com/mvg-fi/common v0.1.0
 	github.com/pelletier/go-toml v1.9.5
 	github.com/urfave/cli/v2 v2.25.7
 )
@@ -16,8 +14,12 @@ require (
 require (
 	filippo.io/edwards25519 v1.0.0 // indirect
 	github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96 // indirect
+	github.com/MixinNetwork/bot-api-go-client v1.7.3 // indirect
+	github.com/MixinNetwork/go-number v0.1.0 // indirect
+	github.com/MixinNetwork/mixin v0.15.2 // indirect
 	github.com/MixinNetwork/mobilecoin-account v0.0.4 // indirect
 	github.com/MixinNetwork/msgpack/v4 v4.4.0 // indirect
+	github.com/MixinNetwork/nfo v0.3.4 // indirect
 	github.com/btcsuite/btcutil v1.0.3-0.20201208143702-a53e38424cce // indirect
 	github.com/bwesterb/go-ristretto v1.2.3 // indirect
 	github.com/cespare/xxhash v1.1.0 // indirect

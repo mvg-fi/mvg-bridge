@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/MixinNetwork/tip/messenger"
 	"github.com/MixinNetwork/trusted-group/mtg"
+	"github.com/mvg-fi/common/messenger"
 	"github.com/pelletier/go-toml"
 )
 
