@@ -20,7 +20,7 @@
     "@storybook/vue3": "^7.0.22",
     "@storybook/vue3-vite": "^7.0.22",
     "@types/node": "^18",
-    "nuxt": "^3.5.2",
+    "nuxt": "^3.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.22"
