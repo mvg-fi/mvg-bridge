@@ -3,16 +3,22 @@ package api
 import (
 	"net/http"
 
+	"github.com/dgraph-io/badger/v4"
 	"github.com/mvg-fi/common/web"
+	"github.com/mvg-fi/mvg-bridge/store"
 )
 
 type API struct {
-	c *web.Configuration
+	s   *store.BadgerStore
+	txn *badger.Txn
+	c   *web.Configuration
 }
 
-func NewAPIWorker(c *web.Configuration) *API {
+func NewAPIWorker(s *store.BadgerStore, txn *badger.Txn, c *web.Configuration) *API {
 	return &API{
-		c: c,
+		s:   s,
+		txn: txn,
+		c:   c,
 	}
 }
 

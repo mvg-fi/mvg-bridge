@@ -2,6 +2,8 @@
 
 Here is the technical design of MVG Bridge backend (MTG)
 
+The format in this file has been changed since 12 Aug 2023
+
 
 
 

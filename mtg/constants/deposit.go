@@ -1,7 +1,7 @@
 package constants
 
-// KeyExample = "{PREFIX}|{DEPOSIT TYPES}|{ADDRESS GENERATED}|{TIMESTAMP}|{SHORTEN TRACE UUID}"
-// ValueExample = "{SHORTEN FROM ASSETID}|{SHORTEN TO ASSETID}|{TO ADDRESS}|{MEMO}|{AMOUNT}"
+// KeyExample           = "{STATUS}|{TRACE UUID}"
+// ValueExample         = "{TYPE}|{ADDRESS GENERATED}|{FROM ASSETID}|{TO ASSETID}|{TO ADDRESS}|{MEMO}|{AMOUNT}|{TIMESTAMP}"
 
 const (
 	// Prefix

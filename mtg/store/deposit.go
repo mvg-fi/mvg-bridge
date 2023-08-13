@@ -15,13 +15,13 @@ const (
 )
 
 type Deposit struct {
-	Type        string // Transaction type (CS|SS|BE)
-	Address     string // Deposit address for receiving user's fund
-	ToAddress   string // The destination
-	FromAssetID string // Deposit asset id
-	ToAssetID   string // Withdrawal asset id
-	Memo        string // Memo
-	Amount      string // User final receive amount of to asset
+	Type        string `json:"type"`         // Transaction type (CS|SS|BE)
+	Address     string `json:"address"`      // Deposit address for receiving user's fund
+	ToAddress   string `json:"to_address"`   // The destination
+	FromAssetID string `json:"from_assetid"` // Deposit asset id
+	ToAssetID   string `json:"to_assetid"`   // Withdrawal asset id
+	Memo        string `json:"memo"`         // Memo
+	Amount      string `json:"amount"`       // User final receive amount of to asset
 }
 
 func (bs *BadgerStore) WriteDeposit(txn *badger.Txn, d *Deposit) (string, error) {
@@ -36,35 +36,4 @@ func (bs *BadgerStore) WriteDeposit(txn *badger.Txn, d *Deposit) (string, error)
 		return "", fmt.Errorf("txn.Set(key)=>%w", err)
 	}
 	return traceID, nil
-}
-
-func (bs *BadgerStore) ReadPendingDeposit(txn *badger.Txn, id string) ([]byte, error) {
-	key := []byte(fmt.Sprintf("%s|%s", constants.PrefixDepositPending, id))
-	item, err := txn.Get(key)
-	if err == badger.ErrKeyNotFound {
-		return nil, nil
-	} else if err != nil {
-		return nil, err
-	}
-	return item.ValueCopy(nil)
-}
-
-func (bs *BadgerStore) FinishPendingDeposit(txn *badger.Txn, id string) (string, error) {
-	// Delete pending, create a new tx
-	key := []byte(fmt.Sprintf("%s|%s", constants.PrefixDepositPending, id))
-	item, err := txn.Get(key)
-	if err != nil {
-		return "", fmt.Errorf("txn.Get(key)=>%w", err)
-	}
-	value, err := item.ValueCopy(nil)
-	if err != nil {
-		return "", fmt.Errorf("item.ValueCopy(nil)=>%w", err)
-	}
-	err = txn.Delete(key)
-	if err != nil {
-		return "", fmt.Errorf("txn.Delete(key)=>%w", err)
-	}
-	newKey := []byte(fmt.Sprintf("%s|%s", constants.PrefixDepositReceived, id))
-	txn.Set(newKey, value)
-	return string(newKey), nil
 }
