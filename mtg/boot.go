@@ -7,9 +7,9 @@ import (
 	"strings"
 
 	"github.com/MixinNetwork/trusted-group/mtg"
-	"github.com/fox-one/mixin-sdk-go"
 	"github.com/mvg-fi/common/logger"
-	"github.com/mvg-fi/common/messenger"
+	"github.com/mvg-fi/mvg-bridge/api"
+	"github.com/mvg-fi/mvg-bridge/config"
 	"github.com/mvg-fi/mvg-bridge/store"
 	"github.com/urfave/cli/v2"
 )
@@ -23,7 +23,7 @@ func bootCmd(c *cli.Context) error {
 		usr, _ := user.Current()
 		cp = filepath.Join(usr.HomeDir, (cp)[2:])
 	}
-	conf, err := ReadConfiguration(cp)
+	conf, err := config.ReadConfiguration(cp)
 	if err != nil {
 		return err
 	}
@@ -44,23 +44,28 @@ func bootCmd(c *cli.Context) error {
 		return err
 	}
 
-	s := &mixin.Keystore{
-		ClientID:   conf.Messenger.UserId,
-		SessionID:  conf.Messenger.SessionId,
-		PrivateKey: conf.Messenger.Key,
-	}
-	mixin, err := mixin.NewFromKeystore(s)
-	if err != nil {
-		return err
-	}
-	messenger, err := messenger.NewMixinMessenger(ctx, conf.Messenger)
-	if err != nil {
-		return err
-	}
-	println(mixin, messenger)
+	/*
+		s := &mixin.Keystore{
+			ClientID:   conf.Messenger.UserId,
+			SessionID:  conf.Messenger.SessionId,
+			PrivateKey: conf.Messenger.Key,
+		}
+		mixin, err := mixin.NewFromKeystore(s)
+		if err != nil {
+			return err
+		}
+		messenger, err := messenger.NewMixinMessenger(ctx, conf.Messenger)
+		if err != nil {
+			return err
+		}
+		println(mixin, messenger)
+	*/
 
+	// TODO: Figure out what this step is used for
 	// group.SetOutputGrouper(machine.OutputGrouper)
 	// group.AddWorker()
+	api := api.NewAPIWorker(conf.API)
+	api.Loop()
 	group.Run(ctx)
 
 	return nil

@@ -1,4 +1,4 @@
-package main
+package config
 
 import (
 	"os"
@@ -8,12 +8,14 @@ import (
 
 	"github.com/MixinNetwork/trusted-group/mtg"
 	"github.com/mvg-fi/common/messenger"
+	"github.com/mvg-fi/common/web"
 	"github.com/pelletier/go-toml"
 )
 
 type Configuration struct {
 	MTG       *mtg.Configuration            `toml:"mtg"`
 	Messenger *messenger.MixinConfiguration `toml:"messenger"`
+	API       *web.Configuration            `toml:"api"`
 }
 
 func ReadConfiguration(path string) (*Configuration, error) {

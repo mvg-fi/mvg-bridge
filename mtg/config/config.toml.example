@@ -1,11 +1,13 @@
 groupsize=3
-[app]
+[mtg.app]
 client-id=""
 session-id=""
 private-key=""
 pin-token=""
 pin=""
-[genesis]
+[mtg.genesis]
 members=""
 threshold=1
 timestamp=0
+[web.api]
+host=127.0.0.1:80
