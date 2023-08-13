@@ -12,7 +12,7 @@ func (a *API) AddressHandler(w http.ResponseWriter, req *http.Request) {
 	// 1. Create deposit address
 	// 2. Return deposit
 
-	limiter := rate.NewLimiter(3, 5)
+	limiter := rate.NewLimiter(3, 5) // 3 request per sec, maxium 5 per sec
 	if !limiter.Allow() {
 		http.Error(w, "Too Many Requests", http.StatusTooManyRequests)
 		return
