@@ -64,8 +64,8 @@ func bootCmd(c *cli.Context) error {
 	// TODO: Figure out what this step is used for
 	// group.SetOutputGrouper(machine.OutputGrouper)
 	// group.AddWorker()
-	api := api.NewAPIWorker(conf.API)
-	api.Loop()
+	api := api.NewAPIWorker(db, conf.API)
+	api.Run()
 	group.Run(ctx)
 
 	return nil

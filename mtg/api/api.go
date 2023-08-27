@@ -1,33 +1,54 @@
 package api
 
 import (
+	"log"
 	"net/http"
+	"time"
 
-	"github.com/dgraph-io/badger/v4"
 	"github.com/mvg-fi/common/web"
+	"github.com/mvg-fi/go-limiter/httplimit"
+	"github.com/mvg-fi/go-limiter/memorystore"
 	"github.com/mvg-fi/mvg-bridge/store"
 )
 
 type API struct {
-	s   *store.BadgerStore
-	txn *badger.Txn
-	c   *web.Configuration
+	s *store.BadgerStore
+	c *web.Configuration
 }
 
-func NewAPIWorker(s *store.BadgerStore, txn *badger.Txn, c *web.Configuration) *API {
+func NewAPIWorker(s *store.BadgerStore, c *web.Configuration) *API {
 	return &API{
-		s:   s,
-		txn: txn,
-		c:   c,
+		s: s,
+		c: c,
 	}
 }
 
-func (a *API) Loop() {
-	a.loop(a.c.Host, a.c.Port)
+func InitIPRateLimit() *httplimit.Middleware {
+	store, err := memorystore.New(&memorystore.Config{
+		// Number of tokens allowed per interval.
+		Tokens: 60,
+
+		// Interval until tokens reset.
+		Interval: time.Minute,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	middleware, err := httplimit.NewMiddleware(store, httplimit.IPKeyFunc())
+	if err != nil {
+		log.Fatal(err)
+	}
+	return middleware
 }
 
-func (a *API) loop(host, port string) {
-	http.HandleFunc("/api/address", AddressHandler)
-	http.HandleFunc("/api/status", StatusHandler)
+func (a *API) run(host, port string) {
+	ipRateLimit := InitIPRateLimit()
+
+	http.Handle("/api/address", ipRateLimit.Handle(http.Handler(a.AddressHandler(a.s))))
+	http.HandleFunc("/api/status", a.StatusHandler())
 	http.ListenAndServe(host+":"+port, nil)
+}
+
+func (a *API) Run() {
+	a.run(a.c.Host, a.c.Port)
 }

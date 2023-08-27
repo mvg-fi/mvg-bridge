@@ -16,6 +16,10 @@ There will be two types of bridges:
 
 There will be a switch inside settings that allow people to switch between these two types of bridges. For the first type, people can deposit and withdraw to/from MVM mainnet
 
+## Limitation
+
+For now, the MTG doesn't support direct deposit and withdrawal. So it's meaningless to use for MTG for now. The current design will be reused once the MTG supports all the functionalities.
+
 ## Use cases
 
 ### 1. Cross chain swap

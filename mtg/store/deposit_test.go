@@ -20,12 +20,9 @@ func TestDeposit(t *testing.T) {
 	fmt.Println("Opened badger")
 	defer db.Close()
 
-	fmt.Println("Opening txn")
-	txn := db.Badger().NewTransaction(true)
-	defer txn.Discard()
-	fmt.Println("Opened txn, writing deposit")
+	fmt.Println("Writing deposit")
 
-	traceID, err := db.WriteDeposit(txn, &Deposit{
+	traceID, err := db.WriteDeposit(&Deposit{
 		Type:        "CS",
 		Address:     "0x2CFD0582C121B1a84BA795Dd701f798966605598",
 		ToAddress:   "0x1AE60D36412a6745fce4d4935FF5Bf2b8139a371",

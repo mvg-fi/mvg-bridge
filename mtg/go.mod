@@ -7,8 +7,10 @@ require (
 	github.com/dgraph-io/badger/v4 v4.1.0
 	github.com/fox-one/mixin-sdk-go v1.7.9
 	github.com/mvg-fi/common v0.1.9
+	github.com/mvg-fi/go-limiter v0.1.1
 	github.com/pelletier/go-toml v1.9.5
 	github.com/urfave/cli/v2 v2.25.7
+	golang.org/x/time v0.3.0
 )
 
 require (

@@ -6,7 +6,10 @@ import (
 	"github.com/dgraph-io/badger/v4"
 )
 
-func (bs *BadgerStore) ReadStatus(txn *badger.Txn, status, id string) ([]byte, error) {
+func (bs *BadgerStore) ReadStatus(status, id string) ([]byte, error) {
+	txn := bs.Badger().NewTransaction(false)
+	defer txn.Discard()
+
 	key := []byte(fmt.Sprintf("%s|%s", status, id))
 	item, err := txn.Get(key)
 	if err == badger.ErrKeyNotFound {
@@ -17,8 +20,19 @@ func (bs *BadgerStore) ReadStatus(txn *badger.Txn, status, id string) ([]byte, e
 	return item.ValueCopy(nil)
 }
 
+/*
+func (bs *BadgerStore) ReadStatusBySuffix(id string) ([]byte, error) {
+	txn := bs.Badger().NewTransaction(false)
+	defer txn.Discard()
+	return
+}
+*/
+
 // Remove old prefix item, create a new item
-func (bs *BadgerStore) FinishStatus(txn *badger.Txn, originalPrefix, newPrefix, id string) (string, error) {
+func (bs *BadgerStore) FinishStatus(originalPrefix, newPrefix, id string) (string, error) {
+	txn := bs.Badger().NewTransaction(true)
+	defer txn.Discard()
+
 	key := []byte(fmt.Sprintf("%s|%s", originalPrefix, id))
 	item, err := txn.Get(key)
 	if err != nil {
