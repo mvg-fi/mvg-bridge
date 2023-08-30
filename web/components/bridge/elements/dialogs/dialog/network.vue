@@ -1,13 +1,15 @@
 <template>
   <div class="d-flex flex-column network-selector">
+    <v-divider />
     <div class="overflow-y-auto">
-      <div class="">
+      <div>
         <v-btn
           icon
           class="network-btn my-1"
           elevation="0"
           v-for="chain in chainList"
-          :key="chain.assetid"
+          :key="chain.asset_id"
+          @click="setNetwork(chain)"
         >
           <v-icon style="width: 32px; height: 32px" class="">
             <v-img :src="chain.icon" />
@@ -15,13 +17,13 @@
         </v-btn>
       </div>
     </div>
+    <v-divider />
 
-    <div class="my-3 mt-1">
-      <div style="" class="bg-white">
-        <v-btn icon class="network-btn" elevation="0" @click="detailOpened.value=!(detailOpened.value)">
-          <v-icon style="width: 16px; height: 16px; opacity: 40">
-            <ChevronDoubleLeftIcon v-if="detailOpened.value" />
-            <ChevronDoubleRightIcon v-else/>
+    <div class="mt-1 pb-3 d-flex justify-center">
+      <div class="bg-white h-100">
+        <v-btn icon style="width: 32px; height: 32px" elevation="0" @click="console.log('click expend')">
+          <v-icon style="width: 12px; height: 12px; opacity: 40">
+            <ChevronDoubleDownIcon />
           </v-icon>
         </v-btn>
       </div>
@@ -31,10 +33,13 @@
 
 <script setup>
 import chainList from "~/assets/constants/miniumchainlist.json";
-import { Bars3Icon, ChevronDoubleRightIcon, ChevronDoubleLeftIcon } from "@heroicons/vue/24/outline";
+import { Bars3Icon, ChevronDoubleDownIcon } from "@heroicons/vue/24/outline";
+import { useBridgeStore } from "~/stores/bridge/bridge";
 
-const detailOpened = ref(false);
-const selectedNetwork = ref(chainList[0]);
+const store = useBridgeStore();
+const setNetwork = (network) => {
+  store.setSelectedNetwork(network);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -51,5 +56,8 @@ $height: calc(#{$select-asset-dialog-height} - 64px - 52px - 20px);
 }
 * {
   scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 </style>

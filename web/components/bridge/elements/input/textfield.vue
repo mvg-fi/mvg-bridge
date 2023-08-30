@@ -5,7 +5,7 @@
     v-model="input"
     v-maska:[options]
     @keyup="inputFunc"
-    :placeholder="props.from ? $t('placeholder'): '0'"
+    :placeholder="$t('placeholder')"
     class="text-field font-weight-bold ml-3"
   >
   </v-text-field>

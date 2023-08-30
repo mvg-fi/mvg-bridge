@@ -1,13 +1,19 @@
 <template>
   <div class="px-3 d-flex align-center">
-    <v-col cols="1"/> 
+    <v-col cols="1" />
 
     <v-col cols="10" class="text-center py-0">
       <span class="font-weight-semibold"> {{ $t("select_asset") }}</span>
     </v-col>
 
-    <v-col cols="1" class="py-0">
-      <v-btn icon elevation="0" @click="store.mutateDialog(props.from, false)">
+    <v-col cols="1" class="pa-0">
+      <v-btn
+        icon
+        elevation="0"
+        @click="store.mutateDialog(props.from, false)"
+        style="width: 32px; height: 32px"
+        class="px-0"
+      >
         <v-icon>
           <XMarkIcon />
         </v-icon>

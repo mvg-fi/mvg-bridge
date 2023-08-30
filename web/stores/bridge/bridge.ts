@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { BridgeState } from "~/types/stores";
+import { Asset } from "~/types/asset"
 import assets from "~/assets/constants/miniumlist.json"
 
 export const useBridgeStore = defineStore('bridge', {
@@ -11,6 +12,7 @@ export const useBridgeStore = defineStore('bridge', {
     fromDialog: false,
     toDialog: false,
     settingMode: false,
+    selectedNetwork: undefined,
   } as BridgeState),
   getters: {
   
@@ -28,17 +30,27 @@ export const useBridgeStore = defineStore('bridge', {
       }
       this.toDialog = open
     },
+    setAsset(from: string, value: Asset) {
+      if (from) {
+        this.fromAsset = value
+        this.fromDialog = false;
+        return
+      }
+      this.toAsset = value
+      this.toDialog = false;
+    },
     setAmount(from: string, value: number) {
       if (from) {
         this.bridgeAmount = value
-        console.log(this.bridgeAmount)
         return
       }
       this.receiveAmount = value
-      console.log(this.receiveAmount)
     },
     switchSettingMode() {
       this.settingMode = !this.settingMode
+    },
+    setSelectedNetwork(value: Asset) { 
+      this.selectedNetwork = value
     }
   }
 })

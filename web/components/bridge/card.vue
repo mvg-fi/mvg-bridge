@@ -5,9 +5,11 @@
       elevation="0"
     >
       <Title class="pb-3 px-1" />
-      <Input class="my-2" :from="true" />
-      <Switch class="my-1" />
-      <Input class="my-2" :from="false" />
+      <div>
+        <Input class="my-2" :from="true" />
+        <Switch class="my-1" />
+        <Input class="my-2" :from="false" />
+      </div>
       <Receiver />
       <Confirm />
     </v-card>
