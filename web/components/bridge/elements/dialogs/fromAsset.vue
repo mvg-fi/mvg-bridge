@@ -1,23 +1,30 @@
 <template>
-  <v-dialog v-model="store.fromDialog" width="auto">
-    <v-card>
-      <v-card-text> </v-card-text>
-      <v-card-actions>
-        <v-btn
-          color="primary"
-          block
-          @click="store.mutateDialog('from', false)"
-          >Close Dialog</v-btn
-        >
-      </v-card-actions>
+  <v-dialog v-model="store.fromDialog" class="d-flex justify-center select-asset-dialog">
+    <v-card class="select-asset-card rounded-xl py-2 overflow-y-hidden" elevation="3">
+      <Title from="from" class="mb-2"/>
+      <Search class="mx-5"/>
+      <div class="fill-height d-flex flex-row mt-5">
+        <Network class="px-5"/>
+      </div>
     </v-card>
   </v-dialog>
 </template>
 
 <script setup>
 import { useBridgeStore } from '~/stores/bridge/bridge';
+import Title from "~/components/bridge/elements/dialogs/dialog/title.vue"
+import Search from "~/components/bridge/elements/dialogs/dialog/search.vue"
+import Network from "~/components/bridge/elements/dialogs/dialog/network.vue"
 const store = useBridgeStore()
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import "assets/css/custom";
+.select-asset-dialog {
+  width: $select-asset-dialog-width;
+  height: $select-asset-dialog-height;
+}
+.select-asset-card {
+  height: $select-asset-dialog-height;
+}
 </style>

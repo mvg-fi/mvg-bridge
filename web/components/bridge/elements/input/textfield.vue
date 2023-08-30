@@ -1,11 +1,11 @@
 <template>
   <v-text-field
-    v-maska
-    data-maska="0.99999999"
-    data-maska-tokens="0:\d:multiple|9:\d:optional"
     single-line
     variant="plain"
+    v-model="input"
+    v-maska:[options]
     @keyup="inputFunc"
+    :placeholder="props.from ? $t('placeholder'): '0'"
     class="text-field font-weight-bold ml-3"
   >
   </v-text-field>
@@ -14,19 +14,25 @@
 <script setup lang="ts">
 import { useBridgeStore } from "~/stores/bridge/bridge";
 import { filterInputEvents } from "~/helpers/utils";
+import { vMaska } from "maska";
 const store = useBridgeStore();
+const options = {
+  mask: "A.BBBBBBBB",
+  tokens: {
+    A: { pattern: /[0-9]/, multiple: true },
+    B: { pattern: /[0-9]/, optional: true },
+  },
+};
 
-const from = defineProps(["from"]);
-const input = from
-  ? store.bridgeAmount
-  : store.receiveAmount;
+const props = defineProps(["from"]);
+const input = props.from ? ref(store.bridgeAmount) : ref(store.receiveAmount);
 
 let timeout: any = null;
 const inputFunc = (event: KeyboardEvent) => {
   if (!filterInputEvents(event)) return;
   clearTimeout(timeout);
   timeout = setTimeout(async function () {
-    await console.log();
+    store.setAmount(props.from ? "from" : "to", input);
   }, 500);
 };
 </script>
@@ -34,5 +40,8 @@ const inputFunc = (event: KeyboardEvent) => {
 <style lang="scss" scoped>
 .text-field {
   box-shadow: none !important;
+}
+.text-field .v-input_slot{
+  font-size: 1.875rem !important;
 }
 </style>

@@ -6,10 +6,11 @@ export const useBridgeStore = defineStore('bridge', {
   state: () => ({
     fromAsset: assets[0],
     toAsset: assets[1],
-    bridgeAmount: 0,
-    receiveAmount: 0,
+    bridgeAmount: undefined,
+    receiveAmount: undefined,
     fromDialog: false,
     toDialog: false,
+    settingMode: false,
   } as BridgeState),
   getters: {
   
@@ -26,6 +27,18 @@ export const useBridgeStore = defineStore('bridge', {
         return
       }
       this.toDialog = open
+    },
+    setAmount(from: string, value: number) {
+      if (from) {
+        this.bridgeAmount = value
+        console.log(this.bridgeAmount)
+        return
+      }
+      this.receiveAmount = value
+      console.log(this.receiveAmount)
+    },
+    switchSettingMode() {
+      this.settingMode = !this.settingMode
     }
   }
 })

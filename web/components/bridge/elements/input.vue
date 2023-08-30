@@ -1,5 +1,5 @@
 <template>
-  <div class="px-2 input-field d-flex bg-secondary rounded-xl">
+  <div class="px-2 d-flex bg-secondary rounded-xl">
     <TextField :from="props.from"/>
     <Asset :from="props.from"/>
   </div>

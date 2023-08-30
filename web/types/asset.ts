@@ -1,4 +1,4 @@
-export type Asset {
+export type Asset = {
   asset_id: string
   asset_key: string
   chain_id: string

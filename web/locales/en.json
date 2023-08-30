@@ -1,4 +1,7 @@
 {
   "connect": "Connect",
-  "bridge": "Bridge"
+  "bridge": "Bridge",
+  "placeholder": "Enter amount",
+  "select_asset": "Select asset",
+  "search_asset_placeholder": "Search name, symbol or network"
 }

@@ -18,8 +18,10 @@
 
 <script setup>
 import { Cog8ToothIcon } from "@heroicons/vue/24/outline";
+import { useBridgeStore } from "~/stores/bridge/bridge";
+const store = useBridgeStore()
 const ToggleSettingMode = ()=>{
-  // toggle switching setting
+  store.switchSettingMode()
 }
 </script>
 

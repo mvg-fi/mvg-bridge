@@ -7213,6 +7213,11 @@ markdown-to-jsx@^7.1.8:
   resolved "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-7.3.2.tgz"
   integrity sha512-B+28F5ucp83aQm+OxNrPkS8z0tMKaeHiy0lHJs3LqCyDQFtWuenaIrkaVTgAm1pf1AU85LXltva86hlaT17i8Q==
 
+maska@^2.1.10:
+  version "2.1.10"
+  resolved "https://registry.npmjs.org/maska/-/maska-2.1.10.tgz#dff9d96bf472280fe623ea2ecd1860c15886d355"
+  integrity sha512-oQLLUCJ4qG1YFHSGQB9P6G0LKSmAwHFFBFhmkJ9pcSUXXDZew5NNTBbPACiixqFBaU7M7LydPlrL0DmI1p+ufQ==
+
 mdast-util-definitions@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/mdast-util-definitions/-/mdast-util-definitions-4.0.0.tgz"
