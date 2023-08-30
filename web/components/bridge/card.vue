@@ -5,13 +5,13 @@
       elevation="0"
     >
       <Title class="pb-3 px-1" />
-      <div>
+      <div class="my-2">
         <Input class="my-2" :from="true" />
         <Switch class="my-1" />
         <Input class="my-2" :from="false" />
       </div>
-      <Receiver />
-      <Confirm />
+      <Receiver class="my-2" />
+      <Confirm class="my-3"/>
     </v-card>
   </v-row>
 </template>

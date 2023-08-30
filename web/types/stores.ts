@@ -7,4 +7,7 @@ export interface BridgeState {
   receiveAmount: number | undefined
   fromDialog: Boolean,
   toDialog: Boolean,
+  settingMode: Boolean,
+  receiver: string,
+  selectedNetwork: Asset | undefined,
 }

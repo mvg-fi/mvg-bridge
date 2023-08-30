@@ -12,6 +12,7 @@ export const useBridgeStore = defineStore('bridge', {
     fromDialog: false,
     toDialog: false,
     settingMode: false,
+    receiver: '',
     selectedNetwork: undefined,
   } as BridgeState),
   getters: {
@@ -22,6 +23,9 @@ export const useBridgeStore = defineStore('bridge', {
       const from = this.fromAsset
       this.fromAsset = this.toAsset
       this.toAsset = from
+    },
+    switchSettingMode() {
+      this.settingMode = !this.settingMode
     },
     mutateDialog(from: string, open: boolean) {
       if (from) {
@@ -46,11 +50,8 @@ export const useBridgeStore = defineStore('bridge', {
       }
       this.receiveAmount = value
     },
-    switchSettingMode() {
-      this.settingMode = !this.settingMode
-    },
     setSelectedNetwork(value: Asset) { 
       this.selectedNetwork = value
-    }
+    },
   }
 })

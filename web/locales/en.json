@@ -3,5 +3,6 @@
   "bridge": "Bridge",
   "placeholder": "Enter amount",
   "select_asset": "Select asset",
-  "search_asset_placeholder": "Search name, symbol or network"
+  "search_asset_placeholder": "Search name, symbol or network",
+  "receiver_placeholder": "Enter recipient address"
 }
