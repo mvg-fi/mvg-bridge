@@ -1,4 +1,4 @@
-import { Network } from "./types"
+import { Network } from "~/types/network"
 import BitcoinIcon from '~/assets/images/networks/bitcoin.png'
 import EthereumIcon from '~/assets/images/networks/ethereum.png'
 import PolygonIcon from '~/assets/images/networks/polygon.svg'

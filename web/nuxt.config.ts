@@ -6,5 +6,8 @@ export default defineNuxtConfig({
   },  
   alias: {
 
-  }
+  },
+  modules: [
+    '@pinia/nuxt',
+  ]
 })

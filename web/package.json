@@ -28,7 +28,10 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.18",
+    "@pinia/nuxt": "^0.4.11",
+    "bignumber.js": "^9.1.2",
     "clsx": "^2.0.0",
+    "pinia": "^2.1.6",
     "sass": "^1.66.1",
     "uuid": "^9.0.0",
     "vuetify": "^3.3.14"

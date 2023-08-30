@@ -25,7 +25,7 @@ const ToggleSettingMode = ()=>{
 
 <style lang="scss" scoped>
 .setting-btn:hover{
-  transform: rotate(-30deg);
+  transform: rotate(30deg);
   transition: transform .6s;
 }
 </style>
