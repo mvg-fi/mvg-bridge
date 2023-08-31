@@ -39,7 +39,7 @@
             letter-spacing: 0.1px !important;
           "
         >
-          {{ from ? store.fromAsset.name : store.toAsset.name }}
+          {{ from ? store.fromAsset.chain_name : store.toAsset.chain_name }}
         </span>
       </div>
 
