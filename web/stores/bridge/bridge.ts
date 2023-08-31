@@ -36,7 +36,7 @@ export const useBridgeStore = defineStore('bridge', {
           chain.name.toUpperCase().match(state.searchAsset.toUpperCase())
         )
       })
-      const itemsChains: Asset[] = state.filteredItems.filter((asset:Asset)=>{
+      const itemsChains: Asset[] = state.filteredItems.filter((asset: Asset) => {
         return asset.asset_id === asset.chain_id
       })
       // itemsChains.forEach(element => {
@@ -62,6 +62,10 @@ export const useBridgeStore = defineStore('bridge', {
       }
       console.log(`mutateDialog(${from}, ${open})`)
       this.toDialog = open
+    },
+    mutateSelectNetworkBar(open: boolean) {
+      this.selectNetworkBar = open
+      console.log(`mutateSelectNetworkBar(${open})`)
     },
     setAsset(from: boolean, value: Asset) {
       if (from) {

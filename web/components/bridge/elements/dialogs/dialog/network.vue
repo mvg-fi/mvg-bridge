@@ -3,7 +3,7 @@
     class="d-flex justify-center network-selector h-100 px-1"
     elevation="0"
     style="position: relative"
-    v-if="barOpen"
+    v-if="store.selectNetworkBar"
   >
     <div class="overflow-y-auto" style="width: 32px">
       <v-btn
@@ -45,12 +45,11 @@ import { Bars3Icon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/24/
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const store = useBridgeStore();
 
-const barOpen = ref(false);
 const setNetwork = (network) => {
   store.setSelectedNetwork(network);
 };
 const toggle = () => {
-  barOpen.value = !barOpen.value;
+  store.selectNetworkBar = !store.selectNetworkBar;
 };
 </script>
 

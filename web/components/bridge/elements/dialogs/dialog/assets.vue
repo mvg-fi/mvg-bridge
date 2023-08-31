@@ -5,7 +5,7 @@
         block
         elevation="0"
         height="54px"
-        class="d-flex justify-start px-5"
+        :class="clsx('d-flex justify-start', store.selectNetworkBar && 'px-5', !store.selectNetworkBar && 'px-7')"
         @click="
           store.setAsset(props.from, item);
           console.log('clicked');
@@ -75,6 +75,7 @@
 </template>
 
 <script setup>
+import clsx from "clsx";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const store = useBridgeStore();
 const props = defineProps(["from"]);
