@@ -3,6 +3,14 @@
   "bridge": "Bridge",
   "placeholder": "Enter amount",
   "select_asset": "Select asset",
-  "search_asset_placeholder": "Search name, symbol or network",
-  "receiver_placeholder": "Enter recipient address"
+  "search_asset_placeholder": "Search token name or symbol",
+  "receiver_placeholder": "Enter recipient address",
+  "advanced_settings": "Advanced settings",
+  "use_custom_address": "Always use custom address",
+  "use_custom_address_info": "Ignore the receiving token type, always specify the recipient address manually",
+  "only_use_dex": "Only use DEX",
+  "only_use_dex_info": "Disable centralized exchanges and only use decentralized exchanges",
+  "enhance_privacy": "Enhance privacy",
+  "enhance_privacy_info": "Enhance privacy by delaying and randomize transaction time and amount.(TBD)",
+  "no_result": "No result"
 }

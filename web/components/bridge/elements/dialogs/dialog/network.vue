@@ -1,58 +1,66 @@
 <template>
-  <div class="d-flex flex-column network-selector">
-    <v-divider />
-    <div class="overflow-y-auto">
-      <div>
-        <v-btn
-          icon
-          class="network-btn my-1"
-          elevation="0"
-          v-for="chain in chainList"
-          :key="chain.asset_id"
-          @click="setNetwork(chain)"
-        >
-          <v-icon style="width: 32px; height: 32px" class="">
-            <v-img :src="chain.icon" />
-          </v-icon>
-        </v-btn>
-      </div>
+  <v-card
+    class="d-flex justify-center network-selector h-100 px-1"
+    elevation="0"
+    style="position: relative"
+    v-if="barOpen"
+  >
+    <div class="overflow-y-auto" style="width: 32px">
+      <v-btn
+        icon
+        class="network-btn my-1"
+        elevation="0"
+        v-for="chain in store.filteredChains"
+        :key="chain.asset_id"
+        @click="setNetwork(chain)"
+      >
+        <v-icon style="width: 32px; height: 32px" class="">
+          <v-img :src="chain.icon" :alt="chain.symbol" />
+        </v-icon>
+      </v-btn>
     </div>
-    <v-divider />
+    <div style="position: absolute; right: 0px; top: 45%">
+      <v-icon style="width: 10px; height: 32px" @click.stop="toggle">
+        <ChevronLeftIcon />
+      </v-icon>
+    </div>
+  </v-card>
 
-    <div class="mt-1 pb-3 d-flex justify-center">
-      <div class="bg-white h-100">
-        <v-btn icon style="width: 32px; height: 32px" elevation="0" @click="console.log('click expend')">
-          <v-icon style="width: 12px; height: 12px; opacity: 40">
-            <ChevronDoubleDownIcon />
-          </v-icon>
-        </v-btn>
-      </div>
+  <div
+    class="d-flex justify-center h-100"
+    style="position: relative"
+    elevation="0"
+    v-else
+  >
+    <div style="position: absolute; left: 0px; top: 45%; z-index: 100;">
+      <v-icon style="width: 10px; height: 32px" @click.stop="toggle">
+        <ChevronRightIcon />
+      </v-icon>
     </div>
   </div>
 </template>
 
 <script setup>
-import chainList from "~/assets/constants/miniumchainlist.json";
-import { Bars3Icon, ChevronDoubleDownIcon } from "@heroicons/vue/24/outline";
+import { Bars3Icon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/24/outline";
 import { useBridgeStore } from "~/stores/bridge/bridge";
-
 const store = useBridgeStore();
+
+const barOpen = ref(false);
 const setNetwork = (network) => {
   store.setSelectedNetwork(network);
+};
+const toggle = () => {
+  barOpen.value = !barOpen.value;
 };
 </script>
 
 <style lang="scss" scoped>
-@import "assets/css/custom";
-$height: calc(#{$select-asset-dialog-height} - 64px - 52px - 20px);
 .network-btn {
   width: 36px;
   height: 36px;
 }
 .network-selector {
   width: 72px;
-  min-height: $height;
-  padding-bottom: 100px;
 }
 * {
   scrollbar-width: none;

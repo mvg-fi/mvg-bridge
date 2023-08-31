@@ -4,25 +4,30 @@
       class="rounded-xl d-flex flex-row pa-2 mr-2"
       elevation="0"
       size="x-large"
-      @click="store.mutateDialog('from', true)"
+      @click="store.mutateDialog(props.from, true)"
     >
       <v-icon style="height: 32px; width: 32px" class="mx-2">
+        <v-img :src="from ? store.fromAsset.icon : store.toAsset.icon" />
         <v-img
-          :src="
+          :src="from ? store.fromAsset.chain_icon : store.toAsset.chain_icon"
+          v-if="
             from
-              ? store.fromAsset.icon
-              : store.toAsset.icon
+              ? store.fromAsset.asset_id != store.fromAsset.chain_id
+              : store.toAsset.asset_id != store.toAsset.chain_id
           "
-        />
+          style="
+            height: 14px;
+            width: 14px;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+          "
+        ></v-img>
       </v-icon>
 
       <div class="d-flex flex-column align-center justify-center mx-1">
         <span style="font-size: 16px; font-weight: 600">
-          {{
-            from
-              ? store.fromAsset.symbol
-              : store.toAsset.symbol
-          }}
+          {{ from ? store.fromAsset.symbol : store.toAsset.symbol }}
         </span>
         <span
           style="
@@ -34,11 +39,7 @@
             letter-spacing: 0.1px !important;
           "
         >
-          {{
-            from
-              ? store.fromAsset.name
-              : store.toAsset.name
-          }}
+          {{ from ? store.fromAsset.name : store.toAsset.name }}
         </span>
       </div>
 
@@ -58,12 +59,14 @@
         </svg>
       </v-icon>
     </v-btn>
-    <FromAssetDialog/>
+    <FromAssetDialog />
+    <ToAssetDialog />
   </div>
 </template>
 
 <script setup>
-import FromAssetDialog from "~/components/bridge/elements/dialogs/fromAsset.vue"
+import FromAssetDialog from "~/components/bridge/elements/dialogs/fromAsset.vue";
+import ToAssetDialog from "~/components/bridge/elements/dialogs/toAsset.vue";
 import EthereumIcon from "~/assets/images/networks/ethereum.png";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { useBridgeStore } from "~/stores/bridge/bridge";

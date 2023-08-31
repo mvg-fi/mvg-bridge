@@ -32,7 +32,7 @@ const inputFunc = (event: KeyboardEvent) => {
   if (!filterInputEvents(event)) return;
   clearTimeout(timeout);
   timeout = setTimeout(async function () {
-    store.setAmount(props.from ? "from" : "to", input);
+    store.setAmount(props.from ? true : false, input);
   }, 500);
 };
 </script>

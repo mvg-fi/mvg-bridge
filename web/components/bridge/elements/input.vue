@@ -8,7 +8,5 @@
 <script setup>
 import Asset from "~/components/bridge/elements/input/asset.vue"
 import TextField from "~/components/bridge/elements/input/textfield.vue"
-import FromAssetDialog from "~/components/bridge/elements/dialogs/fromAsset.vue"
-import ToAssetDialog from "~/components/bridge/elements/dialogs/toAsset.vue"
 const props = defineProps(['from'])
 </script>
