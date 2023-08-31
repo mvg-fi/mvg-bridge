@@ -26,7 +26,7 @@ const inputFunc = (event: KeyboardEvent) => {
   clearTimeout(timeout);
   timeout = setTimeout(async function () {
     store.setSearchAsset(input.value)
-  }, 300);
+  }, 200);
 };
 </script>
 

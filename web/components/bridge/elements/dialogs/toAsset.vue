@@ -4,16 +4,15 @@
     class="d-flex justify-center select-asset-dialog"
   >
     <v-card
-      class="select-asset-card rounded-xl py-2 pt-3 overflow-y-hidden"
+      class="select-asset-card rounded-xl pt-3 overflow-y-hidden"
       elevation="3"
     >
       <Title :from="false" class="mb-3" />
       <Search class="mx-5" />
-      <div class="fill-height d-flex flex-row mt-5">
-        <Network class="px-3 mx-2" />
-        <v-divider vertical></v-divider>
+      <v-card class="d-flex flex-row mt-5 h-100" elevation="0">
+        <Network/>
         <Assets :from="false"/>
-      </div>
+      </v-card>
     </v-card>
   </v-dialog>
 </template>

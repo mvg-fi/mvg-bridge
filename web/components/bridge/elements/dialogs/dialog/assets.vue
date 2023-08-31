@@ -29,7 +29,7 @@
         <div class="d-flex flex-column justify-start text-start ml-4">
           <span
             class="font-weight-semibold"
-            style="letter-spacing: 0px; font-size: 16px"
+            style="letter-spacing: 0px; font-size: 14px"
           >
             {{ item.symbol }}
           </span>

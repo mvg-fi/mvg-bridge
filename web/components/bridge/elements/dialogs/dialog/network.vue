@@ -20,7 +20,7 @@
       </v-btn>
     </div>
     <div style="position: absolute; right: 0px; top: 45%">
-      <v-icon style="width: 10px; height: 32px" @click.stop="toggle">
+      <v-icon style="width: 10px; height: 32px; color: grey; opacity: 80%;" @click.stop="toggle">
         <ChevronLeftIcon />
       </v-icon>
     </div>
@@ -33,7 +33,7 @@
     v-else
   >
     <div style="position: absolute; left: 0px; top: 45%; z-index: 100;">
-      <v-icon style="width: 10px; height: 32px" @click.stop="toggle">
+      <v-icon style="width: 10px; height: 32px; color: grey; opacity: 80%;" @click.stop="toggle">
         <ChevronRightIcon />
       </v-icon>
     </div>
