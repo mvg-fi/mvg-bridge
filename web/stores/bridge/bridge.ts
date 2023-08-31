@@ -20,29 +20,35 @@ export const useBridgeStore = defineStore('bridge', {
   } as BridgeState),
   getters: {
     filteredItems: (state) => {
+      if (state.selectedNetwork != undefined) {
+        return assets.filter((asset) => {
+          if (asset.chain_id != state.selectedNetwork?.asset_id) return false
+          return (
+            asset.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+            asset.name.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+            asset.chain_name?.toUpperCase().match(state.searchAsset.toUpperCase())
+          );
+        })
+      }
       return assets.filter((asset) => {
         return (
           asset.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
-          asset.name.toUpperCase().match(state.searchAsset.toUpperCase())
-          // asset.chainName?.toUpperCase().match(state.searchAsset.toUpperCase()) ||
-          // asset.chainSymbol?.toUpperCase().match(state.searchAsset.toUpperCase())
+          asset.name.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+          asset.chain_name?.toUpperCase().match(state.searchAsset.toUpperCase())
         );
       })
     },
     filteredChains: (state) => {
-      let filteredChain: Asset[] = chains.filter((chain) => {
+      const assetList = assets.filter((asset) => {
         return (
-          chain.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
-          chain.name.toUpperCase().match(state.searchAsset.toUpperCase())
+          asset.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+          asset.name.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+          asset.chain_name?.toUpperCase().match(state.searchAsset.toUpperCase())
         )
       })
-      const itemsChains: Asset[] = state.filteredItems.filter((asset: Asset) => {
-        return asset.asset_id === asset.chain_id
-      })
-      // itemsChains.forEach(element => {
-      //   if (!(element.asset_id in filteredChain)) filteredChain.push(element)
-      // });
-      return filteredChain;
+      return chains.filter(chain => {
+        return assetList.some(asset => chain.asset_id === asset.chain_id);
+      });
     }
   },
   actions: {
@@ -57,11 +63,13 @@ export const useBridgeStore = defineStore('bridge', {
     mutateDialog(from: boolean, open: boolean) {
       if (from) {
         this.fromDialog = open
+        this.cleanUpStates()
         console.log(`mutateDialog(${from}, ${open})`)
         return
       }
-      console.log(`mutateDialog(${from}, ${open})`)
       this.toDialog = open
+      this.cleanUpStates()
+      console.log(`mutateDialog(${from}, ${open})`)
     },
     mutateSelectNetworkBar(open: boolean) {
       this.selectNetworkBar = open
@@ -93,5 +101,11 @@ export const useBridgeStore = defineStore('bridge', {
       this.selectedNetwork = value
       console.log('setSelectedNetwork:', this.selectedNetwork)
     },
+
+    cleanUpStates() {
+      this.searchAsset = ''
+      this.selectNetworkBar = false
+      this.selectedNetwork = undefined
+    }
   }
 })

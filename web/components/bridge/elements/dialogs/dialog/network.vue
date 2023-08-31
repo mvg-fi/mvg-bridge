@@ -8,19 +8,23 @@
     <div class="overflow-y-auto" style="width: 32px">
       <v-btn
         icon
-        class="network-btn my-1"
         elevation="0"
-        v-for="chain in store.filteredChains"
         :key="chain.asset_id"
+        style="position: relative"
+        :class="clsx('network-btn my-1')"
         @click="setNetwork(chain)"
+        v-for="chain in store.filteredChains"
       >
-        <v-icon style="width: 32px; height: 32px" class="">
+        <v-icon style="width: 32px; height: 32px">
           <v-img :src="chain.icon" :alt="chain.symbol" />
         </v-icon>
       </v-btn>
     </div>
     <div style="position: absolute; right: 0px; top: 45%">
-      <v-icon style="width: 10px; height: 32px; color: grey; opacity: 80%;" @click.stop="toggle">
+      <v-icon
+        style="width: 10px; height: 32px; color: grey; opacity: 80%"
+        @click.stop="toggle"
+      >
         <ChevronLeftIcon />
       </v-icon>
     </div>
@@ -32,8 +36,11 @@
     elevation="0"
     v-else
   >
-    <div style="position: absolute; left: 0px; top: 45%; z-index: 100;">
-      <v-icon style="width: 10px; height: 32px; color: grey; opacity: 80%;" @click.stop="toggle">
+    <div style="position: absolute; left: 0px; top: 45%; z-index: 100">
+      <v-icon
+        style="width: 10px; height: 32px; color: grey; opacity: 80%"
+        @click.stop="toggle"
+      >
         <ChevronRightIcon />
       </v-icon>
     </div>
@@ -41,12 +48,31 @@
 </template>
 
 <script setup>
-import { Bars3Icon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/24/outline";
+import {
+  Bars3Icon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/vue/24/outline";
 import { useBridgeStore } from "~/stores/bridge/bridge";
-const store = useBridgeStore();
+import clsx from "clsx";
 
+const store = useBridgeStore();
 const setNetwork = (network) => {
-  store.setSelectedNetwork(network);
+  // If select == current, change to undefined
+  // If undefined, change
+  // If select != current, change
+  if (store.selectedNetwork == undefined) {
+    store.setSelectedNetwork(network);
+    return;
+  }
+  if (network.asset_id === store.selectedNetwork.asset_id) {
+    store.setSelectedNetwork(undefined);
+    return;
+  }
+  if (network != store.selectedNetwork) {
+    store.setSelectedNetwork(network);
+    return;
+  }
 };
 const toggle = () => {
   store.selectNetworkBar = !store.selectNetworkBar;
