@@ -44,8 +44,8 @@ func InitIPRateLimit() *httplimit.Middleware {
 func (a *API) run(host, port string) {
 	ipRateLimit := InitIPRateLimit()
 
-	http.Handle("/api/address", ipRateLimit.Handle(http.Handler(a.AddressHandler(a.s))))
-	http.HandleFunc("/api/status", a.StatusHandler())
+	http.Handle("/address", ipRateLimit.Handle(http.Handler(a.AddressHandler(a.s))))
+	http.HandleFunc("/status", a.StatusHandler())
 	http.ListenAndServe(host+":"+port, nil)
 }
 
