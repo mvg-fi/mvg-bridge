@@ -41,6 +41,25 @@ func main() {
 					},
 				},
 			},
+			{
+				Name:   "run",
+				Usage:  "Run the application",
+				Action: runCmd,
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:    "config",
+						Aliases: []string{"c"},
+						Value:   "~/.mvg/bridge/config.toml",
+						Usage:   "The configuration file path",
+					},
+					&cli.StringFlag{
+						Name:    "dir",
+						Aliases: []string{"d"},
+						Value:   "~/.mvg/bridge/data",
+						Usage:   "The database directory path",
+					},
+				},
+			},
 		},
 	}
 

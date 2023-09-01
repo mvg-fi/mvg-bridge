@@ -13,5 +13,5 @@
   "enhance_privacy": "Enhance privacy",
   "enhance_privacy_info": "Enhance privacy by delaying and randomize transaction time and amount.(TBD)",
   "no_result": "No result",
-  "only_show_network": "{name} network only"
+  "only_show_network": "{name} chain only"
 }

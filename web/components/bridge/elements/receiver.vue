@@ -3,11 +3,11 @@
     class="pa-2 justify-center align-center rounded-xl bg-secondary d-flex align-center"
     style="height: 48px"
   >
-    <v-icon style="width: 20px; height: 20px" class="mx-3">
+    <!-- <v-icon style="width: 20px; height: 20px" class="mx-3">
       <InboxArrowDownIcon />
-    </v-icon>
+    </v-icon> -->
     <input
-      class="search w-100 ml-1"
+      class="search w-100 mx-3"
       :placeholder="$t('receiver_placeholder')"
       style="height: 28px"
     />

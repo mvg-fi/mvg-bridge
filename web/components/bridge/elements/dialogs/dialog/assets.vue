@@ -27,7 +27,7 @@
           "
         >
           <v-icon style="width: 36px; height: 36px; position: reactive">
-            <v-img :src="item.icon" alt="item.symbol" />
+            <v-img :src="item.icon" alt="item.symbol" style="transition:opacity 0.15s linear 0s; opacity: 1;"/>
             <v-img
               :src="item.chain_icon"
               v-if="item.asset_id != item.chain_id"
