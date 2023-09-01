@@ -17,7 +17,7 @@
       >
         <v-icon style="width: 32px; height: 32px">
           <v-img :src="chain.icon" :alt="chain.symbol" />
-          <v-tooltip activator="parent" location="top" close-delay="100ms">
+          <v-tooltip activator="parent" location="top" open-delay="50ms">
             {{ $t('only_show_network', {name: chain.name}) }}
           </v-tooltip>
         </v-icon>
@@ -78,7 +78,7 @@ const setNetwork = (network) => {
   }
 };
 const toggle = () => {
-  store.selectNetworkBar = !store.selectNetworkBar;
+  store.mutateSelectNetworkBar(!store.selectNetworkBar);
 };
 </script>
 
@@ -90,6 +90,14 @@ const toggle = () => {
 .network-selector {
   width: 72px;
 }
+.v-tooltip :deep(.v-overlay__content) {
+  font-size: 10px !important;
+  opacity: 90%;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 * {
   scrollbar-width: none;
 }

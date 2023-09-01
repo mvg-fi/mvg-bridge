@@ -14,7 +14,7 @@
     "asset_key": "0xa974c709cfb4566686553a20790685a47aceaa33",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/UasWtBZO0TZyLTLCFQjvE_UYekjC7eHCuT_9_52ZpzmCC-X-NPioVegng7Hfx0XmIUavZgz5UL-HIgPCBECc-Ws=s128",
     "name": "Mixin",
     "symbol": "XIN"
@@ -24,9 +24,9 @@
     "asset_key": "0x0000000000000000000000000000000000000000",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
-    "name": "Ether",
+    "name": "Ethereum",
     "symbol": "ETH"
   },
   {
@@ -44,7 +44,7 @@
     "asset_key": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/w3Lb-pMrgcmmrzamf7FG_0c6Dkh3w_NRbysqzpuacwdVhMYSOtnX2zedWqiSG7JuZ3jd4xfhAJduQXY1rPidmywn=s128",
     "name": "USD//C",
     "symbol": "USDC"
@@ -54,7 +54,7 @@
     "asset_key": "0xdac17f958d2ee523a2206206994597c13d831ec7",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/ndNBEpObYs7450U08oAOMnSEPzN66SL8Mh-f2pPWBDeWaKbXTPUIdrZph7yj8Z93Rl8uZ16m7Qjz-E-9JFKSsJ-F=s128",
     "name": "Tether USD",
     "symbol": "USDT"
@@ -74,7 +74,7 @@
     "asset_key": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Ekf9UzoHhRRfcDLchjfVrRPYZ_71jQt306WcvgwZWwEM2BIGlHcUm_sK3Nw_mjARPwIvNB9xAzAEWJyW86pVuarPu8O5YZ0WwqTo=s128",
     "name": "Uniswap",
     "symbol": "UNI"
@@ -84,7 +84,7 @@
     "asset_key": "0x72313959c0346016bfba17fa29dcea109f3aa348",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/e_y4q9JIdP1PZbwmwO_6v-fx7_ZyifODuYtHvLQDrkLNwH3pQTDVY0EHZA394gjZawwyt3vPC7NlMvyT2nEuPypeDioV_OMd6T8=s128",
     "name": "Quorum Token",
     "symbol": "RUM"
@@ -124,7 +124,7 @@
     "asset_key": "0x4691937a7508860f876c9c0a2a617e7d9e945d4b",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/ycUCq5Z5bmsRn7ISC-kYr-poVR5427LUxGjoDVscJhvAdm61YcWLy5sG_JVjrQn87b9N-uiFMPKmQQ2-mmADAJpMMtG-p9fB3Ms=s128",
     "name": "Wootrade Network",
     "symbol": "WOO"
@@ -134,7 +134,7 @@
     "asset_key": "0x946551dd05c5abd7cc808927480225ce36d8c475",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/CtuFhqtCKJliKCWw9-1EemlPMOnUs1b_Nh0XUjzHlVt3OmLi_vwPu01xbYC8Js9-2APTK8s4aAMree7LC8gH6FQ=s128",
     "name": "BigONE Token",
     "symbol": "ONE"
@@ -144,7 +144,7 @@
     "asset_key": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/fgSEd6CY07BiZP76--7JA9P-rKIWRoXD8Eis8RUL6mP85_QPsbMoyJtWJ6MjE9jWFEjabNF0AKb8i2QOfdbCS6BJMntySps-8GfvJQ=s128",
     "name": "SHIBA INU",
     "symbol": "SHIB"
@@ -154,7 +154,7 @@
     "asset_key": "0x045414e728067ab3da4bceafc0d992d59183463a",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/ml7tg1ZGrQt6IJSvEusWFfthosOB98GWN7r4EkmgSP8tbJHxK7OWki9zfZFFDCDOJE0nlLBR6dc4nbUguXE3Bg4=s128",
     "name": "BOX Token",
     "symbol": "BOX"
@@ -194,7 +194,7 @@
     "asset_key": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/CG3tv_IHBYhLbY5prHubEXO5Y4gW4ag2bYN2bczsSs5eI7CNrpdXi3PgJjRxsy1f4Do4I8JVIFOT48-7NeOB4qaEgHTMgXLV1hEcmg=s128",
     "name": "Decentraland MANA",
     "symbol": "MANA"
@@ -204,7 +204,7 @@
     "asset_key": "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/xFl-wIKkfzrKDnJMX1PjvcXyKYrW88yLvtiEHdudNkPnSZmY9CzibAlNp3C_wM6LFP9UzsBX-YlVNW_zoUNPWO5cowzT0Us48BOE=s128",
     "name": "Matic Token",
     "symbol": "MATIC"
@@ -254,7 +254,7 @@
     "asset_key": "0x514910771af9ca656af840dff83e8264ecf986ca",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/eXNrGBxdMWdY2F-pPbodk3Sqvbg28HPm140tqfN1qms8E5J59Ak-ttuCxCNKG3plF3UkwvL3Wx946QD1erVGHKU=s128",
     "name": "ChainLink Token",
     "symbol": "LINK"
@@ -274,7 +274,7 @@
     "asset_key": "0xec2a0550a2e4da2a027b3fc06f70ba15a94a6dac",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/0sQY63dDMkWTURkJVjowWY6Le4ICjAFuu3ANVyZA4uI3UdkbuOT5fjJUT82ArNYmZvVcxDXyNjxoOv0TAYbQTNKS=s128",
     "name": "Chui Niu Bi",
     "symbol": "CNB"
@@ -294,7 +294,7 @@
     "asset_key": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/OXA2k7nPaexCjRa86QKrwyKEqsv7yFzfXC0b0BJh67eP530q1TNvSG3gIRjm3UvI8nlis-7_C2mq-ifNWpXFXN0t=s128",
     "name": "Wrapped BTC",
     "symbol": "WBTC"
@@ -354,7 +354,7 @@
     "asset_key": "0x6f259637dcd74c767781e37bc6133cd6a68aa161",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/cavDRk4GVSA9oezAmp3mbEieoi8rqkPBVNB29y13sQuYO2JClWGLNvrf5_GJmltNY_6aviqIcmJV3-DmFFGT74U=s128",
     "name": "HuobiToken",
     "symbol": "HT"
@@ -384,7 +384,7 @@
     "asset_key": "0x92d6c1e31e14520e676a687f0a93788b716beff5",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/ywJ-SQt7SbKvLJUsyLa-mscBzEBRo-StJwrARtUhoFf_YDbGw78UfKu1H7N2Qb9SY1kLubAzEgKhk7FFW6vPvKGRkwh7dXJkalk=s128",
     "name": "dYdX",
     "symbol": "DYDX"
@@ -394,9 +394,9 @@
     "asset_key": "0x0000000000000000000000000000000000000000",
     "chain_icon": "https://mixin-images.zeromesh.net/fM9wgyNyB3Uiopx2FRFxhr-sYrvXZtJ-uCpk975wGdpoehoA59rIU-BQ4s_6YFMDEthQ74KCPysOIWSFK4vUG_Y=s128",
     "chain_id": "2204c1ee-0ea2-4add-bb9a-b3719cfff93a",
-    "chain_name": "Ether Classic",
+    "chain_name": "Ethereum Classic",
     "icon": "https://mixin-images.zeromesh.net/fM9wgyNyB3Uiopx2FRFxhr-sYrvXZtJ-uCpk975wGdpoehoA59rIU-BQ4s_6YFMDEthQ74KCPysOIWSFK4vUG_Y=s128",
-    "name": "Ether Classic",
+    "name": "Ethereum Classic",
     "symbol": "ETC"
   },
   {
@@ -414,7 +414,7 @@
     "asset_key": "0x431d5dff03120afa4bdf332c61a6e1766ef37bdb",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/tFruraMEXBLPCAkcS8oJIEz_aO9Dm5Z7DIY53zez-eJPP7L_MtoEAIHC1xaR2HaAEC7vS4fF7Kc8zX2n9qNI2PvnFeSo1FLZxK8o=s128",
     "name": "JPY Coin",
     "symbol": "JPYC"
@@ -464,7 +464,7 @@
     "asset_key": "0x7a58c0be72be218b41c608b7fe7c5bb630736c71",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Vx6IOtUBwoNJaQ52wI6w_23DIgXOlChBYmZUOJcPH0QSyLiWMiI0wWESor18cFOEdwujVmNVuW6me0eT4N9KLVyKE8Ta1tJTNi1D=s128",
     "name": "ConstitutionDAO",
     "symbol": "PEOPLE"
@@ -524,7 +524,7 @@
     "asset_key": "0x3301ee63fb29f863f2333bd4466acb46cd8323e6",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/JSxN4FxhH3LNDowo22bEV3fGMdrGmKrYzGyNqGbYe72GFEitLVFfwmxrjEE8ZDzqAc14LWUcuHtHiO8l7ODyExmnLwM3aPdx8D0Z=s128",
     "name": "Akita Inu",
     "symbol": "AKITA"
@@ -534,7 +534,7 @@
     "asset_key": "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/SMwTD29vlrHJJ78LqRpY8_MGFSYUoHsraWWdgkTIitWg_XwABE77R1E7jKngGtUtLAiuEmdn9kHQYmRpIfP_UHTYFa15gbBZwxPR=s128",
     "name": "Ethereum Name Service",
     "symbol": "ENS"
@@ -564,7 +564,7 @@
     "asset_key": "0x6b175474e89094c44da98b954eedeac495271d0f",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/jBhzwzcv2wZryypM3Th6tKVG76CYmQ8aawCnBFmyIRBrS4DispKl0SWSb-f4-HBto8Pr7zoqH7DItxbyp_Tl0mj6=s128",
     "name": "Dai Stablecoin",
     "symbol": "DAI"
@@ -584,7 +584,7 @@
     "asset_key": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/KEcCptMt_FFMhbyH3BHgQTmx7KHotMhPo2VdwM0m9AZmrPIh2fCc4cD_PhZExFNHhGemetNHwCxJeGpvlrlLXlwHC2Z1uAIonbEoZg=s128",
     "name": "Aave Token",
     "symbol": "AAVE"
@@ -624,7 +624,7 @@
     "asset_key": "0xdd6b2e978ac26cab895d1bb21e60aa7b526350e0",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/8rMphHGuCQljXYyAWL8TLX-01eoqUy3WJgf539UsM88P69E7rT8FIMClaHkAgvo-7flQRIudlJE9KzbA9WBsPZFq6T_9BvyL93o=s128",
     "name": "Meta AED",
     "symbol": "mAED"
@@ -644,7 +644,7 @@
     "asset_key": "0x15d4c048f83bd7e37d49ea4c83a07267ec4203da",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Q-QuvEfHDxY2JYupGyGPtXUiWpLPg9e6ejJd4fotzsrgneFcBBKljmZ708bPgrkKZEISbQA-uLPQ5veXek1iXj57KMTAJcFe_36xqg=s128",
     "name": "Gala",
     "symbol": "GALA"
@@ -654,7 +654,7 @@
     "asset_key": "0x68749665ff8d2d112fa859aa293f07a622782f38",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/IVNDfZnoc7khjQJ2ldlzGJDJVSBD_hazCloDu5GKEd_nrIjfxvTUuI7hOYEYZElTyhDPRExty3fKm8ZSptkhtUpa9E4CbHGYccVQ=s128",
     "name": "Tether Gold",
     "symbol": "XAUt"
@@ -664,7 +664,7 @@
     "asset_key": "0xc581b735a1688071a1746c968e0798d642ede491",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/tzcvMLmwDHX5TxbE_yQK9DpHERnWOZ0Rn8j5XgltqFoYfS9Y8vMTje95mPr4SfSSq9Tn210VNSIgJkdEcKXyoLEBgVdzT15vLjf9=s128",
     "name": "Euro Tether",
     "symbol": "EURT"
@@ -674,7 +674,7 @@
     "asset_key": "0x3845badade8e6dff049820680d1f14bd3903a5d0",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/LX0-anTvq4is3Jl6H6yIEfCHMKdAnA5KGZlO9A9K-r_0nbn8vn04tt8qX28PtiPA9el2XtWWtb-enBdihspPlS2zAcPxjUIui18=s128",
     "name": "SAND",
     "symbol": "SAND"
@@ -684,7 +684,7 @@
     "asset_key": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/19UpwbJVwanBqr8uCtVxcxoujYCFPo15KUeWc4KhyU7Yt_FHcsHAvmiuo3udTX1NvLZVAa-g06sTAt9TlcrNsg=s128",
     "name": "Basic Attention Token",
     "symbol": "BAT"
@@ -724,7 +724,7 @@
     "asset_key": "0xd533a949740bb3306d119cc777fa900ba034cd52",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/JnpGW4eaqRB9iVoYm9YdiK_vzTDuLK9-0_akWkwcUxEQgQr6ffOZ7-vEsh0ehBtQVeC22e0bhiAFi5-6GMnS01A5top2KTDRm9e6Ow=s128",
     "name": "Curve DAO Token",
     "symbol": "CRV"
@@ -734,7 +734,7 @@
     "asset_key": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Y78aNlrH0y2H900RBL8AnjEJFfIFQ94oiUxnVOOLz2j653GUFcG3oubp7sUYVNPFF9ZtSfatpGeiwzwv8KEuTNUmqskQsG1-bm7f=s128",
     "name": "Lido DAO Token",
     "symbol": "LDO"
@@ -746,7 +746,7 @@
     "chain_id": "b7938396-3f94-4e0a-9179-d3440718156f",
     "chain_name": "Polygon",
     "icon": "https://mixin-images.zeromesh.net/2K2ic-IsTp0_s-qDBC_0PPg2VWYHv5prngLETjMlUAnOrsbFitB6z5cBH52_hWh2C7POEGppEGW51MejlzWRg_KkoixLVyiA8arotA=s128",
-    "name": "Wrapped Ether",
+    "name": "Wrapped Ethereum",
     "symbol": "WETH"
   },
   {
@@ -774,7 +774,7 @@
     "asset_key": "0xd1ba9bac957322d6e8c07a160a3a8da11a0d2867",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/rXVPsR7G8pZsAuWB2-UUDd1q8Ok4amyZwkBaRJt9qFDHruTnYKR0tffYoDwzz4-nHwnsKRyy26wRJaVXc5_kOj6eP3JKlgJYVCGMJg=s128",
     "name": "Human Token",
     "symbol": "HMT"
@@ -784,7 +784,7 @@
     "asset_key": "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/WZcsa-M93SXKiZ6-HT4tGLNrUzcW0q7N3aaMkMTq1Sg7rbm1n2M-6QaSuWEAKQPPBofqOPcj2caVPQs1UvQP36lRzcQ3p2arSS3J=s128",
     "name": "Axie Infinity Shard",
     "symbol": "AXS"
@@ -804,7 +804,7 @@
     "asset_key": "0x3506424f91fd33084466f402d5d97f05f8e3b4af",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/JGhy3ZPkkC0YcQH4fUKbtQ-aiEU91pxLBp35H7-azhdo55p9p1ryP7pJ4HJ3pE2_VJYirNb2pMLymfSo5Fpzh0IWYKjNWbUYBnyn=s128",
     "name": "chiliZ",
     "symbol": "CHZ"
@@ -844,7 +844,7 @@
     "asset_key": "0xc944e90c64b2c07662a292be6244bdf05cda44a7",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/_lSWxTq-YxeNhRiMAxltDlAsrwHUNydqgqAH5Dt3PYeaLQLZCgsfuU6q8yuo6uDaIjl-JjQH4q_yBsWfnKww1moVr9bJ18dgSxFW=s128",
     "name": "Graph Token",
     "symbol": "GRT"
@@ -854,7 +854,7 @@
     "asset_key": "0x4e15361fd6b4bb609fa63c81a2be19d873717870",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/V3nMS7Qfo30urIfO6L_xWDlid3dFLXjJCZrwk9kGWYZe89y7o-wrSnX2JiYqvcE5fRrqVca42D2xkPKaGx2haRomOCdtMEvRCRc=s128",
     "name": "Fantom Token",
     "symbol": "FTM"
@@ -874,7 +874,7 @@
     "asset_key": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/lXBeROLo7DWiVpVtJ0j4wGd56HIM-yBNXXAKwSr4A60i9-zKcK_Xo4YYbv2rT2mKBqkq8yTgU5gu1e9_ZlM5Rgce=s128",
     "name": "Status Network Token",
     "symbol": "SNT"
@@ -884,7 +884,7 @@
     "asset_key": "0x4d224452801aced8b2f0aebe155379bb5d594381",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/A2twYCWXh6I_T3xjaYhgJrj-SkS62swAPadDf1-N_IZbpaW04yCB3JOvvOqGiGL8kt89KqR-wTl9OxZdLsRK4_3ikkVe4EgLCg_q=s128",
     "name": "ApeCoin",
     "symbol": "APE"
@@ -894,7 +894,7 @@
     "asset_key": "0xb64ef51c888972c908cfacf59b47c1afbc0ab8ac",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/GQBiGqzbrXyBWKsRhZpUKDqD8wfZ-0-cCiVVfq4LIbn23isKfaf10OfKA-rizusHM9C0doFJQM1vjNSAWNw8SmZa=s128",
     "name": "StorjToken",
     "symbol": "STORJ"
@@ -904,7 +904,7 @@
     "asset_key": "0x50d1c9771902476076ecfc8b2a83ad6b9355a4c9",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/cT6iwy8ykm5SNYj-bgBKsqHOGALUJjifG-pGX0tFdB_lwUMsyZRUOtTlkIA7ktRJfMLEMY4g2UYxhTRlPjVZy52fKgLysRDYvwBz=s128",
     "name": "FTT",
     "symbol": "FTX Token"
@@ -924,7 +924,7 @@
     "asset_key": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/xW-HocahD8P7dYe-KE8kZJLJ1gz6A25lMPpd6LAb-xtJVAaJyBbKP3Hka6c3nvVH58W0y5gqE87q_MGXMpmm4g=s128",
     "name": "SushiToken",
     "symbol": "SUSHI"
@@ -934,7 +934,7 @@
     "asset_key": "0x6de037ef9ad2725eb40118bb1702ebb27e4aeb24",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/xbz2hmtid5ThebB7WQNa6axgLjMk0JDyMuPeD9hH4iQBP4ly4ZmprwUfi5Zxa2GLYSokHzbCU2SgxJ4939G1odvDWZjiusGw_H_0=s128",
     "name": "Render Token",
     "symbol": "RNDR"
@@ -954,7 +954,7 @@
     "asset_key": "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/zXClsvRzUELTjax5tXzqX845qxUqEEXGY_YPT89jRY_ibnKpyjm8KZ68N-3bc8GcXPUbiVEBiV4LfsyUGHgV2Qf1=s128",
     "name": "LoopringCoin V2",
     "symbol": "LRC"
@@ -964,7 +964,7 @@
     "asset_key": "0x4fabb145d64652a948d72533023f6e7a623c7c53",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/ps0EjmrIiW3dl3gnzh3YhcaPeCvODprUL7b_ZlB11_ZqQlEAoKYHu65z8CaOX31jzWt9RJo3mqRSdTksmZa9hpA=s128",
     "name": "Binance USD",
     "symbol": "BUSD"
@@ -974,7 +974,7 @@
     "asset_key": "0xc4c7ea4fab34bd9fb9a5e1b1a98df76e26e6407c",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/C-aFOfAbSnqZv2wDi4a2QU6sxtIkelTk6r-6NkXKcp-NtFA0fJVLWlVDtUJd-udFPmuE5wJL8X2qMDix6BJ0bgjn=s128",
     "name": "CocosTokenV2",
     "symbol": "COCOS"
@@ -994,7 +994,7 @@
     "asset_key": "0xc90e7c93a6871a7c5f319a8515f48fff0916cc61",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Om3xKhCG21WAv5seEGqrlr2_Iv06FobKXmHzpUvRx3ACCjo353lEVYD2OdpVW2YD4Y-1k6z4AQOoN0BxvSncwRvb3HI07vLZjYsgtw=s128",
     "name": "198",
     "symbol": "sDOGE-UQn"
@@ -1004,7 +1004,7 @@
     "asset_key": "0x1559fa1b8f28238fd5d76d9f434ad86fd20d1559",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/ydP-toki6LP2JbA_YcSWnPZy3TrVdktLIVab_eXqepBbz0VUCSn6NH90gf98D0zRroXrNSHqH1rLCn68h0M1fF10nbTizVTKBn5jNg=s128",
     "name": "Eden",
     "symbol": "EDEN"
@@ -1014,7 +1014,7 @@
     "asset_key": "0xcc8fa225d80b9c7d42f96e9570156c65d6caaa25",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Y2672F-lzU5drUJQcL5dbyrwIml-atqdmtbek5k2dpOINDVmkBuXloFRRVSDxzZpNagic1sVlRf3jSU23LiyicdobiwCwQe2W7Ax9Q=s128",
     "name": "Smooth Love Potion",
     "symbol": "SLP"
@@ -1024,7 +1024,7 @@
     "asset_key": "0x1a4b46696b2bb4794eb3d4c26f1c55f9170fa4c5",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/A1nsO3CWwvJn0ah36orHm_z2MVcM2WTbM8aerzYMPOhhPXDLKp7Z5Pi2njwlAqDUP8uXWiZqqI6j2FxTuBPZpXVi6plEGlWna8Zm3w=s128",
     "name": "BitDAO",
     "symbol": "BIT"
@@ -1044,7 +1044,7 @@
     "asset_key": "0x18aaa7115705e8be94bffebde57af9bfc265b998",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/9SBI7_7bqlaGyik266VnEuol4BOa7E_JxC7Ft-cIERcPsSuoaqPgEd5xDbW2jKM2qtL1DK8Sftj-uFyqqZ2HTKXpvM8Sym3eV2o=s128",
     "name": "Audius",
     "symbol": "AUDIO"
@@ -1054,7 +1054,7 @@
     "asset_key": "0xa2b4c0af19cc16a6cfacce81f192b024d625817d",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/h4Z_qlAwm4FF5aCUaqOkuD4Dq4TqKJz4_XOztwqgGM3-mt0vkT3QguUX7iDRlm7_1QEDGvuZkXLbe5YWdKxZ6o2PQaNfPPL9Se6Wog=s128",
     "name": "Kishu Inu",
     "symbol": "KISHU"
@@ -1064,7 +1064,7 @@
     "asset_key": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/7Y792ld9NBFhkoN_UTm_-8ZC149RvSD2hbXxNBe3ECaZ3UpWxFm9LUkF5jtN0qAvYc6Q4EQR9gR3Zftcx9F7ZA=s128",
     "name": "Maker",
     "symbol": "MKR"
@@ -1074,7 +1074,7 @@
     "asset_key": "0xba5bde662c17e2adff1075610382b9b691296350",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/mBqxA1GwoGH6zgegJcgGIZ1GB2MKuSXJZTTZflJnVUS0aJoL7WLNUjujcbCIYCMUczT5bGp3woc6e5WYl2ZmBumRa8bNYSYd6rHc3Q=s128",
     "name": "SuperRare",
     "symbol": "RARE"
@@ -1084,7 +1084,7 @@
     "asset_key": "0x111111111117dc0aa78b770fa6a738034120c302",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/RLCF3cB_7Dfpx2VRWoO2Q8C5KBosnUQTcqeX0DrAIwnXzy7zTwCHf9VYxasy0pBxO42gdAdvybZTvtKDELF3U4Vd2Q3TmPtaIR8=s128",
     "name": "1INCH Token",
     "symbol": "1INCH"
@@ -1094,7 +1094,7 @@
     "asset_key": "0xe41d2489571d322189246dafa5ebde1f4699f498",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/XnuEAvz7ErxgS9XQi2chew601g5Y6CNv3v-SjPlIKKTa3FTFVodVXL9Eqhj1PRNGLpTzJ5qiGtG-XWxLDbBStg=s128",
     "name": "0x Protocol Token",
     "symbol": "ZRX"
@@ -1104,7 +1104,7 @@
     "asset_key": "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Osli-t2qBvp4XUma-b-g1Er99UtRg27K8CnKKo9MCVrE84a8TfSYwoey8sTOz5y9auk-zQ6-ypPyPEIKEOXLVkO4=s128",
     "name": "yearn.finance",
     "symbol": "YFI"
@@ -1124,7 +1124,7 @@
     "asset_key": "0x7420b4b9a0110cdc71fb720908340c03f9bc03ec",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/0p97HVfELnRhgqucZZHxWR-h-XfXLnwSOBt56d3TsbhELERRHWx-S3_ZJ0at4FejM_CEgW314IBILIWilU6CLqm6YBar4UMDQ8j2=s128",
     "name": "JasmyCoin",
     "symbol": "JASMY"
@@ -1134,7 +1134,7 @@
     "asset_key": "0x58b6a8a3302369daec383334672404ee733ab239",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/gy43tSbjr7BrV5rc-QebhldTFPE8MmDQavL2fdINfJlh29AxC3ETK4gmikPuWyaUB3QiVQjbO9FRwmCagdtYHVky7-rdbzqfp30Q=s128",
     "name": "Livepeer Token",
     "symbol": "LPT"
@@ -1144,7 +1144,7 @@
     "asset_key": "0x0000000000085d4780b73119b644ae5ecd22b376",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/9Q__30Cb0BIaGed6__Dl0XtsIFHw8-KpTHGZ_CCcLdj2X9McRSTxNXyQGEyONWUmbA3d6CrSWqFqTzApTUwq4R4=s128",
     "name": "TrueUSD",
     "symbol": "TUSD"
@@ -1154,7 +1154,7 @@
     "asset_key": "0xfa1a856cfa3409cfa145fa4e20eb270df3eb21ab",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/lKbTmzs1fOAjxYYWrENtdCZINkgefEEohsHc-PQePGYVDkx2K_HVYa4PjbwDhXHPp9U8RDzA1g0rNRlbtr0b2q4=s128",
     "name": "IOSToken",
     "symbol": "IOST"
@@ -1164,7 +1164,7 @@
     "asset_key": "0xfa14fa6958401314851a17d6c5360ca29f74b57b",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/HA_fQDAz_JF-5eMo2uRe2blIodAGnlCfN2HJMzWXV3AR6mFcB5T7nDwdhMElCM6tDYBhmDzIBCChD7k1J0kfYkRUFfNB5FvuLZmx=s128",
     "name": "SAITO",
     "symbol": "SAITO"
@@ -1174,7 +1174,7 @@
     "asset_key": "0x19062190b1925b5b6689d7073fdfc8c2976ef8cb",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/1xtWl59HG4Yd_rZ9jP3ltY8Ljcknf0cVio4CKTzUwja3iDK09zi2l8w_XRBEmGQywTi38710T6pgWHYYJC0wREAyfNMkXkfrbO-toQ=s128",
     "name": "BZZ",
     "symbol": "BZZ"
@@ -1184,7 +1184,7 @@
     "asset_key": "0xf1f955016ecbcd7321c7266bccfb96c68ea5e49b",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/9l4ASVC8GXhkDGQkO4qdvd4IlGGfFqxagRFhVhiPrmz9_xxqHiO2ie-uuBy_ocLaZlbtO4XF6BGJS6eOd1Vtj4-ikxO4IvO0fdqW=s128",
     "name": "Rally",
     "symbol": "RLY"
@@ -1194,7 +1194,7 @@
     "asset_key": "0x2af5d2ad76741191d15dfe7bf6ac92d4bd912ca3",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/G8yWBKHG_Ku4pCYfg3j34RVChZCkB8gjRQDVfb7cM6P3jxFVk7Jg6PlTgou_oZPpS_ZSiK6-4IE4e3vBiRR8Gg=s128",
     "name": "Bitfinex LEO Token",
     "symbol": "LEO"
@@ -1204,7 +1204,7 @@
     "asset_key": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/tN2AmxtwGcVKj5k-VJCd13UJ43Qt3046piC-LX5J39FRP-uaM9-dKZNplvKRfnmP9vYHUuUMjb-6ddj2mNbZPpQ=s128",
     "name": "CRO",
     "symbol": "CRO"
@@ -1214,7 +1214,7 @@
     "asset_key": "0x8290333cef9e6d528dd5618fb97a76f268f3edd4",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/hEefjEdqiwz9qTdoz0OIvE-czwhkLAZVWwKR9V1kNGgLhW_M-WBHsLwkw7cRXRxiP7-kCXu1w6RbIgLFKdWjFhCP3P6Wwz395I19=s128",
     "name": "Ankr Network",
     "symbol": "ANKR"
@@ -1224,7 +1224,7 @@
     "asset_key": "0x5283d291dbcf85356a21ba090e6db59121208b44",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/HJADliXI9G3MXyy1W14so2AGl7kjSvNeoGtrKpBPQFofZuj0Ysm_rLrKn3-weCggzEI0mTIu93gJIC90aSr8DMJ_cY7MBwvrvK8sJw=s128",
     "name": "Blur",
     "symbol": "BLUR"
@@ -1234,7 +1234,7 @@
     "asset_key": "0xac51066d7bec65dc4589368da368b212745d63e8",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/CJo-NqcIVJzdtvoPnQBWwPlVFza364hkL89nGw-j51zcvQCUW2KRpfAXvCy99dTtId50KkqWbWuAlA6T4fqYe6DRYxd0jiXiQUIU=s128",
     "name": "ALICE",
     "symbol": "ALICE"
@@ -1244,7 +1244,7 @@
     "asset_key": "0xbd356a39bff2cada8e9248532dd879147221cf76",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/t8IlBrlFZjcowy6JuCi9MrlWkRRMknM0v495P-gUq8QgCvD9yR217yzCzDJsCsDaCEMtUIP8UzUbw-jfutZRdh9S_LkShCyrhuIcig=s128",
     "name": "WOM Token",
     "symbol": "WOM"
@@ -1254,7 +1254,7 @@
     "asset_key": "0x150bbcff6b1b4d528b48f1a300585dea0b6490b6",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/aoKhmEmYiq287zCTt8GqB2aZT9q8A1cPjWeJkKwuZcHYcl5cD9LX3Mx7FuBnG7nUlMcnCR5A1oU6dnB0rhwTdY2VaBaE9aR1G2w=s128",
     "name": "czz-eth",
     "symbol": "ECZZ"
@@ -1264,7 +1264,7 @@
     "asset_key": "0x75231f58b43240c9718dd58b4967c5114342a86c",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/5_QAvO-42-QqVVCQ6OQenwtNT0Wp61EWyFW2Oh_Jc-WnMnKxeLYzUlaBCYTJBrIdJac5P0mn18yqAiOdSp-3629qMr27BtSw05Cf=s128",
     "name": "OKB",
     "symbol": "OKB"
@@ -1284,7 +1284,7 @@
     "asset_key": "0xa74476443119a942de498590fe1f2454d7d4ac0d",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/dyXVzVUXTUaz9nGOlZloi0rMeGlQMdCZ91F4v9H36oD_01bInAXjGbDFhbOZ1eO_jN7gwXtQ85VM7jsrwatkIaQ=s128",
     "name": "Golem Network Token",
     "symbol": "GNT"
@@ -1314,7 +1314,7 @@
     "asset_key": "0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/O-1Rxf2slkbZqr3Y2YHf_3Xm0f3Kj3w44HuvRvEGXOAlUwoDk-0rClR2jvmGWZZBfb1tWpPTOOH66HPxCbGrdw=s128",
     "name": "Enjin Coin",
     "symbol": "ENJ"
@@ -1324,7 +1324,7 @@
     "asset_key": "0x467bccd9d29f223bce8043b84e8c8b282827790f",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/r_ElTsWIbAZpL61r374hWaDlCWEDKvwzKvv-FaNPM8WW8_mAnsN0bzUYCig9Zxq-cM80IafY4DbjbSRKY5CYz7H2in9Tv06hcwg=s128",
     "name": "Telcoin",
     "symbol": "TEL"
@@ -1334,7 +1334,7 @@
     "asset_key": "0x4575f41308ec1483f3d399aa9a2826d74da13deb",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/0r61fkaIP0rFX6MDVVxIZojq2QCsrF-cr2vThOCSCTnnq7bXIV_F0k_P27Wj_epUysTT1I4kr8J3IEBgFXx7QqL7mFfj9VtB7SU=s128",
     "name": "Orchid",
     "symbol": "OXT"
@@ -1344,7 +1344,7 @@
     "asset_key": "0x8207c1ffc5b6804f6024322ccf34f29c3541ae26",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/afBMsiDtcXkSIogV7Gi6_SiwDM8cAYUtRRqXpOTUvtCgiBFtiy1T9fUC7cyMs6dKMqTkbE16LS4wT4T3P4-g04HFt2yZEOleFJ-C3g=s128",
     "name": "OriginToken",
     "symbol": "OGN"
@@ -1354,7 +1354,7 @@
     "asset_key": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/x0a_-DI59s3ag9af6aaUPyJ0-Lpj6-lh-fvK7pAS9NADMtoNqkfSd_LjqHLQ9zAtlAnLdiAfoFt5IvVPK340E5oa-wt-nht3HBSJ=s128",
     "name": "Convex Token",
     "symbol": "CVX"
@@ -1364,7 +1364,7 @@
     "asset_key": "0xae12c5930881c53715b369cec7606b70d8eb229f",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/uVldzz5hlBhl0INWfrjtBy3SYyZ2Mnf0eBUiEycVqZFDQxWCz5YXmzJYeOBb47q52wgwwcLBPpMag_mBpk9iA8a9bHNQ_G-mJJHX3w=s128",
     "name": "Coin98",
     "symbol": "C98"
@@ -1394,7 +1394,7 @@
     "asset_key": "0xe28b3b32b6c345a34ff64674606124dd5aceca30",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/7M9wARHneFt5WlVwWBuHPCLlRcO9kQWci8ZVTnsCzFGaUMecGHRta52g-zgLRiZdtF9o1ZmaO2axFPqVwLOLs4nYmTMf08R6skqh=s128",
     "name": "Injective Token",
     "symbol": "INJ"
@@ -1404,9 +1404,9 @@
     "asset_key": "0x0000000000000000000000000000000000000000",
     "chain_icon": "https://mixin-images.zeromesh.net/vm1bPYLB1DkzRVTpU6gr6jtbM0A-pg5lbgMy6qhYBHWnoq5xi3SxEoHGfdFsNUjuLKHalnvr77pZYoPvFY7qymdqSvABZl154dBp=s128",
     "chain_id": "a0ffd769-5850-4b48-9651-d2ae44a3e64d",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/vm1bPYLB1DkzRVTpU6gr6jtbM0A-pg5lbgMy6qhYBHWnoq5xi3SxEoHGfdFsNUjuLKHalnvr77pZYoPvFY7qymdqSvABZl154dBp=s128",
-    "name": "Ether",
+    "name": "Ethereum",
     "symbol": "ETH"
   },
   {
@@ -1414,7 +1414,7 @@
     "asset_key": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/iLi6kU4FdYtxB8_HHpEMQDUR3FlfssVIp3ONYnK_E4pn_sAAhjF4imTMo6G_U_E2U4kYsYRpgzkIJZMx-tlXMe2iqYZw3LzzCKAS=s128",
     "name": "Gitcoin",
     "symbol": "GTC"
@@ -1424,7 +1424,7 @@
     "asset_key": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/mZXzWZ3tRhWCuQfTIGEjKE7IwBXZXoTJE1N5hsgiQ280cd2ARA6jqPrTryaC_K0xmvRgijBfhMRjY8ijO82oVg=s128",
     "name": "OMGToken",
     "symbol": "OMG"
@@ -1444,7 +1444,7 @@
     "asset_key": "0xf7920b0768ecb20a123fac32311d07d193381d6f",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/AurNTJNyD1Z1au4wbpK9HPVmXDvE37eldvLR5hHRMVxHxn4DxiQ1CWonW82MbCaOoBvBsNnJfb5aC_33ueuMFxs=s128",
     "name": "Time New Bank",
     "symbol": "TNB"
@@ -1454,7 +1454,7 @@
     "asset_key": "0x4290563c2d7c255b5eec87f2d3bd10389f991d68",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/jWDjrWwSUPnjwgtZxhxU0i64CB9PmHQquxbIDzx-iuvX7-HK5PKmQqhVv-GMhxT2JAc5cBQ_loFJzfhF9H0t7Rs=s128",
     "name": "UnlimitedIP Token",
     "symbol": "UIP"
@@ -1464,7 +1464,7 @@
     "asset_key": "0x761d38e5ddf6ccf6cf7c55759d5210750b5d60f3",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Eyu7-_vdP93BShEqbAmzWLufLmrEZ_fulXSpOjF3HIulPTwOcqkrQocbz9bCEkReYuCYlRbKIIgVnICyMphLDDzHHPmrp2ofrEM4=s128",
     "name": "Dogelon",
     "symbol": "ELON"
@@ -1474,7 +1474,7 @@
     "asset_key": "0x11eef04c884e24d9b7b4760e7476d06ddf797f36",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/VH78valC8H9ocweGCjZgoL6CAETaVuorrCgJR0nMEAwu8G0NjSGE1X5EymSqMkqE6vkASnBs67UcyepM4vhanIkdrpf1vaHTHBu0=s128",
     "name": "MX Token",
     "symbol": "MX"
@@ -1484,7 +1484,7 @@
     "asset_key": "0x5ca9a71b1d01849c0a95490cc00559717fcf0d1d",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/V0kmYJZhWDDwZbBQru91vojtRl3PKPPw4cPTrvHaPDPK5P8PZVr4w9biA4yHde1NvWYdQHsjTYewSmNPyX_wL7o6=s128",
     "name": "Aeternity",
     "symbol": "AE"
@@ -1494,7 +1494,7 @@
     "asset_key": "0x5d65d971895edc438f465c17db6992698a52318d",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/UZ5oquHqHgN3pHia7jEDa8_uy49CedPl4gurhMjb6FLuWkbDvTEmpjO9OPMRq1_MzP9gpNwcq0p7e5BEk2mIfg=s128",
     "name": "Nebulas Token",
     "symbol": "NAS"
@@ -1504,7 +1504,7 @@
     "asset_key": "0x45804880de22913dafe09f4980848ece6ecbaf78",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/ctIuae7GHRXoGLg0J8j3KxSmXoK8wBWrAJUZHaaHOodZOgKaifOrflTa2FMQdZzVH3X5uFSdsnlcf-ZGvcwDluoLbUZLGZRFrCU=s128",
     "name": "Paxos Gold",
     "symbol": "PAXG"
@@ -1514,7 +1514,7 @@
     "asset_key": "0xbf2179859fc6d5bee9bf9158632dc51678a4100e",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/M1KSsZuIq0USLY860B7cVd8WSsYVG5zT1qVibIQr5ymiH2fMxpZQZG-Tnyxt6HDpgiKnAiWDw4QqkZ0LNhbkNA=s128",
     "name": "ELF Token",
     "symbol": "ELF"
@@ -1524,7 +1524,7 @@
     "asset_key": "0xff20817765cb7f73d4bde2e66e067e58d11095c2",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/cj3kCpwdlhoBsZpdmlrqPh0tG4WkSuUINGYr9L2_XJTW1IZbNkHP-rUXRwuHVCN3TUOZxmFL2_M3SnsMlfW-C7zgBJZDQpmPw5uq=s128",
     "name": "Amp",
     "symbol": "AMP"
@@ -1564,7 +1564,7 @@
     "asset_key": "0x69af81e73a73b40adf4f3d4223cd9b1ece623074",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/vRVuQtQ_hm2VyYJPXaX0fvFVYhqSwZ0k8489Rg7v6PaKd7cQKwb7YTuO_af_mukH5Mbs9ypwEE6bY9sbd8HxLUZCNYz9ipceFhqM=s128",
     "name": "Mask Network",
     "symbol": "MASK"
@@ -1584,7 +1584,7 @@
     "asset_key": "0xe66747a101bff2dba3697199dcce5b743b454759",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/dU_zO-LSnUbKTK27KrkiYtnSgG6zYTuzoQyHk_SOj6eJWjnTa_VIop46HYxswAvhrwvcP7ITgA1wf_Bmj000gIhDm9cZbx91arA=s128",
     "name": "GateChainToken",
     "symbol": "GT"
@@ -1594,7 +1594,7 @@
     "asset_key": "0xb97048628db6b661d4c2aa833e95dbe1a905b280",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/DYS3R3lIODC6bodKQSXDBWuqs_tR12ch7k-1NsFRiyhCAp13JS-PUAmHE0QoNpoi-p4DDzQASKiJvlEvUb5VlqAJ=s128",
     "name": "TenX Pay Token",
     "symbol": "PAY"
@@ -1604,7 +1604,7 @@
     "asset_key": "0x476c5e26a75bd202a9683ffd34359c0cc15be0ff",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/OiFzaQsDxgD6RMae2Y_Ih4FfMMGMaf3x1gS2JWjerPqxbUHXMzcl3xSgfQXRbBIGD49MvrG3zJqRt1pYvs7V7gtnVyunxtvvvyRX=s128",
     "name": "Serum",
     "symbol": "SRM"
@@ -1614,7 +1614,7 @@
     "asset_key": "0xd850942ef8811f2a866692a623011bde52a462c1",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/GP9crdLFtZkp8Qvqu93r4XrsYqgxDmte-qdpdgw__XbQ5h8V3vi7OJz1aCNYpX6rgturRP3XYateJTdtac1yNQU=s128",
     "name": "VeChain Token",
     "symbol": "VEN"
@@ -1624,7 +1624,7 @@
     "asset_key": "0x5faa989af96af85384b8a938c2ede4a7378d9875",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/rmRwP2__FzPAHnu2kQKqOcX67X9Lf7cIHcxEDZjRkud54yq3DGIxu-M_6TlFoIe70T_Xo4_AVXVz60wLUle88ZKqhBH_k8Rd6Ug=s128",
     "name": "Project Galaxy",
     "symbol": "GAL"
@@ -1634,7 +1634,7 @@
     "asset_key": "0xdd974d5c2e2928dea5f71b9825b8b646686bd200",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Ai8u9fY99yYhYimjKfP_c4pIjRVL8IOarSrWGzNjO2QOQiIKCVLvmz_VW9ZVuYidJUeyI_OEhnlWTOu2Y7HXnY4=s128",
     "name": "Kyber Network Crystal",
     "symbol": "KNC"
@@ -1644,7 +1644,7 @@
     "asset_key": "0x3a82d3111ab5faf39d847d46023d9090261a658f",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/-OCp8kS2lLPlwYmRvj3ozRlZUZSA59E72lUd60N_UWC5GSkn1Jzz29EX_UV5ec1LBSOaKk4HYIlfbz8WC9xm_DKb0yg2DFgDlnnW4g=s128",
     "name": "Tycoon Token",
     "symbol": "TYC"
@@ -1664,7 +1664,7 @@
     "asset_key": "0xba11d00c5f74255f56a5e366f4f77f5a186d7f55",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/zCipc0CbdKAzbGo7SV3bqKTadHTkKtq7vUK73vninmhj2wWf4SBViX3krIzt2vcgbLM45wIjImftwrqd-ocjuw=s128",
     "name": "BandToken",
     "symbol": "BAND"
@@ -1674,7 +1674,7 @@
     "asset_key": "0x41e5560054824ea6b0732e656e3ad64e20e94e45",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/InpT6RTK-tFLV7oUbCuG0J17vCNbRHW8iG_ZzPAkvCTZrtMaTXUnJ7VsYEDBlPFxddu9wvb5ctzmrawXcFsCPSo=s128",
     "name": "Civic",
     "symbol": "CVC"
@@ -1684,7 +1684,7 @@
     "asset_key": "0x6fb3e0a217407efff7ca062d46c26e5d60a14d69",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/GaoiLnHRGz9hoft4RcBx-_WhcmQT3biVNPgYifUkgxs4Z8y3DBJ13_6ATJf9Ds4Omhd4To1NkyBmNSPqg0rhQUgm6Yf-ShWyFIIkIg=s128",
     "name": "IoTeX Network",
     "symbol": "IOTX"
@@ -1694,7 +1694,7 @@
     "asset_key": "0x607f4c5bb672230e8672085532f7e901544a7375",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/R3LyZ-u76_FyiZ7Jy7zn-oG5CNIZN2L0anHjuqErZeY_ITAogpSTH2zVpBClGZRYIn8ek0FlJ_06_beKnFhccKqiFIhPqPYcP0sm5Q=s128",
     "name": "iEx.ec Network Token",
     "symbol": "RLC"
@@ -1704,7 +1704,7 @@
     "asset_key": "0xf278c1ca969095ffddded020290cf8b5c424ace2",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/YSwenktF4DbUYUq6L5X73eW_c9QjVmLKiCS1eai4gY51ar9Uf0A8OD1VVLTgC3vntpGCWIXFR9UITQXIZCIfILE=s128",
     "name": "RUFF",
     "symbol": "RUFF"
@@ -1714,7 +1714,7 @@
     "asset_key": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/VOVMX7Qv5AsrVn9cXEabKJlM_W6dhaAIFed1sDosORqX9OouOZtsiWGDD5ALjfhbWWsUcOWmUETD_bPj20r390s=s128",
     "name": "PAX",
     "symbol": "PAX"
@@ -1724,9 +1724,9 @@
     "asset_key": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/2K2ic-IsTp0_s-qDBC_0PPg2VWYHv5prngLETjMlUAnOrsbFitB6z5cBH52_hWh2C7POEGppEGW51MejlzWRg_KkoixLVyiA8arotA=s128",
-    "name": "Wrapped Ether",
+    "name": "Wrapped Ethereum",
     "symbol": "WETH"
   },
   {
@@ -1734,7 +1734,7 @@
     "asset_key": "0xe94327d07fc17907b4db788e5adf2ed424addff6",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/0EtCJuFHkenBWWzO_uZg1JKafKb5V6gPctoxNbHfqO6Yp-XTcBvedFWShnuk3z-zFogiv592RBZhHxVwvHVUsdE=s128",
     "name": "Reputation",
     "symbol": "REP"
@@ -1744,7 +1744,7 @@
     "asset_key": "0x43dfc4159d86f3a37a5a4b3d4580b888ad7d4ddd",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/CgsniaEMdhHBSauxq7v943uKWuRGuKeqiO0vClohK1KXH8VUDYEYHMn3-3PusStBHi3KKvhXSvjTkaQ-JLLAufXl2NnR955efJvq=s128",
     "name": "DODO bird",
     "symbol": "DODO"
@@ -1764,7 +1764,7 @@
     "asset_key": "0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/GPYIprS3oEWZ73Q2-e3mUtaLU76rN5YOUw23yPjedXDKAQ6h7e8VkoPhYKMqnyXMAzyfF_7L6WJqVm36hgHoeDY=s128",
     "name": "LoomToken",
     "symbol": "LOOM"
@@ -1774,7 +1774,7 @@
     "asset_key": "0x4fe83213d56308330ec302a8bd641f1d0113a4cc",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/uB0XxBWW8L20LRupigvaeyVEI4_ian928ItsiF9Mk5kPC1o6x8g6fPdpkcoXcrA4IeICd5MRgPLguxjCn4Xp9wgoSqk2tlzDLWHWUg=s128",
     "name": "NuCypher",
     "symbol": "NU"
@@ -1794,7 +1794,7 @@
     "asset_key": "0x3543638ed4a9006e4840b105944271bcea15605d",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/30BYtwVjUTOKLYpK42OKaMkkR1hYCQg__WaDaE-Fk89a3J-4KUX-h0ikZ7Z4eWGU6qqD_3XsK_-tHGE9qwXQHIY=s128",
     "name": "UNetworkToken",
     "symbol": "UUU"
@@ -1814,7 +1814,7 @@
     "asset_key": "0x68d57c9a1c35f63e2c83ee8e49a64e9d70528d25",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Xb0Pc3r95Rfp_77s97uyRftxIz0K7xKKWsBc18eaBK23yqcKVQHkEwd3bs45te7LQ4Ozsy63lfUtWqNZQM_Lo8Pd=s128",
     "name": "SIRIN",
     "symbol": "SRN"
@@ -1824,7 +1824,7 @@
     "asset_key": "0xb91318f35bdb262e9423bc7c7c2a3a93dd93c92c",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/DgTU1qZDCyFcouKxGVr1nTHeDyO6gaSBpQTRlYOcE8Rn3G19xLt1kgLRzZjVE-x97GnHqM-zagAqyc2wSJ1LSIku=s128",
     "name": "Nuls",
     "symbol": "NULS"
@@ -1844,7 +1844,7 @@
     "asset_key": "0xb3104b4b9da82025e8b9f8fb28b3553ce2f67069",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/JxE0HsLJ2UZ1jUTkiSK0Umq0UqDJlEXaHnaq7OIyT42_NH8Q3DDC2hvG9-WWYPd4xqD4xL_l6iJ3OJY-09nDYQ0=s128",
     "name": "BIX Token",
     "symbol": "BIX"
@@ -1854,7 +1854,7 @@
     "asset_key": "0x809826cceab68c387726af962713b64cb5cb3cca",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/-17id08Az75h3J6l7wKe7SE15iVgudZjVMa8T1AdpXzQIuAqpwDZphvwCLbpHe4xr8CYEnaRDaK_hw7tD3Pplw=s128",
     "name": "NucleusVision",
     "symbol": "nCash"
@@ -1864,7 +1864,7 @@
     "asset_key": "0x4092678e4e78230f46a1534c0fbc8fa39780892b",
     "chain_icon": "https://mixin-images.zeromesh.net/zVDjOxNTQvVsA8h2B4ZVxuHoCF3DJszufYKWpd9duXUSbSapoZadC7_13cnWBqg0EmwmRcKGbJaUpA8wFfpgZA=s128",
     "chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
-    "chain_name": "Ether",
+    "chain_name": "Ethereum",
     "icon": "https://mixin-images.zeromesh.net/Y76P7UpRlvIpX39y8vauPux3F1IilPRyYfJmX9XLeir7J8DB71Nu149Iym1Teo-r-_VBuPvcdX3v4dIt-x7QU7DF=s128",
     "name": "OCoin",
     "symbol": "OCN"

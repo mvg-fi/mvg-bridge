@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex align-center">
     <v-btn
-      class="rounded-xl d-flex flex-row pa-2 mr-2"
+      class="rounded-xl d-flex flex-row pa-2 mr-2 bg-white"
       elevation="0"
       size="x-large"
       @click="store.mutateDialog(props.from, true)"
@@ -10,23 +10,13 @@
         <v-img :src="from ? store.fromAsset.icon : store.toAsset.icon" />
         <v-img
           :src="from ? store.fromAsset.chain_icon : store.toAsset.chain_icon"
-          v-if="
-            from
-              ? store.fromAsset.asset_id != store.fromAsset.chain_id
-              : store.toAsset.asset_id != store.toAsset.chain_id
-          "
-          style="
-            height: 14px;
-            width: 14px;
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
-          "
+          v-if=" from ? store.fromAsset.asset_id != store.fromAsset.chain_id : store.toAsset.asset_id != store.toAsset.chain_id"
+          style="height: 14px;width: 14px;position: absolute;bottom: 0px;left: 0px;"
         ></v-img>
       </v-icon>
 
       <div class="d-flex flex-column align-center justify-center mx-1">
-        <span style="font-size: 16px; font-weight: 600">
+        <span style="font-size: 16px;" class="font-weight-semibold">
           {{ from ? store.fromAsset.symbol : store.toAsset.symbol }}
         </span>
         <span

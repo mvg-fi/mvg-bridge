@@ -16,6 +16,22 @@
     "symbol": "ETH"
   },
   {
+    "asset_id": "b7938396-3f94-4e0a-9179-d3440718156f",
+    "asset_key": "0x0000000000000000000000000000000000000000",
+    "chain_id": "b7938396-3f94-4e0a-9179-d3440718156f",
+    "icon": "https://mixin-images.zeromesh.net/xFl-wIKkfzrKDnJMX1PjvcXyKYrW88yLvtiEHdudNkPnSZmY9CzibAlNp3C_wM6LFP9UzsBX-YlVNW_zoUNPWO5cowzT0Us48BOE=s128",
+    "name": "Polygon",
+    "symbol": "MATIC"
+  },
+  {
+    "asset_id": "1949e683-6a08-49e2-b087-d6b72398588f",
+    "asset_key": "0x0000000000000000000000000000000000000000",
+    "chain_id": "1949e683-6a08-49e2-b087-d6b72398588f",
+    "icon": "https://mixin-images.zeromesh.net/1_44tuBHW1cFfsPnzmzQE8aULR438AT_fjqOsXJp1LEVPSDHox45dI0WGsnzgz9rDRYnA92sWMaMDGWt-oePEFV5qp8HrCFvd7I=s128",
+    "name": "Binance Token",
+    "symbol": "BNB"
+  },
+  {
     "asset_id": "eea900a8-b327-488c-8d8d-1428702fe240",
     "asset_key": "eea900a8-b327-488c-8d8d-1428702fe240",
     "chain_id": "eea900a8-b327-488c-8d8d-1428702fe240",
@@ -48,6 +64,14 @@
     "symbol": "DOT"
   },
   {
+    "asset_id": "25dabac5-056a-48ff-b9f9-f67395dc407c",
+    "asset_key": "25dabac5-056a-48ff-b9f9-f67395dc407c",
+    "chain_id": "25dabac5-056a-48ff-b9f9-f67395dc407c",
+    "icon": "https://mixin-images.zeromesh.net/SXfRh0WJZpHrDAbBItuwwLp_TPML7hrbAPHGIz_EQRga0fFm5yGtNd55_W0ZZv9HRj_6W6kE4O4tq8W78mutAPE=s128",
+    "name": "TRON",
+    "symbol": "TRX"
+  },
+  {
     "asset_id": "08285081-e1d8-4be6-9edc-e203afa932da",
     "asset_key": "08285081-e1d8-4be6-9edc-e203afa932da",
     "chain_id": "08285081-e1d8-4be6-9edc-e203afa932da",
@@ -62,6 +86,14 @@
     "icon": "https://mixin-images.zeromesh.net/9QWOYgcD0H7q1cH6PaSM08FQ549epnEzqIQ2EgEfK2s82jhsIu1wDKmsR7rkPFwjIYKOILteq7mW1hIaXcy4DhI=s128",
     "name": "Zcash",
     "symbol": "ZEC"
+  },
+  {
+    "asset_id": "b12bb04a-1cea-401c-a086-0be61f544889",
+    "asset_key": "xdc0000000000000000000000000000000000000000",
+    "chain_id": "b12bb04a-1cea-401c-a086-0be61f544889",
+    "icon": "https://mixin-images.zeromesh.net/M_P4l_lJtQj39Nq0sSprAv69Qt9EsXNyMHMSfb58RMiEVLX77DAe2UtZPjLQr5b-dugJUf_lK8rtPjnBHUp_zCU2Z5CeOgNz0A69=s128",
+    "name": "XDC Network",
+    "symbol": "XDC"
   },
   {
     "asset_id": "76c802a2-7c88-447f-a93e-c29c9e5dd9c8",
@@ -102,14 +134,6 @@
     "icon": "https://mixin-images.zeromesh.net/SyX2tH2mBbSc45IfkOysbbd8WtPEjla5R3xT9ym0tbKv_vAyzl_Jd5qEYsOhKyuFRv09w3uB4Vzs2XJuJzZeO7e_=s128",
     "name": "Ripple",
     "symbol": "XRP"
-  },
-  {
-    "asset_id": "25dabac5-056a-48ff-b9f9-f67395dc407c",
-    "asset_key": "25dabac5-056a-48ff-b9f9-f67395dc407c",
-    "chain_id": "25dabac5-056a-48ff-b9f9-f67395dc407c",
-    "icon": "https://mixin-images.zeromesh.net/SXfRh0WJZpHrDAbBItuwwLp_TPML7hrbAPHGIz_EQRga0fFm5yGtNd55_W0ZZv9HRj_6W6kE4O4tq8W78mutAPE=s128",
-    "name": "TRON",
-    "symbol": "TRX"
   },
   {
     "asset_id": "fd11b6e3-0b87-41f1-a41f-f0e9b49e5bf0",
@@ -184,14 +208,6 @@
     "symbol": "ZEN"
   },
   {
-    "asset_id": "b7938396-3f94-4e0a-9179-d3440718156f",
-    "asset_key": "0x0000000000000000000000000000000000000000",
-    "chain_id": "b7938396-3f94-4e0a-9179-d3440718156f",
-    "icon": "https://mixin-images.zeromesh.net/xFl-wIKkfzrKDnJMX1PjvcXyKYrW88yLvtiEHdudNkPnSZmY9CzibAlNp3C_wM6LFP9UzsBX-YlVNW_zoUNPWO5cowzT0Us48BOE=s128",
-    "name": "Polygon",
-    "symbol": "MATIC"
-  },
-  {
     "asset_id": "cbc77539-0a20-4666-8c8a-4ded62b36f0a",
     "asset_key": "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z",
     "chain_id": "cbc77539-0a20-4666-8c8a-4ded62b36f0a",
@@ -214,14 +230,6 @@
     "icon": "https://mixin-images.zeromesh.net/-oE4Jsi3aMIkxUPUsvDozyL8D0ccmPkggIdIDu1z8THDQyJcCIsbNwC4amFBiRlkQiLNNjiuMBsNw8sAnehTuI0=s128",
     "name": "Algorand",
     "symbol": "ALGO"
-  },
-  {
-    "asset_id": "1949e683-6a08-49e2-b087-d6b72398588f",
-    "asset_key": "0x0000000000000000000000000000000000000000",
-    "chain_id": "1949e683-6a08-49e2-b087-d6b72398588f",
-    "icon": "https://mixin-images.zeromesh.net/1_44tuBHW1cFfsPnzmzQE8aULR438AT_fjqOsXJp1LEVPSDHox45dI0WGsnzgz9rDRYnA92sWMaMDGWt-oePEFV5qp8HrCFvd7I=s128",
-    "name": "Binance Token",
-    "symbol": "BNB"
   },
   {
     "asset_id": "d6ac94f7-c932-4e11-97dd-617867f0669e",
@@ -344,19 +352,11 @@
     "symbol": "GRIN"
   },
   {
-    "asset_id": "b12bb04a-1cea-401c-a086-0be61f544889",
-    "asset_key": "xdc0000000000000000000000000000000000000000",
-    "chain_id": "b12bb04a-1cea-401c-a086-0be61f544889",
-    "icon": "https://mixin-images.zeromesh.net/M_P4l_lJtQj39Nq0sSprAv69Qt9EsXNyMHMSfb58RMiEVLX77DAe2UtZPjLQr5b-dugJUf_lK8rtPjnBHUp_zCU2Z5CeOgNz0A69=s128",
-    "name": "XDC Network",
-    "symbol": "XDC"
-  },
-  {
     "asset_id": "a0ffd769-5850-4b48-9651-d2ae44a3e64d",
     "asset_key": "0x0000000000000000000000000000000000000000",
     "chain_id": "a0ffd769-5850-4b48-9651-d2ae44a3e64d",
     "icon": "https://mvm.dev/logo.svg",
-    "name": "Ether",
+    "name": "Ether (MVM)",
     "symbol": "ETH"
   }
 ]

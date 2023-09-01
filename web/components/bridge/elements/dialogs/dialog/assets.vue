@@ -1,54 +1,76 @@
 <template>
   <div class="w-100 overflow-y-auto" v-if="store.filteredItems.length != 0">
-    <div class="w-100" v-for="item in store.filteredItems" :key="item.asset_id">
-      <v-btn
-        block
-        elevation="0"
-        height="54px"
-        :class="
-          clsx(
-            'd-flex justify-start',
-            store.selectNetworkBar && 'px-5',
-            !store.selectNetworkBar && 'px-7'
-          )
+    <v-list class="pt-0">
+      <v-list-item
+        :disabled="
+          item.asset_id == store.fromAsset?.asset_id || 
+          item.asset_id == store.toAsset?.asset_id
         "
-        @click="
-          store.setAsset(props.from, item);
-          console.log('clicked');
-        "
+        class="w-100 px-0"
+        v-for="item in store.filteredItems"
+        :key="item.asset_id"
       >
-        <v-icon style="width: 36px; height: 36px; position: reactive">
-          <v-img :src="item.icon" alt="item.symbol" />
-          <v-img
-            :src="item.chain_icon"
-            v-if="item.asset_id != item.chain_id"
-            style="
-              height: 14px;
-              width: 14px;
-              position: absolute;
-              bottom: 0px;
-              left: 0px;
+        <v-btn
+          block
+          elevation="0"
+          height="54px"
+          :class="
+            clsx(
+              'd-flex justify-start',
+              store.selectNetworkBar && 'px-5',
+              !store.selectNetworkBar && 'px-7'
+            )
+          "
+          @click="
+            store.setAsset(props.from, item);
+            console.log('clicked');
+          "
+        >
+          <v-icon style="width: 36px; height: 36px; position: reactive">
+            <v-img :src="item.icon" alt="item.symbol" />
+            <v-img
+              :src="item.chain_icon"
+              v-if="item.asset_id != item.chain_id"
+              style="
+                height: 14px;
+                width: 14px;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+              "
+            ></v-img>
+          </v-icon>
+
+          <div class="d-flex flex-column justify-start text-start ml-4">
+            <span
+              class="font-weight-semibold"
+              style="letter-spacing: 0px; font-size: 14px"
+            >
+              {{ item.symbol }}
+            </span>
+
+            <span
+              class="font-weight-light"
+              style="font-size: 12px; color: grey; opacity: 60%"
+            >
+              {{ item.chain_name }}
+            </span>
+          </div>
+
+          <v-icon
+            class="mr-5"
+            style="position:absolute;right:0px;"
+            v-if="
+              props.from
+                ? store.fromAsset?.asset_id === item.asset_id
+                : store.toAsset?.asset_id === item.asset_id
             "
-          ></v-img>
-        </v-icon>
-
-        <div class="d-flex flex-column justify-start text-start ml-4">
-          <span
-            class="font-weight-semibold"
-            style="letter-spacing: 0px; font-size: 14px"
           >
-            {{ item.symbol }}
-          </span>
-
-          <span
-            class="font-weight-light"
-            style="font-size: 12px; color: grey; opacity: 60%"
-          >
-            {{ item.chain_name }}
-          </span>
-        </div>
-      </v-btn>
-    </div>
+            <CheckIcon />
+          </v-icon>
+        </v-btn>
+      </v-list-item>
+    </v-list>
   </div>
   <div
     class="w-100 h-100 d-flex flex-column align-center justify-center text-center"
@@ -83,11 +105,9 @@
 <script setup>
 import clsx from "clsx";
 import { useBridgeStore } from "~/stores/bridge/bridge";
+import { CheckIcon } from "@heroicons/vue/24/outline";
 const store = useBridgeStore();
 const props = defineProps(["from"]);
-
-store.fromAsset;
-store.toAsset;
 </script>
 
 <style lang="scss" scoped>
