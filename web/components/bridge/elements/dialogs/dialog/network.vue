@@ -17,6 +17,9 @@
       >
         <v-icon style="width: 32px; height: 32px">
           <v-img :src="chain.icon" :alt="chain.symbol" />
+          <v-tooltip activator="parent" location="top" close-delay="100ms">
+            {{ $t('only_show_network', {name: chain.name}) }}
+          </v-tooltip>
         </v-icon>
       </v-btn>
     </div>

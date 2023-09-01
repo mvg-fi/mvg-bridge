@@ -12,5 +12,6 @@
   "only_use_dex_info": "Disable centralized exchanges and only use decentralized exchanges",
   "enhance_privacy": "Enhance privacy",
   "enhance_privacy_info": "Enhance privacy by delaying and randomize transaction time and amount.(TBD)",
-  "no_result": "No result"
+  "no_result": "No result",
+  "only_show_network": "Only show {name} network"
 }
