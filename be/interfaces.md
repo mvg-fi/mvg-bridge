@@ -38,8 +38,7 @@ POST /price/simple
 
 ```json
 {
-    "output_amount": "",            // optional
-    "input_amount": "",             // optional
+    "amount": "",            // fillAmount if amount, else payAmount except
 }
 ```
 

@@ -1,7 +1,7 @@
 package constants
 
 type Deposit struct {
-	Type        string `json:"type"`         // Transaction type (CS|SS|BE)
+	Type        string `json:"type"`         // Transaction type
 	Address     string `json:"address"`      // Deposit address for receiving user's fund
 	ToAddress   string `json:"to_address"`   // The destination
 	FromAssetID string `json:"from_assetid"` // Deposit asset id
@@ -24,7 +24,6 @@ type DepositResp struct {
 	Memo    string `json:memo,omitempty`
 	TraceID string `json:trace_id`
 }
-
 type StatusReq struct {
 	TraceID string `json:trace_id`
 }

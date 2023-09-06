@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/mvg-fi/mvg-bridge/constants"
+	"github.com/mvg-fi/mvg-bridge/providers"
 )
 
 func (a *API) PriceSimpleHandler() http.HandlerFunc {
@@ -14,14 +15,15 @@ func (a *API) PriceSimpleHandler() http.HandlerFunc {
 			return
 		}
 
-		var d constants.DepositResp
+		var d constants.PriceSimpleReq
 		err := json.NewDecoder(r.Body).Decode(&d)
 		if err != nil {
 			return
 		}
-		// Get status by trace ID
-		// d.TraceID
 
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncode(w).Encode()
+		providers.GetPrice()
 		// return status
 		w.Write([]byte("xd"))
 	})

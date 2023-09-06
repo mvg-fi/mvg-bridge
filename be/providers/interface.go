@@ -1,7 +1,10 @@
 package providers
 
 type Provider interface {
-	GetPrice(from, to, amount, except string)
+	GetPrice(payAsset, receiveAsset, amount, except string) float64
 	Swap(from, to, amount string)
 	GetStatus(traceId string)
+}
+
+type Status struct {
 }

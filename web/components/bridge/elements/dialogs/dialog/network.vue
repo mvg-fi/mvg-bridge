@@ -41,7 +41,7 @@
   >
     <div style="position: absolute; left: 0px; top: 45%; z-index: 100">
       <v-icon
-        style="width: 10px; height: 32px; color: grey; opacity: 80%"
+        style="width: 10px; height: 32px; color: grey; opacity: 40%"
         @click.stop="toggle"
       >
         <ChevronRightIcon />
