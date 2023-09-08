@@ -4,3 +4,4 @@ main
 DESIGN.md
 config1.toml
 config2.toml
+*.swp

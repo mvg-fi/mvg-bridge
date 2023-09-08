@@ -2,6 +2,8 @@ package api
 
 import (
 	"encoding/json"
+	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/mvg-fi/mvg-bridge/constants"
@@ -15,17 +17,22 @@ func (a *API) PriceSimpleHandler() http.HandlerFunc {
 			return
 		}
 
-		var d constants.PriceSimpleReq
-		err := json.NewDecoder(r.Body).Decode(&d)
+		w.Header().Set("Content-Type", "application/json")
+
+		var req constants.PriceSimpleReq
+		err := json.NewDecoder(r.Body).Decode(&req)
 		if err != nil {
+			http.Error(w, "Wrong input", http.StatusBadRequest)
 			return
 		}
+		log.Printf("/price/simple => %+v\n", req)
 
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncode(w).Encode()
-		providers.GetPrice()
-		// return status
-		w.Write([]byte("xd"))
+		amount, fee := providers.GetPriceSimple(req.FromAssetID, req.ToAssetID, req.Amount, req.Except, req.Cex)
+
+		json.NewEncoder(w).Encode(&constants.PriceSimpleResp{
+			Amount: fmt.Sprintf("%v", amount),
+			Fee:    fmt.Sprintf("%v", fee),
+		})
 	})
 }
 
@@ -35,16 +42,18 @@ func (a *API) PriceAllHandler() http.HandlerFunc {
 			http.Error(w, "Only POST supported", http.StatusMethodNotAllowed)
 			return
 		}
+		w.Header().Set("Content-Type", "application/json")
 
-		var d constants.DepositResp
-		err := json.NewDecoder(r.Body).Decode(&d)
+		var req constants.PriceAllReq
+		err := json.NewDecoder(r.Body).Decode(&req)
 		if err != nil {
+			http.Error(w, "Wrong input", http.StatusBadRequest)
 			return
 		}
-		// Get status by trace ID
-		// d.TraceID
+		log.Printf("/price/all => %+v\n", req)
 
-		// return status
-		w.Write([]byte("xd"))
+		prices := providers.GetPriceAll(req.FromAssetID, req.ToAssetID, req.Amount, req.Except, req.Cex)
+
+		json.NewEncoder(w).Encode(prices)
 	})
 }

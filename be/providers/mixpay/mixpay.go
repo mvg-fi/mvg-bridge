@@ -21,12 +21,13 @@ const (
 	PaymentPath   = "/v1/payments"
 )
 
-func GetPrice(payAsset, receiveAsset, amount, except string) float64 {
+func GetPrice(payAsset, receiveAsset, amount, except string, ch chan<- float64) {
 	if len(amount) == 0 && len(except) == 0 {
-		return 0.0
+		ch <- 0.0
+		return
 	}
 	var params string
-	if len(except) == 0 {
+	if len(amount) > 0 {
 		params = "paymentAssetId=" + url.QueryEscape(payAsset) + "&" + "settlementAssetId=" + url.QueryEscape(payAsset) + "&" + "quoteAssetId=" + url.QueryEscape(receiveAsset) + "&" + "paymentAmount=" + url.QueryEscape(amount)
 	} else {
 		params = "paymentAssetId=" + url.QueryEscape(payAsset) + "&" + "settlementAssetId=" + url.QueryEscape(payAsset) + "&" + "quoteAssetId=" + url.QueryEscape(receiveAsset) + "&" + "quoteAmount=" + url.QueryEscape(except)
@@ -43,24 +44,25 @@ func GetPrice(payAsset, receiveAsset, amount, except string) float64 {
 		log.Println(err)
 	}
 	if gjson.Get(string(body), "success").String() != "true" {
-		log.Println("mixpay.GetPrice() failed")
-		return 0.0
+		log.Println("mixpay.GetPrice() =>", string(body))
+		ch <- 0.0
+		return
 	}
 
-	if len(except) == 0 {
-		return gjson.Get(string(body), "data.quoteAmount").Float()
+	if len(amount) > 0 {
+		ch <- gjson.Get(string(body), "data.quoteAmount").Float()
 	} else {
-		return gjson.Get(string(body), "data.estimatedSettlementAmount").Float()
+		ch <- gjson.Get(string(body), "data.estimatedSettlementAmount").Float()
 	}
 }
 
 func GetStatus(traceId, orderId, payeeId string) {
 	var subpath string
-	if len(traceId) != 0 {
+	if len(traceId) > 0 {
 		subpath = "traceId=" + traceId
-	} else if len(orderId) != 0 {
+	} else if len(orderId) > 0 {
 		subpath = "orderId=" + orderId
-	} else if len(payeeId) != 0 {
+	} else if len(payeeId) > 0 {
 		subpath = "payeeId=" + payeeId
 	}
 	path := fmt.Sprintf("%s?%s", Endpoint+GetStatusPath, subpath)

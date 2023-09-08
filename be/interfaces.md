@@ -21,24 +21,27 @@ POST /price/simple
 - output_asset: The uuid of output asset
 - amount: The amount of output_asset (optional, use without except)
 - except: The amount of input_asset  (optional, use without amount)
+- cex: If use cex, true or false
 
 ```json
 {
     "input_asset": "",
     "output_asset": "",
-    "amount": "",                   // optional
-    "except": "",                   // optional
+    "amount": "",                   // optional if have except
+    "except": "",                   // optional if have amount
+    "cex":"",                       // optional, true by default
 }
 ```
 
 #### Response
 
-- output_amount: This occurs when `amount` is specified in parameters, and represents the amount user will finally receive.
-- input_amount: This occurs when `except` is specified in parameters, and represents the amount user to pay to receive excepted amount.
+- amount: the amount of receive asset if amount was specified, or the amount of pay asset if except was specified.
+- fee: The amount of input asset will be used for withdrawal fee.
 
 ```json
 {
     "amount": "",            // fillAmount if amount, else payAmount except
+    "fee": "",               // the amount of input_asset will be used for fee
 }
 ```
 

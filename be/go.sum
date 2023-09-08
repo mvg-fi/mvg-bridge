@@ -18,6 +18,8 @@ github.com/MixinNetwork/nfo v0.3.4/go.mod h1:LRvUs87wXIC1acFS3vjdJs7xXcNldMhTeIM
 github.com/MixinNetwork/trusted-group v0.5.0 h1:v9fg8aPn3NIW0s9G8669+C8VhRDucRB0M5zcC19ZPLU=
 github.com/MixinNetwork/trusted-group v0.5.0/go.mod h1:70GijZ8/FbfYWZiTSVqtTdxUhJRM5jjLDVeiZGe4fEg=
 github.com/aead/siphash v1.0.1/go.mod h1:Nywa3cDsYNNK3gaciGTWPwHt0wlpNV15vwmswBAUSII=
+github.com/allegro/bigcache/v3 v3.1.0 h1:H2Vp8VOvxcrB91o86fUSVJFqeuz8kpyyB02eH3bSzwk=
+github.com/allegro/bigcache/v3 v3.1.0/go.mod h1:aPyh7jEvrog9zAwx5N7+JUQX5dZTSGpxF1LAR4dr35I=
 github.com/bradfitz/iter v0.0.0-20191230175014-e8f45d346db8 h1:GKTyiRCL6zVf5wWaqKnf+7Qs6GbEPfd4iMOitWzXJx8=
 github.com/bradfitz/iter v0.0.0-20191230175014-e8f45d346db8/go.mod h1:spo1JLcs67NmW1aVLEgtA8Yy1elc+X8y5SRW1sFW4Og=
 github.com/btcsuite/btcd v0.20.1-beta/go.mod h1:wVuoA8VJLEcwgqHBwHmzLRazpKxTv13Px/pDuV7OomQ=

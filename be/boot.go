@@ -61,12 +61,15 @@ func bootCmd(c *cli.Context) error {
 		println(mixin, messenger)
 	*/
 
-	// TODO: Figure out what this step is used for
 	// group.SetOutputGrouper(machine.OutputGrouper)
 	// group.AddWorker()
 	api := api.NewAPIWorker(db, conf.API)
 	api.Run()
 	group.Run(ctx)
 
+	return nil
+}
+
+func runCmd() error {
 	return nil
 }

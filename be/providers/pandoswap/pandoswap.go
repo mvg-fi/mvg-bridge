@@ -9,13 +9,13 @@ import (
 	"github.com/shopspring/decimal"
 )
 
-func GetPrice(payAsset, receiveAsset, amount, except string) float64 {
+func GetPrice(payAsset, receiveAsset, amount, except string, ch chan<- float64) {
 	ctx := context.Background()
 	pairs, err := fswap.ListPairs(ctx)
 	if err != nil {
 		log.Println("fswap.ListPairs() => ", err)
 	}
-	if len(except) == 0 {
+	if len(amount) > 0 {
 		amt, err := decimal.NewFromString(amount)
 		if err != nil {
 			log.Println("decimal.NewFromString() => ", err)
@@ -26,7 +26,8 @@ func GetPrice(payAsset, receiveAsset, amount, except string) float64 {
 			log.Println("fswap.Route() => ", err)
 		}
 		val, _ := route.FillAmount.Float64()
-		return val
+		ch <- val
+		return
 	}
 
 	amt, err := decimal.NewFromString(except)
@@ -38,7 +39,7 @@ func GetPrice(payAsset, receiveAsset, amount, except string) float64 {
 		log.Println("fswap.Route() => ", err)
 	}
 	val, _ := route.PayAmount.Float64()
-	return val
+	ch <- val
 }
 
 func GetStatus(traceId string) {

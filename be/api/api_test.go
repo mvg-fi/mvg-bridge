@@ -28,6 +28,12 @@ func TestRun(t *testing.T) {
 	api.Run()
 }
 
-// Test active
-// curl -i -X POST -H "Content-Type: application/json" --data '{}' http://127.0.0.1:8000/api/status
-// Test rate limit
+// Test Price Simple
+// curl -i -X POST -H "Content-Type: application/json" --data '{"from_asset_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "to_asset_id":"43d61dcd-e413-450d-80b8-101d5e903357", "amount": "1", "except": "", "cex": true}' http://127.0.0.1:8000/price/simple
+
+// Test Price All
+// curl -i -X POST -H "Content-Type: application/json" --data '{"from_asset_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "to_asset_id":"43d61dcd-e413-450d-80b8-101d5e903357", "amount": "1", "except": "", "cex": true}' http://127.0.0.1:8000/price/all
+
+// Test Create Order
+
+// Test Rate limit

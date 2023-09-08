@@ -4,6 +4,7 @@ go 1.21
 
 require (
 	github.com/MixinNetwork/trusted-group v0.5.0
+	github.com/allegro/bigcache/v3 v3.1.0
 	github.com/dgraph-io/badger/v4 v4.1.0
 	github.com/fox-one/4swap-sdk-go v1.2.2
 	github.com/fox-one/mixin-sdk-go v1.7.9
