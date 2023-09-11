@@ -1,18 +1,11 @@
 package store
 
-import (
-	"fmt"
-
-	"github.com/mvg-fi/common/time"
-	"github.com/mvg-fi/common/uuid"
-	"github.com/mvg-fi/mvg-bridge/constants"
-)
-
 const (
 // KeyExample           = "{STATUS}|{TRACE UUID}"
 // ValueExample         = "{TYPE}|{ADDRESS GENERATED}|{FROM ASSETID}|{TO ASSETID}|{TO ADDRESS}|{MEMO}|{AMOUNT}|{TIMESTAMP}"
 )
 
+/*
 func (bs *BadgerStore) WriteDeposit(d *constants.Deposit) (string, error) {
 	if d.Type != "CS" && d.Type != "SS" && d.Type != "BE" {
 		return "", fmt.Errorf("Invalid deposit type")
@@ -29,3 +22,4 @@ func (bs *BadgerStore) WriteDeposit(d *constants.Deposit) (string, error) {
 	}
 	return traceID, nil
 }
+*/

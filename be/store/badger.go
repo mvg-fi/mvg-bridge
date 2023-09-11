@@ -26,7 +26,6 @@ func uint64Bytes(i uint64) []byte {
 	return buf
 }
 
-// For implementing the interface
 func (bs *BadgerStore) ListIterations() ([]*mtg.Iteration, error) {
 	return nil, nil
 }

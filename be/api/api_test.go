@@ -37,3 +37,7 @@ func TestRun(t *testing.T) {
 // Test Create Order
 
 // Test Rate limit
+// for i in {0..61}
+// do
+// curl -X POST 127.0.0.1:8000/address
+// done

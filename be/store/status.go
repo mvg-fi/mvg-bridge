@@ -20,14 +20,6 @@ func (bs *BadgerStore) ReadStatus(status, id string) ([]byte, error) {
 	return item.ValueCopy(nil)
 }
 
-/*
-func (bs *BadgerStore) ReadStatusBySuffix(id string) ([]byte, error) {
-	txn := bs.Badger().NewTransaction(false)
-	defer txn.Discard()
-	return
-}
-*/
-
 // Remove old prefix item, create a new item
 func (bs *BadgerStore) FinishStatus(originalPrefix, newPrefix, id string) (string, error) {
 	txn := bs.Badger().NewTransaction(true)
@@ -50,3 +42,11 @@ func (bs *BadgerStore) FinishStatus(originalPrefix, newPrefix, id string) (strin
 	txn.Set(newKey, value)
 	return string(newKey), nil
 }
+
+/*
+func (bs *BadgerStore) ReadStatusBySuffix(id string) ([]byte, error) {
+	txn := bs.Badger().NewTransaction(false)
+	defer txn.Discard()
+	return
+}
+*/

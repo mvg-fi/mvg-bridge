@@ -22,7 +22,8 @@ func (a *API) PriceSimpleHandler() http.HandlerFunc {
 		var req constants.PriceSimpleReq
 		err := json.NewDecoder(r.Body).Decode(&req)
 		if err != nil {
-			http.Error(w, "Wrong input", http.StatusBadRequest)
+			http.Error(w, "Bad request", http.StatusBadRequest)
+
 			return
 		}
 		log.Printf("/price/simple => %+v\n", req)

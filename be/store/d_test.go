@@ -1,14 +1,6 @@
 package store
 
-import (
-	"context"
-	"fmt"
-	"os/user"
-	"testing"
-
-	"github.com/mvg-fi/mvg-bridge/constants"
-)
-
+/*
 func TestDeposit(t *testing.T) {
 	ctx := context.Background()
 	usr, _ := user.Current()
@@ -47,3 +39,4 @@ func TestDeposit(t *testing.T) {
 	}
 	fmt.Println("NewKey:", newKey)
 }
+*/

@@ -12,10 +12,16 @@ import (
 	"github.com/pelletier/go-toml"
 )
 
+type Proxy struct {
+	ProxyPIN        string `toml:"proxy-pin"`
+	ProxyUserSecret string `toml:"proxy-user-secret"`
+}
+
 type Configuration struct {
 	MTG       *mtg.Configuration            `toml:"mtg"`
 	Messenger *messenger.MixinConfiguration `toml:"messenger"`
 	API       *web.Configuration            `toml:"api"`
+	Proxy     *Proxy                        `toml:"proxy"`
 }
 
 func ReadConfiguration(path string) (*Configuration, error) {

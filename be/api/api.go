@@ -42,12 +42,12 @@ func InitIPRateLimit() *httplimit.Middleware {
 }
 
 func (a *API) run(host, port string) {
-	ipRateLimit := InitIPRateLimit()
+	//ipRateLimit := InitIPRateLimit()
 
 	http.Handle("/price/simple", a.PriceSimpleHandler())
 	http.Handle("/price/all", a.PriceAllHandler())
 
-	http.Handle("/address", ipRateLimit.Handle(http.Handler(a.AddressHandler(a.s))))
+	//http.Handle("/address", ipRateLimit.Handle(http.Handler(a.AddressHandler(a.s))))
 	http.HandleFunc("/status", a.StatusHandler())
 	http.ListenAndServe(host+":"+port, nil)
 }

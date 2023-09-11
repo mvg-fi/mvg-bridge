@@ -230,6 +230,7 @@ POST /order/new
     "trace_id": "",
     "address": "",
     "memo": "",
+    "expire": "",
 }
 ```
 

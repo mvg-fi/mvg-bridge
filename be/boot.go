@@ -64,12 +64,12 @@ func bootCmd(c *cli.Context) error {
 	// group.SetOutputGrouper(machine.OutputGrouper)
 	// group.AddWorker()
 	api := api.NewAPIWorker(db, conf.API)
-	api.Run()
+	go api.Run()
 	group.Run(ctx)
 
 	return nil
 }
 
-func runCmd() error {
+func runCmd(c *cli.Context) error {
 	return nil
 }

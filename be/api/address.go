@@ -1,13 +1,6 @@
 package api
 
-import (
-	"encoding/json"
-	"net/http"
-
-	"github.com/mvg-fi/mvg-bridge/constants"
-	"github.com/mvg-fi/mvg-bridge/store"
-)
-
+/*
 // Handle Address creation
 // 1. Create deposit address
 // 2. Return deposit trace id
@@ -50,3 +43,4 @@ func (a *API) AddressHandler(s *store.BadgerStore) http.Handler {
 		w.WriteHeader(http.StatusOK)
 	})
 }
+*/
