@@ -63,8 +63,8 @@ func bootCmd(c *cli.Context) error {
 
 	// group.SetOutputGrouper(machine.OutputGrouper)
 	// group.AddWorker()
-	api := api.NewAPIWorker(db, conf.API)
-	go api.Run()
+	api := api.NewAPIWorker(db, conf)
+	go api.Run(ctx)
 	group.Run(ctx)
 
 	return nil

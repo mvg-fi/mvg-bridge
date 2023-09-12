@@ -35,9 +35,10 @@ func TestRun(t *testing.T) {
 // curl -i -X POST -H "Content-Type: application/json" --data '{"from_asset_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "to_asset_id":"43d61dcd-e413-450d-80b8-101d5e903357", "amount": "1", "except": "", "cex": true}' http://127.0.0.1:8000/price/all
 
 // Test Create Order
+// curl -i -X POST -H "Content-Type: application/json" --data '{"from_asset_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "to_asset_id":"43d61dcd-e413-450d-80b8-101d5e903357", "amount": "1", "except": "", "cex": true}' http://127.0.0.1:8000/order/new
 
 // Test Rate limit
 // for i in {0..61}
 // do
-// curl -X POST 127.0.0.1:8000/address
+// curl -X POST 127.0.0.1:8000/order/new
 // done

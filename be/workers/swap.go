@@ -1,5 +1,6 @@
 package workers
 
+/*
 import (
 	"context"
 
@@ -29,3 +30,4 @@ func (rw *TimeoutWorker) ProcessOutput(ctx context.Context, out *mtg.Output) {
 func (rw *TimeoutWorker) ProcessCollectibleOutput(ctx context.Context, out *mtg.CollectibleOutput) {
 	return
 }
+*/

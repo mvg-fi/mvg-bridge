@@ -1,5 +1,7 @@
 package constants
 
+const ExpirePeriod = 10 * 60 // 10 mins
+
 type Order struct {
 	FromAssetID string `json:"from_asset_id"`
 	ToAssetID   string `json:"to_asset_id"`
@@ -12,7 +14,7 @@ type Order struct {
 	Expire      string `json:"expire"`
 }
 
-type OrderReq struct {
+type OrderNewReq struct {
 	FromAssetID string `json:"from_asset_id"`
 	ToAssetID   string `json:"to_asset_id"`
 	Amount      string `json:"amount"`
@@ -20,7 +22,7 @@ type OrderReq struct {
 	Cex         bool   `json:"cex"`
 }
 
-type OrderResp struct {
+type OrderNewResp struct {
 	TraceID string `json:"trace_id"`
 	Address string `json:"address"`
 	Memo    string `json:"memo"`

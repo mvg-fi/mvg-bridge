@@ -1,22 +1,24 @@
 package api
 
 import (
+	"context"
 	"log"
 	"net/http"
 	"time"
 
-	"github.com/mvg-fi/common/web"
 	"github.com/mvg-fi/go-limiter/httplimit"
 	"github.com/mvg-fi/go-limiter/memorystore"
+	"github.com/mvg-fi/mvg-bridge/config"
 	"github.com/mvg-fi/mvg-bridge/store"
+	"github.com/mvg-fi/mvg-bridge/users"
 )
 
 type API struct {
 	s *store.BadgerStore
-	c *web.Configuration
+	c *config.Configuration
 }
 
-func NewAPIWorker(s *store.BadgerStore, c *web.Configuration) *API {
+func NewAPIWorker(s *store.BadgerStore, c *config.Configuration) *API {
 	return &API{
 		s: s,
 		c: c,
@@ -41,17 +43,17 @@ func InitIPRateLimit() *httplimit.Middleware {
 	return middleware
 }
 
-func (a *API) run(host, port string) {
-	//ipRateLimit := InitIPRateLimit()
+func (a *API) run(ctx context.Context, host, port string) {
+	proxy := users.NewProxy(ctx, a.c.ProxyRoot, a.c.Proxy)
+	ipRateLimit := InitIPRateLimit()
 
 	http.Handle("/price/simple", a.PriceSimpleHandler())
 	http.Handle("/price/all", a.PriceAllHandler())
-
-	//http.Handle("/address", ipRateLimit.Handle(http.Handler(a.AddressHandler(a.s))))
+	http.Handle("/order/new", ipRateLimit.Handle(http.Handler(a.OrderHandler(proxy, a.s))))
 	http.HandleFunc("/status", a.StatusHandler())
 	http.ListenAndServe(host+":"+port, nil)
 }
 
-func (a *API) Run() {
-	a.run(a.c.Host, a.c.Port)
+func (a *API) Run(ctx context.Context) {
+	a.run(ctx, a.c.API.Host, a.c.API.Port)
 }
