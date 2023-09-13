@@ -15,10 +15,10 @@ import (
 
 type Proxy struct {
 	*mixin.Client
-	config *config.Proxy
+	config *config.Configuration
 }
 
-func NewProxy(ctx context.Context, ks *mixin.Keystore, conf *config.Proxy) *Proxy {
+func NewProxy(ctx context.Context, ks *mixin.Keystore, conf *config.Configuration) *Proxy {
 	client, err := mixin.NewFromKeystore(ks)
 	if err != nil {
 		panic(err)
@@ -31,21 +31,21 @@ func NewProxy(ctx context.Context, ks *mixin.Keystore, conf *config.Proxy) *Prox
 
 func (p *Proxy) NewUser(ctx context.Context, store *store.BadgerStore) (*constants.User, error) {
 	now := time.UTCNow()
-	seed := crypto.NewHash([]byte(p.config.ProxyUserSecret + now))
+	seed := crypto.NewHash([]byte(p.config.Proxy.ProxyUserSecret + now))
 	signer := ed25519.NewKeyFromSeed(seed[:])
 	u, ks, err := p.CreateUser(ctx, signer, now)
 	if err != nil {
 		return nil, err
 	}
 
-	user := &constants.User{u, ks, p.config.ProxyPIN}
+	user := &constants.User{u, ks, p.config.Proxy.ProxyPIN}
 
 	if !user.HasPin {
 		uc, err := mixin.NewFromKeystore(ks)
 		if err != nil {
 			return nil, err
 		}
-		err = uc.ModifyPin(ctx, "", p.config.ProxyPIN)
+		err = uc.ModifyPin(ctx, "", p.config.Proxy.ProxyPIN)
 		if err != nil {
 			return nil, err
 		}

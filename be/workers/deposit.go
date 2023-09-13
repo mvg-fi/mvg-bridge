@@ -4,7 +4,9 @@ import (
 	"context"
 	"time"
 
+	"github.com/fox-one/mixin-sdk-go"
 	"github.com/mvg-fi/common/logger"
+	"github.com/mvg-fi/common/uuid"
 	"github.com/mvg-fi/mvg-bridge/store"
 	"github.com/mvg-fi/mvg-bridge/users"
 	"github.com/shopspring/decimal"
@@ -68,25 +70,28 @@ func (dw *DepositWorker) ProcessSnapshots(ctx context.Context) {
 	}
 
 	for _, s := range snapshots {
+		// Get order ID by Lock
+		orderID, err := dw.store.LockGet(s.UserID, s.AssetID)
+		if err != nil {
+			logger.Errorf("LockGet(%s, %s) => %v", s.UserID, s.AssetID, err)
+		}
+		order, err := dw.store.ReadOrder(orderID)
+		if err != nil {
+			logger.Errorf("dw.store.ReadOrder(%s) => %v", traceID, err)
+		}
+
 		// Transfer to MTG
-		// Lock
-		/*
-			user, err := store.readUserById(s.UserID)
-			if err != nil {
-				panic(err)
-			}
-			if user == nil {
-				continue
-			}
-			err = p.fetchAsset(ctx, s.AssetID)
-			if err != nil {
-				panic(err)
-			}
-			err = p.processSnapshotForUser(ctx, store, s, user)
-			if err != nil {
-				panic(err)
-			}
-		*/
+		input := mixin.TransferInput{
+			AssetID: s.AssetID,
+			Amount:  s.Amount,
+			TraceID: uuid.NewV4(),
+		}
+		input.OpponentMultisig.Receivers = string[10]{""}
+		input.OpponentMultisig.Threshold = uint8(MVMThreshold)
+		input.Memo = orderID
+		u.sendUntilSufficient(ctx, &input)
+		// Remove lock
+
 		println(s)
 	}
 

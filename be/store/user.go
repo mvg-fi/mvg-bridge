@@ -84,6 +84,23 @@ func (bs *BadgerStore) LockCheck(userID, assetID string) (bool, error) {
 	return true, nil
 }
 
+func (bs *BadgerStore) LockGet(userID, assetID string) (string, error) {
+	txn := bs.Badger().NewTransaction(false)
+	defer txn.Discard()
+
+	key := []byte(constants.PrefixLock + userID + ":" + assetID)
+	item, err := txn.Get(key)
+	if err != nil {
+		return nil, err
+	}
+	val, err := item.ValueCopy(nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return val, nil
+}
+
 func (bs *BadgerStore) LockRemove(userID, assetID string) error {
 	return bs.Badger().Update(func(txn *badger.Txn) error {
 		key := []byte(constants.PrefixLock + userID + ":" + assetID)
