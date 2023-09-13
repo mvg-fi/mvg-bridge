@@ -91,14 +91,14 @@ func (bs *BadgerStore) LockGet(userID, assetID string) (string, error) {
 	key := []byte(constants.PrefixLock + userID + ":" + assetID)
 	item, err := txn.Get(key)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 	val, err := item.ValueCopy(nil)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 
-	return val, nil
+	return string(val), nil
 }
 
 func (bs *BadgerStore) LockRemove(userID, assetID string) error {
