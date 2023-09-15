@@ -11,10 +11,6 @@ import (
 	"github.com/shopspring/decimal"
 )
 
-// Monitor all deposit pending prefix addresses
-// If arrived, complete the rest job
-// If passed, refund to the sender
-
 type DepositWorker struct {
 	*users.Proxy
 	store *store.BadgerStore
@@ -29,6 +25,7 @@ func NewDepositWorker(proxy *users.Proxy, store *store.BadgerStore, conf *config
 	}
 }
 
+// Collect all snapshots
 func (dw *DepositWorker) loopSnapshots(ctx context.Context) error {
 	ckpt, err := dw.store.ReadSnapshotsCheckpoint(ctx)
 	if err != nil {
@@ -64,6 +61,7 @@ func (dw *DepositWorker) loopSnapshots(ctx context.Context) error {
 	return nil
 }
 
+// Process all snapshots and delete after process
 func (dw *DepositWorker) processSnapshots(ctx context.Context) {
 	snapshots, err := dw.store.ListSnapshots(100)
 	if err != nil {

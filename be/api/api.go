@@ -49,7 +49,7 @@ func (a *API) run(ctx context.Context, host, port string) {
 
 	http.Handle("/price/simple", a.PriceSimpleHandler())
 	http.Handle("/price/all", a.PriceAllHandler())
-	http.Handle("/order/new", ipRateLimit.Handle(http.Handler(a.OrderHandler(proxy, a.s))))
+	http.Handle("/order/new", ipRateLimit.Handle(http.Handler(a.OrderHandler(ctx, proxy, a.s))))
 	http.HandleFunc("/status", a.StatusHandler())
 	http.ListenAndServe(host+":"+port, nil)
 }

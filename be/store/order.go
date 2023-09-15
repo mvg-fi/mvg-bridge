@@ -62,6 +62,14 @@ func (bs *BadgerStore) ListOrders(limit int) ([]*constants.Order, error) {
 	return orders, nil
 }
 
+func (bs *BadgerStore) UpdateOrder(orderID string, o *constants.Order) error {
+	return bs.Badger().Update(func(txn *badger.Txn) error {
+		key := []byte(constants.PrefixOrder + orderID)
+		val := mtg.MsgpackMarshalPanic(o)
+		return txn.Set(key, val)
+	})
+}
+
 func (bs *BadgerStore) RemoveOrder(traceID string) error {
 	return bs.Badger().Update(func(txn *badger.Txn) error {
 		key := []byte(constants.PrefixOrder + traceID)

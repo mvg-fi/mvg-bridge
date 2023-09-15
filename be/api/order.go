@@ -13,7 +13,7 @@ import (
 	"github.com/mvg-fi/mvg-bridge/users"
 )
 
-func (a *API) OrderHandler(p *users.Proxy, s *store.BadgerStore) http.HandlerFunc {
+func (a *API) OrderHandler(ctx context.Context, p *users.Proxy, s *store.BadgerStore) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			http.Error(w, "Only POST supported", http.StatusMethodNotAllowed)
@@ -28,7 +28,7 @@ func (a *API) OrderHandler(p *users.Proxy, s *store.BadgerStore) http.HandlerFun
 			return
 		}
 		log.Printf("/order/new => %+v\n", req)
-		order := handleCreateOrder(context.TODO(), p, s, &req)
+		order := handleCreateOrder(ctx, p, s, &req)
 
 		json.NewEncoder(w).Encode(&constants.OrderNewResp{
 			TraceID: order.TraceID,
@@ -55,6 +55,7 @@ func handleCreateOrder(ctx context.Context, p *users.Proxy, s *store.BadgerStore
 		Address:     entires.Destination,
 		Memo:        entires.Tag,
 		Expire:      expire,
+		Status:      constants.PrefixOrder,
 	}
 
 	// Store order

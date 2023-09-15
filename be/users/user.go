@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/fox-one/mixin-sdk-go"
-	"github.com/gofrs/uuid"
 	"github.com/mvg-fi/common/logger"
 	"github.com/mvg-fi/mvg-bridge/config"
 	"github.com/mvg-fi/mvg-bridge/constants"
@@ -25,14 +24,21 @@ func (u *User) Handle(ctx context.Context, store *store.BadgerStore, conf *confi
 	}
 	order, err := store.ReadOrder(orderID)
 	if err != nil {
-		logger.Errorf("store.ReadOrder(%s) => %v", traceID, err)
+		logger.Errorf("store.ReadOrder(%s) => %v", orderID, err)
+	}
+
+	// Change order state to swap
+	order.Status = constants.PrefixReceived
+	err = store.UpdateOrder(orderID, order)
+	if err != nil {
+		logger.Errorf("store.UpdateOrder(%s) => %v", orderID, err)
 	}
 
 	// Transfer to MTG
-	input := mixin.TransferInput{
+	input := &mixin.TransferInput{
 		AssetID: s.AssetID,
 		Amount:  s.Amount,
-		TraceID: uuid.NewV4(),
+		TraceID: mixin.UniqueConversationID(s.SnapshotID, "HANDLE||TRANSFER"),
 	}
 	input.OpponentMultisig.Receivers = conf.MTG.Genesis.Members
 	input.OpponentMultisig.Threshold = uint8(conf.MTG.Genesis.Threshold)
@@ -43,27 +49,19 @@ func (u *User) Handle(ctx context.Context, store *store.BadgerStore, conf *confi
 		logger.Errorf("store.ReadUser(%s) => %v", s.UserID, err)
 	}
 	if user == nil {
-		continue
+		logger.Errorf("store.ReadUser(%s) => User doesn't exist", s.UserID)
+		return nil
 	}
 
-	logger.Verbosef("User.handle(%v, %v)", *s, *act)
-	traceId := mixin.UniqueConversationID(s.SnapshotID, "HANDLE||TRANSFER")
-	input := &mixin.TransferInput{
-		AssetID: s.AssetID,
-		Amount:  s.Amount,
-		TraceID: traceId,
-		Memo:    s.Memo,
-	}
-	if len(act.Receivers) == 1 {
-		input.OpponentID = act.Receivers[0]
-	} else {
-		input.OpponentMultisig.Receivers = act.Receivers
-		input.OpponentMultisig.Threshold = uint8(act.Threshold)
-	}
+	logger.Verbosef("User.handle(%v)", *s)
 	u.SendUntilSufficient(ctx, input)
 
 	// Remove lock
-	store.LockRemove(s.UserID, s.AssetID)
+	err = store.LockRemove(s.UserID, s.AssetID)
+	if err != nil {
+		logger.Errorf("store.LockRemove(%s, %s) => %v", s.UserID, s.AssetID, err)
+	}
+	return store.RemoveOrder(orderID)
 }
 
 func (u *User) Send(ctx context.Context, in *mixin.TransferInput) error {

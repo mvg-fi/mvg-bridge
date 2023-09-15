@@ -12,6 +12,7 @@ type Order struct {
 	Address     string `json:"address"`
 	Memo        string `json:"memo"`
 	Expire      string `json:"expire"`
+	Status      string `json:"status"`
 }
 
 type OrderNewReq struct {
