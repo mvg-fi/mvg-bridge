@@ -9,6 +9,7 @@ import (
 	"github.com/tidwall/gjson"
 )
 
+// Read Mixin Withdrawal Fee
 func AssetFee(assetID string) (string, string) {
 	path := fmt.Sprintf("https://api.mixin.one/network/assets/%s", assetID)
 	resp, err := http.Get(path)

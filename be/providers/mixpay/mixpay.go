@@ -5,11 +5,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"net/url"
-	"strconv"
 
+	"github.com/fox-one/mixin-sdk-go"
+	"github.com/mvg-fi/common/logger"
+	"github.com/mvg-fi/mvg-bridge/constants"
+	"github.com/shopspring/decimal"
 	"github.com/tidwall/gjson"
 )
 
@@ -19,6 +21,9 @@ const (
 	GetPricePath  = "/v1/payments_estimated"
 	GetStatusPath = "/v1/payments_result"
 	PaymentPath   = "/v1/payments"
+
+	MultisigID = "d5af86f7-0ca7-46f7-aea1-bf916d536f87" //4311 4313-4315
+	Threshold  = 2
 )
 
 func GetPrice(payAsset, receiveAsset, amount, except string, ch chan<- float64) {
@@ -35,16 +40,16 @@ func GetPrice(payAsset, receiveAsset, amount, except string, ch chan<- float64) 
 	path := fmt.Sprintf("%s?%s", Endpoint+GetPricePath, params)
 	resp, err := http.Get(path)
 	if err != nil {
-		log.Println(fmt.Sprintf("http.Get(%s)", path), err)
+		logger.Errorf("http.Get(%s) => %v", path, err)
 	}
 	defer resp.Body.Close()
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		log.Println(err)
+		logger.Errorf("%v", err)
 	}
 	if gjson.Get(string(body), "success").String() != "true" {
-		log.Println("mixpay.GetPrice() =>", string(body))
+		logger.Println("mixpay.GetPrice() =>", string(body))
 		ch <- 0.0
 		return
 	}
@@ -66,16 +71,15 @@ func GetStatus(traceId, orderId, payeeId string) {
 		subpath = "payeeId=" + payeeId
 	}
 	path := fmt.Sprintf("%s?%s", Endpoint+GetStatusPath, subpath)
-	fmt.Println(path)
 	resp, err := http.Get(path)
 	if err != nil {
-		log.Println(fmt.Sprintf("http.Get(%s)", path), err)
+		logger.Errorf("http.Get(%s) => %v", path, err)
 	}
 	defer resp.Body.Close()
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		log.Println(err)
+		logger.Errorf("%v", err)
 	}
 	fmt.Println(string(body))
 	if gjson.Get(string(body), "success").String() != "true" {
@@ -85,41 +89,63 @@ func GetStatus(traceId, orderId, payeeId string) {
 }
 
 // For swaps
-func CreatePayment(payeeId, traceId, payAsset, receiveAsset, amount string, onChain bool) {
+func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool) *constants.MixpayPaymentResp {
 	var chain int
 	if onChain {
 		chain = 1
 	} else {
 		chain = 0
 	}
-	js, err := json.Marshal(map[string]string{
-		"payeeId":           payeeId,
-		"orderId":           traceId,
-		"paymentAssetId":    payAsset,
-		"settlementAssetId": payAsset,
-		"quoteAssetId":      receiveAsset,
-		"paymentAmount":     amount,
-		"isChain":           strconv.Itoa(chain),
+	js, err := json.Marshal(constants.MixpayPaymentReq{
+		PayeeID:           MultisigID,
+		PaymentAssetID:    orderId,
+		SettlementAssetID: payAsset,
+		QuoteAssetID:      payAsset,
+		TraceID:           receiveAsset,
+		QuoteAmount:       amount,
+		Remark:            "",
+		IsChain:           chain,
 	})
 	if err != nil {
-		log.Println(err)
+		logger.Errorf("%v", err)
 	}
 
 	resp, err := http.Post(Endpoint+PaymentPath, "application/json", bytes.NewBuffer(js))
-
 	if err != nil {
-		log.Println(err)
+		logger.Errorf("%v", err)
 	}
 	defer resp.Body.Close()
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		log.Println(err)
+		logger.Errorf("%v", err)
 	}
-	fmt.Println(string(body))
-	if gjson.Get(string(body), "success").String() != "true" {
-		log.Println("mixpay.CreatePayment() failed")
-		return
+	fmt.Println("resp.Body:", string(body))
+
+	var mixpayResp *constants.MixpayPaymentResp
+	err = json.Unmarshal(body, mixpayResp)
+	if err != nil {
+		logger.Errorf("%v", err)
 	}
-	dest := gjson.Get(string(body), "data.destination").String()
-	fmt.Println("dest:", dest)
+
+	if !mixpayResp.Success {
+		logger.Println("mixpay.createPayment() failed")
+	}
+	return mixpayResp
+}
+
+func Swap(orderId, payAsset, receiveAsset, amount string, onChain bool) *mixin.TransferInput {
+	// Create mixin payment
+	mixpayResp := createPayment(orderId, payAsset, receiveAsset, amount, onChain)
+	paymentAmount, _ := decimal.NewFromString(mixpayResp.Data.PaymentAmount)
+	return &mixin.TransferInput{
+		AssetID:    mixpayResp.Data.PaymentAssetID,
+		OpponentID: mixpayResp.Data.Recipient,
+		TraceID:    mixin.UniqueConversationID(orderId, "swap:init"),
+		Amount:     paymentAmount,
+		Memo:       mixpayResp.Data.Memo,
+	}
+}
+
+func GetMultisigId() {
+	// https://mixpay.me/developers/api/multisig/get-multisig-id
 }

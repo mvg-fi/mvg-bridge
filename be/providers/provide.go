@@ -87,6 +87,10 @@ func GetPriceAll(payAsset, receiveAsset, amount, except string, cex bool) []cons
 	}
 }
 
+func Swap(payAsset, receiveAsset, amount, except string, cex bool) {
+	input := mixpay.Swap()
+}
+
 func GetStatus() {
 
 }

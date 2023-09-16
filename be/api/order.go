@@ -41,7 +41,8 @@ func (a *API) OrderHandler(ctx context.Context, p *users.Proxy, s *store.BadgerS
 
 func handleCreateOrder(ctx context.Context, p *users.Proxy, s *store.BadgerStore, req *constants.OrderNewReq) *constants.Order {
 	// Get random user
-	entires := p.GetADeposit(ctx, s, req.FromAssetID)
+	orderID := uuid.NewV4()
+	entires := p.GetADeposit(ctx, s, req.FromAssetID, orderID)
 
 	// Create order
 	expire := time.UTCNowAddMinutes(constants.ExpirePeriod)
@@ -51,7 +52,7 @@ func handleCreateOrder(ctx context.Context, p *users.Proxy, s *store.BadgerStore
 		Amount:      req.Amount,
 		Except:      req.Except,
 		Cex:         req.Cex,
-		TraceID:     uuid.NewV4(),
+		TraceID:     orderID,
 		Address:     entires.Destination,
 		Memo:        entires.Tag,
 		Expire:      expire,

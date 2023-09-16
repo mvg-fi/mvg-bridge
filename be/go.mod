@@ -8,8 +8,10 @@ require (
 	github.com/dgraph-io/badger/v4 v4.1.0
 	github.com/fox-one/4swap-sdk-go v1.2.2
 	github.com/fox-one/mixin-sdk-go v1.7.9
+	github.com/google/uuid v1.3.0
 	github.com/mvg-fi/common v0.1.10
 	github.com/mvg-fi/go-limiter v0.1.1
+	github.com/pandodao/mtg v1.0.5
 	github.com/pelletier/go-toml v1.9.5
 	github.com/shopspring/decimal v1.3.1
 	github.com/tidwall/gjson v1.16.0

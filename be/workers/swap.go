@@ -1,33 +1,42 @@
 package workers
 
-/*
 import (
-	"context"
-
-	"github.com/MixinNetwork/trusted-group/mtg"
-	"github.com/fox-one/mixin-sdk-go"
+	"github.com/mvg-fi/mvg-bridge/config"
+	"github.com/mvg-fi/mvg-bridge/constants"
+	"github.com/mvg-fi/mvg-bridge/providers"
+	"github.com/mvg-fi/mvg-bridge/store"
 )
 
-type TimeoutWorker struct {
-	grp mtg.Group
+type SwapWorker struct {
+	store *store.BadgerStore
+	conf  *config.Configuration
 }
 
-func NewTimeoutWorker(grp mtg.Group) *TimeoutWorker {
-	return &TimeoutWorker{
-		grp: grp,
+func NewSwapWorker(store *store.BadgerStore, conf *config.Configuration) *SwapWorker {
+	return &SwapWorker{
+		store,
+		conf,
 	}
 }
 
-func (rw *TimeoutWorker) ProcessOutput(ctx context.Context, out *mtg.Output) {
-	receivers := []string{out.Sender}
-	traceId := mixin.UniqueConversationID(out.UTXOID, "refund")
-	err := rw.grp.BuildTransaction(ctx, out.AssetID, receivers, int(1), out.Amount.String(), "refund", traceId, "")
+func (sw *SwapWorker) process() error {
+	// list orders
+	orders, err := sw.store.ListOrders(100)
 	if err != nil {
-		panic(err)
+		return err
+	}
+	// if status == constants.PrefixReceived
+	for _, o := range orders {
+		if o.Status == constants.PrefixReceived {
+			// swap
+			sw.swap()
+		}
 	}
 }
 
-func (rw *TimeoutWorker) ProcessCollectibleOutput(ctx context.Context, out *mtg.CollectibleOutput) {
-	return
+func (sw *SwapWorker) swap(o *constants.Order) {
+	// send swap
+	providers.Swap()
+	// set status sent
+	// set swap trace
 }
-*/

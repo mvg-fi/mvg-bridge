@@ -86,11 +86,11 @@ func (p *Proxy) GetRandomDepositUser(ctx context.Context, store *store.BadgerSto
 	return &User{*u}
 }
 
-func (p *Proxy) GetADeposit(ctx context.Context, store *store.BadgerStore, assetID string) *mixin.DepositEntry {
+func (p *Proxy) GetADeposit(ctx context.Context, store *store.BadgerStore, assetID, orderID string) *mixin.DepositEntry {
 	user := p.GetRandomDepositUser(ctx, store, assetID)
-	err := store.LockUserAsset(user.UserID, assetID)
+	err := store.LockSet(user.UserID, assetID, orderID)
 	if err != nil {
-		logger.Errorf("store.LockUserAsset(user.UserID, assetID) =>", err)
+		logger.Errorf("store.LockSet(user.UserID, assetID) =>", err)
 	}
 	return user.GetDepositAddr(ctx, assetID)
 }

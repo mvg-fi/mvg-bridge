@@ -62,10 +62,10 @@ func (bs *BadgerStore) ListUsers(limit int) ([]*constants.User, error) {
 	return users, nil
 }
 
-func (bs *BadgerStore) LockUserAsset(userID, assetID string) error {
+func (bs *BadgerStore) LockSet(userID, assetID, orderID string) error {
 	return bs.Badger().Update(func(txn *badger.Txn) error {
 		key := []byte(constants.PrefixLock + userID + ":" + assetID)
-		val := mtg.MsgpackMarshalPanic(key)
+		val := mtg.MsgpackMarshalPanic(orderID)
 		return txn.Set(key, val)
 	})
 }
@@ -89,16 +89,21 @@ func (bs *BadgerStore) LockGet(userID, assetID string) (string, error) {
 	defer txn.Discard()
 
 	key := []byte(constants.PrefixLock + userID + ":" + assetID)
-	item, err := txn.Get(key)
+	value, err := txn.Get(key)
 	if err != nil {
 		return "", err
 	}
-	val, err := item.ValueCopy(nil)
+	val, err := value.ValueCopy(nil)
+	if err != nil {
+		return "", err
+	}
+	var orderID string
+	err = mtg.MsgpackUnmarshal(val, &orderID)
 	if err != nil {
 		return "", err
 	}
 
-	return string(val), nil
+	return string(orderID), nil
 }
 
 func (bs *BadgerStore) LockRemove(userID, assetID string) error {

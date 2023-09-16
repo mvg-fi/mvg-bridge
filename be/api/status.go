@@ -14,7 +14,7 @@ func (a *API) StatusHandler() http.HandlerFunc {
 			return
 		}
 
-		var d constants.DepositResp
+		var d constants.Order
 		err := json.NewDecoder(r.Body).Decode(&d)
 		if err != nil {
 			return
