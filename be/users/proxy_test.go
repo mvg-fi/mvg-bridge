@@ -1,6 +1,16 @@
 package users
 
-/*
+import (
+	"context"
+	"fmt"
+	"os/user"
+	"path/filepath"
+	"testing"
+
+	"github.com/mvg-fi/mvg-bridge/config"
+	"github.com/mvg-fi/mvg-bridge/store"
+)
+
 func TestNewUser(t *testing.T) {
 	ctx := context.Background()
 	usr, _ := user.Current()
@@ -16,11 +26,10 @@ func TestNewUser(t *testing.T) {
 	}
 	defer db.Close()
 
-	p := NewProxy(ctx, conf.MTG, conf.Proxy)
+	p := NewProxy(ctx, conf)
 	user, err := p.NewUser(ctx, db)
 	if err != nil {
 		fmt.Errorf("%v", err)
 	}
 	fmt.Printf("%+v", user)
 }
-*/

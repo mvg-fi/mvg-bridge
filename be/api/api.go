@@ -44,7 +44,7 @@ func InitIPRateLimit() *httplimit.Middleware {
 }
 
 func (a *API) run(ctx context.Context, host, port string) {
-	proxy := users.NewProxy(ctx, a.c.ProxyRoot, a.c)
+	proxy := users.NewProxy(ctx, a.c)
 	ipRateLimit := InitIPRateLimit()
 
 	http.Handle("/price/simple", a.PriceSimpleHandler())

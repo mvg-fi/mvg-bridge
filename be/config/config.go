@@ -7,7 +7,6 @@ import (
 	"strings"
 
 	"github.com/MixinNetwork/trusted-group/mtg"
-	"github.com/fox-one/mixin-sdk-go"
 	"github.com/mvg-fi/common/messenger"
 	"github.com/mvg-fi/common/web"
 	"github.com/pelletier/go-toml"
@@ -18,11 +17,19 @@ type Proxy struct {
 	ProxyUserSecret string `toml:"proxy-user-secret"`
 }
 
+type ProxyRoot struct {
+	ClientID   string `toml:"client-id"`
+	SessionID  string `toml:"session-id"`
+	PrivateKey string `toml:"private-key"`
+	PinToken   string `toml:"pin-token"`
+	Scope      string `toml:"scope"`
+}
+
 type Configuration struct {
 	MTG       *mtg.Configuration            `toml:"mtg"`
 	Messenger *messenger.MixinConfiguration `toml:"messenger"`
 	API       *web.Configuration            `toml:"api"`
-	ProxyRoot *mixin.Keystore               `toml:"proxyroot"`
+	ProxyRoot *ProxyRoot                    `toml:"proxyroot"`
 	Proxy     *Proxy                        `toml:"proxy"`
 }
 

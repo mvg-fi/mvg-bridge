@@ -17,7 +17,6 @@ type User struct {
 }
 
 func (u *User) Handle(ctx context.Context, store *store.BadgerStore, conf *config.Configuration, s *mixin.Snapshot) error {
-	// Get order ID by Lock
 	orderID, err := store.LockGet(s.UserID, s.AssetID)
 	if err != nil {
 		logger.Errorf("store.LockGet(%s, %s) => %v", s.UserID, s.AssetID, err)
@@ -101,7 +100,7 @@ func (u *User) GetDepositAddr(ctx context.Context, assetID string) *mixin.Deposi
 
 	ast, err := client.ReadAsset(ctx, assetID)
 	if err != nil {
-		logger.Errorf("u.ReadAsset() =>", err)
+		logger.Errorf("u.ReadAsset() => %v", err)
 	}
 	return &ast.DepositEntries[0]
 }

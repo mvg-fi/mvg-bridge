@@ -2,7 +2,6 @@ package api
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -28,12 +27,9 @@ func (a *API) PriceSimpleHandler() http.HandlerFunc {
 		}
 		log.Printf("/price/simple => %+v\n", req)
 
-		amount, fee := providers.GetPriceSimple(req.FromAssetID, req.ToAssetID, req.Amount, req.Except, req.Cex)
+		resp := providers.GetPriceSimple(req.FromAssetID, req.ToAssetID, req.Amount, req.Except, req.Cex)
 
-		json.NewEncoder(w).Encode(&constants.PriceSimpleResp{
-			Amount: fmt.Sprintf("%v", amount),
-			Fee:    fmt.Sprintf("%v", fee),
-		})
+		json.NewEncoder(w).Encode(resp)
 	})
 }
 

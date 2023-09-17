@@ -16,6 +16,7 @@ import (
 )
 
 const (
+	NAME     = "Mixpay"
 	Endpoint = "https://api.mixpay.me"
 
 	GetPricePath  = "/v1/payments_estimated"
@@ -98,10 +99,10 @@ func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool)
 	}
 	js, err := json.Marshal(constants.MixpayPaymentReq{
 		PayeeID:           MultisigID,
-		PaymentAssetID:    orderId,
+		PaymentAssetID:    payAsset,
 		SettlementAssetID: payAsset,
-		QuoteAssetID:      payAsset,
-		TraceID:           receiveAsset,
+		QuoteAssetID:      receiveAsset,
+		TraceID:           mixin.UniqueConversationID(orderId, "swap:init"),
 		QuoteAmount:       amount,
 		Remark:            "",
 		IsChain:           chain,
@@ -119,10 +120,11 @@ func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool)
 	if err != nil {
 		logger.Errorf("%v", err)
 	}
+	//REMOVE ME
 	fmt.Println("resp.Body:", string(body))
 
-	var mixpayResp *constants.MixpayPaymentResp
-	err = json.Unmarshal(body, mixpayResp)
+	var mixpayResp constants.MixpayPaymentResp
+	err = json.Unmarshal(body, &mixpayResp)
 	if err != nil {
 		logger.Errorf("%v", err)
 	}
@@ -130,11 +132,12 @@ func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool)
 	if !mixpayResp.Success {
 		logger.Println("mixpay.createPayment() failed")
 	}
-	return mixpayResp
+	return &mixpayResp
 }
 
 func Swap(orderId, payAsset, receiveAsset, amount string, onChain bool) *mixin.TransferInput {
 	// Create mixin payment
+	fmt.Printf("createPayment(%s, %s, %s, %s, %t)", orderId, payAsset, receiveAsset, amount, onChain)
 	mixpayResp := createPayment(orderId, payAsset, receiveAsset, amount, onChain)
 	paymentAmount, _ := decimal.NewFromString(mixpayResp.Data.PaymentAmount)
 	return &mixin.TransferInput{

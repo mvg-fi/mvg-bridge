@@ -9,8 +9,15 @@ type PriceSimpleReq struct {
 }
 
 type PriceSimpleResp struct {
-	Amount string `json:"amount"`
-	Fee    string `json:"fee"`
+	Amount float64 `json:"amount"`
+	Fee    float64 `json:"fee"`
+}
+
+type PriceBest struct {
+	Name    string `json:"name"`
+	Amount  string `json:"amount"`
+	FeeName string `json:"fee_name"`
+	Fee     string `json:"fee"`
 }
 
 type PriceAllReq struct {

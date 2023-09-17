@@ -10,12 +10,14 @@ import (
 	"github.com/fox-one/mixin-sdk-go"
 	"github.com/google/uuid"
 	"github.com/mvg-fi/common/logger"
+	"github.com/mvg-fi/mvg-bridge/constants"
 	"github.com/pandodao/mtg/mtgpack"
 	"github.com/pandodao/mtg/protocol"
 	"github.com/shopspring/decimal"
 )
 
 var (
+	NAME                  = "PandoSwap"
 	PandoSwapMTGMembers   = []string{"a753e0eb-3010-4c4a-a7b2-a7bda4063f62", "099627f8-4031-42e3-a846-006ee598c56e", "aefbfd62-727d-4424-89db-ae41f75d2e04", "d68ca71f-0e2c-458a-bb9c-1d6c2eed2497", "e4bc0740-f8fe-418c-ae1b-32d9926f5863"}
 	PandoSwapMTGThreshold = uint8(3)
 )
@@ -62,9 +64,9 @@ func GetStatus(traceId string) {
 	fmt.Printf("%+v", order)
 }
 
-func Swap(members []string, threshold uint8, orderId, payAsset, receiveAsset, amount, except string) *mixin.TransferInput {
+func Swap(orderId, payAsset, receiveAsset, amount string) *mixin.TransferInput {
 	amt, _ := decimal.NewFromString(amount)
-	memo := generateSwapMemo(members, threshold, orderId, receiveAsset, amount, except)
+	memo := generateSwapMemo(constants.MTGMembers, constants.MTGThreshold, orderId, receiveAsset, amount, "")
 	input := &mixin.TransferInput{
 		AssetID: payAsset,
 		TraceID: mixin.UniqueConversationID(orderId, "swap:init"),
@@ -76,7 +78,7 @@ func Swap(members []string, threshold uint8, orderId, payAsset, receiveAsset, am
 	return input
 }
 
-func generateSwapMemo(members []string, threshold uint8, orderId, receiveAsset, amount, except string) string {
+func generateSwapMemo(members []string, threshold uint8, orderId, receiveAsset, amount, minReceive string) string {
 	header := protocol.Header{
 		Version:    1,
 		ProtocolID: protocol.ProtocolFswap,
@@ -91,8 +93,8 @@ func generateSwapMemo(members []string, threshold uint8, orderId, receiveAsset, 
 		Threshold: threshold,
 	}
 
-	min, _ := decimal.NewFromString(except)
-	if except == "" {
+	min, _ := decimal.NewFromString(minReceive)
+	if minReceive == "" {
 		min = decimal.NewFromInt(0)
 	}
 

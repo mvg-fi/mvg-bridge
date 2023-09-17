@@ -18,8 +18,14 @@ type Proxy struct {
 	config *config.Configuration
 }
 
-func NewProxy(ctx context.Context, ks *mixin.Keystore, conf *config.Configuration) *Proxy {
-	client, err := mixin.NewFromKeystore(ks)
+func NewProxy(ctx context.Context, conf *config.Configuration) *Proxy {
+	client, err := mixin.NewFromKeystore(&mixin.Keystore{
+		ClientID:   conf.ProxyRoot.ClientID,
+		SessionID:  conf.ProxyRoot.SessionID,
+		PrivateKey: conf.ProxyRoot.PrivateKey,
+		PinToken:   conf.ProxyRoot.PinToken,
+		Scope:      conf.ProxyRoot.Scope,
+	})
 	if err != nil {
 		panic(err)
 	}
@@ -62,13 +68,13 @@ func (p *Proxy) NewUser(ctx context.Context, store *store.BadgerStore) (*constan
 func (p *Proxy) GetRandomDepositUser(ctx context.Context, store *store.BadgerStore, assetID string) *User {
 	users, err := store.ListUsers(100)
 	if err != nil {
-		logger.Errorf("proxy.GetRandomDepositUser() =>", err)
+		logger.Errorf("proxy.GetRandomDepositUser() => %v", err)
 	}
 
 	for i := 0; i < len(users); i++ {
 		locked, err := store.LockCheck(users[i].UserID, assetID)
 		if err != nil {
-			logger.Errorf("store.LockCheck(users[i], assetID) =>", err)
+			logger.Errorf("store.LockCheck(users[i], assetID) => %v", err)
 			continue
 		}
 		if !locked {
@@ -77,11 +83,11 @@ func (p *Proxy) GetRandomDepositUser(ctx context.Context, store *store.BadgerSto
 	}
 	u, err := p.NewUser(ctx, store)
 	if err != nil {
-		logger.Errorf("proxy.NewUser() =>", err)
+		logger.Errorf("proxy.NewUser() => %v", err)
 	}
 	err = store.WriteUser(u)
 	if err != nil {
-		logger.Errorf("store.Write(u) =>", err)
+		logger.Errorf("store.Write(u) => %v", err)
 	}
 	return &User{*u}
 }
@@ -90,7 +96,7 @@ func (p *Proxy) GetADeposit(ctx context.Context, store *store.BadgerStore, asset
 	user := p.GetRandomDepositUser(ctx, store, assetID)
 	err := store.LockSet(user.UserID, assetID, orderID)
 	if err != nil {
-		logger.Errorf("store.LockSet(user.UserID, assetID) =>", err)
+		logger.Errorf("store.LockSet(user.UserID, assetID) => %v", err)
 	}
 	return user.GetDepositAddr(ctx, assetID)
 }
