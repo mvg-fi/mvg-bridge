@@ -22,9 +22,13 @@ func TestNoCexSimple(t *testing.T) {
 
 func TestGetPriceAll(t *testing.T) {
 	prices := GetPriceAll("c6d0c728-2624-429b-8e0d-d9d19b6592fa", "43d61dcd-e413-450d-80b8-101d5e903357", "1", "", true)
-	fmt.Println("\n1 BTC -> ETH", prices)
+	fmt.Printf("\n1 BTC -> ETH: %+v", prices)
 	prices = GetPriceAll("c6d0c728-2624-429b-8e0d-d9d19b6592fa", "43d61dcd-e413-450d-80b8-101d5e903357", "0.1", "", true)
-	fmt.Println("\n0.1 BTC -> ETH", prices)
+	fmt.Printf("\n0.1 BTC -> ETH: %+v", prices)
+
+	prices = GetPriceAll("c6d0c728-2624-429b-8e0d-d9d19b6592fa", "43d61dcd-e413-450d-80b8-101d5e903357", "", "1", true)
+	fmt.Printf("\n0.1 BTC -> ETH: %+v", prices)
+
 }
 
 func TestNoCexAll(t *testing.T) {
@@ -35,6 +39,11 @@ func TestNoCexAll(t *testing.T) {
 }
 
 func TestSwap(t *testing.T) {
-	ip := Swap("260deccc-4ab2-4118-985d-5bfa072fab69", "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "43d61dcd-e413-450d-80b8-101d5e903357", "0.1", true)
-	fmt.Printf("%+v", ip)
+	ip0, ip1 := Swap("260deccc-4ab2-4118-985d-5bfa072fab69", "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "43d61dcd-e413-450d-80b8-101d5e903357", "0.1", true)
+	fmt.Printf("ip0:%+v\n", ip0)
+	fmt.Printf("ip1:%+v\n", ip1)
+
 }
+
+// Test truly transfer the asset to the provider
+// And find a way to connect the receving step

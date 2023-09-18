@@ -27,7 +27,7 @@ func (u *User) Handle(ctx context.Context, store *store.BadgerStore, conf *confi
 	}
 
 	// Change order state to swap
-	order.Status = constants.PrefixReceived
+	order.Status = constants.StatusReceived
 	err = store.UpdateOrder(orderID, order)
 	if err != nil {
 		logger.Errorf("store.UpdateOrder(%s) => %v", orderID, err)

@@ -103,7 +103,7 @@ func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool)
 		SettlementAssetID: payAsset,
 		QuoteAssetID:      receiveAsset,
 		TraceID:           mixin.UniqueConversationID(orderId, "swap:init"),
-		QuoteAmount:       amount,
+		PaymentAmount:     amount,
 		Remark:            "",
 		IsChain:           chain,
 	})
@@ -120,8 +120,6 @@ func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool)
 	if err != nil {
 		logger.Errorf("%v", err)
 	}
-	//REMOVE ME
-	fmt.Println("resp.Body:", string(body))
 
 	var mixpayResp constants.MixpayPaymentResp
 	err = json.Unmarshal(body, &mixpayResp)
@@ -137,9 +135,9 @@ func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool)
 
 func Swap(orderId, payAsset, receiveAsset, amount string, onChain bool) *mixin.TransferInput {
 	// Create mixin payment
-	fmt.Printf("createPayment(%s, %s, %s, %s, %t)", orderId, payAsset, receiveAsset, amount, onChain)
+	//fmt.Printf("createPayment(%s, %s, %s, %s, %t)", orderId, payAsset, receiveAsset, amount, onChain)
 	mixpayResp := createPayment(orderId, payAsset, receiveAsset, amount, onChain)
-	paymentAmount, _ := decimal.NewFromString(mixpayResp.Data.PaymentAmount)
+	paymentAmount, _ := decimal.NewFromString(amount)
 	return &mixin.TransferInput{
 		AssetID:    mixpayResp.Data.PaymentAssetID,
 		OpponentID: mixpayResp.Data.Recipient,

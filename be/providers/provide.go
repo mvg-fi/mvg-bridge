@@ -8,15 +8,18 @@ import (
 	"github.com/mvg-fi/mvg-bridge/constants"
 	"github.com/mvg-fi/mvg-bridge/providers/mixpay"
 	"github.com/mvg-fi/mvg-bridge/providers/pandoswap"
+	"github.com/shopspring/decimal"
 )
 
 var (
 	PROVIDERS = []string{mixpay.NAME, pandoswap.NAME}
 	CEX       = []string{mixpay.NAME}
 	DEX       = []string{pandoswap.NAME}
-	DISABLED  = []string{""}
+	DISABLED  = []string{}
 )
 
+// bestPrice is the amount of asset will be received
+// bestFee is the amount of original asset will be charged
 func GetPriceSimple(payAsset, receiveAsset, amount, except string, cex bool) *constants.PriceSimpleResp {
 	var mixpayChan, mixpayFeeChan chan float64
 	var mixpayPrice, mixpayFee float64
@@ -103,26 +106,46 @@ func GetPriceAll(payAsset, receiveAsset, amount, except string, cex bool) []cons
 	}
 }
 
-func Swap(orderId, payAsset, receiveAsset, amount string, cex bool) *mixin.TransferInput {
+func Swap(orderId, payAsset, receiveAsset, amount string, cex bool) (*mixin.TransferInput, *mixin.TransferInput) {
 	// Find best provider and filter disabled
 	priceAll := GetPriceAll(payAsset, receiveAsset, amount, "", cex)
 	priceAll = filterDisabledProvider(priceAll, DISABLED)
 	best := findMaxAmountAndMinFee(priceAll)
+	var i0, i1 *mixin.TransferInput
+	fromAmount, _ := decimal.NewFromString(best.Amount)
+	fromFeeAmount, _ := decimal.NewFromString(best.Fee)
+	amount = fromAmount.Sub(fromFeeAmount).String()
 
-	// Swap
+	//TODO also sub bridge fee
+	//fmt.Printf("Amount:%s\nFee:%s\namount: %s\n", best.Amount, best.Fee, amount)
+
 	if cex && slices.Contains(CEX, best.Name) {
 		switch best.Name {
 		case CEX[0]:
-			return mixpay.Swap(orderId, payAsset, receiveAsset, amount, false)
+			i0 = mixpay.Swap(orderId, payAsset, receiveAsset, amount, false)
 		}
-	}
-	if slices.Contains(DEX, best.Name) {
+
+	} else if slices.Contains(DEX, best.Name) {
 		switch best.Name {
 		case DEX[0]:
-			return pandoswap.Swap(orderId, payAsset, receiveAsset, amount)
+			i0 = pandoswap.Swap(orderId, payAsset, receiveAsset, amount)
 		}
 	}
-	return &mixin.TransferInput{}
+
+	if cex && slices.Contains(CEX, best.FeeName) {
+		switch best.FeeName {
+		case CEX[0]:
+			i1 = mixpay.Swap(orderId, payAsset, receiveAsset, best.Fee, false)
+		}
+	} else if slices.Contains(DEX, best.FeeName) {
+		switch best.FeeName {
+		case DEX[0]:
+			i1 = pandoswap.Swap(orderId, payAsset, receiveAsset, best.Fee)
+		}
+
+	}
+
+	return i0, i1
 }
 
 func GetStatus() {

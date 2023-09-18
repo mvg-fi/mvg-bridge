@@ -73,3 +73,7 @@ func filterDisabledProvider(all []constants.PriceAllResp, disabled []string) []c
 	}
 	return left
 }
+
+func afterBridgeFee() {
+
+}

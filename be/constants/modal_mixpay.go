@@ -6,7 +6,7 @@ type MixpayPaymentReq struct {
 	SettlementAssetID string `json:"settlementAssetId"`
 	QuoteAssetID      string `json:"quoteAssetId"`
 	TraceID           string `json:"traceId"`
-	QuoteAmount       string `json:"quoteAmount"`
+	PaymentAmount     string `json:"paymentAmount"`
 	Remark            string `json:"remark,omitempty"`
 	IsChain           int    `json:"isChain,omitempty"`
 }
