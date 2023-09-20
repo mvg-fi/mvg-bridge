@@ -2,6 +2,7 @@ package workers
 
 import (
 	"context"
+	"time"
 
 	"github.com/MixinNetwork/trusted-group/mtg"
 	"github.com/mvg-fi/common/logger"
@@ -36,8 +37,18 @@ func (sw *SwapWorker) process(ctx context.Context) error {
 		}
 		err := sw.swap(o)
 		if err != nil {
+			return error
+		}
+	}
+}
+
+func (sw *SwapWorker) Loop(ctx context.Context) {
+	for {
+		err := sw.process(ctx)
+		if err != nil {
 			logger.Errorf("sw.swap(%v) => %v", o, err)
 		}
+		time.Sleep(3 * time.Second)
 	}
 }
 
@@ -49,13 +60,11 @@ func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 	// fee
 	err := sw.group.BuildTransaction(ctx, i1.AssetID, i1.OpponentMultisig.Receivers, i1.OpponentMultisig.Threshold, i1.Amount, i1.Memo, i1.TraceID, constants.SwapTypeFeeInit)
 
-	//(ctx, evt.Asset, evt.Members, evt.Threshold, amount, memo, traceId, p.Identifier
-	// get fee swap
-
 	// set status sent
 	o.Status = constants.StatusSwapSent
 	err := sw.store.UpdateOrder(o.OrderID, o)
 	if err != nil {
 		return err
 	}
+	return nil
 }
