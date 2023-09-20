@@ -82,11 +82,13 @@ func Swap(typee, orderId, payAsset, receiveAsset, amount string) *mixin.Transfer
 	}
 	memo := base64.StdEncoding.EncodeToString([]byte(fmt.Sprintf("EX#CO#%s#%s", receiveAsset, REFCODE)))
 	amt, _ := decimal.NewFromString(amount)
-	return &mixin.TransferInput{
-		AssetID:    payAsset,
-		OpponentID: CLIENTID,
-		TraceID:    mixin.UniqueConversationID(orderId, typeee),
-		Amount:     amt,
-		Memo:       memo,
+	input := &mixin.TransferInput{
+		AssetID: payAsset,
+		TraceID: mixin.UniqueConversationID(orderId, typeee),
+		Amount:  amt,
+		Memo:    memo,
 	}
+	input.OpponentMultisig.Receivers = []string{CLIENTID}
+	input.OpponentMultisig.Threshold = uint8(1)
+	return input
 }

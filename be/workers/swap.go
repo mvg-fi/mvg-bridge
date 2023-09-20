@@ -44,7 +44,11 @@ func (sw *SwapWorker) process(ctx context.Context) error {
 func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 	// get amount swap
 	i0, i1 := providers.Swap(o.TraceID, o.FromAssetID, o.ToAssetID, o.Amount, o.Cex)
-	err := sw.group.BuildTransaction(ctx, o.FromAssetID)
+	// main
+	err := sw.group.BuildTransaction(ctx, i0.AssetID, i0.OpponentMultisig.Receivers, i0.OpponentMultisig.Threshold, i0.Amount, i0.Memo, i0.TraceID, constants.SwapTypeMainInit)
+	// fee
+	err := sw.group.BuildTransaction(ctx, i1.AssetID, i1.OpponentMultisig.Receivers, i1.OpponentMultisig.Threshold, i1.Amount, i1.Memo, i1.TraceID, constants.SwapTypeFeeInit)
+
 	//(ctx, evt.Asset, evt.Members, evt.Threshold, amount, memo, traceId, p.Identifier
 	// get fee swap
 

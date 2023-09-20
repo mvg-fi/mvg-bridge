@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/mvg-fi/mvg-bridge/constants"
+	"github.com/shopspring/decimal"
 )
 
 func findLargest(numbers ...float64) float64 {
@@ -74,6 +75,9 @@ func filterDisabledProvider(all []constants.PriceAllResp, disabled []string) []c
 	return left
 }
 
-func afterBridgeFee() {
-
+func AfterBridgeFee(amount, fee string) string {
+	am, _ := decimal.NewFromString(amount)
+	fe, _ := decimal.NewFromString(fee)
+	after := am.Sub(fe)
+	return after.Sub(after.Mul(constants.BridgeFee)).RoundUp(8).String()
 }

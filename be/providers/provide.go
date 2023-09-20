@@ -8,7 +8,6 @@ import (
 	"github.com/mvg-fi/mvg-bridge/constants"
 	"github.com/mvg-fi/mvg-bridge/providers/exinone"
 	"github.com/mvg-fi/mvg-bridge/providers/pandoswap"
-	"github.com/shopspring/decimal"
 )
 
 var (
@@ -115,18 +114,13 @@ func GetPriceAll(payAsset, receiveAsset, amount, except string, cex bool) []cons
 }
 
 func Swap(orderId, payAsset, receiveAsset, amount string, cex bool) (*mixin.TransferInput, *mixin.TransferInput) {
-	// Find best provider and filter disabled
+	var i0, i1 *mixin.TransferInput
 	priceAll := GetPriceAll(payAsset, receiveAsset, amount, "", cex)
 	priceAll = filterDisabledProvider(priceAll, DISABLED)
 	best := findMaxAmountAndMinFee(priceAll)
-	var i0, i1 *mixin.TransferInput
-	fromAmount, _ := decimal.NewFromString(best.Amount)
-	fromFeeAmount, _ := decimal.NewFromString(best.Fee)
-	amount = fromAmount.Sub(fromFeeAmount).String()
+	amount = AfterBridgeFee(best.Amount, best.Fee)
 
-	//TODO also sub bridge fee
-	//fmt.Printf("Amount:%s\nFee:%s\namount: %s\n", best.Amount, best.Fee, amount)
-
+	// TODO: withdrawal fee * 1.05 to avoid price change
 	if cex && slices.Contains(CEX, best.Name) {
 		switch best.Name {
 		case CEX[0]:

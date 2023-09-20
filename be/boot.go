@@ -73,3 +73,8 @@ func bootCmd(c *cli.Context) error {
 func runCmd(c *cli.Context) error {
 	return nil
 }
+
+// Only run proxy users
+func runProxy(c *cli.Context) error {
+	return nil
+}
