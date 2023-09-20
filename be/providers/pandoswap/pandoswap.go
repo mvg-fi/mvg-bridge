@@ -64,12 +64,18 @@ func GetStatus(traceId string) {
 	fmt.Printf("%+v", order)
 }
 
-func Swap(orderId, payAsset, receiveAsset, amount string) *mixin.TransferInput {
+func Swap(typee, orderId, payAsset, receiveAsset, amount string) *mixin.TransferInput {
+	var typeee string
+	if typee == constants.SwapTypeMain {
+		typeee = constants.SwapTypeMainInit
+	} else {
+		typeee = constants.SwapTypeFeeInit
+	}
 	amt, _ := decimal.NewFromString(amount)
 	memo := generateSwapMemo(constants.MTGMembers, constants.MTGThreshold, orderId, receiveAsset, amount, "")
 	input := &mixin.TransferInput{
 		AssetID: payAsset,
-		TraceID: mixin.UniqueConversationID(orderId, "swap:init"),
+		TraceID: mixin.UniqueConversationID(orderId, typeee),
 		Amount:  amt,
 		Memo:    memo,
 	}

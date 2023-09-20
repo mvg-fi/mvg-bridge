@@ -31,4 +31,11 @@ const (
 	StatusSwapSent     = "SWAPSENT"
 	StatusSwapReceived = "SWAPRECEIVED"
 	StatusWithdrawSent = "WITHDRAWSENT"
+
+	SwapTypeMain     = "main"
+	SwapTypeFee      = "fee"
+	SwapTypeMainInit = "swap:main:init"
+	SwapTypeFeeInit  = "swap:fee:init"
+
+	MTGGroupIDSwap = "SWAP"
 )

@@ -1,6 +1,9 @@
 package workers
 
 import (
+	"context"
+
+	"github.com/MixinNetwork/trusted-group/mtg"
 	"github.com/mvg-fi/common/logger"
 	"github.com/mvg-fi/mvg-bridge/config"
 	"github.com/mvg-fi/mvg-bridge/constants"
@@ -9,18 +12,20 @@ import (
 )
 
 type SwapWorker struct {
+	group *mtg.Group
 	store *store.BadgerStore
 	conf  *config.Configuration
 }
 
-func NewSwapWorker(store *store.BadgerStore, conf *config.Configuration) *SwapWorker {
+func NewSwapWorker(group *mtg.Group, store *store.BadgerStore, conf *config.Configuration) *SwapWorker {
 	return &SwapWorker{
+		group,
 		store,
 		conf,
 	}
 }
 
-func (sw *SwapWorker) process() error {
+func (sw *SwapWorker) process(ctx context.Context) error {
 	orders, err := sw.store.ListOrders(100)
 	if err != nil {
 		return err
@@ -36,9 +41,11 @@ func (sw *SwapWorker) process() error {
 	}
 }
 
-func (sw *SwapWorker) swap(o *constants.Order) error {
+func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 	// get amount swap
-	input := providers.Swap(o.TraceID, o.FromAssetID, o.ToAssetID, o.Amount, o.Cex)
+	i0, i1 := providers.Swap(o.TraceID, o.FromAssetID, o.ToAssetID, o.Amount, o.Cex)
+	err := sw.group.BuildTransaction(ctx, o.FromAssetID)
+	//(ctx, evt.Asset, evt.Members, evt.Threshold, amount, memo, traceId, p.Identifier
 	// get fee swap
 
 	// set status sent

@@ -6,14 +6,14 @@ import (
 
 	"github.com/fox-one/mixin-sdk-go"
 	"github.com/mvg-fi/mvg-bridge/constants"
-	"github.com/mvg-fi/mvg-bridge/providers/mixpay"
+	"github.com/mvg-fi/mvg-bridge/providers/exinone"
 	"github.com/mvg-fi/mvg-bridge/providers/pandoswap"
 	"github.com/shopspring/decimal"
 )
 
 var (
-	PROVIDERS = []string{mixpay.NAME, pandoswap.NAME}
-	CEX       = []string{mixpay.NAME}
+	PROVIDERS = []string{exinone.NAME, pandoswap.NAME}
+	CEX       = []string{exinone.NAME}
 	DEX       = []string{pandoswap.NAME}
 	DISABLED  = []string{}
 )
@@ -21,16 +21,20 @@ var (
 // bestPrice is the amount of asset will be received
 // bestFee is the amount of original asset will be charged
 func GetPriceSimple(payAsset, receiveAsset, amount, except string, cex bool) *constants.PriceSimpleResp {
-	var mixpayChan, mixpayFeeChan chan float64
-	var mixpayPrice, mixpayFee float64
+	var exinoneChan, exinoneFeeChan chan float64
+	var exinonePrice, exinoneFee float64
 	var pandoswapChan, pandoswapfeeChan chan float64
 	var pandoswapPrice, pandoswapFee float64
 	chainAsset, fee := AssetFee(receiveAsset)
 	if cex {
-		mixpayChan = make(chan float64)
-		mixpayFeeChan = make(chan float64)
-		go mixpay.GetPrice(payAsset, chainAsset, "", fee, mixpayFeeChan)
-		go mixpay.GetPrice(payAsset, receiveAsset, amount, except, mixpayChan)
+		exinoneChan = make(chan float64)
+		exinoneFeeChan = make(chan float64)
+		go exinone.GetPrice(chainAsset, payAsset, fee, exinoneFeeChan)
+		if len(except) == 0 {
+			go exinone.GetPrice(payAsset, receiveAsset, amount, exinoneChan)
+		} else {
+			go exinone.GetPrice(chainAsset, payAsset, except, exinoneChan)
+		}
 	}
 	pandoswapChan = make(chan float64)
 	pandoswapfeeChan = make(chan float64)
@@ -40,10 +44,10 @@ func GetPriceSimple(payAsset, receiveAsset, amount, except string, cex bool) *co
 	pandoswapPrice = <-pandoswapChan
 	pandoswapFee = <-pandoswapfeeChan
 	if cex {
-		mixpayPrice = <-mixpayChan
-		mixpayFee = <-mixpayFeeChan
+		exinonePrice = <-exinoneChan
+		exinoneFee = <-exinoneFeeChan
 	}
-	bestPrice, bestFee := findLargest(mixpayPrice, pandoswapPrice), findSmallest(mixpayFee, pandoswapFee)
+	bestPrice, bestFee := findLargest(exinonePrice, pandoswapPrice), findSmallest(exinoneFee, pandoswapFee)
 
 	if cex {
 		return &constants.PriceSimpleResp{
@@ -59,16 +63,20 @@ func GetPriceSimple(payAsset, receiveAsset, amount, except string, cex bool) *co
 }
 
 func GetPriceAll(payAsset, receiveAsset, amount, except string, cex bool) []constants.PriceAllResp {
-	var mixpayChan, mixpayFeeChan chan float64
-	var mixpayPrice, mixpayFee float64
+	var exinoneChan, exinoneFeeChan chan float64
+	var exinonePrice, exinoneFee float64
 	var pandoswapChan, pandoswapfeeChan chan float64
 	var pandoswapPrice, pandoswapFee float64
 	chainAsset, fee := AssetFee(receiveAsset)
 	if cex {
-		mixpayChan = make(chan float64)
-		mixpayFeeChan = make(chan float64)
-		go mixpay.GetPrice(payAsset, chainAsset, "", fee, mixpayFeeChan)
-		go mixpay.GetPrice(payAsset, receiveAsset, amount, except, mixpayChan)
+		exinoneChan = make(chan float64)
+		exinoneFeeChan = make(chan float64)
+		go exinone.GetPrice(chainAsset, payAsset, fee, exinoneFeeChan)
+		if len(except) == 0 {
+			go exinone.GetPrice(payAsset, receiveAsset, amount, exinoneChan)
+		} else {
+			go exinone.GetPrice(chainAsset, payAsset, except, exinoneChan)
+		}
 	}
 	pandoswapChan = make(chan float64)
 	pandoswapfeeChan = make(chan float64)
@@ -76,8 +84,8 @@ func GetPriceAll(payAsset, receiveAsset, amount, except string, cex bool) []cons
 	go pandoswap.GetPrice(payAsset, receiveAsset, amount, except, pandoswapChan)
 
 	if cex {
-		mixpayPrice = <-mixpayChan
-		mixpayFee = <-mixpayFeeChan
+		exinonePrice = <-exinoneChan
+		exinoneFee = <-exinoneFeeChan
 	}
 	pandoswapPrice = <-pandoswapChan
 	pandoswapFee = <-pandoswapfeeChan
@@ -85,9 +93,9 @@ func GetPriceAll(payAsset, receiveAsset, amount, except string, cex bool) []cons
 	if cex {
 		return []constants.PriceAllResp{
 			{
-				Name:   mixpay.NAME,
-				Amount: fmt.Sprintf("%v", mixpayPrice),
-				Fee:    fmt.Sprintf("%v", mixpayFee),
+				Name:   exinone.NAME,
+				Amount: fmt.Sprintf("%v", exinonePrice),
+				Fee:    fmt.Sprintf("%v", exinoneFee),
 			},
 			{
 				Name:   pandoswap.NAME,
@@ -122,25 +130,25 @@ func Swap(orderId, payAsset, receiveAsset, amount string, cex bool) (*mixin.Tran
 	if cex && slices.Contains(CEX, best.Name) {
 		switch best.Name {
 		case CEX[0]:
-			i0 = mixpay.Swap(orderId, payAsset, receiveAsset, amount, false)
+			i0 = exinone.Swap(constants.SwapTypeMain, orderId, payAsset, receiveAsset, amount)
 		}
 
 	} else if slices.Contains(DEX, best.Name) {
 		switch best.Name {
 		case DEX[0]:
-			i0 = pandoswap.Swap(orderId, payAsset, receiveAsset, amount)
+			i0 = pandoswap.Swap(constants.SwapTypeMain, orderId, payAsset, receiveAsset, amount)
 		}
 	}
 
 	if cex && slices.Contains(CEX, best.FeeName) {
 		switch best.FeeName {
 		case CEX[0]:
-			i1 = mixpay.Swap(orderId, payAsset, receiveAsset, best.Fee, false)
+			i1 = exinone.Swap(constants.SwapTypeFee, orderId, payAsset, receiveAsset, best.Fee)
 		}
 	} else if slices.Contains(DEX, best.FeeName) {
 		switch best.FeeName {
 		case DEX[0]:
-			i1 = pandoswap.Swap(orderId, payAsset, receiveAsset, best.Fee)
+			i1 = pandoswap.Swap(constants.SwapTypeFee, orderId, payAsset, receiveAsset, best.Fee)
 		}
 
 	}

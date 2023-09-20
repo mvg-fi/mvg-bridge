@@ -135,7 +135,6 @@ func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool)
 
 func Swap(orderId, payAsset, receiveAsset, amount string, onChain bool) *mixin.TransferInput {
 	// Create mixin payment
-	//fmt.Printf("createPayment(%s, %s, %s, %s, %t)", orderId, payAsset, receiveAsset, amount, onChain)
 	mixpayResp := createPayment(orderId, payAsset, receiveAsset, amount, onChain)
 	paymentAmount, _ := decimal.NewFromString(amount)
 	return &mixin.TransferInput{
