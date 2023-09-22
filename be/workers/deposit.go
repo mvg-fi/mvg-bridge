@@ -76,7 +76,8 @@ func (dw *DepositWorker) processSnapshots(ctx context.Context) {
 		if user == nil {
 			continue
 		}
-		err = user.Handle(ctx, dw.store, dw.conf, s)
+		u := users.User{*user}
+		err = u.Handle(ctx, dw.store, dw.conf, s)
 		if err != nil {
 			logger.Errorf("user.Handle() => %v", err)
 		}
@@ -92,6 +93,8 @@ func (dw *DepositWorker) processSnapshots(ctx context.Context) {
 }
 
 func (dw *DepositWorker) Run(ctx context.Context) {
+	logger.Println("DepositWorker started")
+
 	go func() {
 		for {
 			dw.loopSnapshots(ctx)

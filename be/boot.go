@@ -74,7 +74,10 @@ func runCmd(c *cli.Context) error {
 	return nil
 }
 
-// Only run proxy users
+// Only run proxy users and API
 func runProxy(c *cli.Context) error {
+	// Run api
+	// Run deposit worker
+	// Run withdrawal worker
 	return nil
 }
