@@ -52,27 +52,6 @@ func GetPrice(payAsset, receiveAsset, amount string, ch chan<- float64) {
 	ch <- gjson.Get(string(body), "data.calcSum").Float()
 }
 
-func GetStatus(traceId string) string {
-	subpath := fmt.Sprintf("payTraceId=%s", traceId)
-	path := fmt.Sprintf("%s%s?%s", Endpoint, GetStatusPath, subpath)
-	fmt.Println(path)
-	resp, err := http.Get(path)
-	if err != nil {
-		logger.Errorf("http.Get(%s) => %v", path, err)
-	}
-	defer resp.Body.Close()
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		logger.Errorf("%v", err)
-	}
-	fmt.Println(string(body))
-	if gjson.Get(string(body), "success").String() != "true" {
-		return ""
-	}
-	return gjson.Get(string(body), "data.orderStatus").String()
-}
-
 func Swap(typee, orderId, payAsset, receiveAsset, amount string) *mixin.TransferInput {
 	var typeee string
 	if typee == constants.SwapTypeMain {
@@ -91,4 +70,32 @@ func Swap(typee, orderId, payAsset, receiveAsset, amount string) *mixin.Transfer
 	input.OpponentMultisig.Receivers = []string{CLIENTID}
 	input.OpponentMultisig.Threshold = uint8(1)
 	return input
+}
+
+func GetStatus(traceID string) string {
+	subpath := fmt.Sprintf("payTraceId=%s", traceID)
+	path := fmt.Sprintf("%s%s?%s", Endpoint, GetStatusPath, subpath)
+	fmt.Println(path)
+	resp, err := http.Get(path)
+	if err != nil {
+		logger.Errorf("http.Get(%s) => %v", path, err)
+	}
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		logger.Errorf("%v", err)
+	}
+
+	fmt.Println(string(body))
+	if gjson.Get(string(body), "success").String() != "true" {
+		return ""
+	}
+	switch gjson.Get(string(body), "data.orderStatus").String() {
+	case "":
+		return ""
+	case "done":
+		return "done"
+	}
+
 }

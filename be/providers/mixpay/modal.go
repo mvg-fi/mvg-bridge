@@ -1,4 +1,4 @@
-package constants
+package mixpay
 
 type MixpayPaymentReq struct {
 	PayeeID           string `json:"payeeId"`

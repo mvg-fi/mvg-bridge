@@ -10,7 +10,6 @@ import (
 
 	"github.com/fox-one/mixin-sdk-go"
 	"github.com/mvg-fi/common/logger"
-	"github.com/mvg-fi/mvg-bridge/constants"
 	"github.com/shopspring/decimal"
 	"github.com/tidwall/gjson"
 )
@@ -90,14 +89,14 @@ func GetStatus(traceId, orderId, payeeId string) {
 }
 
 // For swaps
-func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool) *constants.MixpayPaymentResp {
+func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool) *MixpayPaymentResp {
 	var chain int
 	if onChain {
 		chain = 1
 	} else {
 		chain = 0
 	}
-	js, err := json.Marshal(constants.MixpayPaymentReq{
+	js, err := json.Marshal(MixpayPaymentReq{
 		PayeeID:           MultisigID,
 		PaymentAssetID:    payAsset,
 		SettlementAssetID: payAsset,
@@ -121,7 +120,7 @@ func createPayment(orderId, payAsset, receiveAsset, amount string, onChain bool)
 		logger.Errorf("%v", err)
 	}
 
-	var mixpayResp constants.MixpayPaymentResp
+	var mixpayResp MixpayPaymentResp
 	err = json.Unmarshal(body, &mixpayResp)
 	if err != nil {
 		logger.Errorf("%v", err)
