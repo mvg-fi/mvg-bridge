@@ -61,7 +61,7 @@ func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 }
 
 func (sw *SwapWorker) Run(ctx context.Context) {
-	logger.Println("DepositWorker started")
+	logger.Println("SwapWorker started")
 	for {
 		err := sw.process(ctx)
 		if err != nil {

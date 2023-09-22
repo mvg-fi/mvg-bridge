@@ -1,33 +1,36 @@
 package workers
 
-/*
 import (
 	"context"
 
-	"github.com/MixinNetwork/trusted-group/mtg"
-	"github.com/fox-one/mixin-sdk-go"
+	"github.com/mvg-fi/common/logger"
+	"github.com/mvg-fi/mvg-bridge/config"
+	"github.com/mvg-fi/mvg-bridge/store"
 )
 
-type TimeoutWorker struct {
-	grp mtg.Group
+type WithdrawalWorker struct {
+	store *store.BadgerStore
+	conf  *config.Configuration
 }
 
-func NewTimeoutWorker(grp mtg.Group) *TimeoutWorker {
-	return &TimeoutWorker{
-		grp: grp,
+func NewWithdrawalWorker(store *store.BadgerStore, conf *config.Configuration) *WithdrawalWorker {
+	return &WithdrawalWorker{
+		store,
+		conf,
 	}
 }
 
-func (rw *TimeoutWorker) ProcessOutput(ctx context.Context, out *mtg.Output) {
-	receivers := []string{out.Sender}
-	traceId := mixin.UniqueConversationID(out.UTXOID, "refund")
-	err := rw.grp.BuildTransaction(ctx, out.AssetID, receivers, int(1), out.Amount.String(), "refund", traceId, "")
-	if err != nil {
-		panic(err)
-	}
+func (ww *WithdrawalWorker) processSnapshots(ctx context.Context) {
+	// Loop all received snapshots of the MVG
+	// Check and decode memo
+	// Do the withdrawal
 }
 
-func (rw *TimeoutWorker) ProcessCollectibleOutput(ctx context.Context, out *mtg.CollectibleOutput) {
-	return
+func (ww *WithdrawalWorker) Run(ctx context.Context) {
+	logger.Println("WithdrawalWorker started")
+	go func() {
+		for {
+			ww.processSnapshots(ctx)
+		}
+	}()
 }
-*/

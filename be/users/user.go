@@ -9,6 +9,7 @@ import (
 	"github.com/mvg-fi/common/logger"
 	"github.com/mvg-fi/mvg-bridge/config"
 	"github.com/mvg-fi/mvg-bridge/constants"
+	"github.com/mvg-fi/mvg-bridge/encoding"
 	"github.com/mvg-fi/mvg-bridge/store"
 )
 
@@ -41,7 +42,7 @@ func (u *User) Handle(ctx context.Context, store *store.BadgerStore, conf *confi
 	}
 	input.OpponentMultisig.Receivers = conf.MTG.Genesis.Members
 	input.OpponentMultisig.Threshold = uint8(conf.MTG.Genesis.Threshold)
-	input.Memo = orderID
+	input.Memo = encoding.MsgpackCompressOrder(order)
 
 	user, err := store.ReadUser(s.UserID)
 	if err != nil {

@@ -14,12 +14,14 @@ import (
 )
 
 type API struct {
+	p *users.Proxy
 	s *store.BadgerStore
 	c *config.Configuration
 }
 
-func NewAPIWorker(s *store.BadgerStore, c *config.Configuration) *API {
+func NewAPIWorker(p *users.Proxy, s *store.BadgerStore, c *config.Configuration) *API {
 	return &API{
+		p: p,
 		s: s,
 		c: c,
 	}
@@ -44,12 +46,11 @@ func InitIPRateLimit() *httplimit.Middleware {
 }
 
 func (a *API) run(ctx context.Context, host, port string) {
-	proxy := users.NewProxy(ctx, a.c)
 	ipRateLimit := InitIPRateLimit()
 
 	http.Handle("/price/simple", a.PriceSimpleHandler())
 	http.Handle("/price/all", a.PriceAllHandler())
-	http.Handle("/order/new", ipRateLimit.Handle(http.Handler(a.OrderHandler(ctx, proxy, a.s))))
+	http.Handle("/order/new", ipRateLimit.Handle(http.Handler(a.OrderHandler(ctx, a.p, a.s))))
 	http.HandleFunc("/status", a.StatusHandler())
 	http.ListenAndServe(host+":"+port, nil)
 }
