@@ -10,7 +10,7 @@ import (
 func (bs *BadgerStore) WriteSwap(s *constants.Swap) error {
 	logger.Verbosef("BadgerStore.WriteSwap(%v)", s)
 	return bs.Badger().Update(func(txn *badger.Txn) error {
-		key := []byte(constants.PrefixSwap + s.OrderID)
+		key := []byte(constants.PrefixSwap + s.TraceID)
 		val := mtg.MsgpackMarshalPanic(s)
 		return txn.Set(key, val)
 	})

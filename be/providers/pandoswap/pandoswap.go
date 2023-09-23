@@ -78,7 +78,7 @@ func GetStatus(traceId string) string {
 	// TODO: How to with token using MTG?
 	// ka.SignToken(mixin.SignRaw("GET", "/me", nil), uuid.Must(uuid.NewV4()).String(), 60*time.Minute)
 
-	ctx := fswap.WithToken(context.Background())
+	ctx := context.TODO() //fswap.WithToken(context.Background())
 	order, err := fswap.ReadOrder(ctx, traceId)
 	if err != nil {
 		log.Println("fswap.ReadOrder() => ", err)

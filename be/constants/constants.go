@@ -15,11 +15,11 @@ var (
 
 // Strings
 const (
-	PrefixLock               = "LOCK:"
-	PrefixUser               = "USER:"
-	PrefixOrder              = "ORDER:"
-	PrefixSwap               = "SWAP:"
-	PrefixWithdrawal         = "WITHDRAWAL:"
+	PrefixLock  = "LOCK:"
+	PrefixUser  = "USER:"
+	PrefixOrder = "ORDER:"
+	PrefixSwap  = "SWAP:"
+	//PrefixWithdrawal         = "WITHDRAWAL:"
 	PrefixSnapshotList       = "SNAPSHOT:LIST:"
 	PrefixSnapshotCheckpoint = "SNAPSHOT:CHECKPOINT"
 

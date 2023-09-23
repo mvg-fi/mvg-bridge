@@ -40,13 +40,13 @@ func TestNoCexAll(t *testing.T) {
 
 func TestSwap(t *testing.T) {
 	amount := "0.001"
-	fmt.Printf("Now enabled CEX, %s BTC -> ETH\n", amount)
-	p0, p1, ip0, ip1 := Swap("260deccc-4ab2-4118-985d-5bfa072fab69", "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "43d61dcd-e413-450d-80b8-101d5e903357", amount, true)
+	fmt.Printf("Now enabled CEX, %s BTC -> XIN\n", amount)
+	p0, p1, ip0, ip1 := Swap("260deccc-4ab2-4118-985d-5bfa072fab69", "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "c94ac88f-4671-3976-b60a-09064f1811e8", amount, true)
 	fmt.Printf("%s:%+v\n", p0, ip0)
 	fmt.Printf("%s:%+v\n", p1, ip1)
 
-	fmt.Printf("\nNow disabled CEX, %s BTC -> ETH\n", amount)
-	p0, p1, ip0, ip1 = Swap("260deccc-4ab2-4118-985d-5bfa072fab69", "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "43d61dcd-e413-450d-80b8-101d5e903357", amount, false)
+	fmt.Printf("\nNow disabled CEX, %s BTC -> XIN\n", amount)
+	p0, p1, ip0, ip1 = Swap("260deccc-4ab2-4118-985d-5bfa072fab69", "c6d0c728-2624-429b-8e0d-d9d19b6592fa", "c94ac88f-4671-3976-b60a-09064f1811e8", amount, false)
 	fmt.Printf("%s:%+v\n", p0, ip0)
 	fmt.Printf("%s:%+v\n", p1, ip1)
 }
