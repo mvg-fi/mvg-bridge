@@ -19,9 +19,21 @@ type API struct {
 	c *config.Configuration
 }
 
+type MTGAPI struct {
+	s *store.BadgerStore
+	c *config.Configuration
+}
+
 func NewAPIWorker(p *users.Proxy, s *store.BadgerStore, c *config.Configuration) *API {
 	return &API{
 		p: p,
+		s: s,
+		c: c,
+	}
+}
+
+func NewMTGAPIWorker(s *store.BadgerStore, c *config.Configuration) *API {
+	return &API{
 		s: s,
 		c: c,
 	}
@@ -57,4 +69,9 @@ func (a *API) run(ctx context.Context, host, port string) {
 
 func (a *API) Run(ctx context.Context) {
 	a.run(ctx, a.c.API.Host, a.c.API.Port)
+}
+
+func (ma *MTGAPI) run(ctx context.Context, host, port string) {
+	// Provides information about mtg
+	// Read order
 }

@@ -113,7 +113,8 @@ func GetPriceAll(payAsset, receiveAsset, amount, except string, cex bool) []cons
 	}
 }
 
-func Swap(orderId, payAsset, receiveAsset, amount string, cex bool) (*mixin.TransferInput, *mixin.TransferInput) {
+func Swap(orderId, payAsset, receiveAsset, amount string, cex bool) (string, string, *mixin.TransferInput, *mixin.TransferInput) {
+	var p0, p1 string
 	var i0, i1 *mixin.TransferInput
 	priceAll := GetPriceAll(payAsset, receiveAsset, amount, "", cex)
 	priceAll = filterDisabledProvider(priceAll, DISABLED)
@@ -124,12 +125,14 @@ func Swap(orderId, payAsset, receiveAsset, amount string, cex bool) (*mixin.Tran
 	if cex && slices.Contains(CEX, best.Name) {
 		switch best.Name {
 		case CEX[0]:
+			p0 = CEX[0]
 			i0 = exinone.Swap(constants.SwapTypeMain, orderId, payAsset, receiveAsset, amount)
 		}
 
 	} else if slices.Contains(DEX, best.Name) {
 		switch best.Name {
 		case DEX[0]:
+			p0 = DEX[0]
 			i0 = pandoswap.Swap(constants.SwapTypeMain, orderId, payAsset, receiveAsset, amount)
 		}
 	}
@@ -137,19 +140,27 @@ func Swap(orderId, payAsset, receiveAsset, amount string, cex bool) (*mixin.Tran
 	if cex && slices.Contains(CEX, best.FeeName) {
 		switch best.FeeName {
 		case CEX[0]:
+			p1 = CEX[0]
 			i1 = exinone.Swap(constants.SwapTypeFee, orderId, payAsset, receiveAsset, best.Fee)
 		}
 	} else if slices.Contains(DEX, best.FeeName) {
 		switch best.FeeName {
 		case DEX[0]:
+			p1 = DEX[0]
 			i1 = pandoswap.Swap(constants.SwapTypeFee, orderId, payAsset, receiveAsset, best.Fee)
 		}
 
 	}
 
-	return i0, i1
+	return p0, p1, i0, i1
 }
 
-func GetStatus() {
-
+func GetStatus(provider, traceID string) string {
+	switch provider {
+	case PROVIDERS[0]:
+		return exinone.GetStatus(traceID)
+	case PROVIDERS[1]:
+		return pandoswap.GetStatus(traceID)
+	}
+	return constants.StatusSwapSent
 }

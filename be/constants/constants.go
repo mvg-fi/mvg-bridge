@@ -18,17 +18,22 @@ const (
 	PrefixLock               = "LOCK:"
 	PrefixUser               = "USER:"
 	PrefixOrder              = "ORDER:"
+	PrefixSwap               = "SWAP:"
 	PrefixWithdrawal         = "WITHDRAWAL:"
 	PrefixSnapshotList       = "SNAPSHOT:LIST:"
 	PrefixSnapshotCheckpoint = "SNAPSHOT:CHECKPOINT"
 
 	StatusReceived     = "RECEIVED"
 	StatusSwapSent     = "SWAPSENT"
-	StatusSwapReceived = "SWAPRECEIVED"
+	StatusSwapSuccess  = "SWAPSUCCESS"
+	StatusSwapFailed   = "SWAPFAILED"
 	StatusWithdrawSent = "WITHDRAWSENT"
 
-	SwapTypeMain     = "main"
-	SwapTypeFee      = "fee"
+	SwapTypeMain = "main"
+	SwapTypeFee  = "fee"
+
+	// Get the swap trace ID by mixin.UniqueConvID(OrderID, SwapTypeMainInit)
+	// Get the fee trace ID by mixin.UniqueConvID(OrderID, SwapTypeFeeInit)
 	SwapTypeMainInit = "swap:main:init"
 	SwapTypeFeeInit  = "swap:fee:init"
 

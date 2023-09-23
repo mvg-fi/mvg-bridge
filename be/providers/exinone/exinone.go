@@ -87,15 +87,31 @@ func GetStatus(traceID string) string {
 		logger.Errorf("%v", err)
 	}
 
-	fmt.Println(string(body))
-	if gjson.Get(string(body), "success").String() != "true" {
-		return ""
+	if gjson.Get(string(body), "code").String() == "30004" {
+		return constants.StatusSwapSent
 	}
 	switch gjson.Get(string(body), "data.orderStatus").String() {
-	case "":
-		return ""
+	case "trading":
+		return constants.StatusSwapSent
 	case "done":
-		return "done"
+		return constants.StatusSwapSuccess
+	}
+	if gjson.Get(string(body), "data.refundStatus").String() == "yes" {
+		return constants.StatusSwapFailed
 	}
 
+	return constants.StatusSwapSent
 }
+
+/*
+
+Not Found:
+{"success":false,"message":"\u9009\u5b9a\u7684 pay trace id \u662f\u65e0\u6548\u7684","data":{"payTraceId":["\u9009\u5b9a\u7684 pay trace id \u662f\u65e0\u6548\u7684"]},"code":"30004"}
+
+Trading:
+{"code":"0","success":true,"message":"","data":{"id":10804976,"source":"snapshot","payAssetUuid":"43d61dcd-e413-450d-80b8-101d5e903357","payAssetSymbol":"ETH","payAmount":"0.00010000","payTraceId":"01246500-1caf-4ef7-9639-5b38711251f1","receiveTraceId":"64e1a2fd-f7c7-4e57-844a-6d29ac1c221e","receiveAssetUuid":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","receiveAssetSymbol":"BTC","receiveAmount":null,"estimateReceiveAmount":null,"feeAmount":null,"feeAssetUuid":null,"feeAssetSymbol":null,"orderStatus":"trading","refundStatus":"no","payWalletUuid":"a13f4c77-5cfc-4368-a2d6-33f07037ae9e","payWalletType":"mixin","receiveWalletUuid":"a13f4c77-5cfc-4368-a2d6-33f07037ae9e","receiveWalletType":"mixin","createdAt":1695464944,"updatedAt":1695464944},"timestampMs":1695464945361}
+
+Done:
+{"code":"0","success":true,"message":"","data":{"id":10804976,"source":"snapshot","payAssetUuid":"43d61dcd-e413-450d-80b8-101d5e903357","payAssetSymbol":"ETH","payAmount":"0.00010000","payTraceId":"01246500-1caf-4ef7-9639-5b38711251f1","receiveTraceId":"64e1a2fd-f7c7-4e57-844a-6d29ac1c221e","receiveAssetUuid":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","receiveAssetSymbol":"BTC","receiveAmount":"0.00000595","estimateReceiveAmount":null,"feeAmount":"0.00000002","feeAssetUuid":"c6d0c728-2624-429b-8e0d-d9d19b6592fa","feeAssetSymbol":"BTC","orderStatus":"done","refundStatus":"no","payWalletUuid":"a13f4c77-5cfc-4368-a2d6-33f07037ae9e","payWalletType":"mixin","receiveWalletUuid":"a13f4c77-5cfc-4368-a2d6-33f07037ae9e","receiveWalletType":"mixin","createdAt":1695464944,"updatedAt":1695464948},"timestampMs":1695464949295}
+
+*/

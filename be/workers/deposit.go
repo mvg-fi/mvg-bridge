@@ -32,8 +32,8 @@ func (dw *DepositWorker) loopSnapshots(ctx context.Context) error {
 		return err
 	}
 	snapshots, err := dw.ReadNetworkSnapshots(ctx, "", ckpt, "asc", 500)
-	logger.Verbosef("dw.ReadNetworkSnapshots(%s) => %d %v", ckpt, len(snapshots), err)
 	if err != nil {
+		logger.Verbosef("dw.ReadNetworkSnapshots(%s) => %d %v", ckpt, len(snapshots), err)
 		return err
 	}
 	for _, s := range snapshots {

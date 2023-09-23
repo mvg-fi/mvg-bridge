@@ -45,7 +45,7 @@ func (sw *SwapWorker) process(ctx context.Context) error {
 
 func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 	// get amount swap
-	i0, i1 := providers.Swap(o.TraceID, o.FromAssetID, o.ToAssetID, o.Amount, o.Cex)
+	p0, p1, i0, i1 := providers.Swap(o.TraceID, o.FromAssetID, o.ToAssetID, o.Amount, o.Cex)
 	// main
 	err := sw.group.BuildTransaction(ctx, i0.AssetID, i0.OpponentMultisig.Receivers, int(i0.OpponentMultisig.Threshold), i0.Amount.String(), i0.Memo, i0.TraceID, constants.SwapTypeMainInit)
 	// fee
@@ -57,6 +57,12 @@ func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 	if err != nil {
 		return err
 	}
+	// create a new swap store
+	sw.store.WriteSwap(&constants.Swap{
+		OrderID:  o.TraceID,
+		Status:   constants.StatusSwapSent,
+		Provider: p0 + "|" + p1,
+	})
 	return nil
 }
 

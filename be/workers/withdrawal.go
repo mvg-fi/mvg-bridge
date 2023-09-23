@@ -21,9 +21,9 @@ func NewWithdrawalWorker(store *store.BadgerStore, conf *config.Configuration) *
 }
 
 func (ww *WithdrawalWorker) processSnapshots(ctx context.Context) {
-	// Loop all received snapshots of the MVG
-	// Check and decode memo
-	// Do the withdrawal
+	// Loop all swap received
+	// Send them to MVG Bridge with proper memo
+	// Add to withdrawal store
 }
 
 func (ww *WithdrawalWorker) Run(ctx context.Context) {

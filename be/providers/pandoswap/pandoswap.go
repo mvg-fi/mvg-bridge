@@ -55,27 +55,17 @@ func GetPrice(payAsset, receiveAsset, amount, except string, ch chan<- float64) 
 	ch <- val
 }
 
-func GetStatus(traceId string) {
-	ctx := context.Background()
-	order, err := fswap.ReadOrder(ctx, traceId)
-	if err != nil {
-		log.Println("fswap.ReadOrder() => ", err)
-	}
-	fmt.Printf("%+v", order)
-}
-
 func Swap(typee, orderId, payAsset, receiveAsset, amount string) *mixin.TransferInput {
-	var typeee string
 	if typee == constants.SwapTypeMain {
-		typeee = constants.SwapTypeMainInit
+		typee = constants.SwapTypeMainInit
 	} else {
-		typeee = constants.SwapTypeFeeInit
+		typee = constants.SwapTypeFeeInit
 	}
 	amt, _ := decimal.NewFromString(amount)
-	memo := generateSwapMemo(constants.MTGMembers, constants.MTGThreshold, orderId, receiveAsset, amount, "")
+	memo := generateSwapMemo(constants.MTGMembers, constants.MTGThreshold, typee, orderId, receiveAsset, amount, "")
 	input := &mixin.TransferInput{
 		AssetID: payAsset,
-		TraceID: mixin.UniqueConversationID(orderId, typeee),
+		TraceID: mixin.UniqueConversationID(orderId, typee),
 		Amount:  amt,
 		Memo:    memo,
 	}
@@ -84,11 +74,36 @@ func Swap(typee, orderId, payAsset, receiveAsset, amount string) *mixin.Transfer
 	return input
 }
 
-func generateSwapMemo(members []string, threshold uint8, orderId, receiveAsset, amount, minReceive string) string {
+func GetStatus(traceId string) string {
+	// TODO: How to with token using MTG?
+	// ka.SignToken(mixin.SignRaw("GET", "/me", nil), uuid.Must(uuid.NewV4()).String(), 60*time.Minute)
+
+	ctx := fswap.WithToken(context.Background())
+	order, err := fswap.ReadOrder(ctx, traceId)
+	if err != nil {
+		log.Println("fswap.ReadOrder() => ", err)
+	}
+	fmt.Printf("%+v", order)
+	return fmtStatus(order.State)
+}
+
+func fmtStatus(s string) string {
+	switch s {
+	case "Trading":
+		return constants.StatusSwapSent
+	case "Rejected":
+		return constants.StatusSwapFailed
+	case "Done":
+		return constants.StatusSwapSuccess
+	}
+	return constants.StatusSwapSent
+}
+
+func generateSwapMemo(members []string, threshold uint8, typee, orderId, receiveAsset, amount, minReceive string) string {
 	header := protocol.Header{
 		Version:    1,
 		ProtocolID: protocol.ProtocolFswap,
-		FollowID:   uuid.MustParse(mixin.UniqueConversationID(orderId, "4swap:followID")),
+		FollowID:   uuid.MustParse(mixin.UniqueConversationID(orderId, typee)),
 		Action:     3,
 	}
 
