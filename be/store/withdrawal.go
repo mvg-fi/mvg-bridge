@@ -7,16 +7,16 @@ import (
 	"github.com/mvg-fi/mvg-bridge/constants"
 )
 
-func (bs *BadgerStore) WriteWithdrawal(s *constants.Withdrawal) error {
+func (bs *BadgerStore) WriteWithdrawal(s *constants.WithdrawalFull) error {
 	logger.Verbosef("BadgerStore.WriteWithdrawal(%v)", s)
 	return bs.Badger().Update(func(txn *badger.Txn) error {
-		key := []byte(constants.PrefixWithdrawal + s.TraceID)
+		key := []byte(constants.PrefixWithdrawal + s.OrderID)
 		val := mtg.MsgpackMarshalPanic(s)
 		return txn.Set(key, val)
 	})
 }
 
-func (bs *BadgerStore) ReadWithdrawal(traceID string) (*constants.Withdrawal, error) {
+func (bs *BadgerStore) ReadWithdrawal(traceID string) (*constants.WithdrawalFull, error) {
 	txn := bs.Badger().NewTransaction(false)
 	defer txn.Discard()
 
@@ -31,13 +31,13 @@ func (bs *BadgerStore) ReadWithdrawal(traceID string) (*constants.Withdrawal, er
 	if err != nil {
 		return nil, err
 	}
-	var swap constants.Withdrawal
+	var swap constants.WithdrawalFull
 	err = mtg.MsgpackUnmarshal(val, &swap)
 	return &swap, err
 }
 
-func (bs *BadgerStore) ListWithdrawals(limit int) ([]*constants.Withdrawal, error) {
-	swaps := make([]*constants.Withdrawal, 0)
+func (bs *BadgerStore) ListWithdrawals(limit int) ([]*constants.WithdrawalFull, error) {
+	swaps := make([]*constants.WithdrawalFull, 0)
 	txn := bs.Badger().NewTransaction(false)
 	defer txn.Discard()
 
@@ -52,7 +52,7 @@ func (bs *BadgerStore) ListWithdrawals(limit int) ([]*constants.Withdrawal, erro
 		if err != nil {
 			return swaps, err
 		}
-		var swap constants.Withdrawal
+		var swap constants.WithdrawalFull
 		err = mtg.DecompressMsgpackUnmarshal(v, &swap)
 		if err != nil {
 			return swaps, err
@@ -62,7 +62,7 @@ func (bs *BadgerStore) ListWithdrawals(limit int) ([]*constants.Withdrawal, erro
 	return swaps, nil
 }
 
-func (bs *BadgerStore) UpdateWithdrawal(traceID string, s *constants.Withdrawal) error {
+func (bs *BadgerStore) UpdateWithdrawal(traceID string, s *constants.WithdrawalFull) error {
 	return bs.Badger().Update(func(txn *badger.Txn) error {
 		key := []byte(constants.PrefixWithdrawal + traceID)
 		val := mtg.MsgpackMarshalPanic(s)

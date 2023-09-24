@@ -6,6 +6,7 @@ import (
 	"github.com/mvg-fi/mvg-bridge/constants"
 )
 
+// The memo from proxy users to MTG
 // Return value length must be under 200
 func MsgpackCompressOrder(o *constants.Order) string {
 	return string(mtg.CompressMsgpackMarshalPanic(&constants.OrderMinium{
@@ -36,4 +37,20 @@ func MsgpackDecompressOrder(s string) *constants.Order {
 
 func MsgpackMashalOrder(o *constants.Order) string {
 	return string(mtg.MsgpackMarshalPanic(o))
+}
+
+// The memo from MTG to withdrawal bot
+func GetWithdrawalMemo(o *constants.Order, main *constants.Swap, fee *constants.Swap) (string, string) {
+	return string(mtg.CompressMsgpackMarshalPanic(&constants.Withdrawal{
+			Asset:   main.ToAssetID,
+			Amount:  main.Receive,
+			Address: o.Address,
+			Memo:    o.Memo,
+		})),
+		string(mtg.CompressMsgpackMarshalPanic(&constants.Withdrawal{
+			Asset:   fee.ToAssetID,
+			Amount:  fee.Receive,
+			Address: o.Address,
+			Memo:    o.Memo,
+		}))
 }

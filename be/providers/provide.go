@@ -155,12 +155,12 @@ func Swap(orderId, payAsset, receiveAsset, amount string, cex bool) (string, str
 	return p0, p1, i0, i1
 }
 
-func GetStatus(provider, traceID string) string {
+func GetStatus(provider, traceID string) (string, string) {
 	switch provider {
 	case PROVIDERS[0]:
 		return exinone.GetStatus(traceID)
 	case PROVIDERS[1]:
 		return pandoswap.GetStatus(traceID)
 	}
-	return constants.StatusSwapSent
+	return constants.StatusSwapSent, ""
 }

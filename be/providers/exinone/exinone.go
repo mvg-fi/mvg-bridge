@@ -72,7 +72,7 @@ func Swap(typee, orderId, payAsset, receiveAsset, amount string) *mixin.Transfer
 	return input
 }
 
-func GetStatus(traceID string) string {
+func GetStatus(traceID string) (string, string) {
 	subpath := fmt.Sprintf("payTraceId=%s", traceID)
 	path := fmt.Sprintf("%s%s?%s", Endpoint, GetStatusPath, subpath)
 	fmt.Println(path)
@@ -88,19 +88,19 @@ func GetStatus(traceID string) string {
 	}
 
 	if gjson.Get(string(body), "code").String() == "30004" {
-		return constants.StatusSwapSent
+		return constants.StatusSwapSent, ""
 	}
 	switch gjson.Get(string(body), "data.orderStatus").String() {
 	case "trading":
-		return constants.StatusSwapSent
+		return constants.StatusSwapSent, ""
 	case "done":
-		return constants.StatusSwapSuccess
+		return constants.StatusSwapSuccess, gjson.Get(string(body), "data.receiveAmount").String()
 	}
 	if gjson.Get(string(body), "data.refundStatus").String() == "yes" {
-		return constants.StatusSwapFailed
+		return constants.StatusSwapFailed, ""
 	}
 
-	return constants.StatusSwapSent
+	return constants.StatusSwapSent, ""
 }
 
 /*

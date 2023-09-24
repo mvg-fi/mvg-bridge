@@ -52,6 +52,8 @@ func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 	err = sw.store.WriteSwap(&constants.Swap{
 		OrderID:  o.TraceID,
 		TraceID:  i0.TraceID,
+		Amount:   i0.Amount.String(),
+		Receive:  "",
 		Status:   constants.StatusSwapSent,
 		Provider: p0,
 		Type:     constants.SwapTypeMain,
@@ -66,6 +68,8 @@ func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 	err = sw.store.WriteSwap(&constants.Swap{
 		OrderID:  o.TraceID,
 		TraceID:  i1.TraceID,
+		Amount:   i1.Amount.String(),
+		Receive:  "",
 		Status:   constants.StatusSwapSent,
 		Provider: p1,
 		Type:     constants.SwapTypeFee,

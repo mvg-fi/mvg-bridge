@@ -74,7 +74,7 @@ func Swap(typee, orderId, payAsset, receiveAsset, amount string) *mixin.Transfer
 	return input
 }
 
-func GetStatus(traceId string) string {
+func GetStatus(traceId string) (string, string) {
 	// TODO: How to with token using MTG?
 	// ka.SignToken(mixin.SignRaw("GET", "/me", nil), uuid.Must(uuid.NewV4()).String(), 60*time.Minute)
 
@@ -84,16 +84,16 @@ func GetStatus(traceId string) string {
 		log.Println("fswap.ReadOrder() => ", err)
 	}
 	fmt.Printf("%+v", order)
-	return fmtStatus(order.State)
+	return fmtStatus(order.State), order.FillAmount.String()
 }
 
 func fmtStatus(s string) string {
 	switch s {
-	case "Trading":
+	case fswap.OrderStateTrading:
 		return constants.StatusSwapSent
-	case "Rejected":
+	case fswap.OrderStateRejected:
 		return constants.StatusSwapFailed
-	case "Done":
+	case fswap.OrderStateDone:
 		return constants.StatusSwapSuccess
 	}
 	return constants.StatusSwapSent
