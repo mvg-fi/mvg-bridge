@@ -42,15 +42,26 @@ func MsgpackMashalOrder(o *constants.Order) string {
 // The memo from MTG to withdrawal bot
 func GetWithdrawalMemo(o *constants.Order, main *constants.Swap, fee *constants.Swap) (string, string) {
 	return string(mtg.CompressMsgpackMarshalPanic(&constants.Withdrawal{
+			OrderID: o.TraceID,
 			Asset:   main.ToAssetID,
 			Amount:  main.Receive,
 			Address: o.Address,
 			Memo:    o.Memo,
 		})),
 		string(mtg.CompressMsgpackMarshalPanic(&constants.Withdrawal{
+			OrderID: o.TraceID,
 			Asset:   fee.ToAssetID,
 			Amount:  fee.Receive,
 			Address: o.Address,
 			Memo:    o.Memo,
 		}))
+}
+
+func RetriveWithdrawalMemo(memo string) (*constants.Withdrawal, error) {
+	var withdrawal constants.Withdrawal
+	err := mtg.DecompressMsgpackUnmarshal([]byte(memo), &withdrawal)
+	if err != nil {
+		return nil, err
+	}
+	return &withdrawal, nil
 }

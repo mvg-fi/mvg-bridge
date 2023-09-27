@@ -50,13 +50,15 @@ func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 	err := sw.group.BuildTransaction(ctx, i0.AssetID, i0.OpponentMultisig.Receivers, int(i0.OpponentMultisig.Threshold), i0.Amount.String(), i0.Memo, i0.TraceID, constants.SwapTypeMainInit)
 	// create a new swap store
 	err = sw.store.WriteSwap(&constants.Swap{
-		OrderID:  o.TraceID,
-		TraceID:  i0.TraceID,
-		Amount:   i0.Amount.String(),
-		Receive:  "",
-		Status:   constants.StatusSwapSent,
-		Provider: p0,
-		Type:     constants.SwapTypeMain,
+		OrderID:     o.TraceID,
+		TraceID:     i0.TraceID,
+		FromAssetID: o.FromAssetID,
+		ToAssetID:   o.ToAssetID,
+		Amount:      i0.Amount.String(),
+		Receive:     "",
+		Status:      constants.StatusSwapSent,
+		Provider:    p0,
+		Type:        constants.SwapTypeMain,
 	})
 	if err != nil {
 		return err
@@ -66,13 +68,14 @@ func (sw *SwapWorker) swap(ctx context.Context, o *constants.Order) error {
 	err = sw.group.BuildTransaction(ctx, i1.AssetID, i1.OpponentMultisig.Receivers, int(i1.OpponentMultisig.Threshold), i1.Amount.String(), i1.Memo, i1.TraceID, constants.SwapTypeFeeInit)
 	// create a fee swap store
 	err = sw.store.WriteSwap(&constants.Swap{
-		OrderID:  o.TraceID,
-		TraceID:  i1.TraceID,
-		Amount:   i1.Amount.String(),
-		Receive:  "",
-		Status:   constants.StatusSwapSent,
-		Provider: p1,
-		Type:     constants.SwapTypeFee,
+		OrderID:     o.TraceID,
+		TraceID:     i1.TraceID,
+		Amount:      i1.Amount.String(),
+		FromAssetID: o.FromAssetID,
+		Receive:     "",
+		Status:      constants.StatusSwapSent,
+		Provider:    p1,
+		Type:        constants.SwapTypeFee,
 	})
 	if err != nil {
 		return err

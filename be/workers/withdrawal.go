@@ -9,7 +9,6 @@ import (
 	"github.com/MixinNetwork/trusted-group/mtg"
 	"github.com/fox-one/mixin-sdk-go"
 	"github.com/mvg-fi/common/logger"
-	"github.com/mvg-fi/common/uuid"
 	"github.com/mvg-fi/mvg-bridge/config"
 	"github.com/mvg-fi/mvg-bridge/constants"
 	"github.com/mvg-fi/mvg-bridge/encoding"
@@ -33,16 +32,16 @@ func NewWithdrawalWorker(group *mtg.Group, store *store.BadgerStore, conf *confi
 func getWithdrawalParams(store *store.BadgerStore, o *constants.Order) (string, string, string, string) {
 	//TODO: Get amount by reading swap orders
 	// Get memo by designing a withdrawal memo format
-	mainTrace := mixin.UniqueConversationID(o.TraceID, constants.SwapTypeMainInit)
-	feeTrace := mixin.UniqueConversationID(o.TraceID, constants.SwapTypeFeeInit)
-	main, err := store.ReadSwap(mainTrace)
+	mainSwapTrace := mixin.UniqueConversationID(o.TraceID, constants.SwapTypeMainInit)
+	feeSwapTrace := mixin.UniqueConversationID(o.TraceID, constants.SwapTypeFeeInit)
+	main, err := store.ReadSwap(mainSwapTrace)
 	if err != nil {
-		logger.Errorf("store.ReadSwap(%s) => %v", mainTrace, err)
+		logger.Errorf("store.ReadSwap(%s) => %v", mainSwapTrace, err)
 		return "", "", "", ""
 	}
-	fee, err := store.ReadSwap(feeTrace)
+	fee, err := store.ReadSwap(feeSwapTrace)
 	if err != nil {
-		logger.Errorf("store.ReadSwap(%s) => %v", feeTrace, err)
+		logger.Errorf("store.ReadSwap(%s) => %v", feeSwapTrace, err)
 		return "", "", "", ""
 	}
 
@@ -55,7 +54,8 @@ func (ww *WithdrawalWorker) withdraw(ctx context.Context, o *constants.Order) er
 	if mainAmount == "" || feeAmount == "" {
 		return errors.New(fmt.Sprintf("Swap not completed:%s", o.TraceID))
 	}
-	mainTrace, feeTrace := uuid.NewV4(), uuid.NewV4()
+	mainTrace := mixin.UniqueConversationID(o.TraceID, constants.WithdrawMainInit)
+	feeTrace := mixin.UniqueConversationID(o.TraceID, constants.WithdrawFeeInit)
 	err := ww.group.BuildTransaction(ctx, o.ToAssetID, []string{constants.MVGBridgeUUID}, int(1), mainAmount, mainMemo, mainTrace, constants.WithdrawMainInit)
 	if err != nil {
 		return err
@@ -65,7 +65,7 @@ func (ww *WithdrawalWorker) withdraw(ctx context.Context, o *constants.Order) er
 		return err
 	}
 
-	ww.store.WriteWithdrawal(&constants.WithdrawalFull{
+	ww.store.WriteWithdrawalFull(&constants.WithdrawalFull{
 		OrderID:   o.TraceID,
 		MainTrace: mainTrace,
 		FeeTrace:  feeTrace,

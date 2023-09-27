@@ -36,9 +36,9 @@ func (sw *StatusWorker) loopSwaps() error {
 }
 
 func (sw *StatusWorker) update(s *constants.Swap) error {
-	status, amount := providers.GetStatus(s.Provider, s.TraceID)
+	status, receive := providers.GetStatus(s.Provider, s.TraceID)
 	s.Status = status
-	s.Amount = amount
+	s.Receive = receive
 
 	err := sw.store.UpdateSwap(s.TraceID, s)
 	if err != nil {

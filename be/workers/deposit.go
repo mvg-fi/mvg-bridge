@@ -71,7 +71,7 @@ func (dw *DepositWorker) processSnapshots(ctx context.Context) {
 	for _, s := range snapshots {
 		user, err := dw.store.ReadUser(s.UserID)
 		if err != nil {
-			logger.Errorf("dw.store.ListSnapshots(100) => %v", err)
+			logger.Errorf("dw.store.ReadUser(%s) => %v", s.UserID, err)
 		}
 		if user == nil {
 			continue

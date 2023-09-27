@@ -40,18 +40,19 @@ type OrderNewResp struct {
 }
 
 type Swap struct {
-	OrderID     string `json:"order_id" msgpack: "o"`
-	TraceID     string `json:"trace_id" msgpack: "a"`
 	FromAssetID string `json:"asset" msgpack: "f"`
 	ToAssetID   string `json:"to_asset_id" msgpack:"t"`
 	Amount      string `json:"amount" msgpack: "m"`
 	Receive     string `json:"receive" msgpack: "r"`
+	OrderID     string `json:"order_id" msgpack: "o"`
+	TraceID     string `json:"trace_id" msgpack: "a"`
 	Status      string `json:"status" msgpack: "s"`
 	Provider    string `json:"provider" msgpack: "p"`
 	Type        string `json:"type" msgpack:"e"`
 }
 
 type Withdrawal struct {
+	OrderID string `json:"order_id" msgpack:"r"`
 	Asset   string `json:"asset" msgpack:"a"`
 	Amount  string `json:"amount" msgpack:"o"`
 	Address string `json:"address" msgpack:"d"`

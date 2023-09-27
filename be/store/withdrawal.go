@@ -7,8 +7,17 @@ import (
 	"github.com/mvg-fi/mvg-bridge/constants"
 )
 
-func (bs *BadgerStore) WriteWithdrawal(s *constants.WithdrawalFull) error {
+func (bs *BadgerStore) WriteWithdrawal(s *constants.Withdrawal) error {
 	logger.Verbosef("BadgerStore.WriteWithdrawal(%v)", s)
+	return bs.Badger().Update(func(txn *badger.Txn) error {
+		key := []byte(constants.PrefixWithdrawal + s.OrderID)
+		val := mtg.MsgpackMarshalPanic(s)
+		return txn.Set(key, val)
+	})
+}
+
+func (bs *BadgerStore) WriteWithdrawalFull(s *constants.WithdrawalFull) error {
+	logger.Verbosef("BadgerStore.WriteWithdrawalFull(%v)", s)
 	return bs.Badger().Update(func(txn *badger.Txn) error {
 		key := []byte(constants.PrefixWithdrawal + s.OrderID)
 		val := mtg.MsgpackMarshalPanic(s)

@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/MixinNetwork/trusted-group/mtg"
+	"github.com/fox-one/mixin-sdk-go"
 	"github.com/mvg-fi/common/logger"
 	"github.com/mvg-fi/mvg-bridge/api"
 	"github.com/mvg-fi/mvg-bridge/config"
@@ -109,8 +110,9 @@ func runProxy(c *cli.Context) error {
 	dw := workers.NewDepositWorker(p, db, conf)
 	dw.Run(ctx)
 
-	// Run withdrawal worker
-	ww := workers.NewWithdrawalWorker(db, conf)
-	ww.Run(ctx)
+	// Run withbot worker
+	// TODO: replace params with real ones
+	wb := workers.NewWithbotWorker(ctx, &mixin.Keystore{}, "", db)
+	wb.Run(ctx)
 	return nil
 }
