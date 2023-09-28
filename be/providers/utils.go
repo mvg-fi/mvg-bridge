@@ -81,3 +81,7 @@ func AfterBridgeFee(amount, fee string) string {
 	after := am.Sub(fe)
 	return after.Sub(after.Mul(constants.BridgeFee)).RoundUp(8).String()
 }
+
+func fillAssetBlankField() {
+
+}

@@ -1,6 +1,7 @@
 package providers
 
 import (
+	"context"
 	"fmt"
 	"slices"
 
@@ -16,6 +17,34 @@ var (
 	DEX       = []string{pandoswap.NAME}
 	DISABLED  = []string{}
 )
+
+func ReadAssets() *[]constants.Asset {
+	ctx := context.Background()
+	ea := exinone.ReadAssets()
+	if ea == nil {
+		return nil
+	}
+	pa := pandoswap.ReadAssets(ctx)
+	if pa == nil {
+		return nil
+	}
+
+	// keep unique values
+	uniqueValues := make(map[string]constants.Asset)
+	for _, elem := range *ea {
+		uniqueValues[elem.AssetID] = elem
+	}
+	mergedArray := make([]constants.Asset, 0)
+	for _, elem := range *pa {
+		if _, exists := uniqueValues[elem.AssetID]; !exists {
+			uniqueValues[elem.AssetID] = elem
+		}
+	}
+	for _, elem := range uniqueValues {
+		mergedArray = append(mergedArray, elem)
+	}
+	return &mergedArray
+}
 
 // bestPrice is the amount of asset will be received
 // bestFee is the amount of original asset will be charged

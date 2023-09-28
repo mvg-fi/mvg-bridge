@@ -7,6 +7,11 @@ import (
 	"github.com/mvg-fi/common/uuid"
 )
 
+func TestReadAssets(t *testing.T) {
+	assets := ReadAssets()
+	fmt.Printf("%+v", *assets)
+}
+
 func TestGetPrice(t *testing.T) {
 	ep := make(chan float64)
 	go GetPrice("c6d0c728-2624-429b-8e0d-d9d19b6592fa", "43d61dcd-e413-450d-80b8-101d5e903357", "0.1", ep)
@@ -25,6 +30,6 @@ func TestSwap(t *testing.T) {
 
 func TestStatus(t *testing.T) {
 	traceID := "01246500-1caf-4ef7-9639-5b38711251f1"
-	status := GetStatus(traceID)
+	status, _ := GetStatus(traceID)
 	println(status)
 }

@@ -11,7 +11,7 @@ var (
 
 // Values
 var (
-	BridgeFee = decimal.NewFromFloat(0.001) // 0.1%
+	BridgeFee = decimal.NewFromFloat(0.002) // 0.2%
 )
 
 // Strings

@@ -22,6 +22,27 @@ var (
 	PandoSwapMTGThreshold = uint8(3)
 )
 
+func ReadAssets(ctx context.Context) *[]constants.Asset {
+	assets, err := fswap.ListAssets(ctx)
+	if err != nil {
+		logger.Errorf("fswap.ListAssets() => %v", err)
+		return nil
+	}
+	var as []constants.Asset
+	for _, a := range assets {
+		as = append(as, constants.Asset{
+			AssetID:   a.ID,
+			ChainIcon: a.Chain.Logo,
+			ChainID:   a.Chain.ID,
+			ChainName: a.Chain.Name,
+			Icon:      a.Logo,
+			Name:      a.Name,
+			Symbol:    a.Symbol,
+		})
+	}
+	return &as
+}
+
 func GetPrice(payAsset, receiveAsset, amount, except string, ch chan<- float64) {
 	ctx := context.Background()
 	pairs, err := fswap.ListPairs(ctx)

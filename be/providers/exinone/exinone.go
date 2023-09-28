@@ -19,10 +19,38 @@ const (
 	REFCODE  = "m.7000104232"
 	EPCUUID  = "7aee3b93-742b-324c-a59e-46a8427435f9"
 
-	Endpoint      = "https://app.eiduwejdk.com/api/v2"
-	GetPricePath  = "/convert/estimate/amount"
-	GetStatusPath = "/convert/order/detail"
+	Endpoint       = "https://app.eiduwejdk.com/api/v2"
+	ReadAssetsPath = "/convert/assets"
+	GetPricePath   = "/convert/estimate/amount"
+	GetStatusPath  = "/convert/order/detail"
 )
+
+func ReadAssets() *[]constants.Asset {
+	path := fmt.Sprintf("%s%s", Endpoint, ReadAssetsPath)
+	resp, err := http.Get(path)
+	if err != nil {
+		logger.Errorf("http.Get(%s) => %v", path, err)
+		return nil
+	}
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		logger.Errorf("%v", err)
+		return nil
+	}
+	assets := gjson.Get(string(body), "data").Array()
+	var as []constants.Asset
+	for _, a := range assets {
+		as = append(as, constants.Asset{
+			AssetID: a.Get("mixinId").String(),
+			ChainID: a.Get("mixinChainId").String(),
+			Name:    a.Get("name").String(),
+			Symbol:  a.Get("symbol").String(),
+		})
+	}
+	return &as
+}
 
 func GetPrice(payAsset, receiveAsset, amount string, ch chan<- float64) {
 	if len(amount) == 0 {
@@ -104,6 +132,7 @@ func GetStatus(traceID string) (string, string) {
 }
 
 /*
+GetStatusPath
 
 Not Found:
 {"success":false,"message":"\u9009\u5b9a\u7684 pay trace id \u662f\u65e0\u6548\u7684","data":{"payTraceId":["\u9009\u5b9a\u7684 pay trace id \u662f\u65e0\u6548\u7684"]},"code":"30004"}

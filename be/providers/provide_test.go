@@ -5,6 +5,11 @@ import (
 	"testing"
 )
 
+func TestReadAssets(t *testing.T) {
+	as := ReadAssets()
+	println(as)
+}
+
 func TestGetPriceSimple(t *testing.T) {
 	prsimple := GetPriceSimple("c6d0c728-2624-429b-8e0d-d9d19b6592fa", "43d61dcd-e413-450d-80b8-101d5e903357", "1", "", true)
 	fmt.Println("\n1 BTC -> ETH", prsimple)
