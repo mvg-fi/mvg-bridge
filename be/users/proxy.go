@@ -24,7 +24,6 @@ func NewProxy(ctx context.Context, conf *config.Configuration) *Proxy {
 		SessionID:  conf.ProxyRoot.SessionID,
 		PrivateKey: conf.ProxyRoot.PrivateKey,
 		PinToken:   conf.ProxyRoot.PinToken,
-		Scope:      conf.ProxyRoot.Scope,
 	})
 	if err != nil {
 		panic(err)

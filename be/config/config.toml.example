@@ -20,5 +20,4 @@ client-id=""
 session-id=""
 private-key=""
 pin-token=""
-scope=""
-
+pin=""

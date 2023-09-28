@@ -7,7 +7,6 @@ import (
 
 	"github.com/fox-one/mixin-sdk-go"
 	"github.com/mvg-fi/common/logger"
-	"github.com/mvg-fi/common/uuid"
 	"github.com/mvg-fi/mvg-bridge/constants"
 	"github.com/mvg-fi/mvg-bridge/encoding"
 	"github.com/mvg-fi/mvg-bridge/store"
@@ -49,10 +48,6 @@ func decodeMemo(memo string) (*constants.Withdrawal, error) {
 	return w, nil
 }
 
-func checkFee() {
-
-}
-
 func (wb *WithbotWorker) withdraw(ctx context.Context, w *constants.Withdrawal) error {
 	ain := mixin.CreateAddressInput{
 		AssetID:     w.Asset,
@@ -68,7 +63,7 @@ func (wb *WithbotWorker) withdraw(ctx context.Context, w *constants.Withdrawal) 
 	amt, _ := decimal.NewFromString(w.Amount)
 	win := mixin.WithdrawInput{
 		AddressID: addr.AddressID,
-		TraceID:   uuid.NewV4(),
+		TraceID:   mixin.UniqueConversationID(w.OrderID, constants.WithdrawFinal),
 		Amount:    amt,
 		Memo:      w.Memo,
 	}
@@ -125,9 +120,9 @@ func (wb *WithbotWorker) process(ctx context.Context, s *mixin.Snapshot) error {
 		return fmt.Errorf("invalid withdrawal params")
 	}
 
-	old, err := wb.store.ReadWithdrawalFull(w.OrderID)
+	old, err := wb.store.ReadWithdrawal(w.OrderID)
 	if err != nil {
-		return fmt.Errorf("wb.store.ReadWithdrawalFull(%s)", w.OrderID)
+		return fmt.Errorf("wb.store.ReadWithdrawal(%s)", w.OrderID)
 	}
 
 	wf := constants.WithdrawalFull{
@@ -148,13 +143,13 @@ func (wb *WithbotWorker) process(ctx context.Context, s *mixin.Snapshot) error {
 	if old == nil {
 		return wb.store.WriteWithdrawalFull(&wf)
 	}
-
-	// check if both asset and fee received, then withdraw, and delete snapshot
-	err = wb.withdraw(ctx, w)
-	if err != nil {
-		logger.Errorf("wb.withdraw(ctx, %+v) => %v", w, err)
-		continue
+	if (old.MainTrace != "" && wf.FeeTrace != "") || (wf.MainTrace != "" && old.FeeTrace != "") {
+		err = wb.withdraw(ctx, w)
+		if err != nil {
+			return fmt.Errorf("wb.withdraw(ctx, %+v) => %v", w, err)
+		}
 	}
+	return nil
 }
 
 func (wb *WithbotWorker) processSnapshots(ctx context.Context) {
@@ -164,7 +159,11 @@ func (wb *WithbotWorker) processSnapshots(ctx context.Context) {
 	}
 
 	for _, s := range snapshots {
-
+		err = wb.process(ctx, s)
+		if err != nil {
+			logger.Errorf("wb.process(%+v) => %v", s, err)
+			continue
+		}
 	}
 
 	if len(snapshots) < 100 {

@@ -22,7 +22,7 @@ type ProxyRoot struct {
 	SessionID  string `toml:"session-id"`
 	PrivateKey string `toml:"private-key"`
 	PinToken   string `toml:"pin-token"`
-	Scope      string `toml:"scope"`
+	Pin        string `toml:"pin"`
 }
 
 type Configuration struct {

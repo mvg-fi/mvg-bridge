@@ -111,8 +111,13 @@ func runProxy(c *cli.Context) error {
 	dw.Run(ctx)
 
 	// Run withbot worker
-	// TODO: replace params with real ones
-	wb := workers.NewWithbotWorker(ctx, &mixin.Keystore{}, "", db)
+	key := &mixin.Keystore{
+		ClientID:   conf.ProxyRoot.ClientID,
+		SessionID:  conf.ProxyRoot.SessionID,
+		PrivateKey: conf.ProxyRoot.PrivateKey,
+		PinToken:   conf.ProxyRoot.PinToken,
+	}
+	wb := workers.NewWithbotWorker(ctx, key, conf.ProxyRoot.Pin, db)
 	wb.Run(ctx)
 	return nil
 }

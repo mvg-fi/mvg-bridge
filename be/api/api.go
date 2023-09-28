@@ -70,8 +70,3 @@ func (a *API) run(ctx context.Context, host, port string) {
 func (a *API) Run(ctx context.Context) {
 	a.run(ctx, a.c.API.Host, a.c.API.Port)
 }
-
-func (ma *MTGAPI) run(ctx context.Context, host, port string) {
-	// Provides information about mtg
-	// Read order
-}

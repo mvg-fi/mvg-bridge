@@ -41,6 +41,7 @@ const (
 	WithdrawFeeInit  = "withdrawal:fee:init"
 	WithdrawMainEnd  = "withdrawal:main:end"
 	WithdrawFeeEnd   = "withdrawal:fee:end"
+	WithdrawFinal    = "withdrawal:final"
 
 	MTGGroupIDSwap = "SWAP"
 )
