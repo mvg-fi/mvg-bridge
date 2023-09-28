@@ -18,7 +18,7 @@ There will be a switch inside settings that allow people to switch between these
 
 ## Limitation
 
-For now, the MTG doesn't support direct deposit and withdrawal. So it's meaningless to use for MTG for now. The current design will be reused once the MTG supports all the functionalities.
+For now, the MTG doesn't support direct deposit and withdrawal. The current design will be updated once the MTG supports them.
 
 ## Use cases
 
@@ -26,11 +26,7 @@ For now, the MTG doesn't support direct deposit and withdrawal. So it's meaningl
 
 - From Bitcoin to USDT-ERC20. 
 
-User inputs the amount of Bitcoin, gets excepted amount of USDT-ERC20 to receive, and inputs the address for receiving the USDT-ERC20, gets a deposit address of bitcoin. This is an address owned by MVG Bridge MTG, which the MTG monitors all the deposits and initiates the swap and withdrawal processes. User can see the current state of the swap/withdrawal process at any time in MVG Bridge's front end. This should be implemented by MTG's API & Subgraph.
-
-- From Ethereum to USDT-ERC20
-
-Both tokens are on the Ethereum mainnet, MVG Bridge will connect to an ETH Mainnet aggregator like 1inch. It will be done by frontend. The whole point is the user will always get what they want without much effort.
+User inputs the amount of Bitcoin, gets excepted amount of USDT-ERC20 to receive, and inputs the address for receiving the USDT-ERC20, gets a deposit address of bitcoin. This is an address owned by MVG Bridge MTG, which the MTG monitors all the deposits and initiates the swap and withdrawal processes. User can see the current state of the swap/withdrawal process at any time in MVG Bridge's front end. This should be implemented by MTG's API.
 
 - From USDT-ERC20 to USDT-Matic
 
