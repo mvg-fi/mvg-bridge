@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/mvg-fi/mvg-bridge/constants"
 	"github.com/mvg-fi/mvg-bridge/providers"
 )
 
@@ -19,16 +18,9 @@ func (a *API) AssetsHandler() http.HandlerFunc {
 
 		w.Header().Set("Content-Type", "application/json")
 
-		var req constants.PriceSimpleReq
-		err := json.NewDecoder(r.Body).Decode(&req)
-		if err != nil {
-			http.Error(w, "Bad request", http.StatusBadRequest)
+		log.Printf("/assets => %+v\n", r)
 
-			return
-		}
-		log.Printf("/price/simple => %+v\n", req)
-
-		resp := providers.GetPriceSimple(req.FromAssetID, req.ToAssetID, req.Amount, req.Except, req.Cex)
+		resp := providers.ReadAssets()
 
 		json.NewEncoder(w).Encode(resp)
 	})
