@@ -7,6 +7,8 @@ import (
 	"github.com/mvg-fi/mvg-bridge/constants"
 )
 
+// TODO
+// return the status of order
 func (a *API) StatusHandler() http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {

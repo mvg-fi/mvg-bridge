@@ -76,7 +76,7 @@ func runCmd(c *cli.Context) error {
 }
 
 // Only run proxy users and API
-func runProxy(c *cli.Context) error {
+func runProxyCmd(c *cli.Context) error {
 	logger.SetLevel(logger.VERBOSE)
 	ctx := context.Background()
 	cp := c.String("config")

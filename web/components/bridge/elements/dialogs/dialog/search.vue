@@ -1,6 +1,6 @@
 <template>
   <div
-    class="pa-2 justify-center align-center rounded-xl bg-secondary d-flex align-center"
+    class="pa-2 justify-center align-center rounded-xl bg-background d-flex align-center"
     style="height: 36px"
   >
     <v-icon style="width: 16px; height: 16px" class="mx-2">

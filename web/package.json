@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.18",
+    "@mvg-fi/mvg-bridge-sdk-js": "^0.0.1",
     "@pinia/nuxt": "^0.4.11",
     "bignumber.js": "^9.1.2",
     "clsx": "^2.0.0",

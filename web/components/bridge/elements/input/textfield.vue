@@ -1,14 +1,11 @@
 <template>
-  <v-text-field
-    single-line
-    variant="plain"
+  <input
     v-model="input"
     v-maska:[options]
     @keyup="inputFunc"
     :placeholder="$t('placeholder')"
-    class="text-field font-weight-bold ml-3"
-  >
-  </v-text-field>
+    class="text-field font-weight-bold w-100 h5m mr-3"
+  />
 </template>
 
 <script setup lang="ts">
@@ -39,9 +36,16 @@ const inputFunc = (event: KeyboardEvent) => {
 
 <style lang="scss" scoped>
 .text-field {
+  color: var(--palette-black-100);
   box-shadow: none !important;
+  height: 64px;
 }
-.text-field .v-input_slot{
-  font-size: 1.875rem !important;
+
+input::placeholder {
+  color: var(--palette-black-25) !important;
+}
+
+.text-field::placeholder{
+  color: grey;
 }
 </style>

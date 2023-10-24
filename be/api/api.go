@@ -60,10 +60,12 @@ func InitIPRateLimit() *httplimit.Middleware {
 func (a *API) run(ctx context.Context, host, port string) {
 	ipRateLimit := InitIPRateLimit()
 
+	//http.Handle("/info", )
+	//http.Handle("/assets")
 	http.Handle("/price/simple", a.PriceSimpleHandler())
 	http.Handle("/price/all", a.PriceAllHandler())
 	http.Handle("/order/new", ipRateLimit.Handle(http.Handler(a.OrderHandler(ctx, a.p, a.s))))
-	http.HandleFunc("/status", a.StatusHandler())
+	http.Handle("/status", a.StatusHandler())
 	http.ListenAndServe(host+":"+port, nil)
 }
 

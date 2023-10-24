@@ -19,7 +19,5 @@ const loading = ref(true)
 onMounted(()=>loading.value=false)
 </script>
 <style>
-html {
-  font-family: "Inter";
-}
+
 </style>

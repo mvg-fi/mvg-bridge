@@ -6,5 +6,96 @@
   user-select: none;
 }
 
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
 $select-asset-dialog-height: 660px;
 $select-asset-dialog-width: 432px;
+
+$palette: (
+  black: (
+    100: #261F22,
+    75: #5C5759,
+    50: #837F81,
+    25: #B2B1B1,
+    10: #CFCECE,
+    5: #F4F4F4,
+  ),
+);
+
+.p {
+  font-family: Satoshi-Medium;
+  font-size: 21px;
+  line-height: 32px;
+}
+
+.h1 {
+  font-family: Satoshi-Bold;
+  font-size: 119px;
+  line-height: 144px;
+}
+
+.h2 {
+  font-family: Satoshi-Bold;
+  font-size: 84px;
+  line-height: 112px;
+}
+
+.h3 {
+  font-family: Satoshi-Bold;
+  font-size: 60px;
+  line-height: 72px;
+}
+
+.h4 {
+  font-family: Satoshi-Bold;
+  font-size: 42px;
+  line-height: 60px;
+}
+
+.h5 {
+  font-family: Satoshi-Bold;
+  font-size: 30px;
+  line-height: 42px;
+}
+
+.h6 {
+  font-family: Satoshi-Bold;
+  font-size: 21px;
+  line-height: 30px;
+}
+
+.h7 {
+  font-family: Satoshi-Bold;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.h5m {
+  font-family: Satoshi-Medium;
+  font-size: 30px;
+  line-height: 42px;
+}
+
+.h6m {
+  font-family: Satoshi-Medium;
+  font-size: 21px;
+  line-height: 30px;
+}
+
+.h7m {
+  font-family: Satoshi-Medium;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+:root {
+  @each $colorname, $palette in $palette {
+      @each $key, $value in $palette {
+          $keyname: "--palette-" + $colorname + "-" + $key;
+          #{$keyname}: #{$value};
+      }
+  }
+}

@@ -60,6 +60,25 @@ func main() {
 					},
 				},
 			},
+			{
+				Name:   "proxy",
+				Usage:  "Run proxy and api server",
+				Action: runProxyCmd,
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:    "config",
+						Aliases: []string{"c"},
+						Value:   "~/.mvg/bridge/config.toml",
+						Usage:   "The configuration file path",
+					},
+					&cli.StringFlag{
+						Name:    "dir",
+						Aliases: []string{"d"},
+						Value:   "~/.mvg/bridge/data",
+						Usage:   "The database directory path",
+					},
+				},
+			},
 		},
 	}
 

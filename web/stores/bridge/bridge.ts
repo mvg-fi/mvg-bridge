@@ -20,35 +20,61 @@ export const useBridgeStore = defineStore('bridge', {
   } as BridgeState),
   getters: {
     filteredItems: (state) => {
-      if (state.selectedNetwork != undefined) {
-        return assets.filter((asset) => {
-          if (asset.chain_id != state.selectedNetwork?.asset_id) return false
-          return (
-            asset.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
-            asset.name.toUpperCase().match(state.searchAsset.toUpperCase()) ||
-            asset.chain_name?.toUpperCase().match(state.searchAsset.toUpperCase())
-          );
-        })
-      }
+      // if (state.selectedNetwork != undefined) {
+      //   return assets.filter((asset) => {
+      //     if (asset.chain_id != state.selectedNetwork?.asset_id) return false
+      //     return (
+      //       asset.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+      //       asset.name.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+      //       asset.chain_name?.toUpperCase().match(state.searchAsset.toUpperCase())
+      //     );
+      //   })
+      // }
+      // return assets.filter((asset) => {
+      //   return (
+      //     asset.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+      //     asset.name.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+      //     asset.chain_name?.toUpperCase().match(state.searchAsset.toUpperCase())
+      //   );
+      // })
+      const searchQuery = state.searchAsset.toUpperCase();
+      const selectedNetworkAssetId = state.selectedNetwork?.asset_id;
+
       return assets.filter((asset) => {
-        return (
-          asset.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
-          asset.name.toUpperCase().match(state.searchAsset.toUpperCase()) ||
-          asset.chain_name?.toUpperCase().match(state.searchAsset.toUpperCase())
-        );
-      })
+        if (selectedNetworkAssetId !== undefined && asset.chain_id !== selectedNetworkAssetId) {
+          return false;
+        }
+
+        const assetName = asset.name.toUpperCase();
+        const assetSymbol = asset.symbol.toUpperCase();
+        const chainName = asset.chain_name?.toUpperCase();
+
+        return assetSymbol.includes(searchQuery) || assetName.includes(searchQuery) || (chainName && chainName.includes(searchQuery));
+      });
     },
     filteredChains: (state) => {
+      // const assetList = assets.filter((asset) => {
+      //   return (
+      //     asset.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+      //     asset.name.toUpperCase().match(state.searchAsset.toUpperCase()) ||
+      //     asset.chain_name?.toUpperCase().match(state.searchAsset.toUpperCase())
+      //   )
+      // })
+      // return chains.filter(chain => {
+      //   return assetList.some(asset => chain.asset_id === asset.chain_id);
+      // });
+
+      const searchQuery = state.searchAsset.toUpperCase();
       const assetList = assets.filter((asset) => {
-        return (
-          asset.symbol.toUpperCase().match(state.searchAsset.toUpperCase()) ||
-          asset.name.toUpperCase().match(state.searchAsset.toUpperCase()) ||
-          asset.chain_name?.toUpperCase().match(state.searchAsset.toUpperCase())
-        )
-      })
-      return chains.filter(chain => {
-        return assetList.some(asset => chain.asset_id === asset.chain_id);
+        const assetName = asset.name.toUpperCase();
+        const assetSymbol = asset.symbol.toUpperCase();
+        const chainName = asset.chain_name?.toUpperCase();
+
+        return assetSymbol.includes(searchQuery) || assetName.includes(searchQuery) || (chainName && chainName.includes(searchQuery));
       });
+
+      const chainAssetIds = assetList.map((asset) => asset.chain_id);
+      return chains.filter((chain) => chainAssetIds.includes(chain.asset_id));
     }
   },
   actions: {

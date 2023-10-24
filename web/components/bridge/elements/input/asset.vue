@@ -1,12 +1,13 @@
 <template>
-  <div class="d-flex align-center">
+  <div class="d-flex align-center mr-6">
     <v-btn
-      class="rounded-xl d-flex flex-row pa-2 mr-2 bg-white"
+      class="rounded-pill d-flex flex-row px-6 py-2 bg-white items-center"
       elevation="0"
       size="x-large"
+      style="height: 64px;"
       @click="store.mutateDialog(props.from, true)"
     >
-      <v-icon style="height: 32px; width: 32px" class="mx-2">
+      <v-icon style="height: 36px; width: 36px" class="mr-4">
         <v-img :src="from ? store.fromAsset.icon : store.toAsset.icon" />
         <v-img
           :src="from ? store.fromAsset.chain_icon : store.toAsset.chain_icon"
@@ -15,25 +16,22 @@
         ></v-img>
       </v-icon>
 
-      <div class="d-flex flex-column align-center justify-center mx-1">
-        <span style="font-size: 16px;" class="font-weight-semibold">
+      <div class="d-flex flex-column align-center justify-center mr-4">
+        <span style="" class="h6m">
           {{ from ? store.fromAsset.symbol : store.toAsset.symbol }}
         </span>
         <span
           style="
-            font-size: 10px;
-            opacity: 40;
-            color: grey;
-            font-weight: 100;
+            color: var(--palette-black-50);
+            font-size: 12px;
             line-height: 1rem;
-            letter-spacing: 0.1px !important;
           "
         >
           {{ from ? store.fromAsset.chain_name : store.toAsset.chain_name }}
         </span>
       </div>
 
-      <v-icon style="width: 20px; height: 20px" class="mx-1">
+      <v-icon style="width: 20px; height: 20px" class="">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -65,4 +63,10 @@ const props = defineProps(["from"]);
 </script>
 
 <style lang="scss" scoped>
+.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
+  background-color: #f1f4f9 !important;
+}
+.v-btn:before {
+  opacity: 0 !important;
+}
 </style>

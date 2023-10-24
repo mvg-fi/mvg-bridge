@@ -8,8 +8,8 @@ import (
 )
 
 // TODO
-// Return overall bridge health
-func (a *API) HealthHandler() http.HandlerFunc {
+// Return MTG info
+func (a *API) InfoHandler() http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet {
 			http.Error(w, "Only GET supported", http.StatusMethodNotAllowed)

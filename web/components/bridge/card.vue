@@ -1,18 +1,22 @@
 <template>
   <v-row no-gutters class="fill-height d-flex justify-center w-100">
-    <v-card
-      class="bridge-card rounded-xl mt-10 pa-5 d-flex flex-column"
-      elevation="0"
-    >
-      <Title class="pb-3 px-1" />
-      <div class="my-2">
-        <Input class="my-2" :from="true" />
-        <Switch class="my-1" />
-        <Input class="my-2" :from="false" />
-      </div>
-      <Receiver class="my-2" />
-      <Confirm class="my-3"/>
-    </v-card>
+    <div>
+      <v-card
+        class="bridge-card rounded-xl mt-10 pa-0 d-flex flex-column"
+        elevation="0"
+      >
+        <Title class="mx-6 mt-4" />
+
+        <div class="my-2">
+          <Input class="my-2" :from="true" />
+          <Switch class="my-1" />
+          <Input class="my-2" :from="false" />
+        </div>
+        
+        <Receiver class="my-2" />
+        <Confirm class="my-3" />
+      </v-card>
+    </div>
   </v-row>
 </template>
 
@@ -25,9 +29,9 @@ import Confirm from "~/components/bridge/elements/confirm.vue";
 </script>
 
 <style lang="scss" scoped>
+@import "assets/css/custom";
 .bridge-card {
-  max-height: 624px;
-  width: 480px;
+  width: 540px;
   box-shadow: 0 1px 8px #0003 !important;
 }
 </style>
