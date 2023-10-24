@@ -1,19 +1,16 @@
 <template>
   <div
-    class="mx-2 py-2 justify-center align-center rounded-xl bg-background d-flex align-center"
-    style="height: 48px"
+    class="mx-2 justify-center align-center rounded-xl d-flex align-center"
+    style="height: 48px; background-color: var(--palette-black-5);"
   >
-    <!-- <v-icon style="width: 20px; height: 20px" class="mx-3">
-      <InboxArrowDownIcon />
-    </v-icon> -->
     <input
-      class="search w-100 mx-3"
+      class="search w-100 ml-6"
       :placeholder="$t('receiver_placeholder')"
     />
     <v-icon
       style="width: 24px; height: 24px"
       @click.stop="console.log()"
-      class="mx-2"
+      class="mx-4"
     >
       <XMarkIcon />
     </v-icon>
@@ -29,8 +26,7 @@ import { InboxArrowDownIcon, XMarkIcon } from "@heroicons/vue/24/outline";
   outline: none;
 }
 .search {
-  font-size: 14px;
-  height: 28px;
+  height: 56px;
 }
 
 .search::placeholder{

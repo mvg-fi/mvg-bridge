@@ -7,14 +7,14 @@
       >
         <Title class="mx-6 mt-4" />
 
-        <div class="my-2">
-          <Input class="my-2" :from="true" />
-          <Switch class="my-1" />
-          <Input class="my-2" :from="false" />
+        <div class="mt-4">
+          <Input :from="true" />
+          <Switch/>
+          <Input :from="false" />
         </div>
         
         <Receiver class="my-2" />
-        <Confirm class="my-3" />
+        <Confirm class="my-2" />
       </v-card>
     </div>
   </v-row>

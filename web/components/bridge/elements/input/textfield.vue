@@ -44,8 +44,4 @@ const inputFunc = (event: KeyboardEvent) => {
 input::placeholder {
   color: var(--palette-black-25) !important;
 }
-
-.text-field::placeholder{
-  color: grey;
-}
 </style>

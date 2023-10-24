@@ -22,7 +22,7 @@
 
       <div class="ml-6 h7m mb-4">
         <span style="color: var(--palette-black-75);">
-          $ {{ usdValue }}
+          $ {{ usdValue.v }}
         </span>
       </div>
     </div>
@@ -38,7 +38,7 @@ import { useBridgeStore } from "~/stores/bridge/bridge";
 const props = defineProps(["from"]);
 const store = useBridgeStore()
 // TODO
-const usdValue = ref(BigNumber(store.bridgeAmount).multipliedBy(7))
+const usdValue = reactive({v: BigNumber(store.bridgeAmount).multipliedBy(7)})
 </script>
 
 <style lang="scss" scoped>
