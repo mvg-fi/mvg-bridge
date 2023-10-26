@@ -14,6 +14,11 @@ input:focus {
 $select-asset-dialog-height: 660px;
 $select-asset-dialog-width: 432px;
 
+//Web3Modal
+:root {
+  --wui-letter-spacing-paragraph: 0px !important;
+}
+
 .p {
   font-family: Satoshi-Medium;
   font-size: 21px;

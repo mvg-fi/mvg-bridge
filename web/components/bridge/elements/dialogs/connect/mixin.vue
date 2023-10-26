@@ -19,7 +19,7 @@
 
       <span
         class="flex-grow-1 justify-start text-start"
-        style="font-size: 16px; line-height: 32px; font-family: Satoshi-Bold"
+        style="font-size: 16px; line-height: 32px; font-family: Satoshi-SemiBold"
       >
         {{ w.name }}
       </span>

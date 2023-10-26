@@ -4,6 +4,11 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+  runtimeConfig: {
+    ETHERSCAN_TOKEN: process.env.ETHERSCAN_TOKEN,
+    INFURA_PROJECT_ID: process.env.INFURA_PROJECT_ID,
+    WALLETCONNECT_ID: process.env.WALLETCONNECT_ID,
+  },
   app: {
     head: {
       meta: [

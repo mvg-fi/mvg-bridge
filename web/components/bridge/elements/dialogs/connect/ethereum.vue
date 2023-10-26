@@ -19,7 +19,7 @@
 
       <span
         class="flex-grow-1 justify-start text-start"
-        style="font-size: 16px; line-height: 32px; font-family: Satoshi-Bold"
+        style="font-size: 16px; line-height: 32px; font-family: Satoshi-SemiBold"
       >
         {{ w.name }}
       </span>
@@ -37,10 +37,13 @@
 
 <script setup>
 import mm from "~/assets/images/wallets/metamask.png";
+import rb from "~/assets/images/wallets/rabby.png";
 import wc from "~/assets/images/wallets/walletconnect.png";
 import cb from "~/assets/images/wallets/coinbase.png";
-import rb from "~/assets/images/wallets/rabby.png";
+import { useWeb3Modal } from '@web3modal/ethers5/vue'
+import { useConnectStore } from "~/stores/connect/connect";
 
+const store = useConnectStore()
 const ethereumWallets = [
   { name: "Metamask", icon: mm },
   { name: "Rabby", icon: rb },
@@ -51,26 +54,32 @@ const ethereumWallets = [
 const connect = (w) => {
   switch (w) {
     case "Metamask":
+      metamask()
       break;
     case "Rabby":
       break;
     case "WalletConnect":
+      walletconnect();
       break;
     case "Coinbase":
       break;
   }
-}
+};
 
 const metamask = () => {
-
-}
-const rabby = () => {
-
-}
-const walletconnect = () => {
-
-}
-const coinbase = () => {
-
-}
+  if (typeof window.ethereum !== "undefined") {
+    console.log("MetaMask is installed!");
+  }
+};
+const rabby = () => {};
+const walletconnect = async () => {
+  const modal = useWeb3Modal()
+  const state = await modal.open()
+  console.log(state)
+};
+const coinbase = () => {};
 </script>
+
+<style lang="scss" scoped>
+
+</style>

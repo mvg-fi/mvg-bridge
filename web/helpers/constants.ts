@@ -1,5 +1,7 @@
 export const AppName = "MVG"
 export const AppFullName = "MVG Finance"
+export const AppDescription = "Ultimate cross chain bridge"
+export const AppURL = "https://mvg.fi"
 export const BridgeFullName = "Bridge"
 export const WCProjectID = '43b980fb7399c6267103bf2d0aa1ea69'
 export const InfuraID = '9aa3d95b3bc440fa88ea12eaa4456161'

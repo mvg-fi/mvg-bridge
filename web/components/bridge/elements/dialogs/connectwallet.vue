@@ -1,10 +1,12 @@
 <template>
   <v-dialog
+    persistent
+    no-click-animation
     v-model="store.connectDialog"
     class="d-flex justify-center connect-dialog"
   >
-    <v-card
-      class="rounded-xl overflow-y-hidden connect-card"
+    <v-sheet
+      class="rounded-xl align-self-start overflow-y-auto connect-card"
       elevation="3"
     >
       <Title />
@@ -14,7 +16,7 @@
         <Bitcoin />
         <Mixin />
       </div>
-    </v-card>
+    </v-sheet>
   </v-dialog>
 </template>
 
@@ -29,10 +31,24 @@ const store = useConnectStore();
 
 <style lang="scss" scoped>
 .connect-dialog {
-  width: 305px;
+  width: 350px;
 }
 .connect-card {
   width: 305px;
+  height: 600px;
   background-color: var(--palette-background-1);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 32px;
+}
+::-webkit-scrollbar-thumb {
+  height: 16px;
+  border-radius: 32px;
+  background-color: var(--palette-black-10);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--palette-black-25);
 }
 </style>

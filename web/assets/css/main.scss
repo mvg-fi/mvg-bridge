@@ -9,7 +9,14 @@
 @font-face {
   font-family: 'Satoshi-Medium';
   src: url('/fonts/Satoshi-Medium.ttf') format('truetype');
-  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'Satoshi-SemiBold';
+  src: url('/fonts/Satoshi-Bold.ttf') format('truetype');
   font-style: normal;
   font-display: swap;
   text-rendering: optimizeLegibility;
