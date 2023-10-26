@@ -14,20 +14,6 @@ input:focus {
 $select-asset-dialog-height: 660px;
 $select-asset-dialog-width: 432px;
 
-$palette: (
-  black: (
-    100: #261F22,
-    75: #5C5759,
-    50: #837F81,
-    25: #B2B1B1,
-    10: #EAEAEA,
-    5: #F4F4F4,
-  ),
-  background: (
-    1: #F9F9F9,
-  ),
-);
-
 .p {
   font-family: Satoshi-Medium;
   font-size: 21px;
@@ -94,11 +80,28 @@ $palette: (
   line-height: 24px;
 }
 
+$palette: (
+  main: (primary: #5959D7, 
+    secondary: #557DED, 
+    error: #FF3333, 
+    correct: #75D658
+  ),
+  black: (100: #261F22,
+    75: #5C5759,
+    50: #8F8B8D,
+    25: #B2B1B1,
+    10: #EAEAEA,
+    5: #F4F4F4,
+  ),
+  background: (1: #F9F9F9,
+  ),
+);
+
 :root {
   @each $colorname, $palette in $palette {
-      @each $key, $value in $palette {
-          $keyname: "--palette-" + $colorname + "-" + $key;
-          #{$keyname}: #{$value};
-      }
+    @each $key, $value in $palette {
+      $keyname: "--palette-" + $colorname + "-" + $key;
+      #{$keyname}: #{$value};
+    }
   }
 }

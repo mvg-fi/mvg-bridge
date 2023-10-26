@@ -21,8 +21,8 @@
       </div>
 
       <div class="ml-6 h7m mb-4">
-        <span style="color: var(--palette-black-75);">
-          $ {{ usdValue.v }}
+        <span style="color: var(--palette-black-50);">
+          ${{ usdValue.v }}
         </span>
       </div>
     </div>

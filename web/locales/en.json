@@ -1,5 +1,6 @@
 {
   "connect": "Connect",
+  "connect_wallet": "Connect Wallet",
   "bridge": "Exchange",
   "placeholder": "0",
   "select_asset": "Select asset",
@@ -15,5 +16,9 @@
   "no_result": "No result",
   "only_show_network": "{name} chain only",
   "you_pay": "You pay",
-  "you_receive": "You receive"
+  "you_receive": "You receive",
+  "connect_a_wallet": "Connect a wallet",
+  "ethereum": "Ethereum",
+  "bitcoin": "Bitcoin",
+  "mixin": "Mixin"
 }

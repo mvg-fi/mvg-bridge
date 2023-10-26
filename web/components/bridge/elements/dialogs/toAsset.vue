@@ -19,10 +19,10 @@
 
 <script setup>
 import { useBridgeStore } from "~/stores/bridge/bridge";
-import Title from "~/components/bridge/elements/dialogs/dialog/title.vue";
-import Search from "~/components/bridge/elements/dialogs/dialog/search.vue";
-import Network from "~/components/bridge/elements/dialogs/dialog/network.vue";
-import Assets from "~/components/bridge/elements/dialogs/dialog/assets.vue";
+import Title from "~/components/bridge/elements/dialogs/asset/title.vue";
+import Search from "~/components/bridge/elements/dialogs/asset/search.vue";
+import Network from "~/components/bridge/elements/dialogs/asset/network.vue";
+import Assets from "~/components/bridge/elements/dialogs/asset/assets.vue";
 const store = useBridgeStore();
 </script>
 

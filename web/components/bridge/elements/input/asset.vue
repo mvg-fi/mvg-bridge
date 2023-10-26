@@ -60,6 +60,8 @@ import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const store = useBridgeStore();
 const props = defineProps(["from"]);
+console.log(store.fromAsset)
+console.log(store.toAsset)
 </script>
 
 <style lang="scss" scoped>

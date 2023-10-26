@@ -27,8 +27,8 @@ const store = useBridgeStore();
 }
 .down {
   border-radius: 100%;
-  background-color: var(--palette-black-10);
-  border: 2.5px solid var(--palette-background-1);
+  background-color: var(--palette-black-5);
+  border: 3px solid var(--palette-background-1);
 }
 .line {
   border: 2px solid var(--palette-background-1);
