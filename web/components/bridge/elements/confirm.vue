@@ -1,7 +1,7 @@
 <template>
   <div class="mx-2">
     <v-btn
-      v-if="store.connected"
+      v-if="cStore.connected"
       elevation="0"
       class="rounded-xl w-100"
       style="background-color: var(--palette-black-5)"
@@ -29,12 +29,10 @@
 </template>
 
 <script setup>
-import { useBridgeStore } from "~/stores/bridge/bridge";
 import { useConnectStore } from "~/stores/connect/connect";
 import ConnectWalletDialog from "~/components/bridge/elements/dialogs/connectwallet.vue";
 import clsx from "clsx";
 
-const store = useBridgeStore();
 const cStore = useConnectStore();
 </script>
 

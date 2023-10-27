@@ -17,7 +17,6 @@ export const useBridgeStore = defineStore('bridge', {
     selectedNetwork: undefined,
     searchAsset: '',
     selectNetworkBar: false,
-    connected: false,
   } as BridgeState),
   getters: {
     filteredItems: (state) => {

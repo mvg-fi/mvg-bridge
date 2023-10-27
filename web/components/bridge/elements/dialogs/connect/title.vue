@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex mt-6 ml-8 align-center">
-    <span class="h6 flex-grow-1"> {{ $t("connect_a_wallet") }} </span>
+    <span class="h6m flex-grow-1"> {{ $t("connect_a_wallet") }} </span>
     <v-btn
       icon
       elevation="0"

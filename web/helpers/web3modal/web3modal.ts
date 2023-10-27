@@ -22,7 +22,7 @@ export const initWeb3Modal = () => {
     }),
     themeMode: 'light',
     themeVariables: {
-      '--w3m-font-family': "Satoshi-Medium",
+      '--w3m-font-family': "Satoshi-SemiBold",
       '--w3m-z-index':2500,
     },
     chains,

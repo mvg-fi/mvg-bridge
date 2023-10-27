@@ -1,7 +1,7 @@
 {
   "connect": "Connect",
   "connect_wallet": "Connect Wallet",
-  "bridge": "Exchange",
+  "bridge": "Bridge",
   "placeholder": "0",
   "select_asset": "Select asset",
   "search_asset_placeholder": "Search token name or symbol",

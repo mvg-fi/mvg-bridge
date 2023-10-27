@@ -2,7 +2,7 @@
   <v-dialog
     persistent
     no-click-animation
-    v-model="store.connectDialog"
+    v-model="cStore.connectDialog"
     class="d-flex justify-center connect-dialog"
   >
     <v-sheet
@@ -26,7 +26,7 @@ import Title from "~/components/bridge/elements/dialogs/connect/title.vue";
 import Ethereum from "~/components/bridge/elements/dialogs/connect/ethereum.vue";
 import Bitcoin from "~/components/bridge/elements/dialogs/connect/bitcoin.vue";
 import Mixin from "~/components/bridge/elements/dialogs/connect/mixin.vue";
-const store = useConnectStore();
+const cStore = useConnectStore();
 </script>
 
 <style lang="scss" scoped>
