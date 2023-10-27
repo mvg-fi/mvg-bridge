@@ -5,7 +5,7 @@
     <v-spacer />
     
     <Menu class="mx-4"/>
-    <Network class="mx-4" />
+    <!-- <Network class="mx-4" /> -->
     <ConnectWallet class="mx-4" v-if="!cStore.connected"/>
     <Account v-else/> 
   </v-app-bar>

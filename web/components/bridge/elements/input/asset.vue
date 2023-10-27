@@ -17,7 +17,7 @@
       </v-icon>
 
       <div class="d-flex flex-column align-center justify-center mr-4">
-        <span style="" class="h6m">
+        <span style="" class="h6m lower-letter-spacing">
           {{ from ? store.fromAsset.symbol : store.toAsset.symbol }}
         </span>
         <span
@@ -55,8 +55,6 @@
 <script setup>
 import FromAssetDialog from "~/components/bridge/elements/dialogs/fromAsset.vue";
 import ToAssetDialog from "~/components/bridge/elements/dialogs/toAsset.vue";
-import EthereumIcon from "~/assets/images/networks/ethereum.png";
-import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const store = useBridgeStore();
 const props = defineProps(["from"]);
@@ -65,10 +63,7 @@ console.log(store.toAsset)
 </script>
 
 <style lang="scss" scoped>
-.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
-  background-color: #f1f4f9 !important;
-}
-.v-btn:before {
-  opacity: 0 !important;
+.lower-letter-spacing {
+  line-height: 24px;
 }
 </style>

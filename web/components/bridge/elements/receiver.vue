@@ -28,7 +28,7 @@ const clearReceiver = () => {
 }
 </script>
 
-<style>
+<style scoped>
 .search:focus {
   outline: none;
 }

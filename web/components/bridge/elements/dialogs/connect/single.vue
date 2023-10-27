@@ -38,3 +38,8 @@
 import { CheckIcon } from "@heroicons/vue/24/outline";
 const props = defineProps(["w"]);
 </script>
+
+
+<style lang="scss" scoped>
+
+</style>

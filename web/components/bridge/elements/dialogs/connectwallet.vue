@@ -11,7 +11,7 @@
     >
       <Title />
 
-      <div class="mt-5 mx-8">
+      <div class="mt-3 mx-3">
         <Ethereum />
         <Bitcoin />
         <Mixin />

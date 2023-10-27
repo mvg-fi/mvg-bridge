@@ -40,6 +40,10 @@
   min-height: 48px !important;
 }
 
+.v-theme--light {
+  --v-hover-opacity: 0;
+}
+
 html {
   font-family: 'Satoshi-Medium';
   letter-spacing: -0.1px !important;

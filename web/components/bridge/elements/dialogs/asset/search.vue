@@ -1,9 +1,9 @@
 <template>
   <div
-    class="pa-2 justify-center align-center rounded-xl bg-background d-flex align-center"
-    style="height: 36px"
+    class="pa-2 justify-center align-center rounded-xl d-flex align-center"
+    style="height: 36px; background-color: var(--palette-black-10); "
   >
-    <v-icon style="width: 16px; height: 16px" class="mx-2">
+    <v-icon style="width: 16px; height: 16px; color: var(--palette-black-25);" class="mx-2">
       <SearchIcon />
     </v-icon>
     <input
@@ -38,7 +38,7 @@ const inputFunc = (event: KeyboardEvent) => {
   font-size: 16px;
 }
 ::placeholder {
-  opacity: 0.2;
+  color: var(--palette-black-25);
   font-size: 14px;
 }
 </style>

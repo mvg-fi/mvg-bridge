@@ -7,7 +7,7 @@ import cb from "~/assets/images/wallets/coinbase.png";
 import us from "~/assets/images/wallets/unisat.png";
 import mx from "~/assets/images/wallets/mixin.png";
 import fe from "~/assets/images/wallets/fennec.png";
-import { useWeb3Modal, useWeb3ModalAccount, useWeb3ModalEvents, useWeb3ModalState } from "@web3modal/ethers5/vue";
+import { useWeb3Modal, useWeb3ModalEvents, useWeb3ModalState } from "@web3modal/ethers5/vue";
 
 export const useConnectStore = defineStore('connect', {
   state: () => ({
@@ -21,11 +21,11 @@ export const useConnectStore = defineStore('connect', {
       { name: "Coinbase", icon: cb, loading: false, connected: false },
     ],
     bitcoinWallets: [
-      { name: "Unisat", icon: us },
+      { name: "Unisat", icon: us, loading: false, connected: false },
     ],
     mixinWallets: [
-      { name: "MixinMessenger", icon: mx },
-      { name: "Fennec", icon: fe },
+      { name: "MixinMessenger", icon: mx, loading: false, connected: false },
+      { name: "Fennec", icon: fe, loading: false, connected: false },
     ],
 
     connectedWallets: [],
@@ -52,17 +52,43 @@ export const useConnectStore = defineStore('connect', {
 })
 
 // Ethereum
-export const connectEthereum = (w:Wallet) => {
+export const connectEthereum = (w: Wallet) => {
   w.loading = true;
   switch (w.name) {
     case "Metamask":
+      walletConnect(w);
       break;
     case "Rabby":
+      walletConnect(w);
       break;
     case "WalletConnect":
       walletConnect(w);
       break;
     case "Coinbase":
+      walletConnect(w);
+      break;
+  }
+}
+
+// Bitcoin
+export const connectBitcoin = (w: Wallet) => {
+  w.loading = true;
+  switch (w.name) {
+    case "Unisat":
+      unisat(w);
+      break;
+  }
+}
+
+// Mixin
+export const connectMixin = (w: Wallet) => {
+  w.loading = true;
+  switch (w.name) {
+    case "MixinMessenger":
+      mixin(w);
+      break;
+    case "Fennec":
+      fennec(w);
       break;
   }
 }
@@ -96,7 +122,34 @@ const walletConnect = async (w: Wallet) => {
   });
 };
 
-// Bitcoin
+export const unisat = async (w: Wallet) => {
+  const cStore = useConnectStore()
+  if (typeof window.unisat !== 'undefined') {
+    console.log('UniSat Wallet is installed!');
+  }
+  try {
+    const result = await window.unisat.requestAccounts()
+    if (result.length != 0) {
+      w.connected = true
+      cStore.afterConnect()
+    }
+  } catch (e) {
+    switch (e.code) {
+      case 4001:
+        console.log('unisat rejected');
+        break;
+      default: 
+        console.log(e);
+    }
+  } finally {
+    w.loading = false;
+  }
+}
 
+export const mixin = (w: Wallet) => {
 
-// Mixin
+}
+
+export const fennec = (w: Wallet) => {
+  
+}

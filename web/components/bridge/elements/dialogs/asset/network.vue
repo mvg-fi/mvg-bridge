@@ -25,7 +25,8 @@
     </div>
     <div style="position: absolute; right: 0px; top: 45%">
       <v-icon
-        style="width: 10px; height: 32px; color: grey; opacity: 80%"
+        size="12"
+        style="color: var(--palette-black-75)"
         @click.stop="toggle"
       >
         <ChevronLeftIcon />
@@ -41,7 +42,8 @@
   >
     <div style="position: absolute; left: 0px; top: 45%; z-index: 100">
       <v-icon
-        style="width: 10px; height: 32px; color: grey; opacity: 40%"
+        size="12"
+        style="color:var(--palette-black-50)"
         @click.stop="toggle"
       >
         <ChevronRightIcon />
