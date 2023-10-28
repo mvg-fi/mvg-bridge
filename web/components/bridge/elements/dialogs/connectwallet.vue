@@ -2,21 +2,27 @@
   <v-dialog
     persistent
     no-click-animation
+    transition="fade-transition"
     v-model="cStore.connectDialog"
     class="d-flex justify-center connect-dialog"
   >
     <v-sheet
+      v-if="cStore.connectState === 0"
       class="rounded-xl align-self-start overflow-y-auto connect-card"
       elevation="3"
     >
       <Title />
 
-      <div class="mt-3 mx-3">
+      <div class="mt-3 mx-5">
         <Ethereum />
         <Bitcoin />
         <Mixin />
       </div>
     </v-sheet>
+    
+    <MixinOauth v-else-if="cStore.connectState === 1" />
+    <Success v-else-if="cStore.connectState === 2" />
+    <Failed v-else-if="cStore.connectState === 3" />    
   </v-dialog>
 </template>
 
@@ -26,6 +32,11 @@ import Title from "~/components/bridge/elements/dialogs/connect/title.vue";
 import Ethereum from "~/components/bridge/elements/dialogs/connect/ethereum.vue";
 import Bitcoin from "~/components/bridge/elements/dialogs/connect/bitcoin.vue";
 import Mixin from "~/components/bridge/elements/dialogs/connect/mixin.vue";
+import MixinOauth from "~/components/bridge/elements/dialogs/connect/mixinOauth.vue";
+import Success from "~/components/bridge/elements/dialogs/connect/success.vue";
+import Failed from "~/components/bridge/elements/dialogs/connect/failed.vue";
+
+
 const cStore = useConnectStore();
 </script>
 

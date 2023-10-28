@@ -9,3 +9,5 @@ export const MVMChainID = 73927
 export const BridgeBotID = 'a13f4c77-5cfc-4368-a2d6-33f07037ae9e'
 export const OAuthScope = 'PROFILE:READ ASSETS:READ'
 export const AuthMethods = ['mixin', 'fennec', 'metamask', 'onekey', 'walletconnect']
+
+export const MixinMessengerLink = 'https://mixin.one/mm' 

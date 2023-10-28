@@ -18,7 +18,15 @@
   "you_pay": "You pay",
   "you_receive": "You receive",
   "connect_a_wallet": "Connect a wallet",
+  "scan_to_connect": "Scan to connect",
   "ethereum": "Ethereum",
   "bitcoin": "Bitcoin",
-  "mixin": "Mixin"
+  "mixin": "Mixin",
+  "don't_have_mixin_messenger": "Don't have Mixin Messenger?",
+  "install": "Install",
+  "open_in_mixin": "Open in Mixin",
+  "connected": "Connected",
+  "canceled": "Canceled",
+  "back": "Back",
+  "retry": "Retry"
 }

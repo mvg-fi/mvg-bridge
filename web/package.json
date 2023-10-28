@@ -27,6 +27,7 @@
     "vue-i18n": "^9.2.2"
   },
   "dependencies": {
+    "@chenfengyuan/vue-qrcode": "2",
     "@heroicons/vue": "^2.0.18",
     "@mvg-fi/mvg-bridge-sdk-js": "^0.0.1",
     "@pinia/nuxt": "^0.4.11",
@@ -34,11 +35,15 @@
     "@web3modal/ethers5": "^3.2.0-alpha.1",
     "bignumber.js": "^9.1.2",
     "clsx": "^2.0.0",
+    "crypto-js": "^4.2.0",
     "ethers": "5.7.2",
     "maska": "^2.1.10",
+    "pako": "^2.1.0",
     "pinia": "^2.1.6",
+    "qrcode": "1",
+    "reconnecting-websocket": "^4.4.0",
     "sass": "^1.66.1",
-    "uuid": "^9.0.0",
+    "uuid": "^9.0.1",
     "vuetify": "^3.3.14"
   }
 }

@@ -13,6 +13,7 @@ export const useConnectStore = defineStore('connect', {
   state: () => ({
     connected: false,
     connectDialog: false,
+    connectState: 3,      // 0 = connect view, 1 = mixin oauth view, 2 = success, 3 = failed/canceled
 
     ethereumWallets: [
       { name: "Metamask", icon: mm, loading: false, connected: false },
@@ -24,11 +25,12 @@ export const useConnectStore = defineStore('connect', {
       { name: "Unisat", icon: us, loading: false, connected: false },
     ],
     mixinWallets: [
-      { name: "MixinMessenger", icon: mx, loading: false, connected: false },
+      { name: "Mixin Messenger", icon: mx, loading: false, connected: false },
       { name: "Fennec", icon: fe, loading: false, connected: false },
     ],
 
     connectedWallets: [],
+    mixinOauth: false,
   }),
   getters: {
   },
@@ -41,12 +43,20 @@ export const useConnectStore = defineStore('connect', {
     },
     mutateDialog(open: boolean) {
       this.connectDialog = open
+      setTimeout(()=>{if(!open)this.clearStates()}, 500)
     },
     afterConnect() {
       this.connectDialog = false
     },
     afterDisconnect() {
       this.connectedWallets = []
+    },
+    setConnectState(e: number) {
+      this.connectState = e
+    },
+    clearStates() {
+      this.connectState = 0
+      this.mixinOauth = false
     }
   }
 })
@@ -84,13 +94,14 @@ export const connectBitcoin = (w: Wallet) => {
 export const connectMixin = (w: Wallet) => {
   w.loading = true;
   switch (w.name) {
-    case "MixinMessenger":
+    case "Mixin Messenger":
       mixin(w);
       break;
     case "Fennec":
       fennec(w);
       break;
   }
+  w.loading = false;
 }
 
 const walletConnect = async (w: Wallet) => {
@@ -147,7 +158,8 @@ export const unisat = async (w: Wallet) => {
 }
 
 export const mixin = (w: Wallet) => {
-
+  const cStore = useConnectStore()
+  cStore.connectState = 1
 }
 
 export const fennec = (w: Wallet) => {

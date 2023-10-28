@@ -1,10 +1,10 @@
 <template>
-  <div class="d-flex mt-6 ml-6 justify-center align-center">
+  <div class="d-flex mt-6 ml-8 justify-center align-center">
     <span class="title flex-grow-1"> {{ $t("connect_a_wallet") }} </span>
     <v-btn
       icon
       elevation="0"
-      class="mr-6 d-flex align-center justify-center"
+      class="mr-8 d-flex align-center justify-center"
       style="width: 16px; height: 16px"
       @click="cStore.mutateDialog(false)"
     >
