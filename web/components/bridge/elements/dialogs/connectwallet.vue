@@ -2,8 +2,9 @@
   <v-dialog
     persistent
     no-click-animation
-    transition="fade-transition"
+    transition="slide-x-transition"
     v-model="cStore.connectDialog"
+    @keyup.esc="cStore.mutateDialog(false)"
     class="d-flex justify-center connect-dialog"
   >
     <v-sheet

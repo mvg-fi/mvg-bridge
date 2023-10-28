@@ -14,6 +14,7 @@
         </div>
         
         <Receiver class="my-2" />
+        <Fees class="my-2" />
         <Confirm class="my-2" />
       </v-card>
     </div>
@@ -25,6 +26,7 @@ import Title from "~/components/bridge/elements/title.vue";
 import Input from "~/components/bridge/elements/input.vue";
 import Switch from "~/components/bridge/elements/switch.vue";
 import Receiver from "~/components/bridge/elements/receiver.vue";
+import Fees from "~/components/bridge/elements/fees.vue";
 import Confirm from "~/components/bridge/elements/confirm.vue";
 </script>
 

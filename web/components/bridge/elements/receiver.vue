@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { InboxArrowDownIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+import { XMarkIcon } from "@heroicons/vue/24/outline";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const store = useBridgeStore()
 
