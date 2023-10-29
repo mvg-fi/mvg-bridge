@@ -39,6 +39,7 @@ export const useConnectStore = defineStore('connect', {
   actions: {
     setConnected(c: boolean) {
       this.connected = c
+      console.log('setConnected:', this.connected)
     },
     mutateDialog(open: boolean) {
       this.connectDialog = open
@@ -124,8 +125,10 @@ const walletConnect = async (w: Wallet) => {
     switch (events.data.event) {
       case "CONNECT_SUCCESS":
         cStore.afterConnect();
+        break;
       case "DISCONNECT_SUCCESS":
         cStore.afterDisconnect();
+        break;
       default:
         console.log(events.data.event);
     }
@@ -141,6 +144,7 @@ export const unisat = async (w: Wallet) => {
     const result = await window.unisat.requestAccounts()
     if (result.length != 0) {
       w.connected = true
+      appendConnected(w)
       cStore.afterConnect()
     }
   } catch (e) {

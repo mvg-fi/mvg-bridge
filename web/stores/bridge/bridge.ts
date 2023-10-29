@@ -10,7 +10,9 @@ export const useBridgeStore = defineStore('bridge', {
   state: () => ({
     fromAsset: assets[0],
     toAsset: assets[1],
+    bridgeUsdPrice: undefined,
     bridgeAmount: undefined,
+    receiveUsdPrice: undefined,
     receiveAmount: undefined,
     fromDialog: false,
     toDialog: false,
@@ -19,6 +21,8 @@ export const useBridgeStore = defineStore('bridge', {
     selectedNetwork: undefined,
     searchAsset: '',
     selectNetworkBar: false,
+    priceLoading: false,
+    priceLoaded: true,
   } as BridgeState),
   getters: {
     filteredItems: (state) => {
@@ -78,7 +82,12 @@ export const useBridgeStore = defineStore('bridge', {
       const chainAssetIds = assetList.map((asset) => asset.chain_id);
       return chains.filter((chain) => chainAssetIds.includes(chain.asset_id));
     },
-
+    fromTotalPrice: (state) => {
+      return state.bridgeUsdPrice * state.bridgeAmount
+    },
+    toTotalPrice: (state) => {
+      return state.receiveUsdPrice * state.receiveAmount
+    },
   },
   actions: {
     switch() {
@@ -133,11 +142,14 @@ export const useBridgeStore = defineStore('bridge', {
     clearReceiver() {
       this.receiver = ""
     },
-
     cleanUpStates() {
       this.searchAsset = ''
       this.selectNetworkBar = false
       this.selectedNetwork = undefined
+    },
+    async fetchUSD(from: boolean) {
+      if (from) this.bridgeUsdPrice = await fetchUSDPrice(this.fromAsset);
+      else this.receiveUsdPrice = await fetchUSDPrice(this.toAsset);
     }
   }
 })

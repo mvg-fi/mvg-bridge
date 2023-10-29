@@ -5,16 +5,22 @@
     :class="ConnectBtnClass"
     @mouseover="btnHover = true"
     @mouseleave="btnHover = false"
-    style="background: linear-gradient(90deg, var(--palette-main-primary), var(--palette-main-secondary))"
+    style="
+      background: linear-gradient(
+        90deg,
+        var(--palette-main-primary),
+        var(--palette-main-secondary)
+      );
+    "
   >
-      <span style="color: var(--palette-background-1)">{{ $t("connect") }}</span>
+    <span style="color: var(--palette-background-1)">{{ $t("connect") }}</span>
   </v-btn>
 </template>
 
 <script setup>
 import clsx from "clsx";
 import { useConnectStore } from "~/stores/connect/connect";
-const cStore = useConnectStore()
+const cStore = useConnectStore();
 
 const btnHover = ref(false);
 const ConnectBtnClass = computed(() =>
@@ -28,7 +34,7 @@ const ConnectBtnClass = computed(() =>
 
 const connect = async () => {
   try {
-    cStore.mutateDialog(true)
+    cStore.mutateDialog(true);
   } catch (e) {
     console.log(e);
   }

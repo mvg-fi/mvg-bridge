@@ -28,5 +28,6 @@
   "connected": "Connected",
   "canceled": "Canceled",
   "back": "Back",
-  "retry": "Retry"
+  "retry": "Retry",
+  "wallets": "Wallets"
 }

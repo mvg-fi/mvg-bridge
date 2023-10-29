@@ -24,12 +24,13 @@
 </template>
 
 <script setup>
+import { BN } from "~/helpers/bignumber/bn";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const store = useBridgeStore();
 
 let rateReserve = ref(false);
-const rate = reactive(store.receiveAmount / store.bridgeAmount);
-const rrate = reactive(store.bridgeAmount / store.receiveAmount);
+const rate = reactive(BN(store.receiveAmount).dividedBy(BN(store.bridgeAmount)).toString());
+const rrate = reactive(BN(store.bridgeAmount).dividedBy(BN(store.receiveAmount)).toString());
 const usdFee = 0;
 </script>
 

@@ -22,7 +22,7 @@
 
       <div class="ml-6 h7m mb-4">
         <span style="color: var(--palette-black-50)">
-          ${{ fromUSDPrice }}
+          ${{ props.from ? store.fromTotalPrice : store.toTotalPrice }}
         </span>
         <!-- <span style="opacity: 0" v-else> $ </span> -->
       </div>
@@ -31,23 +31,15 @@
 </template>
 
 <script setup>
-import { asyncComputed } from "@vueuse/core";
 import clsx from "clsx";
 import Asset from "~/components/bridge/elements/input/asset.vue";
 import TextField from "~/components/bridge/elements/input/textfield.vue";
-import { BN } from "~/helpers/bignumber/bn";
-import { fetchUSDPrice, useBridgeStore } from "~/stores/bridge/bridge";
+import { useBridgeStore } from "~/stores/bridge/bridge";
 const props = defineProps(["from"]);
 const store = useBridgeStore();
 
-let fromUSD = asyncComputed(async() => {
-  return await fetchUSDPrice(store.fromAsset)
-})
-let fromUSDPrice = asyncComputed(async () => {
-  console.log("fromUSDPrice");
-  // if (!store.bridgeAmount) return 0;
-  return BN(store.bridgeAmount).multipliedBy(BN(fromUSD)).toString();
-});
+watch(store.bridgeAmount, ()=>{store.fetchUSD(true)}, {immediate: true})
+watch(store.receiveAmount, ()=>{store.fetchUSD(false)}, {immediate: true})
 </script>
 
 <style lang="scss" scoped>
