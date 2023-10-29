@@ -3,11 +3,11 @@
     size="large"
     @click="connect"
     :class="ConnectBtnClass"
-    style="background-color: var(--palette-main-primary)"
     @mouseover="btnHover = true"
     @mouseleave="btnHover = false"
+    style="background: linear-gradient(90deg, var(--palette-main-primary), var(--palette-main-secondary))"
   >
-    <span style="color: var(--palette-background-1)">{{ $t("connect_wallet") }}</span>
+      <span style="color: var(--palette-background-1)">{{ $t("connect") }}</span>
   </v-btn>
 </template>
 

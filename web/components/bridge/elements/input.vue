@@ -21,24 +21,33 @@
       </div>
 
       <div class="ml-6 h7m mb-4">
-        <span style="color: var(--palette-black-50);">
-          ${{ usdValue.v }}
+        <span style="color: var(--palette-black-50)">
+          ${{ fromUSDPrice }}
         </span>
+        <!-- <span style="opacity: 0" v-else> $ </span> -->
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import BigNumber from "bignumber.js";
+import { asyncComputed } from "@vueuse/core";
 import clsx from "clsx";
 import Asset from "~/components/bridge/elements/input/asset.vue";
 import TextField from "~/components/bridge/elements/input/textfield.vue";
-import { useBridgeStore } from "~/stores/bridge/bridge";
+import { BN } from "~/helpers/bignumber/bn";
+import { fetchUSDPrice, useBridgeStore } from "~/stores/bridge/bridge";
 const props = defineProps(["from"]);
-const store = useBridgeStore()
-// TODO
-const usdValue = reactive({v: BigNumber(store.bridgeAmount).multipliedBy(7)})
+const store = useBridgeStore();
+
+let fromUSD = asyncComputed(async() => {
+  return await fetchUSDPrice(store.fromAsset)
+})
+let fromUSDPrice = asyncComputed(async () => {
+  console.log("fromUSDPrice");
+  // if (!store.bridgeAmount) return 0;
+  return BN(store.bridgeAmount).multipliedBy(BN(fromUSD)).toString();
+});
 </script>
 
 <style lang="scss" scoped>

@@ -3,6 +3,8 @@ import { BridgeState } from "~/types/stores";
 import { Asset } from "~/types/asset"
 import assets from "~/assets/constants/miniumlist.json"
 import chains from "~/assets/constants/miniumchainlist.json"
+import { networkAsset } from "~/helpers/mixin/asset";
+import { BN } from "~/helpers/bignumber/bn";
 
 export const useBridgeStore = defineStore('bridge', {
   state: () => ({
@@ -75,7 +77,8 @@ export const useBridgeStore = defineStore('bridge', {
 
       const chainAssetIds = assetList.map((asset) => asset.chain_id);
       return chains.filter((chain) => chainAssetIds.includes(chain.asset_id));
-    }
+    },
+
   },
   actions: {
     switch() {
@@ -138,3 +141,8 @@ export const useBridgeStore = defineStore('bridge', {
     }
   }
 })
+
+export const fetchUSDPrice = async (a: Asset) => {
+  const aa = await networkAsset(a)
+  return aa.price_usd || 0
+}

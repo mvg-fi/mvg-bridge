@@ -11,3 +11,17 @@ export const OAuthScope = 'PROFILE:READ ASSETS:READ'
 export const AuthMethods = ['mixin', 'fennec', 'metamask', 'onekey', 'walletconnect']
 
 export const MixinMessengerLink = 'https://mixin.one/mm' 
+export const MixinAPIBaseURL = 'https://api.mixin.one'
+
+// Names
+export const MetamaskName = "Metamask"
+export const RabbyName = "Rabby"
+export const WalletConnectName = "WalletConnect" 
+export const CoinbaseName = "Coinbase"
+export const UnisatName = "Unisat"
+export const MixinMessengerName = "Mixin Messenger"
+export const FennecName = "Fennec"
+
+export const EthereumChainName = "Ethereum"
+export const BitcoinChainName = "Bitcoin"
+export const MixinChainName = "Mixin"

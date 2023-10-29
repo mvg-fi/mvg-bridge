@@ -37,7 +37,6 @@ import MixinOauth from "~/components/bridge/elements/dialogs/connect/mixinOauth.
 import Success from "~/components/bridge/elements/dialogs/connect/success.vue";
 import Failed from "~/components/bridge/elements/dialogs/connect/failed.vue";
 
-
 const cStore = useConnectStore();
 </script>
 

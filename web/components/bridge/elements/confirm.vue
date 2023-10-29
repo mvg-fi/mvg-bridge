@@ -18,7 +18,7 @@
       class="rounded-xl w-100"
       @click="cStore.mutateDialog(true)"
       @keyup.esc="cStore.mutateDialog(false)"
-      style="background-color: var(--palette-main-primary)"
+      style="background: linear-gradient(90deg, var(--palette-main-primary), var(--palette-main-secondary))"
     >
       <span class="h6" style="color: var(--palette-background-1)">
         {{ $t("connect_wallet") }}</span
