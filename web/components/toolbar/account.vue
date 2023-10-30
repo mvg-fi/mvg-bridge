@@ -28,14 +28,13 @@
 
     <v-card class="account-card py-4">
       <v-list class="px-6">
-        <div class="d-flex">
-          <span class="h7 flex-grow-1">{{ $t("connected_accounts") }}</span>
-
+        <div class="d-flex mb-2">
+          <span class="h6m d-flex align-center flex-grow-1">{{ $t("wallet", {multi: 's'}) }}</span>
           <v-btn
             icon
             style="
-              width: 24px;
-              height: 24px;
+              width: 36px;
+              height: 36px;
               color: var(--palette-black-75);
               background-color: var(--palette-black-10);
             "
@@ -51,8 +50,8 @@
           <v-btn
             icon
             style="
-              width: 24px;
-              height: 24px;
+              width: 36px;
+              height: 36px;
               color: var(--palette-black-75);
               background-color: var(--palette-black-10);
             "
@@ -66,43 +65,43 @@
           </v-btn>
         </div>
 
-        <v-list class="mt-4 py-0">
+        <v-list class="mt-2 py-0">
           <div
             v-for="w in cStore.connectedWallets"
             :key="w.name"
-            class="px-0 d-flex flex-row"
+            style="border: 1px solid var(--palette-black-10); background-color: var(--palette-black-5);"
+            class="px-0 py-0 my-4 d-flex flex-row align-center rounded-pill"
           >
             <img
-              style="width: 24px; height: 24px"
+              style="width: 36px; height: 36px"
               :src="w.icon"
-              class="rounded-pill mr-2"
+              class="rounded-pill mr-4"
             />
-            <span class="h7m mr-4"> {{ shortenAddress(w.address) }} </span>
+            <span class="h7m mr-4" style="font-size: 16px; width: 184px">
+              {{ shortenAddress(w.address) }}
+            </span>
 
-            <!-- <v-btn icon style="width: 8px; height: 8px" class="mr-3">
-              <v-icon>
+            <v-btn
+              icon
+              style="width: 16px; height: 16px; color: var(--palette-black-50)"
+              elevation="0"
+              @click="navigator.clipboard.writeText(w.address)"
+              class="d-flex justify-center align-center rounded-pill mr-3"
+            >
+              <v-icon size="16">
                 <ClipboardIcon />
               </v-icon>
             </v-btn>
 
-            <v-btn icon style="width: 8px; height: 8px" class="mr-3">
-              <v-icon>
-                <PowerIcon />
-              </v-icon>
-            </v-btn> -->
-
             <v-btn
               icon
-              style="
-                width: 16px;
-                height: 16px;
-                color: var(--palette-black-50);
-              "
+              style="width: 16px; height: 16px; color: var(--palette-black-50)"
               elevation="0"
+              @click="cStore.disconnectSpecific(w)"
               class="d-flex justify-center align-center rounded-pill mr-3"
             >
-              <v-icon size="12">
-                <ClipboardIcon />
+              <v-icon size="16">
+                <PowerIcon />
               </v-icon>
             </v-btn>
           </div>
@@ -141,8 +140,7 @@ const connectMoreWallet = () => {
 .account-card {
   margin-top: 8px;
   border-radius: 32px;
-  width: 272px;
-  // min-height: 100px;
+  width: 344px;
   box-shadow: 0 3px 32px #0003 !important;
 }
 </style>

@@ -8,7 +8,7 @@ import us from "~/assets/images/wallets/unisat.png";
 import mx from "~/assets/images/wallets/mixin.png";
 import fe from "~/assets/images/wallets/fennec.png";
 import { userMe } from "~/helpers/mixin/user";
-import { useWeb3Modal, useWeb3ModalEvents, useWeb3ModalState, useWeb3ModalSigner } from "@web3modal/ethers5/vue";
+import { useWeb3Modal, useWeb3ModalEvents, useWeb3ModalState } from "@web3modal/ethers5/vue";
 import { BTCUUID, BitcoinChainName, CoinbaseName, ETHUUID, EthereumChainName, FennecName, MetamaskName, MixinChainName, MixinMessengerName, RabbyName, UnisatName, WalletConnectName } from "~/helpers/constants";
 
 const defaultEthereum = [
@@ -59,6 +59,11 @@ export const useConnectStore = defineStore('connect', {
       this.connectedWallets = []
       this.afterDisconnect()
       localStorage.removeItem("connected_wallets")
+    },
+    disconnectSpecific(c: ConnectedWallet) {
+      const after = this.connectedWallets.filter((e: ConnectedWallet) => { return e.name != c.name })
+      this.connectedWallets = after
+      localStorage.setItem("connected_wallets", JSON.stringify(after))
     },
     connectMore() {
       this.connectDialog = true;
@@ -136,14 +141,14 @@ const walletConnect = async (w: Wallet) => {
   watchEffect(async () => {
     switch (events.data.event) {
       case "CONNECT_SUCCESS":
-        const { signer } = useWeb3ModalSigner()
+        // const { signer } = useWeb3ModalSigner()
         cStore.afterConnect();
         appendConnected({
           name: WalletConnectName,
           icon: wc,
           chain: EthereumChainName,
           chain_id: ETHUUID,
-          address: await signer?.getAddress() || '',
+          address: '' //await signer?.getAddress(),
         })
         break;
       case "DISCONNECT_SUCCESS":
@@ -291,7 +296,7 @@ export const appendConnected = (c: ConnectedWallet) => {
   cStore.connectedWallets = neww;
 }
 
-const getConnectedFromStorage = () => {
+const connectToLastConnected = () => {
   // 1. Get localStorage, if not exist, return
   // 2. Exist, create state with value
   if (!localStorage.getItem("connected_wallets")) return;
