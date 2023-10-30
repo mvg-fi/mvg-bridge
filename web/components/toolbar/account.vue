@@ -78,7 +78,7 @@
               class="rounded-pill mr-4"
             />
             <span class="h7m mr-4" style="font-size: 16px; width: 184px">
-              {{ shortenAddress(w.address) }}
+              {{ shortenAddress(w.address) || w.name }}
             </span>
 
             <v-btn

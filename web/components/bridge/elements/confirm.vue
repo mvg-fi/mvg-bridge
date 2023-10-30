@@ -7,6 +7,15 @@
       style="background-color: var(--palette-black-10)"
       size="x-large"
       height="64px"
+      @click="
+        console.log(
+          bStore.bridgeAmount,
+          bStore.receiveAmount,
+          enabled,
+          bStore.bridgeAmount > 0,
+          bStore.receiveAmount > 0
+        )
+      "
     >
       <!-- Bridge disabled -->
       <span style="color: var(--palette-black-50)" class="h6">
@@ -76,9 +85,7 @@ const btnHover = ref(false);
 const bStore = useBridgeStore();
 const cStore = useConnectStore();
 const enabled = computed(() => {
-  return (
-    bStore.bridgeAmount > 0 && bStore.receiveAmount > 0 && bStore.priceLoaded
-  );
+  return bStore.bridgeAmount > 0 && bStore.receiveAmount > 0; // && bStore.priceLoaded
 });
 </script>
 
