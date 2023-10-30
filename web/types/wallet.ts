@@ -10,6 +10,7 @@ export interface Wallet {
 
 export interface ConnectedWallet {
   name: string,
+  icon: string,
   chain: string,
   chain_id: string, 
   address: string,

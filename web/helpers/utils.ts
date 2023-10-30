@@ -6,3 +6,10 @@ export const filterInputEvents = (event: KeyboardEvent): boolean => {
 	) return true
 	return false
 }
+
+export const shortenAddress = (input: string): string => {
+  if (input.length > 16) {
+    return `${input.slice(0, 10)}...${input.slice(-6)}`;
+  }
+  return input;
+}

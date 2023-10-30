@@ -1,5 +1,11 @@
 <template>
-  <v-overlay location="bottom end" location-strategy="connected" scrim="false" transition="scale-transition" opacity="0.1">
+  <v-overlay
+    location="bottom end"
+    location-strategy="connected"
+    scrim="false"
+    transition="scale-transition"
+    opacity="0.1"
+  >
     <template v-slot:activator="{ props }">
       <v-btn icon class="menu-btn" v-bind="props">
         <v-icon>

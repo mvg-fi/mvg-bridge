@@ -29,5 +29,6 @@
   "canceled": "Canceled",
   "back": "Back",
   "retry": "Retry",
-  "wallets": "Wallets"
+  "wallet": "Wallet{multi}",
+  "connected_accounts": "Connected accounts"
 }
