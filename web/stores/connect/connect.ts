@@ -44,7 +44,7 @@ export const useConnectStore = defineStore('connect', {
     },
     mutateDialog(open: boolean) {
       this.connectDialog = open
-      setTimeout(() => { if (!open) this.clearStates() }, 500)
+      if (!open) this.clearStates()
     },
     afterConnect() {
       this.connectDialog = false
@@ -72,10 +72,12 @@ export const useConnectStore = defineStore('connect', {
       this.connectState = e
     },
     clearStates() {
-      this.connectState = 0
-      this.ethereumWallets = defaultEthereum
-      this.bitcoinWallets = defaultBitcoin
-      this.mixinWallets = defaultMixin
+      setTimeout(() => {
+        this.connectState = 0
+        this.ethereumWallets = defaultEthereum
+        this.bitcoinWallets = defaultBitcoin
+        this.mixinWallets = defaultMixin
+      }, 200);
     }
   }
 })
@@ -212,7 +214,7 @@ export const mixinOauthSuccess = async (token: string) => {
   cStore.setConnectState(2);
   setTimeout(() => {
     cStore.afterConnect();
-  }, 2000);
+  }, 1000);
 }
 
 export const fennec = (w: Wallet) => {

@@ -14,7 +14,7 @@
     >
       <Title />
 
-      <div class="mt-3 mx-5">
+      <div class="mt-3 mx-5 mb-6">
         <Ethereum />
         <Bitcoin />
         <Mixin />
@@ -46,7 +46,7 @@ const cStore = useConnectStore();
 }
 .connect-card {
   width: 305px;
-  height: 600px;
+  max-height: 600px;
   background-color: var(--palette-background-1);
 }
 
