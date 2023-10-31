@@ -25,6 +25,7 @@ export const useBridgeStore = defineStore('bridge', {
     priceLoaded: true,
 
     bridgeProcessDialog: false,
+    menuState: 0               // 0 == Default, 1 == Language select
   } as BridgeState),
   getters: {
     filteredItems: (state) => {
@@ -148,6 +149,9 @@ export const useBridgeStore = defineStore('bridge', {
     setSelectedNetwork(value: Asset) {
       this.selectedNetwork = value
       console.log('setSelectedNetwork:', this.selectedNetwork)
+    },
+    setMenuState(v: number) {
+      this.menuState = v
     },
     clearReceiver() {
       this.receiver = ""

@@ -3,6 +3,12 @@ import zh from '~/locales/zh.json'
 import en from '~/locales/en.json'
 import zhhk from '~/locales/zh-hk.json'
 
+export const langs = [
+  {name: "English", key: "en"},
+  {name: "简体中文", key: "zh"},
+  {name: "繁體中文", key: "zhhk"},
+]
+
 const i18n = createI18n({
   legacy: false,
   globalInjection: true,

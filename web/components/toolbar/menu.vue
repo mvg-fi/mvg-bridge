@@ -13,7 +13,7 @@
         </v-icon>
       </v-btn>
     </template>
-    <v-sheet class="menu-card py-4 rounded-xl">
+    <v-sheet class="menu-card py-4 rounded-xl" v-if="bStore.menuState == 0">
       <!-- Settings -->
       <!-- Language -->
       <div class="d-flex justify-space-between align-center px-5 py-0 mb-2">
@@ -65,6 +65,8 @@
         </a>
       </div>
     </v-sheet>
+
+    <Lang v-if="bStore.menuState == 1" />
   </v-overlay>
 </template>
 
@@ -75,17 +77,23 @@ import {
 } from "@heroicons/vue/20/solid";
 import { useI18n } from "vue-i18n";
 import { AppURL } from "~/helpers/constants";
+import { useBridgeStore } from "~/stores/bridge/bridge";
+
+import Lang from "./lang.vue";
 import ExternalIcon from "./externalIcon.vue";
 
-const {t} = useI18n();
+const { t } = useI18n();
 const Links = [
   { name: t("documentation"), link: AppURL + "/123" },
   { name: t("developer"), link: AppURL + "/234" },
   { name: t("about_us"), link: AppURL + "/345" },
 ];
 
+const bStore = useBridgeStore();
 const dark = ref(false);
-const moveToLang = () => {};
+const moveToLang = () => {
+  bStore.setMenuState(1);
+};
 const currentLang = "";
 </script>
 
