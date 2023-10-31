@@ -21,7 +21,7 @@
           {{ $t("language") }}
         </span>
         <button class="px-0 justify-end align-center" @click="moveToLang()">
-          {{ currentLang || "EN" }}
+          {{ activeLang || "EN" }}
           <v-icon size="16">
             <ChevronRightIcon />
           </v-icon>
@@ -82,11 +82,11 @@ import { useBridgeStore } from "~/stores/bridge/bridge";
 import Lang from "./lang.vue";
 import ExternalIcon from "./externalIcon.vue";
 
-const { t } = useI18n();
+const t = useI18n();
 const Links = [
-  { name: t("documentation"), link: AppURL + "/123" },
-  { name: t("developer"), link: AppURL + "/234" },
-  { name: t("about_us"), link: AppURL + "/345" },
+  { name: t.t("documentation"), link: AppURL + "/123" },
+  { name: t.t("developer"), link: AppURL + "/234" },
+  { name: t.t("about_us"), link: AppURL + "/345" },
 ];
 
 const bStore = useBridgeStore();
@@ -94,7 +94,9 @@ const dark = ref(false);
 const moveToLang = () => {
   bStore.setMenuState(1);
 };
-const currentLang = "";
+const activeLang = computed(() => {
+  return t.locale.value;
+});
 </script>
 
 <style lang="scss" scoped>

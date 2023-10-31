@@ -24,7 +24,7 @@ import Privacy from "~/components/bridge/settings/privacy.vue"
 <style lang="scss" scoped>
 .bridge-card {
   max-height: 624px;
-  width: 480px;
+  width: 540px;
   box-shadow: 0 1px 8px #0003 !important;
 }
 </style>
