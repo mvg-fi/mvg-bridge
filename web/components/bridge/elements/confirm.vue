@@ -33,6 +33,7 @@
           var(--palette-main-secondary)
         );
       "
+      @click="bStore.mutateBridgeProcess(true)"
       size="x-large"
       height="64px"
     >
@@ -64,14 +65,16 @@
     </v-btn>
 
     <ConnectWalletDialog />
+    <BridgeProcessDialog />
   </div>
 </template>
 
 <script setup>
 import clsx from "clsx";
 import { useConnectStore } from "~/stores/connect/connect";
-import ConnectWalletDialog from "~/components/bridge/elements/dialogs/connectwallet.vue";
 import { useBridgeStore } from "~/stores/bridge/bridge";
+import ConnectWalletDialog from "~/components/bridge/elements/dialogs/connectwallet.vue";
+import BridgeProcessDialog from "~/components/bridge/elements/dialogs/bridgeProcess.vue";
 
 const btnHover = ref(false);
 const bStore = useBridgeStore();

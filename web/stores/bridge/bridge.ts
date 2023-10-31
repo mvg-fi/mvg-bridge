@@ -4,7 +4,7 @@ import { Asset } from "~/types/asset"
 import assets from "~/assets/constants/miniumlist.json"
 import chains from "~/assets/constants/miniumchainlist.json"
 import { networkAsset } from "~/helpers/mixin/asset";
-import { BN, BN2 } from "~/helpers/bignumber/bn";
+import { BN2 } from "~/helpers/bignumber/bn";
 
 export const useBridgeStore = defineStore('bridge', {
   state: () => ({
@@ -23,6 +23,8 @@ export const useBridgeStore = defineStore('bridge', {
     selectNetworkBar: false,
     priceLoading: false,
     priceLoaded: true,
+
+    bridgeProcessDialog: false,
   } as BridgeState),
   getters: {
     filteredItems: (state) => {
@@ -112,6 +114,9 @@ export const useBridgeStore = defineStore('bridge', {
       this.cleanUpStates()
       console.log(`mutateDialog(${from}, ${open})`)
     },
+    mutateBridgeProcess(open: boolean) {
+      this.bridgeProcessDialog = open
+    },
     mutateSelectNetworkBar(open: boolean) {
       this.selectNetworkBar = open
       console.log(`mutateSelectNetworkBar(${open})`)
@@ -121,10 +126,12 @@ export const useBridgeStore = defineStore('bridge', {
         this.fromAsset = value
         this.fromDialog = false;
         console.log(`setAsset(${from}, ${value.symbol})`)
+        this.fetchUSD(true)
         return
       }
       this.toAsset = value
       this.toDialog = false;
+      this.fetchUSD(false)
       console.log(`setAsset(${from}, ${value.symbol})`)
     },
     setAmount(from: boolean, value: number) {
