@@ -29,8 +29,8 @@ import { useBridgeStore } from "~/stores/bridge/bridge";
 const store = useBridgeStore();
 
 let rateReserve = ref(false);
-const rate = reactive(BN(store.receiveAmount).dividedBy(BN(store.bridgeAmount)).toString());
-const rrate = reactive(BN(store.bridgeAmount).dividedBy(BN(store.receiveAmount)).toString());
+const rate = computed(()=>BN(store.receiveAmount).dividedBy(BN(store.bridgeAmount)).toString());
+const rrate = computed(()=>BN(store.bridgeAmount).dividedBy(BN(store.receiveAmount)).toString());
 const usdFee = 0;
 </script>
 

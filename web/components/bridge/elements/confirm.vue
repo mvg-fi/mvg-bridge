@@ -1,21 +1,12 @@
 <template>
   <div class="mx-2">
     <v-btn
-      v-if="cStore.connected && !enabled"
+      v-if="cStore.connected && !bStore.confirmEnabled"
       elevation="0"
       class="rounded-xl w-100"
       style="background-color: var(--palette-black-10)"
       size="x-large"
       height="64px"
-      @click="
-        console.log(
-          bStore.bridgeAmount,
-          bStore.receiveAmount,
-          enabled,
-          bStore.bridgeAmount > 0,
-          bStore.receiveAmount > 0
-        )
-      "
     >
       <!-- Bridge disabled -->
       <span style="color: var(--palette-black-50)" class="h6">
@@ -24,7 +15,8 @@
     </v-btn>
 
     <v-btn
-      v-else-if="cStore.connected && enabled"
+      v-else-if="cStore.connected && bStore.confirmEnabled"
+      :key="bStore.confirmEnabled"
       elevation="0"
       :class="
         clsx(
@@ -84,9 +76,9 @@ import { useBridgeStore } from "~/stores/bridge/bridge";
 const btnHover = ref(false);
 const bStore = useBridgeStore();
 const cStore = useConnectStore();
-const enabled = computed(() => {
-  return bStore.bridgeAmount > 0 && bStore.receiveAmount > 0; // && bStore.priceLoaded
-});
+// const enabled = computed(() => {
+//   return bStore.bridgeAmount > 0 && bStore.receiveAmount > 0; // && bStore.priceLoaded
+// });
 </script>
 
 <style>

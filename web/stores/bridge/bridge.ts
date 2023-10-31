@@ -4,7 +4,7 @@ import { Asset } from "~/types/asset"
 import assets from "~/assets/constants/miniumlist.json"
 import chains from "~/assets/constants/miniumchainlist.json"
 import { networkAsset } from "~/helpers/mixin/asset";
-import { BN } from "~/helpers/bignumber/bn";
+import { BN, BN2 } from "~/helpers/bignumber/bn";
 
 export const useBridgeStore = defineStore('bridge', {
   state: () => ({
@@ -83,11 +83,14 @@ export const useBridgeStore = defineStore('bridge', {
       return chains.filter((chain) => chainAssetIds.includes(chain.asset_id));
     },
     fromTotalPrice: (state) => {
-      return state.bridgeUsdPrice * state.bridgeAmount
+      return BN2(state.bridgeUsdPrice).multipliedBy(BN2(state.bridgeAmount)).toFixed(2)
     },
     toTotalPrice: (state) => {
-      return state.receiveUsdPrice * state.receiveAmount
+      return BN2(state.receiveUsdPrice).multipliedBy(BN2(state.receiveAmount)).toFixed(2)
     },
+    confirmEnabled: (state) => {
+      return state.bridgeAmount > 0 && state.receiveAmount > 0;
+    }
   },
   actions: {
     switch() {

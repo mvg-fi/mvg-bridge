@@ -21,10 +21,10 @@
       </div>
 
       <div class="ml-6 h7m mb-4">
-        <span style="color: var(--palette-black-50)">
+        <span style="color: var(--palette-black-50)" v-if="store.fromTotalPrice || store.toTotalPrice">
           ${{ props.from ? store.fromTotalPrice : store.toTotalPrice }}
         </span>
-        <!-- <span style="opacity: 0" v-else> $ </span> -->
+        <span style="opacity: 0" v-else> $ </span>
       </div>
     </div>
   </div>

@@ -2,10 +2,10 @@
   <input
     v-model="input"
     v-maska:[options]
-    @keyup="inputFunc"
     :placeholder="$t('placeholder')"
     class="text-field font-weight-bold w-100 h5m mr-3"
   />
+<!--     @keyup="inputFunc"  -->
 </template>
 
 <script setup lang="ts">
@@ -22,16 +22,25 @@ const options = {
 };
 
 const props = defineProps(["from"]);
-const input = props.from ? ref(store.bridgeAmount) : ref(store.receiveAmount);
+const input = computed({
+  get(){
+    return props.from ? store.bridgeAmount : store.receiveAmount
+  },
+  set(value){
+    if (props.from) store.bridgeAmount = value
+    else store.receiveAmount = value
+  },
+})
+// const input = ;
 
-let timeout: any = null;
-const inputFunc = (event: KeyboardEvent) => {
-  if (!filterInputEvents(event)) return;
-  clearTimeout(timeout);
-  timeout = setTimeout(async function () {
-    store.setAmount(props.from ? true : false, input);
-  }, 500);
-};
+// let timeout: any = null;
+// const inputFunc = (event: KeyboardEvent) => {
+//   if (!filterInputEvents(event)) return;
+//   clearTimeout(timeout);
+//   timeout = setTimeout(async function () {
+//     store.setAmount(props.from ? true : false, input);
+//   }, 500);
+// };
 </script>
 
 <style lang="scss" scoped>

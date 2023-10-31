@@ -85,15 +85,12 @@ import authorize from "~/helpers/mixin/oauth";
 import VueQrcode from "@chenfengyuan/vue-qrcode";
 import mx from "~/assets/images/wallets/mixin.png";
 import CloseIcon from "@heroicons/vue/24/outline/XCircleIcon";
-import { appendConnected, mixinOauthSuccess, useConnectStore } from "~/stores/connect/connect";
+import { mixinOauthSuccess, useConnectStore } from "~/stores/connect/connect";
 import {
   BridgeBotID,
-  MixinChainName,
   MixinMessengerLink,
-  MixinMessengerName,
   OAuthScope,
 } from "~/helpers/constants";
-import { userMe } from "~/helpers/mixin/user";
 const cStore = useConnectStore();
 
 let qrLoaded = ref(false);
