@@ -30,5 +30,13 @@
   "back": "Back",
   "retry": "Retry",
   "wallet": "Wallet{multi}",
-  "connected_accounts": "Connected accounts"
+  "connected_accounts": "Connected accounts",
+  "exchange_from_to": "Exchanging {from} to {to}",
+  "recipient": "Recipient",
+  "estimated_time": "Estimated time",
+  "language": "Language",
+  "dark_mode": "Dark mode",
+  "documentation": "Documentation",
+  "developer": "Developer",
+  "about_us": "About us"
 }

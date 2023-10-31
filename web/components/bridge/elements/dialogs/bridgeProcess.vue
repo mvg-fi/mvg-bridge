@@ -3,34 +3,38 @@
     persistent
     no-click-animation
     v-model="bStore.bridgeProcessDialog"
-    @keyup.esc="1"
+    @keyup.esc="bStore.mutateBridgeProcess(false)"
     class="d-flex justify-center bridge-process-dialog"
   >
     <v-sheet
       class="rounded-xl align-self-start overflow-y-auto bridge-process-card"
-      elevation="3"
+      elevation="5"
     >
-      <div class="mt-3 mx-5 mb-6">
-      </div>
+      <Title />
+      <Route class="mt-2"/>
+      <Details class="mt-8" style="margin-left: 120px; margin-right: 120px;"/>
+      <Confirm class="mt-12"/>
     </v-sheet>
-
   </v-dialog>
 </template>
 
 <script setup>
 import { useBridgeStore } from "~/stores/bridge/bridge";
-import { useConnectStore } from "~/stores/connect/connect";
+import Title from "~/components/bridge/elements/dialogs/bridgeProcess/title.vue";
+import Route from "~/components/bridge/elements/dialogs/bridgeProcess/route.vue";
+import Details from "~/components/bridge/elements/dialogs/bridgeProcess/details.vue";
+import Confirm from "~/components/bridge/elements/dialogs/bridgeProcess/confirm.vue";
 const bStore = useBridgeStore();
-const cStore = useConnectStore();
 </script>
 
 <style lang="scss" scoped>
 .bridge-process-dialog {
-  width: 350px;
+  width: 700px;
 }
 
 .bridge-process-card {
-  width: 305px;
+  width: 680px;
+  height: 370px;
   max-height: 600px;
   background-color: var(--palette-background-1);
 }
