@@ -2,7 +2,7 @@
   <div class="d-flex flex-column h7m" style="gap: 8px; color: var(--palette-black-100);">
     <div class="d-flex justify-space-between align-center">
       <span> {{ $t("recipient") }} </span>
-      <span> {{ bStore.receiver || 0 }} </span>
+      <span style="width: 280px; overflow-wrap: break-word;" class="text-end"> {{ bStore.receiver || 0 }} </span>
     </div>
 
     <div class="d-flex justify-space-between align-center">

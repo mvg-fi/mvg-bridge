@@ -7,7 +7,7 @@
     class="d-flex justify-center bridge-process-dialog"
   >
     <v-sheet
-      class="rounded-xl align-self-start overflow-y-auto bridge-process-card"
+      class="rounded-xl align-self-start overflow-y-auto bridge-process-card pb-12"
       elevation="5"
     >
       <Title />
@@ -34,8 +34,7 @@ const bStore = useBridgeStore();
 
 .bridge-process-card {
   width: 680px;
-  height: 370px;
-  max-height: 600px;
+  // min-height: 370px;
   background-color: var(--palette-background-1);
 }
 </style>

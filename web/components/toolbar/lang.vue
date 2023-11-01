@@ -40,6 +40,6 @@ const activeLang = computed(() => {
 });
 const setLang = (lang: string) => {
   t.locale.value = lang;
-  bStore.setMenuState(0);
+  // bStore.setMenuState(0);
 };
 </script>
