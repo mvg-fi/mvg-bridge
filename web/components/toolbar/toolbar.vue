@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar elevation="0" class="px-8">
+  <v-app-bar elevation="0" class="px-8 bg-background">
     <Logo/>
     
     <v-spacer />

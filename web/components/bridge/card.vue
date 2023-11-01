@@ -9,10 +9,10 @@
 
         <div class="mt-4">
           <Input :from="true" />
-          <Switch/>
+          <Switch />
           <Input :from="false" />
         </div>
-        
+
         <Receiver class="my-2" />
         <Fees class="my-2" />
         <Confirm class="my-2" />

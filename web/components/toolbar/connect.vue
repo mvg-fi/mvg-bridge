@@ -3,6 +3,7 @@
     size="large"
     @click="connect"
     :class="ConnectBtnClass"
+    :loading="cStore.connectDialog"
     @mouseover="btnHover = true"
     @mouseleave="btnHover = false"
     style="
@@ -13,7 +14,7 @@
       );
     "
   >
-    <span style="color: var(--palette-background-1)">{{ $t("connect") }}</span>
+    <span class="text-background">{{ $t("connect") }}</span>
   </v-btn>
 </template>
 
@@ -26,6 +27,7 @@ const btnHover = ref(false);
 const ConnectBtnClass = computed(() =>
   clsx(
     "rounded-pill",
+    "text-background",
     "text-capitalize",
     "font-weight-bold",
     btnHover.value ? "btn-hover elevation-4" : "elevation-1"

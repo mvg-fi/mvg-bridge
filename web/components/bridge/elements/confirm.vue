@@ -20,7 +20,7 @@
       elevation="0"
       :class="
         clsx(
-          'rounded-xl w-100',
+          'rounded-xl w-100 text-background',
           btnHover.value ? 'btn-hover elevation-4' : 'elevation-1'
         )
       "
@@ -38,7 +38,7 @@
       height="64px"
     >
       <!-- Bridge enabled -->
-      <span style="color: var(--palette-background-1)" class="h6">
+      <span class="h6">
         {{ $t("bridge") }}</span
       >
     </v-btn>
@@ -48,7 +48,7 @@
       elevation="0"
       height="64px"
       size="x-large"
-      class="rounded-xl w-100"
+      class="rounded-xl w-100 text-background"
       @click="cStore.mutateDialog(true)"
       @keyup.esc="cStore.mutateDialog(false)"
       style="
@@ -59,7 +59,7 @@
         );
       "
     >
-      <span class="h6" style="color: var(--palette-background-1)">
+      <span class="h6">
         {{ $t("connect_wallet") }}</span
       >
     </v-btn>
