@@ -64,7 +64,30 @@
       >
         <!-- Icon -->
         <div class="ml-4 mb-4" style="width: 24px; height: 24px">
-          <v-img :src="e.fromAsset.icon" style="z-index: 2" />
+          <v-icon
+            style="
+              height: 24px;
+              width: 24px;
+              z-index: 2;
+            "
+            class="mr-4"
+          >
+            <v-img :src="e.fromAsset.icon" />
+            <v-img
+              :src="e.fromAsset.chain_icon"
+              v-if="e.fromAsset.asset_id != e.fromAsset.chain_id"
+              style="
+                height: 8px;
+                width: 8px;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+              "
+            ></v-img>
+          </v-icon>
+
+          <!-- <v-img :src="e.fromAsset.icon" style="z-index: 2" /> -->
+
           <v-icon
             style="
               height: 24px;
@@ -102,7 +125,7 @@
         </div>
 
         <!-- State -->
-        <div class="d-flex align-center flex-grow-1 justify-center">
+        <div class="d-flex align-center flex-grow-1 justify-end mr-4">
           <v-progress-circular
             size="16"
             indeterminate
@@ -156,15 +179,15 @@ const example: Exchanges[] = [
   {
     fromAsset: bStore.toAsset,
     toAsset: bStore.fromAsset,
-    fromAmount: 200,
-    toAmount: 100,
+    fromAmount: 45,
+    toAmount: 1,
     completed: true,
   },
   {
     fromAsset: bStore.toAsset,
     toAsset: bStore.fromAsset,
-    fromAmount: 200,
-    toAmount: 100,
+    fromAmount: 12.23123123,
+    toAmount: 1523.523153212,
     completed: true,
   },
 ];

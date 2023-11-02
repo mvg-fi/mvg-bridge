@@ -18,7 +18,7 @@
     >
       1 {{ store.toAsset.symbol }} = {{ rrate }} {{ store.fromAsset.symbol }}
     </span>
-
+    
     <span class="mr-6 fee-usd-text"> ${{ usdFee }} </span>
   </div>
 </template>
