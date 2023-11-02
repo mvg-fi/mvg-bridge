@@ -39,5 +39,6 @@
   "documentation": "Documentation",
   "developer": "Developer",
   "about_us": "About us",
-  "recent_exchanges": "Recent exchanges"
+  "recent_exchanges": "Recent exchanges",
+  "show_recent_exchanges": "Show exchanges"
 }

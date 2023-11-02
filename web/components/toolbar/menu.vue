@@ -43,6 +43,21 @@
         ></v-switch>
       </div>
 
+      <!-- Recent exchanges -->
+      <div class="d-flex justify-space-between align-center px-5 py-0">
+        <span class="h7m flex-grow-1">
+          {{ $t("show_recent_exchanges") }}
+        </span>
+        <v-switch
+          inset
+          v-model="showRecentExchanges"
+          hide-details
+          color="black"
+          class="justify-end align-center"
+          flat
+        ></v-switch>
+      </div>
+
       <v-divider class="mx-5 my-4" style="color: var(--palette-black-50)" />
 
       <!-- Links -->
@@ -97,6 +112,15 @@ const moveToLang = () => {
 const activeLang = computed(() => {
   return t.locale.value;
 });
+const showRecentExchanges = computed({
+  get() {
+    return bStore.recentCardState != 0
+  },
+  set(value) {
+    if (value) bStore.setRecentCardState(2)
+    else bStore.setRecentCardState(0)
+  }
+})
 </script>
 
 <style lang="scss" scoped>

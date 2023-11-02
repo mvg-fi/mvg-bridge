@@ -2,7 +2,7 @@
   <Setting v-if="store.settingMode" />
   <Card v-else />
 
-  <Recent style="position: absolute; right: 0px; bottom: 0px" />
+  <Recent/>
 </template>
 
 <script setup>

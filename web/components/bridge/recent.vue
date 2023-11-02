@@ -1,5 +1,42 @@
 <template>
-  <v-sheet class="recent-sheet px-4 bg-background overflow-y-auto" elevation="3">
+  <!-- State 1 shrink -->
+  <v-sheet
+    v-if="bStore.recentCardState == 1"
+    elevation="3"
+    class="recent-sheet-shrink px-4 bg-background"
+  >
+    <!-- Title -->
+    <div class="d-flex justify-space-between align-center mt-5 mx-2">
+      <span class="h7" style="font-size: 16px">
+        {{ $t("recent_exchanges") }}
+      </span>
+      <div>
+        <button
+          class="bg-background px-0"
+          @click="bStore.setRecentCardState(2)"
+        >
+          <v-icon size="20">
+            <ChevronUpIcon />
+          </v-icon>
+        </button>
+        <button
+          class="bg-background px-0 mx-2"
+          @click="bStore.setRecentCardState(0)"
+        >
+          <v-icon size="20">
+            <XMarkIcon />
+          </v-icon>
+        </button>
+      </div>
+    </div>
+  </v-sheet>
+
+  <!-- State 2 extended -->
+  <v-sheet
+    v-if="bStore.recentCardState == 2"
+    elevation="3"
+    class="recent-sheet-extended px-4 bg-background overflow-y-auto"
+  >
     <!-- Title -->
     <div class="d-flex justify-space-between align-center mt-6 mx-2">
       <span class="h7" style="font-size: 16px">
@@ -66,7 +103,13 @@
 
         <!-- State -->
         <div class="d-flex align-center flex-grow-1 justify-center">
-          <v-progress-circular size="16" indeterminate color="primary" width="2" v-if="!e.completed"/>
+          <v-progress-circular
+            size="16"
+            indeterminate
+            color="primary"
+            width="2"
+            v-if="!e.completed"
+          />
           <v-icon size="20" color="primary" v-else>
             <CheckIcon />
           </v-icon>
@@ -77,7 +120,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ChevronDownIcon, ArrowRightIcon, CheckIcon } from "@heroicons/vue/20/solid";
+import {
+  CheckIcon,
+  XMarkIcon,
+  ChevronUpIcon,
+  ArrowRightIcon,
+  ChevronDownIcon,
+} from "@heroicons/vue/20/solid";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 import type { Exchanges } from "~/types/history";
 const bStore = useBridgeStore();
@@ -122,8 +171,20 @@ const example: Exchanges[] = [
 </script>
 
 <style lang="scss" scoped>
-.recent-sheet {
-  height: 344px;
+.recent-sheet-shrink {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  height: 64px;
+  width: 308px;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+.recent-sheet-extended {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  height: 360px;
   width: 308px;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
