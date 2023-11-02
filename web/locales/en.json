@@ -40,5 +40,9 @@
   "developer": "Developer",
   "about_us": "About us",
   "recent_exchanges": "Recent exchanges",
-  "show_recent_exchanges": "Show exchanges"
+  "show_recent_exchanges": "Show exchanges",
+  "sent": "Sent",
+  "processing": "Processing",
+  "finished": "Finished",
+  "time_left": "Time left"
 }

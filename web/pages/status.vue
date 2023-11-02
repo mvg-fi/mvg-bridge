@@ -1,13 +1,10 @@
 <template>
-  
+  <Status />
 </template>
 
 <script>
-export default {
-
-}
+import Status from "~/components/status/status.vue";
 </script>
 
 <style>
-
 </style>
