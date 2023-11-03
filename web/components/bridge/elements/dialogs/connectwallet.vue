@@ -9,7 +9,7 @@
   >
     <v-sheet
       v-if="cStore.connectState === 0"
-      class="rounded-xl align-self-start overflow-y-auto connect-card"
+      class="rounded-xl align-self-start overflow-y-auto connect-card bg-background"
       elevation="3"
     >
       <Title />
@@ -29,6 +29,7 @@
 
 <script setup>
 import { useConnectStore } from "~/stores/connect/connect";
+import { useWeb3ModalAccount } from '@web3modal/ethers5/vue'
 import Title from "~/components/bridge/elements/dialogs/connect/title.vue";
 import Ethereum from "~/components/bridge/elements/dialogs/connect/ethereum.vue";
 import Bitcoin from "~/components/bridge/elements/dialogs/connect/bitcoin.vue";
@@ -38,6 +39,14 @@ import Success from "~/components/bridge/elements/dialogs/connect/success.vue";
 import Failed from "~/components/bridge/elements/dialogs/connect/failed.vue";
 
 const cStore = useConnectStore();
+watch(cStore.connected, ()=>{
+  try {
+    const { address, chainId, isConnected } = useWeb3ModalAccount()
+    console.log(address, chainId, isConnected)
+  } catch (e) {
+    console.log(e)
+  }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -47,7 +56,6 @@ const cStore = useConnectStore();
 .connect-card {
   width: 305px;
   max-height: 600px;
-  background-color: var(--palette-background-1);
 }
 
 ::-webkit-scrollbar {

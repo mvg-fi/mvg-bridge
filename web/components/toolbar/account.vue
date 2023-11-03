@@ -11,7 +11,7 @@
         size="large"
         v-bind="props"
         :class="ConnectBtnClass"
-        style="background-color: var(--palette-black-5)"
+        style="background-color: var(--palette-black-10); border: 1px solid var(--palette-black-10);"
       >
         <span style="color: var(--palette-black-100)" class="h7m"
           >{{ cStore.connectedWallets.length }}
@@ -26,8 +26,8 @@
 
     <!-- Connected account card -->
 
-    <v-card class="account-card py-4">
-      <v-list class="px-6">
+    <v-card class="account-card py-3">
+      <v-list class="px-5">
         <div class="d-flex mb-2">
           <span class="h6m d-flex align-center flex-grow-1">{{ $t("wallet", {multi: 's'}) }}</span>
           <v-btn
@@ -70,7 +70,7 @@
             v-for="w in cStore.connectedWallets"
             :key="w.name"
             style="border: 1px solid var(--palette-black-10); background-color: var(--palette-black-5);"
-            class="px-0 py-0 my-4 d-flex flex-row align-center rounded-pill"
+            class="px-0 py-0 my-3 d-flex flex-row align-center rounded-pill"
           >
             <img
               style="width: 36px; height: 36px"
@@ -113,18 +113,17 @@
 
 <script setup>
 import clsx from "clsx";
-import { PlusIcon, PowerIcon, ClipboardIcon } from "@heroicons/vue/24/outline";
-import { useConnectStore } from "~/stores/connect/connect";
 import { shortenAddress } from "~/helpers/utils";
+import { useConnectStore } from "~/stores/connect/connect";
+import { PlusIcon, PowerIcon, ClipboardIcon } from "@heroicons/vue/24/outline";
 
 const cStore = useConnectStore();
 const ConnectBtnClass = computed(() =>
   clsx(
+    "mx-4",
     "rounded-pill",
     "text-capitalize",
     "font-weight-bold",
-    "elevation-1",
-    "mx-4"
   )
 );
 

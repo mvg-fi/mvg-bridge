@@ -5,9 +5,10 @@ import * as directives from 'vuetify/directives'
 const Custom = {
   dark: false,
   colors: {
-    background: '#F9F9F9',
+    background: '#FFFFFF',
     primary: '#5959D7',
     secondary: '#557DED',
+    third: "#F9F9F9",
     error: '#FF3333',
     correct: '#75D658',
     black: '#261F22',

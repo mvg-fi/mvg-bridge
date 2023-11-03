@@ -13,10 +13,10 @@
         </v-icon>
       </v-btn>
     </template>
-    <v-sheet class="menu-card py-4 rounded-xl" v-if="bStore.menuState == 0">
+    <v-sheet class="menu-card py-4 pt-3 rounded-xl" v-if="bStore.menuState == 0">
       <!-- Settings -->
       <!-- Language -->
-      <div class="d-flex justify-space-between align-center px-5 py-0 mb-2">
+      <div class="d-flex justify-space-between align-center px-5 py-0 setting-item">
         <span class="h7m">
           {{ $t("language") }}
         </span>
@@ -29,33 +29,35 @@
       </div>
 
       <!-- Dark mode -->
-      <div class="d-flex justify-space-between align-center px-5 py-0">
+      <div class="d-flex justify-space-between align-center px-5 py-0 setting-item">
         <span class="h7m flex-grow-1">
           {{ $t("dark_mode") }}
         </span>
-        <v-switch
-          inset
-          v-model="dark"
-          hide-details
-          color="black"
-          class="justify-end align-center"
-          flat
-        ></v-switch>
+        <div class="justify-end align-center">
+          <v-switch
+            inset
+            v-model="dark"
+            hide-details
+            color="blue"
+            flat
+          ></v-switch>
+        </div>
       </div>
 
       <!-- Recent exchanges -->
-      <div class="d-flex justify-space-between align-center px-5 py-0">
+      <div class="d-flex justify-space-between align-center px-5 py-0 setting-item">
         <span class="h7m flex-grow-1">
           {{ $t("show_recent_exchanges") }}
         </span>
-        <v-switch
-          inset
-          v-model="showRecentExchanges"
-          hide-details
-          color="black"
-          class="justify-end align-center"
-          flat
-        ></v-switch>
+        <div class="justify-end align-center">
+          <v-switch
+            inset
+            v-model="showRecentExchanges"
+            hide-details
+            color="blue"
+            flat
+          ></v-switch>
+        </div>
       </div>
 
       <v-divider class="mx-5 my-4" style="color: var(--palette-black-50)" />
@@ -96,6 +98,7 @@ import { useBridgeStore } from "~/stores/bridge/bridge";
 
 import Lang from "./lang.vue";
 import ExternalIcon from "./externalIcon.vue";
+import { getNameByKey } from "~/plugins/02-i18n";
 
 const t = useI18n();
 const Links = [
@@ -110,17 +113,17 @@ const moveToLang = () => {
   bStore.setMenuState(1);
 };
 const activeLang = computed(() => {
-  return t.locale.value;
+  return getNameByKey(t.locale.value);
 });
 const showRecentExchanges = computed({
   get() {
-    return bStore.recentCardState != 0
+    return bStore.recentCardState != 0;
   },
   set(value) {
-    if (value) bStore.setRecentCardState(2)
-    else bStore.setRecentCardState(0)
-  }
-})
+    if (value) bStore.setRecentCardState(2);
+    else bStore.setRecentCardState(0);
+  },
+});
 </script>
 
 <style lang="scss" scoped>
@@ -130,8 +133,11 @@ const showRecentExchanges = computed({
 }
 .menu-card {
   // border-radius: 2vh;
-  min-width: 188px;
+  min-width: 260px;
   min-height: 220px;
   box-shadow: 0 2px 32px #0003 !important;
+}
+.setting-item {
+  height: 48px;
 }
 </style>

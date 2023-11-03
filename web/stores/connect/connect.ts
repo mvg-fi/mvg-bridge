@@ -84,6 +84,7 @@ export const useConnectStore = defineStore('connect', {
 
 // Ethereum
 export const connectEthereum = (w: Wallet) => {
+  // This was done within specific component
   w.loading = true;
   switch (w.name) {
     case MetamaskName:
@@ -143,7 +144,6 @@ const walletConnect = async (w: Wallet) => {
   watchEffect(async () => {
     switch (events.data.event) {
       case "CONNECT_SUCCESS":
-        // const { signer } = useWeb3ModalSigner()
         cStore.afterConnect();
         appendConnected({
           name: WalletConnectName,

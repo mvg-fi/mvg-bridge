@@ -1,11 +1,11 @@
 <template>
-  <v-sheet class="menu-card py-3 rounded-xl">
-    <button class="px-4 mb-4 d-flex align-center" @click="bStore.setMenuState(0)">
+  <v-sheet class="menu-card py-4 rounded-xl">
+    <button class="px-4 mb-5 d-flex align-center" @click="bStore.setMenuState(0)">
       <v-icon size="16">
         <ChevronLeftIcon />
       </v-icon>
 
-      <span class="ml-2"> {{ $t('language') }} </span>
+      <span class="ml-4"> {{ $t('language') }} </span>
     </button>
     <v-list class="px-5 py-0 d-flex flex-column align-center overflow-y-auto  ">
       <button
