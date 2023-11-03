@@ -44,5 +44,19 @@
   "sent": "Sent",
   "processing": "Processing",
   "finished": "Finished",
-  "time_left": "Time left"
+  "time_left": "Time left",
+  "enter_app": "Enter App",
+  "making_blockchain_borderless": "Making blockchain borderless",
+  "making_blockchain_borderless_intro": "Sending crypto across network has never been easier.",
+  "fast_like_a_rocket": "Fast, like a rocket",
+  "fast_like_a_rocket_intro": "Through the most hassle free process, within a click, the bridge process is done.",
+  "best_price_as_always":"Best price, as always",
+  "best_price_as_always_intro": "By connecting to leading centralized exchanges, we provide the best price and the least slippage while the user remains anonymous against the exchanges.",
+  "privacy_guaranteed": "Privacy Guaranteed",
+  "privacy_guaranteed_intro": "All the internal transaction history would be automatically removed after a certain period of time. And the public record are under Mixin kernel UTXO protection.",
+  "multichain_as_it_should": "Multichain, As it should",
+  "multichain_as_it_should_intro": "Based on the powerful Mixin kenel, almost all public blockchain could be supported by the bridge. With this powerful feature, making it possible to connect all the chains.",
+  "safe_decentralized": "Safe & Decentralized",
+  "safe_decentralized_intro": "By applying Mixin Safe for storing bridge assets and MTG for processing, the general safety of the bridge is higher than the classical MPC solutions,",
+  "join_us_now": "Join us now!"
 }

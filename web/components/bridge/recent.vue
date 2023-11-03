@@ -6,7 +6,7 @@
     class="recent-sheet-shrink px-4 bg-background"
   >
     <!-- Title -->
-    <div class="d-flex justify-space-between align-center mt-5 mx-2">
+    <div class="d-flex justify-space-between align-center mt-6 mx-2">
       <span class="h7" style="font-size: 16px">
         {{ $t("recent_exchanges") }}
       </span>
@@ -20,7 +20,7 @@
           </v-icon>
         </button>
         <button
-          class="bg-background px-0 mx-2"
+          class="bg-background px-0 ml-2"
           @click="bStore.setRecentCardState(0)"
         >
           <v-icon size="20">
