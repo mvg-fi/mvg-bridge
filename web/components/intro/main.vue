@@ -1,5 +1,5 @@
 <template>
-  <v-row class="d-flex flex-row h-100 w-100" no-gutters>
+  <v-row class="d-flex flex-row w-100 hero-height" no-gutters>
     <v-col
       cols="6"
       class="d-flex flex-column align-center justify-center mb-16"
@@ -8,7 +8,7 @@
         {{ $t("making_blockchain_borderless") }}
       </span>
 
-      <span class="h5m mt-2 break-text">
+      <span class="h6m mt-2 break-text">
         {{ $t("making_blockchain_borderless_intro") }}
       </span>
 
@@ -31,11 +31,17 @@
 import main from "@/assets/images/intro/hero-main.png"
 </script>
 
-<style scoped>
+<style>
+.hero-height {
+  height: calc(100vh - 16px);
+}
 .break-text {
   width: 488px;
   word-break: break-word;
 }
+</style>
+
+<style scoped>
 .enter-app-btn {
   width: 288px;
   height: 84px;

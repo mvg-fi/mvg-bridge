@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <v-app-bar elevation="0" class="px-8 bg-background">
+    <v-app-bar elevation="0" class="px-8 bg-transparent">
       <Logo />
       <v-spacer />
       <EnterApp />

@@ -55,7 +55,7 @@
   "privacy_guaranteed": "Privacy Guaranteed",
   "privacy_guaranteed_intro": "All the internal transaction history would be automatically removed after a certain period of time. And the public record are under Mixin kernel UTXO protection.",
   "multichain_as_it_should": "Multichain, As it should",
-  "multichain_as_it_should_intro": "Based on the powerful Mixin kenel, almost all public blockchain could be supported by the bridge. With this powerful feature, making it possible to connect all the chains.",
+  "multichain_as_it_should_intro": "Based on the powerful Mixin kenel, almost all public blockchain could be supported by the bridge. This makes it possible to connect all chains.",
   "safe_decentralized": "Safe & Decentralized",
   "safe_decentralized_intro": "By applying Mixin Safe for storing bridge assets and MTG for processing, the general safety of the bridge is higher than the classical MPC solutions,",
   "join_us_now": "Join us now!"
