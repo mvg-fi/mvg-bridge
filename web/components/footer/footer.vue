@@ -67,10 +67,6 @@ const activeLang = computed(() => {
   return getNameByKey(t.locale.value);
 });
 
-const products = reactive();
-const developers = reactive();
-const resources = reactive();
-
 const links = computed(() => {
   return {
     products: [{ name: t.t("bridge_noun"), link: BridgeURL }],

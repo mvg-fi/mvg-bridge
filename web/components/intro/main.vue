@@ -43,7 +43,7 @@ import main from "@/assets/images/intro/hero-main.png"
 
 <style scoped>
 .enter-app-btn {
-  width: 184px;
+  min-width: 184px;
   height: 64px;
   border-radius: 32px;
   background: linear-gradient(

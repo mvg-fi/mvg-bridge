@@ -7,7 +7,7 @@
       @mouseleave="btnHover = false"
       style="
         height: 40px;
-        width: 132px;
+        min-width: 132px;
         background: linear-gradient(
           90deg,
           var(--palette-main-primary),

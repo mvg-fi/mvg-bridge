@@ -5,7 +5,7 @@
         :key="lang.key"
         v-for="lang in langs"
         @click="setLang(lang.key)"
-        style="width: 80px;"
+        style="width: 120px;"
         class="mx-1 py-2 text-start d-flex align-center text-black justify-space-between"
       >
         <span class="h7m">
