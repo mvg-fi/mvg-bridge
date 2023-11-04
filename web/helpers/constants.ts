@@ -16,6 +16,14 @@ export const MVGGithubLink ='https://github.com/mvg-fi/mvg-bridge'
 export const MVGDiscordLink ='https://discord.com/invite/49ehJCkBa5'
 export const MVGTelegramLink ='https://t.me/mvgfinance'
 
+export const BridgeURL = 'https://mvg.fi/bridge' 
+export const DocumentationURL = 'https://docs.mvg.fi'
+export const DeveloperURL = 'https://developers.mvg.fi'
+export const APIDocURL = 'https://developers.mvg.fi/api'
+export const MediaKitURL = 'https://mvg.fi/media-kit'
+export const SupportCenterURL = 'https://support.mvg.fi'
+
+
 export const MixinMessengerLink = 'https://mixin.one/mm' 
 export const MixinAPIBaseURL = 'https://api.mixin.one'
 

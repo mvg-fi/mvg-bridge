@@ -6,6 +6,7 @@
   <Multichain />
   <Safe class="bg-third" />
   <JoinUs />
+  <Footer class="bg-third"/>
 </template>
 
 <script setup>
@@ -16,6 +17,7 @@ import Privacy from "~/components/intro/privacy.vue";
 import Multichain from "~/components/intro/multichain.vue";
 import Safe from "~/components/intro/safe.vue";
 import JoinUs from "~/components/intro/joinus.vue";
+import Footer from "~/components/footer/footer.vue";
 
 definePageMeta({
   layout: "intro",

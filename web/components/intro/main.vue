@@ -4,24 +4,24 @@
       cols="6"
       class="d-flex flex-column align-center justify-center mb-16"
     >
-      <span class="h2 break-text">
+      <span class="h2 break-text mb-2">
         {{ $t("making_blockchain_borderless") }}
       </span>
 
-      <span class="h6m mt-2 break-text">
+      <span class="h6m mt-2 break-text mb-10">
         {{ $t("making_blockchain_borderless_intro") }}
       </span>
 
-      <div class="d-flex align-start mt-8" style="width: 488px">
+      <div class="d-flex align-start" style="width: 488px">
         <NuxtLink to="/bridge">
           <v-btn class="enter-app-btn" elevation="8">
-            <span class="text-background h5">{{ $t("enter_app") }} </span>
+            <span class="text-background h6">{{ $t("enter_app") }} </span>
           </v-btn>
         </NuxtLink>
       </div>
     </v-col>
 
-    <v-col cols="6" class="d-flex justify-center align-center">
+    <v-col cols="6" class="d-flex justify-center align-center mb-16">
       <v-img :src="main" style="width: 666px; height: 436px;" />
     </v-col>
   </v-row>
@@ -43,9 +43,9 @@ import main from "@/assets/images/intro/hero-main.png"
 
 <style scoped>
 .enter-app-btn {
-  width: 288px;
-  height: 84px;
-  border-radius: 100px;
+  width: 184px;
+  height: 64px;
+  border-radius: 32px;
   background: linear-gradient(
     90deg,
     var(--palette-main-primary),

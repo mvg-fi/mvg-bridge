@@ -19,6 +19,11 @@ $select-asset-dialog-width: 432px;
   --wui-letter-spacing-paragraph: 0px !important;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .p {
   font-family: Satoshi-Medium;
   font-size: 21px;

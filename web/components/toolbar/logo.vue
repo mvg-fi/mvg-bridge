@@ -1,10 +1,14 @@
 <template>
-  <div class="d-flex align-center" style="cursor:pointer;" @click="navigateTo('/')">
-      <v-app-bar-nav-icon>
-        <v-img height="28px" width="28px" :src="Icon"></v-img>
-      </v-app-bar-nav-icon>
-      <v-app-bar-title :text="AppName" class="logo-text unselectable" />
-    </div>
+  <div
+    class="d-flex align-center"
+    style="cursor: pointer"
+    @click="navigateTo('/')"
+  >
+    <v-app-bar-nav-icon>
+      <v-img height="28px" width="28px" :src="Icon"></v-img>
+    </v-app-bar-nav-icon>
+    <v-app-bar-title :text="AppName" class="logo-text unselectable" />
+  </div>
 </template>
 
 <script lang="ts" setup>

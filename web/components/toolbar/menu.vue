@@ -13,10 +13,15 @@
         </v-icon>
       </v-btn>
     </template>
-    <v-sheet class="menu-card py-4 pt-3 rounded-xl" v-if="bStore.menuState == 0">
+    <v-sheet
+      class="menu-card py-4 pt-3 rounded-xl"
+      v-if="bStore.menuState == 0"
+    >
       <!-- Settings -->
       <!-- Language -->
-      <div class="d-flex justify-space-between align-center px-5 py-0 setting-item">
+      <div
+        class="d-flex justify-space-between align-center px-5 py-0 setting-item"
+      >
         <span class="h7m">
           {{ $t("language") }}
         </span>
@@ -29,7 +34,9 @@
       </div>
 
       <!-- Dark mode -->
-      <div class="d-flex justify-space-between align-center px-5 py-0 setting-item">
+      <div
+        class="d-flex justify-space-between align-center px-5 py-0 setting-item"
+      >
         <span class="h7m flex-grow-1">
           {{ $t("dark_mode") }}
         </span>
@@ -45,7 +52,9 @@
       </div>
 
       <!-- Recent exchanges -->
-      <div class="d-flex justify-space-between align-center px-5 py-0 setting-item">
+      <div
+        class="d-flex justify-space-between align-center px-5 py-0 setting-item"
+      >
         <span class="h7m flex-grow-1">
           {{ $t("show_recent_exchanges") }}
         </span>
@@ -101,11 +110,13 @@ import ExternalIcon from "./externalIcon.vue";
 import { getNameByKey } from "~/plugins/02-i18n";
 
 const t = useI18n();
-const Links = [
-  { name: t.t("documentation"), link: AppURL + "/123" },
-  { name: t.t("developer"), link: AppURL + "/234" },
-  { name: t.t("about_us"), link: AppURL + "/345" },
-];
+const Links = computed(() => {
+  return [
+    { name: t.t("documentation"), link: AppURL + "/123" },
+    { name: t.t("developer"), link: AppURL + "/234" },
+    { name: t.t("about_us"), link: AppURL + "/345" },
+  ];
+});
 
 const bStore = useBridgeStore();
 const dark = ref(false);
