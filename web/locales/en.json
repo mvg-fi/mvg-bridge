@@ -65,5 +65,9 @@
   "bridge_noun": "Bridge",
   "api_reference": "API Reference",
   "media_kit": "Media kit",
-  "support_center": "Support Center"
+  "support_center": "Support Center",
+  "copy_address": "Copy address",
+  "disconnect": "Disconnect",
+  "connect_more_wallet": "Connect more wallet",
+  "disconnect_all": "Disconnect all"
 }

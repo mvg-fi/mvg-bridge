@@ -11,14 +11,12 @@
         size="large"
         v-bind="props"
         :class="ConnectBtnClass"
-        style="background-color: var(--palette-black-10); border: 1px solid var(--palette-black-10);"
+        style="border: 0.5px solid var(--palette-main-primary)"
       >
         <span style="color: var(--palette-black-100)" class="h7m"
           >{{ cStore.connectedWallets.length }}
           {{
-            $t("wallet", {
-              multi: cStore.connectedWallets.length == 1 ? "" : "s",
-            })
+            $t("wallet")
           }}</span
         >
       </v-btn>
@@ -27,21 +25,30 @@
     <!-- Connected account card -->
 
     <v-card class="account-card py-3">
-      <v-list class="px-5">
-        <div class="d-flex mb-2">
-          <span class="h6m d-flex align-center flex-grow-1">{{ $t("wallet", {multi: 's'}) }}</span>
+      <v-list class="px-3">
+        <div class="d-flex mb-2 mx-3">
+          <span class="h6m d-flex align-center flex-grow-1"
+            >{{ $t("wallet") }}
+          </span>
           <v-btn
             icon
             style="
               width: 36px;
               height: 36px;
               color: var(--palette-black-75);
-              background-color: var(--palette-black-10);
+              border: 0.5px solid var(--palette-main-primary);
             "
             elevation="0"
             @click="cStore.connectMore()"
             class="d-flex justify-center align-center rounded-pill mr-4"
           >
+            <v-tooltip
+              activator="parent"
+              location="bottom"
+              transition="fade-transition"
+            >
+              {{ $t("connect_more_wallet") }}
+            </v-tooltip>
             <v-icon size="16">
               <PlusIcon />
             </v-icon>
@@ -49,16 +56,18 @@
 
           <v-btn
             icon
-            style="
-              width: 36px;
-              height: 36px;
-              color: var(--palette-black-75);
-              background-color: var(--palette-black-10);
-            "
+            style="width: 36px; height: 36px; color: var(--palette-black-75); border: 0.5px solid var(--palette-main-primary);"
             elevation="0"
             @click="cStore.disconnectAll"
             class="d-flex justify-center align-center rounded-pill"
           >
+            <v-tooltip
+              activator="parent"
+              location="bottom"
+              transition="fade-transition"
+            >
+              {{ $t("disconnect_all") }}
+            </v-tooltip>
             <v-icon size="16">
               <PowerIcon />
             </v-icon>
@@ -69,17 +78,25 @@
           <div
             v-for="w in cStore.connectedWallets"
             :key="w.name"
-            style="border: 1px solid var(--palette-black-10); background-color: var(--palette-black-5);"
-            class="px-0 py-0 my-3 d-flex flex-row align-center rounded-pill"
+            style="border: 0.5px solid var(--palette-main-primary)"
+            class="px-4 py-2 my-3 d-flex flex-row align-center rounded-pill"
           >
             <img
-              style="width: 36px; height: 36px"
+              style="width: 40px; height: 40px"
               :src="w.icon"
               class="rounded-pill mr-4"
             />
-            <span class="h7m mr-4" style="font-size: 16px; width: 184px">
-              {{ shortenAddress(w.address) || w.name }}
-            </span>
+            <div
+              class="flex-grow-1 d-flex flex-column mr-4"
+              style="min-width: 140px"
+            >
+              <span class="h7" style="font-size: 14px">
+                {{ w.name }}
+              </span>
+              <span class="h7m" style="font-size: 12px">
+                {{ shortenAddress(w.address) || w.name }}
+              </span>
+            </div>
 
             <v-btn
               icon
@@ -88,6 +105,13 @@
               @click="navigator.clipboard.writeText(w.address)"
               class="d-flex justify-center align-center rounded-pill mr-3"
             >
+              <v-tooltip
+                activator="parent"
+                location="bottom"
+                transition="fade-transition"
+              >
+                {{ $t("copy_address") }}
+              </v-tooltip>
               <v-icon size="16">
                 <ClipboardIcon />
               </v-icon>
@@ -100,6 +124,13 @@
               @click="cStore.disconnectSpecific(w)"
               class="d-flex justify-center align-center rounded-pill mr-3"
             >
+              <v-tooltip
+                activator="parent"
+                location="bottom"
+                transition="fade-transition"
+              >
+                {{ $t("disconnect") }}
+              </v-tooltip>
               <v-icon size="16">
                 <PowerIcon />
               </v-icon>
@@ -119,12 +150,7 @@ import { PlusIcon, PowerIcon, ClipboardIcon } from "@heroicons/vue/24/outline";
 
 const cStore = useConnectStore();
 const ConnectBtnClass = computed(() =>
-  clsx(
-    "mx-4",
-    "rounded-pill",
-    "text-capitalize",
-    "font-weight-bold",
-  )
+  clsx("mx-4", "rounded-pill", "text-capitalize", "font-weight-bold")
 );
 
 const connectMoreWallet = () => {
@@ -139,7 +165,7 @@ const connectMoreWallet = () => {
 .account-card {
   margin-top: 8px;
   border-radius: 32px;
-  width: 344px;
+  min-width: 344px;
   box-shadow: 0 3px 32px #0003 !important;
 }
 </style>
