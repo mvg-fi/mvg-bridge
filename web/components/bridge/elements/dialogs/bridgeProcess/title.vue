@@ -1,31 +1,34 @@
 <template>
   <!-- Title -->
-  <v-row class="mt-3 align-center text-center" no-gutters>
-    <v-col cols="1" class="pa-0"> </v-col>
-    <v-col cols="10" class="pa-0">
-      <span class="h6">
-        {{
-          $t("exchange_from_to", {
-            from: bStore.fromAsset.symbol,
-            to: bStore.toAsset.symbol,
-          })
-        }}</span
-      >
-    </v-col>
-    <v-col cols="1" class="pa-0">
+  <div class="px-5 d-flex justify-space-between align-center text-center">
+    <div class="pa-0" style="visibility: hidden;">
       <v-btn
         icon
+        size="24"
         elevation="0"
-        class="mb-8"
-        style="background-color: var(--palette-background-1)"
+        class="bg-background"
         @click="bStore.mutateBridgeProcess(false)"
       >
         <v-icon size="20">
           <XMarkIcon />
         </v-icon>
       </v-btn>
-    </v-col>
-  </v-row>
+    </div>
+    <span class="h7m" style="font-size: 16px;"> {{ $t("confirm_exchange") }}</span>
+    <div>
+      <v-btn
+        icon
+        size="24"
+        elevation="0"
+        class="bg-background"
+        @click="bStore.mutateBridgeProcess(false)"
+      >
+        <v-icon size="20">
+          <XMarkIcon />
+        </v-icon>
+      </v-btn>
+    </div>
+  </div>
 </template>
 
 <script setup>

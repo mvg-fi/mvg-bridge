@@ -23,6 +23,7 @@ export const useBridgeStore = defineStore('bridge', {
     selectNetworkBar: false,
     priceLoading: false,
     priceLoaded: true,
+    costUSD: 0,
 
     bridgeProcessDialog: false,
     menuState: 0,               // 0 == Default, 1 == Language select

@@ -34,6 +34,9 @@
   "exchange_from_to": "Exchanging {from} to {to}",
   "recipient": "Recipient",
   "estimated_time": "Estimated time",
+  "estimated_time_intro": "The estimated time to wait until you receive your fund",
+  "cost": "Cost",
+  "cost_intro": "Cost includes the bridge fee, gas fee and etc",
   "language": "Language",
   "dark_mode": "Dark mode",
   "documentation": "Documentation",
@@ -69,5 +72,9 @@
   "copy_address": "Copy address",
   "disconnect": "Disconnect",
   "connect_more_wallet": "Connect more wallet",
-  "disconnect_all": "Disconnect all"
+  "disconnect_all": "Disconnect all",
+  "confirm_exchange": "Confirm exchange",
+  "default": "Default",
+  "pay_with_wallet": "Pay with wallet",
+  "view_address": "View address"
 }

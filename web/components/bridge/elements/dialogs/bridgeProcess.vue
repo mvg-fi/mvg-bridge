@@ -7,13 +7,13 @@
     class="d-flex justify-center bridge-process-dialog"
   >
     <v-sheet
-      class="rounded-xl align-self-start overflow-y-auto bridge-process-card pb-12"
+      class="rounded-xl align-self-start overflow-y-auto bg-background bridge-process-card py-4"
       elevation="5"
     >
       <Title />
-      <Route class="mt-2"/>
-      <Details class="mt-8" style="margin-left: 120px; margin-right: 120px;"/>
-      <Confirm class="mt-12"/>
+      <Route class="mt-2" />
+      <Details class="my-8" />
+      <Confirm class="py-4 mb-2" />
     </v-sheet>
   </v-dialog>
 </template>
@@ -29,12 +29,10 @@ const bStore = useBridgeStore();
 
 <style lang="scss" scoped>
 .bridge-process-dialog {
-  width: 700px;
+  width: 432px;
 }
 
 .bridge-process-card {
-  width: 680px;
-  // min-height: 370px;
-  background-color: var(--palette-background-1);
+  min-width: 360px;
 }
 </style>

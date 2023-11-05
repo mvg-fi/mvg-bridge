@@ -144,7 +144,7 @@ const showRecentExchanges = computed({
 }
 .menu-card {
   // border-radius: 2vh;
-  min-width: 260px;
+  min-width: 240px;
   min-height: 220px;
   box-shadow: 0 2px 32px #0003 !important;
 }
