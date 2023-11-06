@@ -7,7 +7,7 @@
       </span>
     </div>
 
-    <div class="d-flex justify-space-between mx-6">
+    <div class="d-flex justify-space-between mx-6 mr-8">
       <span class="h6 mr-3 my-2">
         {{ bStore.bridgeAmount }} {{ bStore.fromAsset.symbol }}
       </span>
@@ -32,7 +32,7 @@
       </span>
     </div>
 
-    <div class="d-flex justify-space-between mx-6">
+    <div class="d-flex justify-space-between mx-6 mr-8">
       <span class="h6 mr-3 my-2">
         {{ bStore.receiveAmount }} {{ bStore.toAsset.symbol }}
       </span>

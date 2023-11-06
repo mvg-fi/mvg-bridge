@@ -15,7 +15,9 @@
       <span class="rate-text" v-else @click="rateReserve = !rateReserve">
         1 {{ store.toAsset.symbol }} = {{ rrate }} {{ store.fromAsset.symbol }}
       </span>
-      <span class="ml-2 h7m" style="opacity: 40%"> ({{ usdProfit }}%) </span>
+      <span class="ml-2 h7m" style="opacity: 40%">
+        ({{ usdProfit > 0 ? "+" : "" }}{{ usdProfit }}%)
+      </span>
     </div>
 
     <!-- <span class="mr-6 fee-usd-text"> ${{ usdFee }} </span> -->

@@ -12,16 +12,11 @@ const Custom = {
     error: '#FF3333',
     correct: '#75D658',
     black: '#261F22',
-    "black-darken-1": "#D8D8D8",
-    "black-darken-2": "#CFCECE",
-    "black-darken-3": "#B2B1B1",
-    "black-darken-4": "#837F81",
-    "black-darken-5": "#433F41",
-    // 'blacksf': '#433F41',
-    // 'blackfifty': '#837F81',
-    // 'blacktf': '#B2B1B1',
-    // 'blackten': '#CFCECE',
-    // 'blackfive': '#D8D8D8',
+    "black-darken-1": "#D8D8D8",  //5%
+    "black-darken-2": "#CFCECE",  //10%
+    "black-darken-3": "#B2B1B1",  //25%
+    "black-darken-4": "#837F81",  //50%
+    "black-darken-5": "#433F41",  //75%
   }
 } 
 
@@ -35,7 +30,17 @@ export default defineNuxtPlugin(nuxtApp => {
       themes: {
         Custom
       }
-    }
+    },
+    display: {
+      mobileBreakpoint: 'md',
+      thresholds: {
+        xs: 0,
+        sm: 340,
+        md: 540,
+        lg: 800,
+        xl: 1280,
+      },
+    },
   })
   nuxtApp.vueApp.use(vuetify)
 })

@@ -12,7 +12,7 @@
       </span>
     </v-btn>
 
-    <v-btn class="confirm-btn rounded-pill" size="large" @click="confirmBridge">
+    <v-btn class="confirm-btn rounded-pill" size="large" @click="payWithWallet">
       <span class="h7 text-background">
         {{ $t("pay_with_wallet") }}
       </span>
@@ -23,15 +23,12 @@
 <script setup>
 import { useBridgeStore } from "~/stores/bridge/bridge";
 
-const bStore = useBridgeStore()
-const confirmBridge = () => {
-  // 1. Choose wallet to pay or scan
-  // 2. Invoke sdk to pay
-  // 3. Listen to payment
-  // 4. Once paid, redirect to status page
-};
+const bStore = useBridgeStore();
 const viewAddress = () => {
-  bStore.setBridgeProcessState(1) 
+  bStore.setBridgeProcessState(1);
+};
+const payWithWallet = () => {
+  bStore.setBridgeProcessState(2);
 };
 </script>
 
