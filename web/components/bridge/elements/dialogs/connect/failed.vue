@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-    class="rounded-xl align-self-start overflow-y-auto failed-card"
+    class="rounded-xl align-self-center overflow-y-auto failed-card"
     elevation="3"
   >
     <!-- Title -->

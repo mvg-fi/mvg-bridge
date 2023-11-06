@@ -1,6 +1,6 @@
 <template>
   <v-sheet
-    class="rounded-xl align-self-start overflow-y-auto mixin-oauth-card"
+    class="rounded-xl align-self-center overflow-y-auto mixin-oauth-card"
     elevation="3"
   >
     <!-- Title -->
@@ -22,17 +22,18 @@
     <!-- QRcode -->
     <div class="d-flex justify-center">
       <div class="ma-8" v-if="qrLoaded">
-        <div>
+        <div style="position: relative">
           <v-img
             eager
             :src="mx"
             style="
               width: 48px;
               height: 48px;
-              top: 180px;
-              left: 128px;
-              border-radius: 32px;
               position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              border-radius: 32px;
             "
           />
           <VueQrcode

@@ -11,8 +11,8 @@ input:focus {
   outline: none;
 }
 
-$select-asset-dialog-height: 660px;
-$select-asset-dialog-width: 432px;
+$select-asset-dialog-height: 600px;
+$select-asset-dialog-width: 380px;
 
 //Web3Modal
 :root {
@@ -125,6 +125,7 @@ $palette: (
   background: (
     0: #FFFFFF,
     1: #F9F9F9,
+    2: #f2f2f2,
   ),
 );
 

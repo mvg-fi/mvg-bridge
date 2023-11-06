@@ -1,10 +1,10 @@
 <template>
   <v-dialog
     v-model="store.fromDialog"
-    class="d-flex justify-center select-asset-dialog"
+    class="d-flex justify-center dialog-blur"
   >
     <v-card
-      class="select-asset-card rounded-xl pt-3 overflow-y-hidden"
+      class="select-asset-card align-self-center rounded-xl pt-3 overflow-y-hidden"
       elevation="3"
     >
       <Title :from="true" class="mb-3" />
@@ -28,11 +28,11 @@ const store = useBridgeStore();
 
 <style lang="scss">
 @import "assets/css/custom";
-.select-asset-dialog {
-  width: $select-asset-dialog-width;
-  height: $select-asset-dialog-height;
-}
 .select-asset-card {
   height: $select-asset-dialog-height;
+  width: $select-asset-dialog-width;
+}
+.dialog-blur {
+  backdrop-filter: blur(4px);
 }
 </style>

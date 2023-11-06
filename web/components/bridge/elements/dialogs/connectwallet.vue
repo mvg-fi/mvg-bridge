@@ -5,11 +5,11 @@
     transition="fade-transition"
     v-model="cStore.connectDialog"
     @keyup.esc="cStore.mutateDialog(false)"
-    class="d-flex justify-center connect-dialog"
+    class="d-flex justify-center dialog-blur"
   >
     <v-sheet
       v-if="cStore.connectState === 0"
-      class="rounded-xl align-self-start overflow-y-auto connect-card bg-background"
+      class="rounded-xl align-self-center overflow-y-auto connect-card bg-background"
       elevation="3"
     >
       <Title />
@@ -50,9 +50,6 @@ watch(cStore.connected, ()=>{
 </script>
 
 <style lang="scss" scoped>
-.connect-dialog {
-  width: 350px;
-}
 .connect-card {
   width: 305px;
   max-height: 600px;
