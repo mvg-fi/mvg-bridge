@@ -9,6 +9,7 @@ export const MVMChainID = 73927
 export const BridgeBotID = 'a13f4c77-5cfc-4368-a2d6-33f07037ae9e'
 export const OAuthScope = 'PROFILE:READ ASSETS:READ'
 export const AuthMethods = ['mixin', 'fennec', 'metamask', 'onekey', 'walletconnect']
+export const BridgeFee = 0.02
 
 export const MVGxLink ='https://x.com/mvg_finance'
 export const MVGMixinLink ='https://mixin.one/codes/faa7f8d3-d1c3-473b-9f56-7ffbbb512cc0'

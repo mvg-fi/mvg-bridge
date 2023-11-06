@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column">
-    <span class="font-weight-bold" style="font-size: 16px">
+    <span class="h7m" style="font-size: 16px">
       {{ $t("only_use_dex") }}
     </span>
     <span
