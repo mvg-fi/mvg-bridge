@@ -1,31 +1,34 @@
 <template>
   <div
-    class="mx-2 justify-center align-center rounded-xl d-flex align-center"
-    style="height: 48px; background-color: var(--palette-black-5);"
+    :class="
+      clsx(
+        'mx-2 rounded-xl d-flex align-center justify-center',
+        mobile ? 'recipient-mobile' : 'recipient'
+      )
+    "
   >
     <input
       v-model="store.receiver"
-      class="search w-100 ml-6"
       :placeholder="$t('receiver_placeholder')"
+      :class="clsx('w-100', mobile ? 'ml-4 search-mobile' : 'ml-6 search')"
     />
-    <v-icon
-      style="width: 24px; height: 24px"
-      @click.stop="clearReceiver"
-      class="mx-4"
-    >
+    <v-icon :size="mobile ? 16 : 24" @click.stop="clearReceiver" class="mx-4">
       <XMarkIcon />
     </v-icon>
   </div>
 </template>
 
 <script setup>
+import clsx from "clsx";
+import { useDisplay } from "vuetify";
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 import { useBridgeStore } from "~/stores/bridge/bridge";
-const store = useBridgeStore()
+const store = useBridgeStore();
+const { mobile } = useDisplay();
 
 const clearReceiver = () => {
-  store.clearReceiver()
-}
+  store.clearReceiver();
+};
 </script>
 
 <style scoped>
@@ -34,10 +37,21 @@ const clearReceiver = () => {
 }
 .search {
   height: 56px;
+  font-size: 16px;
 }
-
-.search::placeholder{
+.search-mobile {
+  height: 36px;
+  font-size: 14px;
+}
+.recipient {
+  height: 48px;
+  background-color: var(--palette-black-5);
+}
+.recipient-mobile {
+  height: 40px;
+  background-color: var(--palette-black-5);
+}
+.search::placeholder {
   color: grey;
 }
-
 </style>

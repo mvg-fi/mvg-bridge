@@ -1,5 +1,6 @@
 <template>
   <v-overlay
+    v-if="!mobile"
     location="bottom end"
     location-strategy="connected"
     scrim="false"
@@ -94,6 +95,31 @@
 
     <Lang v-if="bStore.menuState == 1" />
   </v-overlay>
+
+  <div v-else>
+    <v-btn icon class="menu-btn" @click="mobileDialog = !mobileDialog">
+      <v-icon>
+        <EllipsisHorizontalIcon class="menu-icon" />
+      </v-icon>
+    </v-btn>
+    <v-dialog
+      fullscreen
+      v-model="mobileDialog"
+      transition="slide-y-reverse-transition"
+      :class="clsx('d-flex justify-center dialog-blur')"
+    >
+      <v-card
+        :class="
+          clsx(
+            'select-asset-card align-self-center rounded-xl pt-3 overflow-y-hidden',
+            'mobile-card menu-card-mobile'
+          )
+        "
+        elevation="3"
+      >
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 
 <script setup>
@@ -102,24 +128,28 @@ import {
   ChevronRightIcon,
 } from "@heroicons/vue/20/solid";
 import { useI18n } from "vue-i18n";
-import { AppURL } from "~/helpers/constants";
+import { useDisplay } from "vuetify";
+import { AppURL, DeveloperURL, DocumentationURL } from "~/helpers/constants";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 
 import Lang from "./lang.vue";
 import ExternalIcon from "./externalIcon.vue";
 import { getNameByKey } from "~/plugins/02-i18n";
+import clsx from "clsx";
 
 const t = useI18n();
 const Links = computed(() => {
   return [
-    { name: t.t("documentation"), link: AppURL + "/123" },
-    { name: t.t("developer"), link: AppURL + "/234" },
+    { name: t.t("documentation"), link: DocumentationURL },
+    { name: t.t("developer"), link: DeveloperURL },
     { name: t.t("about_us"), link: AppURL + "/345" },
   ];
 });
 
 const bStore = useBridgeStore();
-const dark = ref(false);
+const { mobile } = useDisplay();
+let dark = ref(false);
+let mobileDialog = ref(false);
 const moveToLang = () => {
   bStore.setMenuState(1);
 };
@@ -147,6 +177,10 @@ const showRecentExchanges = computed({
   min-width: 240px;
   min-height: 220px;
   box-shadow: 0 2px 32px #0003 !important;
+}
+.menu-card-mobile {
+  margin-top: 66%;
+  height: 33%;
 }
 .setting-item {
   height: 48px;

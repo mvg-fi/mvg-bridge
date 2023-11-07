@@ -4,15 +4,19 @@
     class="d-flex justify-start align-center rounded-xl mx-2"
     style="height: 48px; border: 1px solid var(--palette-black-5)"
   >
-    <div class="ml-6 flex-grow-1">
+    <div :class="clsx(mobile ? 'ml-4' : 'ml-6', 'flex-grow-1')">
       <span
-        class="rate-text"
+        :class="clsx(mobile ? 'rate-text-mobile' : 'rate-text')"
         v-if="!rateReserve"
         @click="rateReserve = !rateReserve"
       >
         1 {{ store.fromAsset.symbol }} = {{ rate }} {{ store.toAsset.symbol }}
       </span>
-      <span class="rate-text" v-else @click="rateReserve = !rateReserve">
+      <span
+        :class="clsx(mobile ? 'rate-text-mobile' : 'rate-text')"
+        v-else
+        @click="rateReserve = !rateReserve"
+      >
         1 {{ store.toAsset.symbol }} = {{ rrate }} {{ store.fromAsset.symbol }}
       </span>
       <span class="ml-2 h7m" style="opacity: 40%">
@@ -25,10 +29,13 @@
 </template>
 
 <script setup>
+import clsx from "clsx";
+import { useDisplay } from "vuetify";
 import { BN, BN2 } from "~/helpers/bignumber/bn";
 import { BridgeFee } from "~/helpers/constants";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const store = useBridgeStore();
+const { mobile } = useDisplay();
 
 let rateReserve = ref(false);
 const rate = computed(() =>
@@ -53,6 +60,11 @@ const usdProfit = computed(() =>
 .rate-text {
   color: var(--palette-black-100);
   font-size: 16px;
+  font-family: Satoshi-Medium;
+}
+.rate-text-mobile {
+  color: var(--palette-black-100);
+  font-size: 14px;
   font-family: Satoshi-Medium;
 }
 .fee-usd-text {

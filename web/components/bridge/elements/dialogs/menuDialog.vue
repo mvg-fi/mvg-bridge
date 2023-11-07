@@ -1,0 +1,1 @@
+<!-- Just to know that there's a dialog inside menu -->

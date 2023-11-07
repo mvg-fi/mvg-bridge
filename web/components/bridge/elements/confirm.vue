@@ -6,10 +6,10 @@
       class="rounded-xl w-100"
       style="background-color: var(--palette-black-10)"
       size="x-large"
-      height="64px"
+      :height="mobile ? '56px': '64px'"
     >
       <!-- Bridge disabled -->
-      <span style="color: var(--palette-black-50)" class="h6">
+      <span style="color: var(--palette-black-50)" :class="clsx(mobile? 'h7':'h6')">
         {{ $t("bridge") }}
       </span>
     </v-btn>
@@ -35,10 +35,10 @@
       "
       @click="bStore.mutateBridgeProcess(true)"
       size="x-large"
-      height="64px"
+      :height="mobile ? '56px': '64px'"
     >
       <!-- Bridge enabled -->
-      <span class="h6">
+      <span :class="clsx(mobile? 'h7':'h6')">
         {{ $t("bridge") }}</span
       >
     </v-btn>
@@ -46,8 +46,8 @@
     <v-btn
       v-else
       elevation="0"
-      height="64px"
       size="x-large"
+      :height="mobile ? '56px': '64px'"
       class="rounded-xl w-100 text-background"
       @click="cStore.mutateDialog(true)"
       @keyup.esc="cStore.mutateDialog(false)"
@@ -59,7 +59,7 @@
         );
       "
     >
-      <span class="h6">
+      <span :class="clsx(mobile? 'h7':'h6')">
         {{ $t("connect_wallet") }}</span
       >
     </v-btn>
@@ -71,12 +71,14 @@
 
 <script setup>
 import clsx from "clsx";
+import { useDisplay } from "vuetify";
 import { useConnectStore } from "~/stores/connect/connect";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 import ConnectWalletDialog from "~/components/bridge/elements/dialogs/connectwallet.vue";
 import BridgeProcessDialog from "~/components/bridge/elements/dialogs/bridgeProcess.vue";
 
 const btnHover = ref(false);
+const { mobile } = useDisplay();
 const bStore = useBridgeStore();
 const cStore = useConnectStore();
 // const enabled = computed(() => {

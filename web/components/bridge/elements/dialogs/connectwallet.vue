@@ -5,12 +5,17 @@
     :fullscreen="mobile"
     v-model="cStore.connectDialog"
     @keyup.esc="cStore.mutateDialog(false)"
-    :class="clsx('d-flex justify-center dialog-blur', mobile && 'mobile-dialog')"
+    :class="clsx('d-flex justify-center dialog-blur')"
     :transition="mobile ? 'slide-y-reverse-transition' : 'fade-transition'"
   >
     <v-sheet
       v-if="cStore.connectState === 0"
-      class="rounded-xl align-self-center overflow-y-auto connect-card bg-background"
+      :class="
+        clsx(
+          'rounded-xl align-self-center overflow-y-auto connect-card bg-background',
+          mobile && 'mobile-card'
+        )
+      "
       elevation="3"
     >
       <Title />

@@ -42,15 +42,14 @@ const { mobile } = useDisplay();
 @import "assets/css/custom";
 .select-asset-card {
   height: $select-asset-dialog-height;
-  width: $select-asset-dialog-width;
+  min-width: $select-asset-dialog-width;
 }
 .dialog-blur {
   backdrop-filter: blur(4px);
 }
-.mobile-dialog {
-  margin-top: 30%;
-}
 .mobile-card {
+  margin-top: 33%;
+  height: 66%;
   border-bottom-left-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }

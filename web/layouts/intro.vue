@@ -1,6 +1,9 @@
 <template>
   <v-main>
-    <v-app-bar elevation="0" class="px-8 bg-transparent">
+    <v-app-bar
+      elevation="0"
+      :class="clsx(!mobile && 'px-8', mobile && 'px-6', 'bg-transparent')"
+    >
       <Logo />
       <v-spacer />
       <EnterApp />
@@ -10,6 +13,9 @@
 </template>
 
 <script setup>
+import clsx from "clsx";
+import { useDisplay } from "vuetify";
 import Logo from "~/components/toolbar/logo.vue";
 import EnterApp from "~/components/toolbar/enterApp.vue";
+const { mobile } = useDisplay();
 </script>

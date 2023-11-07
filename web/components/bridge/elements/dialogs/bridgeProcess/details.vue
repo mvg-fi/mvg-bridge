@@ -5,7 +5,7 @@
   >
     <div class="d-flex justify-space-between align-center">
       <span> {{ $t("recipient") }} </span>
-      <span style="width: 280px; overflow-wrap: break-word" class="text-end">
+      <span style="max-width: 240px; overflow-wrap: break-word" class="pl-8 text-end">
         {{ bStore.receiver || $t("default") }}
       </span>
     </div>

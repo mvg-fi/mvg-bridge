@@ -11,7 +11,7 @@
         size="large"
         v-bind="props"
         :class="ConnectBtnClass"
-        style="border: 0.5px solid var(--palette-main-primary)"
+        style="background: 0.5px solid var(--palette-main-primary)"
       >
         <span style="color: var(--palette-black-100)" class="h7m"
           >{{ cStore.connectedWallets.length }}
@@ -36,7 +36,7 @@
               width: 36px;
               height: 36px;
               color: var(--palette-black-75);
-              border: 0.5px solid var(--palette-main-primary);
+              background: 0.5px solid var(--palette-main-primary);
             "
             elevation="0"
             @click="cStore.connectMore()"
@@ -56,7 +56,7 @@
 
           <v-btn
             icon
-            style="width: 36px; height: 36px; color: var(--palette-black-75); border: 0.5px solid var(--palette-main-primary);"
+            style="width: 36px; height: 36px; color: var(--palette-black-75); background: 0.5px solid var(--palette-main-primary);"
             elevation="0"
             @click="cStore.disconnectAll"
             class="d-flex justify-center align-center rounded-pill"
@@ -78,7 +78,7 @@
           <div
             v-for="w in cStore.connectedWallets"
             :key="w.name"
-            style="border: 0.5px solid var(--palette-main-primary)"
+            style="background: 0.5px solid var(--palette-main-primary)"
             class="px-4 py-2 my-3 d-flex flex-row align-center rounded-pill"
           >
             <img

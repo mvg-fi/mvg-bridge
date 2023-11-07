@@ -9,19 +9,22 @@
         )
       "
     >
-      <div class="ml-6 mt-4">
-        <span class="h7m" style="opacity: 50%">
+      <div :class="clsx(mobile ? 'ml-4 mt-4' : 'ml-6 mt-4', 'h7m')">
+        <span style="opacity: 50%">
           {{ props.from ? $t("you_pay") : $t("you_receive") }}
         </span>
       </div>
 
-      <div class="d-flex flex-row ml-6">
+      <div :class="clsx(mobile ? 'ml-4' : 'ml-6', 'd-flex flex-row') ">
         <TextField :from="props.from" />
         <Asset :from="props.from" />
       </div>
 
-      <div class="ml-6 h7m mb-4">
-        <span style="color: var(--palette-black-50)" v-if=" props.from ? store.bridgeAmount : store.receiveAmount">
+      <div :class="clsx(mobile ? 'ml-4 mb-4':'ml-6 mb-4', 'h7m')">
+        <span
+          style="color: var(--palette-black-50)"
+          v-if="props.from ? store.bridgeAmount : store.receiveAmount"
+        >
           ${{ props.from ? store.fromTotalPrice : store.toTotalPrice }}
         </span>
         <span style="opacity: 0" v-else> $ </span>
@@ -32,14 +35,28 @@
 
 <script setup>
 import clsx from "clsx";
+import { useDisplay } from "vuetify";
 import Asset from "~/components/bridge/elements/input/asset.vue";
 import TextField from "~/components/bridge/elements/input/textfield.vue";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const props = defineProps(["from"]);
 const store = useBridgeStore();
+const { mobile } = useDisplay();
 
-watch(store.bridgeAmount, ()=>{store.fetchUSD(true)}, {immediate: true})
-watch(store.receiveAmount, ()=>{store.fetchUSD(false)}, {immediate: true})
+watch(
+  store.bridgeAmount,
+  () => {
+    store.fetchUSD(true);
+  },
+  { immediate: true }
+);
+watch(
+  store.receiveAmount,
+  () => {
+    store.fetchUSD(false);
+  },
+  { immediate: true }
+);
 </script>
 
 <style lang="scss" scoped>

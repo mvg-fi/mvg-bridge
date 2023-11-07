@@ -9,9 +9,13 @@
 </template>
 
 <script setup lang="ts">
+import clsx from "clsx";
+import { vMaska } from "maska";
+import { useDisplay } from "vuetify";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 import { filterInputEvents } from "~/helpers/utils";
-import { vMaska } from "maska";
+
+const { mobile } = useDisplay();
 const store = useBridgeStore();
 const options = {
   mask: "A.BBBBBBBB",

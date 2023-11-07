@@ -53,6 +53,6 @@ const { mobile } = useDisplay();
 
 <style lang="scss" scoped>
 .bridge-process-card {
-  min-width: 360px;
+  min-width: 340px;
 }
 </style>
