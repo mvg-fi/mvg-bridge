@@ -9,9 +9,9 @@
     :class="clsx('d-flex justify-center dialog-blur', mobile && 'mobile-dialog')"
   >
     <v-sheet
-      class="rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4"
       elevation="5"
       v-if="bStore.bridgeProcessState == 0"
+      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4', mobile && 'mobile-card')"
     >
       <Title />
       <Route class="mt-2" />
@@ -22,7 +22,7 @@
     <v-sheet
       elevation="5"
       v-else-if="bStore.bridgeProcessState == 1"
-      class="rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card pa-4"
+      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card pa-4', mobile && 'mobile-card')"
     >
       <ViewAddress />
     </v-sheet>
@@ -30,7 +30,7 @@
     <v-sheet
       elevation="5"
       v-else-if="bStore.bridgeProcessState == 2"
-      class="rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card pa-4"
+      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card pa-4', mobile && 'mobile-card')"
     >
       <PayWithWallet />
     </v-sheet>
