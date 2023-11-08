@@ -14,6 +14,15 @@
       <div class="d-flex align-center">
         <v-icon size="40">
           <v-img :src="bStore.fromAsset.icon" :alt="bStore.fromAsset.name" />
+          <v-img
+            :src="bStore.fromAsset.chain_icon"
+            v-if="bStore.fromAsset.asset_id != bStore.fromAsset.chain_id"
+            :class="
+              clsx(
+                'chain-icon-absolute'
+              )
+            "
+          ></v-img>
         </v-icon>
       </div>
     </div>
@@ -38,7 +47,16 @@
       </span>
       <div class="d-flex align-center">
         <v-icon size="40">
-          <v-img :src="bStore.toAsset.icon" :alt="bStore.fromAsset.name" />
+          <v-img :src="bStore.toAsset.icon" :alt="bStore.toAsset.name" />
+          <v-img
+            :src="bStore.toAsset.chain_icon"
+            v-if="bStore.toAsset.asset_id != bStore.toAsset.chain_id"
+            :class="
+              clsx(
+                 'chain-icon-absolute'
+              )
+            "
+          ></v-img>
         </v-icon>
       </div>
     </div>
@@ -54,9 +72,11 @@
 
 <script setup>
 import clsx from "clsx";
+import { useDisplay } from "vuetify";
 import { ArrowRightIcon } from "@heroicons/vue/24/outline";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 
+const { mobile } = useDisplay()
 const bStore = useBridgeStore();
 </script>
 
@@ -64,5 +84,12 @@ const bStore = useBridgeStore();
 .img-class {
   width: 24px;
   height: 24px;
+}
+.chain-icon-absolute {
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
 }
 </style>

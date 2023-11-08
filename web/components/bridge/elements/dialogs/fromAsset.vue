@@ -48,8 +48,8 @@ const { mobile } = useDisplay();
   backdrop-filter: blur(4px);
 }
 .mobile-card {
-  margin-top: 33%;
-  height: 66%;
+  margin-top: calc(20vh);
+  height: calc(100vh);
   width: 100vw;
   border-bottom-left-radius: 0px !important;
   border-bottom-right-radius: 0px !important;

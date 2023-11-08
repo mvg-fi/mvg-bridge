@@ -8,15 +8,15 @@
       style="width: 16px; height: 16px"
       @click="cStore.mutateDialog(false)"
     >
-      <v-icon>
-        <close-icon />
+      <v-icon size="20">
+        <XMarkIcon />
       </v-icon>
     </v-btn>
   </div>
 </template>
 
 <script setup>
-import CloseIcon from "@heroicons/vue/24/outline/XCircleIcon";
+import { XMarkIcon } from "@heroicons/vue/24/outline";
 import { useConnectStore } from "~/stores/connect/connect";
 const cStore = useConnectStore();
 </script>
