@@ -50,7 +50,7 @@
     <v-bottom-sheet
       v-model="mobileDialog"
       transition="slide-y-reverse-transition"
-      :class="clsx('d-flex justify-center')"
+      :class="clsx('d-flex justify-center dialog-blur')"
     >
       <v-sheet
         :class="
