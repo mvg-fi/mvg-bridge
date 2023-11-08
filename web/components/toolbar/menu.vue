@@ -108,7 +108,7 @@
       transition="slide-y-reverse-transition"
       :class="clsx('d-flex justify-center dialog-blur')"
     >
-      <v-card
+      <v-sheet
         :class="
           clsx(
             'select-asset-card align-self-center rounded-xl pt-3 overflow-y-hidden',
@@ -117,7 +117,7 @@
         "
         elevation="3"
       >
-      </v-card>
+      </v-sheet>
     </v-dialog>
   </div>
 </template>
@@ -179,8 +179,8 @@ const showRecentExchanges = computed({
   box-shadow: 0 2px 32px #0003 !important;
 }
 .menu-card-mobile {
-  margin-top: 66%;
-  height: 33%;
+  padding-top: 80%;
+  height: 20%;
 }
 .setting-item {
   height: 48px;

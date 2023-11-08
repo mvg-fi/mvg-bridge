@@ -40,12 +40,5 @@ const { mobile } = useDisplay();
 </script>
 
 <style lang="scss">
-@import "assets/css/custom";
-.select-asset-card {
-  height: $select-asset-dialog-height;
-  width: $select-asset-dialog-width;
-}
-.dialog-blur {
-  backdrop-filter: blur(4px);
-}
+
 </style>

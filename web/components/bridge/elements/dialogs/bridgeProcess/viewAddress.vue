@@ -8,7 +8,7 @@
     </span>
   </div>
 
-  <div class="flex flex-col">
+  <div :class="clsx('d-flex flex-column', mobile && 'px-2')">
     <!-- Network -->
     <div class="deposit-title flex flex-row bg-background rounded-lg">
       <div class="d-flex flex-grow-1 flex-column pa-2 px-3">
@@ -75,7 +75,7 @@
 
     <!-- Memo -->
     <div
-      style="font-size: 12px; width: 340px;"
+      style="font-size: 12px; width: 340px"
       class="deposit-info d-flex flex-column my-2 mx-2 h7m text-black-darken-4"
     >
       <!-- <span v-if="bStore.fromAsset.deposit_entries[0].tag">
@@ -114,9 +114,12 @@
 </template>
 
 <script lang="ts" setup>
+import clsx from "clsx";
 import Copy from "./copy.vue";
+import { useDisplay } from "vuetify";
 import VueQrcode from "@chenfengyuan/vue-qrcode";
 import { useBridgeStore } from "~/stores/bridge/bridge";
+const { mobile } = useDisplay();
 const bStore = useBridgeStore();
 const address = "asjdfiasjdfkasjdfkljaslkdfjqlwkjerkqwjeoijoi";
 

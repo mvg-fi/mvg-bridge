@@ -1,5 +1,5 @@
 <template>
-  <v-row no-gutters class="fill-height d-flex justify-center w-100">
+  <v-row no-gutters class="fill-height d-flex justify-center">
     <div>
       <v-card
         :class="
@@ -47,7 +47,7 @@ const { mobile } = useDisplay();
   box-shadow: 0 1px 8px #0003 !important;
 }
 .mobile-bridge-card {
-  width: 344px;
+  width: calc(100vw - 16px);
   box-shadow: 0 1px 8px #0003 !important;
 }
 </style>

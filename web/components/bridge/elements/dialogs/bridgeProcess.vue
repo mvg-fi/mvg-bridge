@@ -22,7 +22,7 @@
     <v-sheet
       elevation="5"
       v-else-if="bStore.bridgeProcessState == 1"
-      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card pa-4', mobile && 'mobile-card')"
+      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card', mobile ? 'mobile-card py-4' : 'pa-4')"
     >
       <ViewAddress />
     </v-sheet>
@@ -30,7 +30,7 @@
     <v-sheet
       elevation="5"
       v-else-if="bStore.bridgeProcessState == 2"
-      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card pa-4', mobile && 'mobile-card')"
+      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card', mobile ? 'mobile-card py-4' : 'pa-4')"
     >
       <PayWithWallet />
     </v-sheet>
@@ -54,5 +54,8 @@ const { mobile } = useDisplay();
 <style lang="scss" scoped>
 .bridge-process-card {
   min-width: 340px;
+}
+.bridge-process-card-mobile {
+  width: 100vw;
 }
 </style>

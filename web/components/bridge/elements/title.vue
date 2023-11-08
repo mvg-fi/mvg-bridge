@@ -1,6 +1,6 @@
 <template>
-  <div class="d-flex">
-    <span class="flex-grow-1"> {{ $t("bridge") }} </span>
+  <div class="d-flex justify-space-between">
+    <span> {{ $t("bridge") }} </span>
     <v-btn
       icon
       plain

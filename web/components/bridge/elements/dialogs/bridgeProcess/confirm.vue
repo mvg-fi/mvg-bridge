@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex align-center justify-center flex-row" style="gap: 24px">
+  <div class="d-flex align-center justify-center flex-row" style="gap: 16px">
     <v-btn
       size="large"
       class="bg-background rounded-pill"

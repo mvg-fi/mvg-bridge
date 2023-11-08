@@ -4,7 +4,7 @@
     v-model="store.fromDialog"
     :transition="mobile ? 'slide-y-reverse-transition' : 'scale-transition'"
     :class="
-      clsx('d-flex justify-center dialog-blur', mobile && 'mobile-dialog')
+      clsx('d-flex justify-center dialog-blur')
     "
   >
     <v-card
@@ -50,6 +50,7 @@ const { mobile } = useDisplay();
 .mobile-card {
   margin-top: 33%;
   height: 66%;
+  width: 100vw;
   border-bottom-left-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
