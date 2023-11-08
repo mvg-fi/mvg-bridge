@@ -58,8 +58,6 @@
         </svg>
       </v-icon>
     </v-btn>
-    <FromAssetDialog />
-    <ToAssetDialog />
   </div>
 </template>
 
@@ -67,8 +65,6 @@
 import clsx from "clsx";
 import { useDisplay } from "vuetify";
 import { useBridgeStore } from "~/stores/bridge/bridge";
-import FromAssetDialog from "~/components/bridge/elements/dialogs/fromAsset.vue";
-import ToAssetDialog from "~/components/bridge/elements/dialogs/toAsset.vue";
 
 const { mobile } = useDisplay();
 const store = useBridgeStore();

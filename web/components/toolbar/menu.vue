@@ -47,18 +47,16 @@
         <EllipsisHorizontalIcon class="menu-icon" />
       </v-icon>
     </v-btn>
-    <v-dialog
-      fullscreen
-      scrollable
+    <v-bottom-sheet
       v-model="mobileDialog"
       transition="slide-y-reverse-transition"
-      :class="clsx('d-flex justify-center dialog-blur')"
+      :class="clsx('d-flex justify-center')"
     >
       <v-sheet
         :class="
           clsx(
-            'select-asset-card align-self-center rounded-xl overflow-y-auto',
-            'mobile-card menu-card-mobile'
+            'align-self-center rounded-t-xl',
+            'menu-card-mobile', 'pb-6'
           )
         "
         v-if="bStore.menuState == 0"
@@ -86,12 +84,12 @@
         <Links />
       </v-sheet>
       <v-sheet
-        class="menu-card menu-card-mobile py-4 rounded-xl overflow-y-auto"
+        class="menu-card-mobile py-4 rounded-t-xl overflow-y-auto"
         v-else-if="bStore.menuState == 1"
       >
         <Lang />
       </v-sheet>
-    </v-dialog>
+    </v-bottom-sheet>
   </div>
 </template>
 
@@ -99,6 +97,7 @@
 import clsx from "clsx";
 import { useDisplay } from "vuetify";
 import { useBridgeStore } from "~/stores/bridge/bridge";
+import { VBottomSheet } from "vuetify/labs/VBottomSheet";
 import {
   EllipsisHorizontalIcon,
   ChevronDownIcon,
@@ -126,7 +125,7 @@ let mobileDialog = ref(false);
   box-shadow: 0 2px 32px #0003 !important;
 }
 .menu-card-mobile {
-  margin-top: calc(100vh - 300px);
+  width: 100vw;
 }
 .setting-item {
   height: 48px;

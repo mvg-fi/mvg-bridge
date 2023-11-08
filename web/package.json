@@ -45,6 +45,6 @@
     "reconnecting-websocket": "^4.4.0",
     "sass": "^1.66.1",
     "uuid": "^9.0.1",
-    "vuetify": "^3.3.14"
+    "vuetify": "3.3.23"
   }
 }

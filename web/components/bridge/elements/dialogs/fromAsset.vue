@@ -1,11 +1,9 @@
 <template>
   <v-dialog
-    :fullscreen="mobile"
+    v-if="!mobile"
     v-model="store.fromDialog"
-    :transition="mobile ? 'slide-y-reverse-transition' : 'scale-transition'"
-    :class="
-      clsx('d-flex justify-center dialog-blur')
-    "
+    :transition="'scale-transition'"
+    :class="clsx('d-flex justify-center dialog-blur')"
   >
     <v-card
       :class="
@@ -24,16 +22,37 @@
       </v-card>
     </v-card>
   </v-dialog>
+
+  <v-bottom-sheet v-model="store.fromDialog" class="dialog-blur" v-else>
+    <v-card
+      :class="
+        clsx(
+          'select-asset-card align-self-center rounded-xl pt-3 overflow-y-hidden',
+          mobile && 'mobile-card'
+        )
+      "
+      elevation="3"
+    >
+      <Title :from="true" class="mb-3" />
+      <Search class="mx-5" />
+      <v-card class="d-flex flex-row mt-5 h-100" elevation="0">
+        <Network />
+        <Assets :from="true" />
+      </v-card>
+    </v-card>
+  </v-bottom-sheet>
 </template>
 
 <script setup>
 import clsx from "clsx";
 import { useDisplay } from "vuetify";
 import { useBridgeStore } from "~/stores/bridge/bridge";
+import { VBottomSheet } from "vuetify/labs/VBottomSheet";
 import Title from "~/components/bridge/elements/dialogs/asset/title.vue";
 import Search from "~/components/bridge/elements/dialogs/asset/search.vue";
 import Network from "~/components/bridge/elements/dialogs/asset/network.vue";
 import Assets from "~/components/bridge/elements/dialogs/asset/assets.vue";
+
 const store = useBridgeStore();
 const { mobile } = useDisplay();
 </script>
@@ -48,8 +67,7 @@ const { mobile } = useDisplay();
   backdrop-filter: blur(4px);
 }
 .mobile-card {
-  margin-top: calc(20vh);
-  height: calc(100vh);
+  // height: calc(100vh);
   width: 100vw;
   border-bottom-left-radius: 0px !important;
   border-bottom-right-radius: 0px !important;

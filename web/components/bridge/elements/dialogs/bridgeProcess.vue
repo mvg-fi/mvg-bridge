@@ -1,17 +1,22 @@
 <template>
   <v-dialog
     persistent
+    v-if="!mobile"
     no-click-animation
-    :fullscreen="mobile"
     v-model="bStore.bridgeProcessDialog"
     @keyup.esc="bStore.mutateBridgeProcess(false)"
-    :transition="mobile ? 'slide-y-reverse-transition' : 'fade-transition'"
-    :class="clsx('d-flex justify-center dialog-blur', mobile && 'mobile-dialog')"
+    :transition="'fade-transition'"
+    :class="clsx('d-flex justify-center dialog-blur')"
   >
     <v-sheet
       elevation="5"
       v-if="bStore.bridgeProcessState == 0"
-      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4', mobile && 'mobile-card')"
+      :class="
+        clsx(
+          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4',
+          mobile && 'mobile-card'
+        )
+      "
     >
       <Title />
       <Route class="mt-2" />
@@ -22,7 +27,12 @@
     <v-sheet
       elevation="5"
       v-else-if="bStore.bridgeProcessState == 1"
-      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card', mobile ? 'mobile-card py-4' : 'pa-4')"
+      :class="
+        clsx(
+          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card',
+          mobile ? 'mobile-card py-4' : 'pa-4'
+        )
+      "
     >
       <ViewAddress />
     </v-sheet>
@@ -30,17 +40,72 @@
     <v-sheet
       elevation="5"
       v-else-if="bStore.bridgeProcessState == 2"
-      :class="clsx('rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card', mobile ? 'mobile-card py-4' : 'pa-4')"
+      :class="
+        clsx(
+          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card',
+          mobile ? 'mobile-card py-4' : 'pa-4'
+        )
+      "
     >
       <PayWithWallet />
     </v-sheet>
   </v-dialog>
+
+  
+  <v-bottom-sheet
+    v-model="bStore.bridgeProcessDialog"
+    class="dialog-blur"
+    v-else
+  >
+    <v-sheet
+      elevation="5"
+      v-if="bStore.bridgeProcessState == 0"
+      :class="
+        clsx(
+          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4',
+          mobile && 'mobile-card'
+        )
+      "
+    >
+      <Title />
+      <Route class="mt-2" />
+      <Details class="my-8" />
+      <Confirm class="py-4 mb-2" />
+    </v-sheet>
+
+    <v-sheet
+      elevation="5"
+      v-else-if="bStore.bridgeProcessState == 1"
+      :class="
+        clsx(
+          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card',
+          mobile ? 'mobile-card py-4' : 'pa-4'
+        )
+      "
+    >
+      <ViewAddress />
+    </v-sheet>
+
+    <v-sheet
+      elevation="5"
+      v-else-if="bStore.bridgeProcessState == 2"
+      :class="
+        clsx(
+          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card',
+          mobile ? 'mobile-card py-4' : 'pa-4'
+        )
+      "
+    >
+      <PayWithWallet />
+    </v-sheet>
+  </v-bottom-sheet>
 </template>
 
 <script setup>
 import clsx from "clsx";
 import { useDisplay } from "vuetify";
 import { useBridgeStore } from "~/stores/bridge/bridge";
+import { VBottomSheet } from "vuetify/labs/VBottomSheet";
 import Title from "~/components/bridge/elements/dialogs/bridgeProcess/title.vue";
 import Route from "~/components/bridge/elements/dialogs/bridgeProcess/route.vue";
 import Details from "~/components/bridge/elements/dialogs/bridgeProcess/details.vue";

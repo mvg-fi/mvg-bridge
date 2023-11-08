@@ -1,19 +1,18 @@
 <template>
   <v-dialog
     persistent
+    v-if="!mobile"
     no-click-animation
-    :fullscreen="mobile"
     v-model="cStore.connectDialog"
     @keyup.esc="cStore.mutateDialog(false)"
     :class="clsx('d-flex justify-center dialog-blur')"
-    :transition="mobile ? 'slide-y-reverse-transition' : 'fade-transition'"
+    :transition="'fade-transition'"
   >
     <v-sheet
       v-if="cStore.connectState === 0"
       :class="
         clsx(
           'rounded-xl align-self-center overflow-y-auto connect-card bg-background',
-          mobile && 'mobile-card'
         )
       "
       elevation="3"
@@ -31,11 +30,36 @@
     <Success v-else-if="cStore.connectState === 2" />
     <Failed v-else-if="cStore.connectState === 3" />
   </v-dialog>
+
+  <v-bottom-sheet v-model="cStore.connectDialog" class="dialog-blur" v-else>
+    <v-sheet
+      v-if="cStore.connectState === 0"
+      :class="
+        clsx(
+          'rounded-t-xl align-self-center overflow-y-auto connect-card-mobile bg-background',
+        )
+      "
+      elevation="3"
+    >
+      <Title />
+
+      <div class="mt-3 mx-5 mb-6">
+        <Ethereum />
+        <Bitcoin />
+        <Mixin />
+      </div>
+    </v-sheet>
+
+    <MixinOauth v-else-if="cStore.connectState === 1" />
+    <Success v-else-if="cStore.connectState === 2" />
+    <Failed v-else-if="cStore.connectState === 3" />
+  </v-bottom-sheet>
 </template>
 
 <script setup>
 import clsx from "clsx";
 import { useDisplay } from "vuetify";
+import { VBottomSheet } from "vuetify/labs/VBottomSheet";
 import { useConnectStore } from "~/stores/connect/connect";
 import { useWeb3ModalAccount } from "@web3modal/ethers5/vue";
 import Title from "~/components/bridge/elements/dialogs/connect/title.vue";
@@ -64,7 +88,10 @@ watch(cStore.connected, () => {
   width: 305px;
   max-height: 600px;
 }
-
+.connect-card-mobile {
+  width: 100vw;
+  max-height: 600px;
+}
 ::-webkit-scrollbar {
   width: 8px;
   border-radius: 32px;

@@ -1,1 +1,1 @@
-<!-- Just to know that there's a dialog inside menu -->
+<!-- Just to know that there's a dialog inside menu.vue -->

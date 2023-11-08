@@ -82,6 +82,9 @@
   "network": "Network",
   "address":"Address",
   "ive_transferred": "I've transferred",
-  "view_address_intro1":"The transfer will be confirmed after {number} of blocks",
-  "view_address_intro2":"Please transfer full amount at once!"
+  "view_address_intro1":"The transfer will be confirmed after {number} blocks",
+  "view_address_intro2":"Please transfer full amount at once!",
+  "choose_a_wallet_to_pay": "Choose a wallet to pay",
+  "no_wallet_found": "No {wallet_name} wallet found",
+  "no_wallet_found_connect_one": "No wallet found, connect one?"
 }

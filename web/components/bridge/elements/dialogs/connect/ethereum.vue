@@ -24,6 +24,7 @@ import {
 } from "~/helpers/constants";
 import {
   useWeb3Modal,
+  useWeb3ModalAccount,
   useWeb3ModalEvents,
   useWeb3ModalState,
 } from "@web3modal/ethers5/vue";
@@ -60,6 +61,9 @@ const walletConnect = async (w: Wallet) => {
           chain_id: ETHUUID,
           address: "", //await signer?.getAddress(),
         });
+        const { address, chainId, isConnected } = useWeb3ModalAccount();
+        console.log(address, chainId, isConnected);
+
         break;
       case "DISCONNECT_SUCCESS":
         cStore.afterDisconnect();
@@ -68,6 +72,9 @@ const walletConnect = async (w: Wallet) => {
         console.log(events.data.event);
     }
   });
+
+  // watchEffect(() => {
+  // });
 };
 </script>
 
