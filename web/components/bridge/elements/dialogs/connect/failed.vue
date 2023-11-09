@@ -1,6 +1,11 @@
 <template>
   <v-sheet
-    class="rounded-xl align-self-center overflow-y-auto failed-card"
+    :class="
+      clsx(
+        'align-self-center overflow-y-auto',
+        mobile ? 'failed-card-mobile rounded-t-xl' : 'failed-card rounded-xl'
+      )
+    "
     elevation="3"
   >
     <!-- Title -->
@@ -66,10 +71,13 @@
 </template>
 
 <script lang="ts" setup>
+import clsx from "clsx";
+import { useDisplay } from "vuetify";
 import { useConnectStore } from "~/stores/connect/connect";
 import { XCircleIcon } from "@heroicons/vue/24/outline";
 import { XMarkIcon } from "@heroicons/vue/20/solid";
 
+const { mobile } = useDisplay();
 const cStore = useConnectStore();
 </script>
 
@@ -81,6 +89,11 @@ const cStore = useConnectStore();
 }
 .failed-card {
   width: 328px;
+  height: 360px;
+  background-color: var(--palette-background-1);
+}
+.failed-card-mobile {
+  width: 100vw;
   height: 360px;
   background-color: var(--palette-background-1);
 }

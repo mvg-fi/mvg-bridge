@@ -29,7 +29,7 @@ export const useConnectStore = defineStore('connect', {
   state: () => ({
     connected: false,
     connectDialog: false,
-    connectState: 0,      // 0 = connect view, 1 = mixin oauth view, 2 = success, 3 = failed/canceled
+    connectState: 3,      // 0 = connect view, 1 = mixin oauth view, 2 = success, 3 = failed/canceled
     connectedWallets: [],
 
     ethereumWallets: defaultEthereum,

@@ -12,11 +12,11 @@ const Custom = {
     error: '#FF3333',
     correct: '#75D658',
     black: '#261F22',
-    "black-darken-1": "#D8D8D8",  //5%
-    "black-darken-2": "#CFCECE",  //10%
+    "black-darken-1": "#F4F4F4",  //5%
+    "black-darken-2": "#EAEAEA",  //10%
     "black-darken-3": "#B2B1B1",  //25%
-    "black-darken-4": "#837F81",  //50%
-    "black-darken-5": "#433F41",  //75%
+    "black-darken-4": "#8F8B8D",  //50%
+    "black-darken-5": "#5C5759",  //75%
   }
 } 
 

@@ -1,6 +1,12 @@
 <template>
   <v-sheet
-    class="rounded-xl align-self-center overflow-y-auto mixin-oauth-card"
+    :class="
+      clsx(
+        'align-self-center overflow-y-auto bg-background',
+        'mixin-oauth-card rounded-xl'
+      )
+    "
+    v-if="!mobile"
     elevation="3"
   >
     <!-- Title -->
@@ -55,15 +61,6 @@
 
     <!-- Helper text -->
     <div class="d-flex flex-column text-center justify-center align-center">
-      <!-- Open in Mixin -->
-      <!-- <v-btn
-        elevation="0"
-        class="rounded-pill mt-3 pa-0"
-        style="background-color: var(--palette-main-secondary); width: 128px;"
-      >
-        <span class="h7" style="color: var(--palette-background-1);">{{ $t("open_in_mixin") }}</span>
-      </v-btn> -->
-
       <!-- Install -->
       <span class="helper-text">
         {{ $t("don't_have_mixin_messenger") }}
@@ -79,20 +76,27 @@
       </a>
     </div>
   </v-sheet>
+
+  <MixinOauthMobile v-else />
 </template>
 
 <script setup>
+import clsx from "clsx";
+import { useDisplay } from "vuetify";
 import authorize from "~/helpers/mixin/oauth";
 import VueQrcode from "@chenfengyuan/vue-qrcode";
 import mx from "~/assets/images/wallets/mixin.png";
 import CloseIcon from "@heroicons/vue/24/outline/XCircleIcon";
+import MixinOauthMobile from "./mixinOauthMobile.vue";
 import { mixinOauthSuccess, useConnectStore } from "~/stores/connect/connect";
 import {
   BridgeBotID,
   MixinMessengerLink,
   OAuthScope,
 } from "~/helpers/constants";
+
 const cStore = useConnectStore();
+const { mobile } = useDisplay();
 
 let qrLoaded = ref(false);
 let qrURL = ref("");
@@ -135,7 +139,9 @@ onUnmounted(() => {
 .mixin-oauth-card {
   width: 305px;
   height: 464px;
-  background-color: var(--palette-background-1);
+}
+.mixin-oauth-card-mobile {
+  width: 100vw;
 }
 .helper-text {
   font-size: 12px;

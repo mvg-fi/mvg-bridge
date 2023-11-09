@@ -61,7 +61,7 @@
   </div>
 
   <div
-    class="d-flex align-center justify-center flex-row my-4 mt-4"
+    class="d-flex align-center justify-center flex-row my-2 mt-4"
     style="gap: 24px"
   >
     <v-btn

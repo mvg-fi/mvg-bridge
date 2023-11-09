@@ -19,6 +19,7 @@
   "you_receive": "You receive",
   "connect_a_wallet": "Connect a wallet",
   "scan_to_connect": "Scan to connect",
+  "connect_to_mixin": "Connect to Mixin",
   "ethereum": "Ethereum",
   "bitcoin": "Bitcoin",
   "mixin": "Mixin",
@@ -86,5 +87,6 @@
   "view_address_intro2":"Please transfer full amount at once!",
   "choose_a_wallet_to_pay": "Choose a wallet to pay",
   "no_wallet_found": "No {wallet_name} wallet found",
-  "no_wallet_found_connect_one": "No wallet found, connect one?"
+  "no_wallet_found_connect_one": "No wallet found, connect one?",
+  "show_qr_code": "Show QR Code"
 }
