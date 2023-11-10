@@ -8,7 +8,7 @@
       :w="w"
       :key="w.name"
       class="px-3 b rounded-xl"
-      @click="walletConnect(w)"
+      @click="connectEthereum(w)"
       v-for="w in cStore.ethereumWallets"
     />
   </div>
@@ -63,7 +63,6 @@ const walletConnect = async (w: Wallet) => {
         });
         const { address, chainId, isConnected } = useWeb3ModalAccount();
         console.log(address, chainId, isConnected);
-
         break;
       case "DISCONNECT_SUCCESS":
         cStore.afterDisconnect();
@@ -72,9 +71,6 @@ const walletConnect = async (w: Wallet) => {
         console.log(events.data.event);
     }
   });
-
-  // watchEffect(() => {
-  // });
 };
 </script>
 

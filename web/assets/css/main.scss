@@ -27,13 +27,14 @@
   opacity: 0 !important;
 }
 
-.v-overlay__scrim{
+.v-overlay__scrim {
   background: transparent !important;
 }
 
-.v-tooltip > .v-overlay__content {
+.v-tooltip>.v-overlay__content {
   border-radius: 32px;
 }
+
 .v-btn {
   letter-spacing: -0.2px !important;
   text-transform: capitalize !important;
@@ -45,6 +46,10 @@
 
 .v-theme--light {
   --v-hover-opacity: 0;
+}
+
+.v-dialog__content {
+  transition: .2s cubic-bezier(.25, .8, .25, 1), z-index 1ms;
 }
 
 html {

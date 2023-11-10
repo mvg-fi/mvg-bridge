@@ -10,5 +10,20 @@
 </template>
 
 <script setup lang="ts">
-let dark = ref(false);
+import { useTheme } from "vuetify";
+
+const theme = useTheme();
+const dark = computed({
+  get() {
+    return theme.global.current.value.dark;
+  },
+  set(value) {
+    if (value) theme.global.name.value = "dark";
+    else theme.global.name.value = "light";
+  },
+});
+
+function toggleTheme() {
+  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+}
 </script>

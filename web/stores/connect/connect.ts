@@ -8,7 +8,7 @@ import us from "~/assets/images/wallets/unisat.png";
 import mx from "~/assets/images/wallets/mixin.png";
 import fe from "~/assets/images/wallets/fennec.png";
 import { userMe } from "~/helpers/mixin/user";
-import { useWeb3Modal, useWeb3ModalEvents, useWeb3ModalState } from "@web3modal/ethers5/vue";
+import { useWeb3Modal, useWeb3ModalAccount, useWeb3ModalEvents, useWeb3ModalSigner, useWeb3ModalState } from "@web3modal/ethers5/vue";
 import { BTCUUID, BitcoinChainName, CoinbaseName, ETHUUID, EthereumChainName, FennecName, MetamaskName, MixinChainName, MixinMessengerName, RabbyName, UnisatName, WalletConnectName } from "~/helpers/constants";
 
 const defaultEthereum = [
@@ -29,7 +29,7 @@ export const useConnectStore = defineStore('connect', {
   state: () => ({
     connected: false,
     connectDialog: false,
-    connectState: 3,      // 0 = connect view, 1 = mixin oauth view, 2 = success, 3 = failed/canceled
+    connectState: 0,      // 0 = connect view, 1 = mixin oauth view, 2 = success, 3 = failed/canceled
     connectedWallets: [],
 
     ethereumWallets: defaultEthereum,
@@ -144,13 +144,17 @@ const walletConnect = async (w: Wallet) => {
   watchEffect(async () => {
     switch (events.data.event) {
       case "CONNECT_SUCCESS":
+        const { walletProvider } = useWeb3ModalSigner()
+        const { address } = useWeb3ModalAccount();
+        console.log(walletProvider.value)
         cStore.afterConnect();
+        console.log(address);
         appendConnected({
           name: WalletConnectName,
           icon: wc,
           chain: EthereumChainName,
           chain_id: ETHUUID,
-          address: '' //await signer?.getAddress(),
+          address: address.value || '',
         })
         break;
       case "DISCONNECT_SUCCESS":
