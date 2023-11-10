@@ -1,29 +1,75 @@
 <template>
-  <v-row class="d-flex flex-row hero-height w-100" no-gutters>
-    <v-col
-      cols="6"
-      class="d-flex flex-column align-center justify-center mb-16"
-    >
-      <span class="h2 mb-4 break-text">
-        {{ $t("multichain_as_it_should") }}
-      </span>
+  <v-row
+    :class="
+      clsx(
+        'w-100 hero-height',
+        customMobile
+          ? 'flex-column align-center justify-center text-center'
+          : 'flex-row desktop-padding align-center'
+      )
+    "
+    no-gutters
+  >
+    <v-col :cols="xl ? 6 : lg ? 6 : customMobile ? 12 : 8" class="pa-0">
+      <div
+        :class="
+          clsx(
+            customMobile
+              ? 'd-flex flex-column align-center text-center'
+              : 'mb-8'
+          )
+        "
+      >
+        <span
+          :class="
+            clsx(
+              xxl
+                ? 'h1 break-text-xxl'
+                : xl
+                ? 'h2 break-text'
+                : lg
+                ? 'h3 break-text-lg'
+                : 'h4 break-text-mobile'
+            )
+          "
+        >
+          {{ $t("multichain_as_it_should") }}
+        </span>
 
-      <span class="h6m mt-2 break-text">
-        {{ $t("multichain_as_it_should_intro") }}
-      </span>
+        <span
+          :class="
+            clsx(
+              'mt-2',
+              xxl
+                ? 'h5m break-text-xxl'
+                : xl
+                ? 'h6m break-text'
+                : lg
+                ? 'h6m break-text-lg mt-4'
+                : 'h7m break-text-mobile mt-4'
+            )
+          "
+        >
+          {{ $t("multichain_as_it_should_intro") }}
+        </span>
+      </div>
     </v-col>
-
-    <v-col cols="6" class="d-flex justify-center align-center">
-      <div style="width: 300px; height: 312px">
-        <v-row no-gutters style="transform: rotate(-45deg);">
+    <v-col
+      :cols="xl ? 6 : lg ? 6 : customMobile ? 8 : 4"
+      :class="
+        clsx('pa-0  d-flex justify-center align-center', customMobile && 'mt-6 d-flex justify-center align-center mt-12')
+      "
+    >
+      <div :class="clsx(customMobile ? 'icons-mobile': 'icons')">
+        <v-row no-gutters style="transform: rotate(-45deg)">
           <v-col
             cols="3"
             :key="c"
             v-for="c in cs"
-            style="transform: rotate(45deg);"
+            style="transform: rotate(45deg)"
             class="d-flex align-center justify-center"
           >
-            <v-icon size="72" class="pa-2">
+            <v-icon :size="customMobile ? 48 : 72" :class="customMobile ? 'pa-1': 'pa-2'">
               <v-img :src="c.icon" />
             </v-icon>
           </v-col>
@@ -34,13 +80,19 @@
 </template>
 
 <script setup>
+import clsx from "clsx";
+import { useDisplay } from "vuetify";
+const { lg, xl, xxl, width } = useDisplay();
 import chains from "~/assets/constants/miniumchainlist.json";
 const cs = chains.slice(0, 16);
+const customMobile = computed(() => width.value <= 800);
 </script>
 
 <style scoped>
-.break-text {
-  width: 488px;
-  word-break: break-word;
+.icons {
+  width: 288px; 
+}
+.icons-mobile {
+  width: 192px;
 }
 </style>

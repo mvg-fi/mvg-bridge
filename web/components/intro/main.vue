@@ -96,9 +96,6 @@ import main from "@/assets/images/intro/hero-main.png";
 const { lg, xl, xxl, width } = useDisplay();
 
 const customMobile = computed(() => width.value <= 800);
-watch(width, () => {
-  console.log(width.value);
-});
 </script>
 
 <style>

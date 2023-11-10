@@ -4,14 +4,25 @@
       cols="12"
       class="d-flex flex-column align-center text-center justify-center"
     >
-      <span class="h4 mb-8">
+      <span :class="clsx('mb-8', customMobile ? 'h5' : 'h4')">
         {{ $t("join_us_now") }}
       </span>
 
-      <div class="d-flex flex-row justify-center align-center mt-2">
-        <div class="h6m mx-3" v-for="i in socialMedias" :key="i">
+      <div
+        :class="
+          clsx(
+            'd-flex flex-row justify-center align-center',
+            customMobile ? 'mt-1' : 'mt-2'
+          )
+        "
+      >
+        <div
+          :class="customMobile ? 'mx-2' : 'mx-3'"
+          v-for="i in socialMedias"
+          :key="i"
+        >
           <a :href="i.link" target="_blank">
-            <v-icon size="48">
+            <v-icon :size="customMobile ? 36 : 48">
               <v-img :src="i.icon" :alt="i.name" />
             </v-icon>
           </a>
@@ -22,6 +33,8 @@
 </template>
 
 <script setup>
+import clsx from "clsx";
+import { useDisplay } from "vuetify";
 import di from "~/assets/images/intro/social/discord.png";
 import gi from "~/assets/images/intro/social/github.png";
 import mi from "~/assets/images/intro/social/mixin.png";
@@ -42,6 +55,9 @@ const socialMedias = [
   { name: "X", icon: x, link: MVGxLink },
   { name: "Github", icon: gi, link: MVGGithubLink },
 ];
+
+const { width } = useDisplay();
+const customMobile = computed(() => width.value <= 800);
 </script>
 
 <style scoped>
