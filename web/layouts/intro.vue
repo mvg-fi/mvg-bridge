@@ -6,7 +6,8 @@
     >
       <Logo />
       <v-spacer />
-      <EnterApp />
+      <EnterApp v-if="!customMobile" />
+      <MobileMenu v-else />
     </v-app-bar>
     <slot />
   </v-main>
@@ -17,6 +18,7 @@ import clsx from "clsx";
 import { useDisplay } from "vuetify";
 import Logo from "~/components/toolbar/logo.vue";
 import EnterApp from "~/components/toolbar/enterApp.vue";
-const { mobile, width } = useDisplay();
+import MobileMenu from "~/components/toolbar/mobileMenu.vue";
+const { width } = useDisplay();
 const customMobile = computed(() => width.value <= 800);
 </script>
