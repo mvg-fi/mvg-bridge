@@ -82,7 +82,7 @@
     >
       <NuxtLink to="/bridge">
         <v-btn class="enter-app-btn-mobile" elevation="8">
-          <span class="text-background h7">{{ $t("enter_app") }} </span>
+          <span class="text-background h7" style="font-size: 16px;">{{ $t("enter_app") }} </span>
         </v-btn>
       </NuxtLink>
     </div>
@@ -124,7 +124,7 @@ const customMobile = computed(() => width.value <= 800);
   word-break: break-word;
 }
 .break-text-lg {
-  width: 320px;
+  width: 350px;
   display: block;
   word-break: break-word;
 }

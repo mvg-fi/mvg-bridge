@@ -2,7 +2,7 @@
   <v-main>
     <v-app-bar
       elevation="0"
-      :class="clsx(!mobile && 'px-8', mobile && 'px-6', 'bg-transparent')"
+      :class="clsx(!customMobile ? 'px-8' : 'px-6', 'bg-transparent')"
     >
       <Logo />
       <v-spacer />
@@ -17,5 +17,6 @@ import clsx from "clsx";
 import { useDisplay } from "vuetify";
 import Logo from "~/components/toolbar/logo.vue";
 import EnterApp from "~/components/toolbar/enterApp.vue";
-const { mobile } = useDisplay();
+const { mobile, width } = useDisplay();
+const customMobile = computed(() => width.value <= 800);
 </script>
