@@ -11,12 +11,7 @@
     <v-sheet
       elevation="5"
       v-if="bStore.bridgeProcessState == 0"
-      :class="
-        clsx(
-          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4',
-          mobile && 'mobile-card'
-        )
-      "
+      class="rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4"
     >
       <Title />
       <Route class="mt-2" />
@@ -27,12 +22,7 @@
     <v-sheet
       elevation="5"
       v-else-if="bStore.bridgeProcessState == 1"
-      :class="
-        clsx(
-          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card',
-          mobile ? 'mobile-card py-4' : 'pa-4'
-        )
-      "
+      class="rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card pa-4"
     >
       <ViewAddress />
     </v-sheet>
@@ -40,18 +30,12 @@
     <v-sheet
       elevation="5"
       v-else-if="bStore.bridgeProcessState == 2"
-      :class="
-        clsx(
-          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card',
-          mobile ? 'mobile-card py-4' : 'pa-4'
-        )
-      "
+      class="rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card pa-4"
     >
       <PayWithWallet />
     </v-sheet>
   </v-dialog>
 
-  
   <v-bottom-sheet
     v-model="bStore.bridgeProcessDialog"
     class="dialog-blur"
@@ -62,8 +46,7 @@
       v-if="bStore.bridgeProcessState == 0"
       :class="
         clsx(
-          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4',
-          mobile && 'mobile-card'
+          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4 mobile-card'
         )
       "
     >
@@ -78,8 +61,8 @@
       v-else-if="bStore.bridgeProcessState == 1"
       :class="
         clsx(
-          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card',
-          mobile ? 'mobile-card py-4' : 'pa-4'
+          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card',
+          'mobile-card py-4'
         )
       "
     >
@@ -91,8 +74,8 @@
       v-else-if="bStore.bridgeProcessState == 2"
       :class="
         clsx(
-          'rounded-xl align-self-center overflow-y-auto bg-background bridge-process-card',
-          mobile ? 'mobile-card py-4' : 'pa-4'
+          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card',
+          'mobile-card py-4'
         )
       "
     >

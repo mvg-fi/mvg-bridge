@@ -4,9 +4,9 @@
       <v-card
         :class="
           clsx(
-            !mobile && 'bridge-card',
-            mobile && 'mobile-bridge-card',
-            'rounded-xl mt-10 pa-0 d-flex flex-column'
+            !mobile && 'bridge-card mt-10',
+            mobile && 'mobile-bridge-card mt-6',
+            'rounded-xl pa-0 d-flex flex-column'
           )
         "
         elevation="0"

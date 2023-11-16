@@ -15,63 +15,13 @@
 </template>
 
 <script lang="ts" setup>
-import wc from "~/assets/images/wallets/walletconnect.png";
 import Single from "~/components/bridge/elements/dialogs/connect/single.vue";
 import {
-  ETHUUID,
-  EthereumChainName,
-  WalletConnectName,
-} from "~/helpers/constants";
-import {
-  useWeb3Modal,
-  useWeb3ModalAccount,
-  useWeb3ModalEvents,
-  useWeb3ModalState,
-} from "@web3modal/ethers5/vue";
-import {
-  appendConnected,
   connectEthereum,
   useConnectStore,
 } from "~/stores/connect/connect";
-import type { Wallet } from "~/types/wallet";
 const cStore = useConnectStore();
-const { open } = useWeb3Modal();
 
-const walletConnect = async (w: Wallet) => {
-  await open();
-
-  // Cancel loading when modal is off
-  const states = useWeb3ModalState();
-  watchEffect(() => {
-    if (!states.open) {
-      w.loading = false;
-    }
-  });
-
-  // Handle Web3Modal events
-  const events = useWeb3ModalEvents();
-  watchEffect(async () => {
-    switch (events.data.event) {
-      case "CONNECT_SUCCESS":
-        cStore.afterConnect();
-        appendConnected({
-          name: WalletConnectName,
-          icon: wc,
-          chain: EthereumChainName,
-          chain_id: ETHUUID,
-          address: "", //await signer?.getAddress(),
-        });
-        const { address, chainId, isConnected } = useWeb3ModalAccount();
-        console.log(address, chainId, isConnected);
-        break;
-      case "DISCONNECT_SUCCESS":
-        cStore.afterDisconnect();
-        break;
-      default:
-        console.log(events.data.event);
-    }
-  });
-};
 </script>
 
 <style lang="scss" scoped>

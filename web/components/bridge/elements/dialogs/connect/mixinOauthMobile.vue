@@ -35,7 +35,7 @@
     <!-- Icon -->
     <div class="d-flex justify-center" v-if="!showQR">
       <div class="ma-8">
-        <v-icon size="72">
+        <v-icon size="72" class="rounded-pill">
           <v-img :src="mx" />
         </v-icon>
       </div>
@@ -69,7 +69,7 @@
           style="height: 232px; width: 232px"
           class="d-flex justify-center align-center"
         >
-          <v-progress-circular indeterminate color="primary" />
+          <v-progress-circular indeterminate color="primary" width="2" />
         </div>
       </div>
     </div>
@@ -81,8 +81,8 @@
         <v-btn
           elevation="0"
           @click="showQR = !showQR"
-          style="width: 128px"
-          class="rounded-pill ma-3 pa-0 bg-black-darken-1"
+          style="width: 128px; background-color: var(--palette-black-10)"
+          class="rounded-pill ma-3 pa-0"
         >
           <span class="h7 text-black">{{ $t("show_qr_code") }}</span>
         </v-btn>
@@ -90,18 +90,18 @@
           elevation="0"
           @click="openInMixin"
           style="width: 128px"
+          :loading="!qrLoaded"
+          :disabled="!qrLoaded"
           class="rounded-pill ma-3 pa-0 bg-primary"
         >
-          <span class="h7 text-background" v-if="qrLoaded">{{
-            $t("open_in_mixin")
-          }}</span>
-          <v-progress-circular
+          <span class="h7 text-background">{{ $t("open_in_mixin") }}</span>
+          <!-- <v-progress-circular
             color="background"
             size="16"
             indeterminate
-            width="3"
+            width="2"
             v-else
-          />
+          /> -->
         </v-btn>
       </div>
 
@@ -157,8 +157,8 @@ const auth = () => {
     { clientId: BridgeBotID, scope: OAuthScope, pkce: true },
     {
       onShowUrl: (url) => {
-        qrLoaded.value = true;
         qrURL.value = url;
+        qrLoaded.value = true;
         console.log("onShowURL:", url);
       },
       onError: (error) => {

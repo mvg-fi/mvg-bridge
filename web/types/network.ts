@@ -5,3 +5,12 @@ export interface Network {
   rpcURL?: string,
   explorerURL: string,
 }
+
+export interface EVMNetworkParam {
+	chainId: string;
+	rpcUrls: string[];
+	chainName: string;
+	nativeCurrency: { name: string; decimals: number; symbol: string };
+	blockExplorerUrls: string[];
+	iconUrls?: string[];
+}

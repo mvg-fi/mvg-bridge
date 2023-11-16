@@ -1,29 +1,13 @@
 import { defineStore } from "pinia";
 import type { ConnectedWallet, Wallet } from "~/types/wallet";
-import mm from "~/assets/images/wallets/metamask.png";
-import rb from "~/assets/images/wallets/rabby.png";
-import wc from "~/assets/images/wallets/walletconnect.png";
-import cb from "~/assets/images/wallets/coinbase.png";
-import us from "~/assets/images/wallets/unisat.png";
-import mx from "~/assets/images/wallets/mixin.png";
-import fe from "~/assets/images/wallets/fennec.png";
-import { userMe } from "~/helpers/mixin/user";
-import { useWeb3Modal, useWeb3ModalAccount, useWeb3ModalEvents, useWeb3ModalSigner, useWeb3ModalState } from "@web3modal/ethers5/vue";
-import { BTCUUID, BitcoinChainName, CoinbaseName, ETHUUID, EthereumChainName, FennecName, MetamaskName, MixinChainName, MixinMessengerName, RabbyName, UnisatName, WalletConnectName } from "~/helpers/constants";
+import { CheckNetworkCorrect, PayWalletConnect, defaultEthereum } from "./ethereum";
+import { PayUnisat, defaultBitcoin } from "./bitcoin";
+import { PayMixinMessenger, defaultMixin } from "./mixin";
+import { FennecName, MixinMessengerName, UnisatName, WalletConnectName } from "~/helpers/constants";
 
-const defaultEthereum = [
-  { name: MetamaskName, icon: mm, loading: false, connected: false },
-  { name: RabbyName, icon: rb, loading: false, connected: false },
-  { name: WalletConnectName, icon: wc, loading: false, connected: false },
-  { name: CoinbaseName, icon: cb, loading: false, connected: false },
-]
-const defaultBitcoin = [
-  { name: UnisatName, icon: us, loading: false, connected: false },
-]
-const defaultMixin = [
-  { name: MixinMessengerName, icon: mx, loading: false, connected: false },
-  { name: FennecName, icon: fe, loading: false, connected: false },
-]
+export * from './bitcoin';
+export * from './ethereum';
+export * from './mixin';
 
 export const useConnectStore = defineStore('connect', {
   state: () => ({
@@ -82,203 +66,38 @@ export const useConnectStore = defineStore('connect', {
   }
 })
 
-// Ethereum
-export const connectEthereum = (w: Wallet) => {
-  // This was done within specific component
-  w.loading = true;
-  switch (w.name) {
-    case MetamaskName:
-      walletConnect(w);
-      break;
-    case RabbyName:
-      walletConnect(w);
-      break;
-    case WalletConnectName:
-      walletConnect(w);
-      break;
-    case CoinbaseName:
-      walletConnect(w);
-      break;
-  }
-}
+// export const connectLastConnected = () => {
+//   if (!localStorage.getItem('connected_wallets')) {
+//     return
+//   }
+//   const connected_wallets = localStorage.getItem('connected_wallets');
+//   if (connected_wallets == null) {
+//     return
+//   }
+//   const connected = JSON.parse(connected_wallets)
+//   connected.forEach(e => {
+//     switch (e.name) {
+//       case MetamaskName:
+//         break;
+//       case RabbyName:
+//         break;
+//       case WalletConnectName:
+//         break;
+//       case CoinbaseName:
+//         break;
+//       case UnisatName:
+//         break;
+//       case MixinMessengerName:
+//         break;
+//       case FennecName:
+//         break;
+//       default:
+//     }
+//   });
+// }
 
-// Bitcoin
-export const connectBitcoin = (w: Wallet) => {
-  w.loading = true;
-  switch (w.name) {
-    case UnisatName:
-      unisat(w);
-      break;
-  }
-}
 
-// Mixin
-export const connectMixin = (w: Wallet) => {
-  w.loading = true;
-  switch (w.name) {
-    case MixinMessengerName:
-      mixin(w);
-      break;
-    case FennecName:
-      fennec(w);
-      break;
-  }
-  w.loading = false;
-}
 
-const walletConnect = async (w: Wallet) => {
-  const cStore = useConnectStore()
-  const { open } = useWeb3Modal();
-  await open();
-
-  // Cancel loading when modal is off 
-  const states = useWeb3ModalState();
-  watchEffect(() => {
-    if (!states.open) {
-      w.loading = false;
-    }
-  });
-
-  // Handle Web3Modal events
-  const events = useWeb3ModalEvents();
-  watchEffect(async () => {
-    switch (events.data.event) {
-      case "CONNECT_SUCCESS":
-        const { walletProvider } = useWeb3ModalSigner()
-        const { address } = useWeb3ModalAccount();
-        console.log(walletProvider.value)
-        cStore.afterConnect();
-        console.log(address);
-        appendConnected({
-          name: WalletConnectName,
-          icon: wc,
-          chain: EthereumChainName,
-          chain_id: ETHUUID,
-          address: address.value || '',
-        })
-        break;
-      case "DISCONNECT_SUCCESS":
-        cStore.afterDisconnect();
-        break;
-      default:
-        console.log(events.data.event);
-    }
-  });
-};
-
-export const unisat = async (w: Wallet) => {
-  const cStore = useConnectStore()
-  if (typeof window.unisat !== 'undefined') {
-    console.log('UniSat Wallet is installed!');
-  }
-  try {
-    const result = await window.unisat.requestAccounts()
-    if (result.length != 0) {
-      w.connected = true
-      appendConnected({
-        name: UnisatName,
-        icon: us,
-        chain: BitcoinChainName,
-        chain_id: BTCUUID,
-        address: result[0] || '',
-      })
-      cStore.afterConnect()
-    }
-  } catch (e) {
-    switch (e.code) {
-      case 4001:
-        console.log('unisat rejected');
-        break;
-      default:
-        console.log(e);
-    }
-  } finally {
-    w.loading = false;
-  }
-}
-
-export const mixin = (w: Wallet) => {
-  const cStore = useConnectStore()
-  cStore.setConnectState(1)
-}
-export const mixinOauthSuccess = async (token: string) => {
-  const cStore = useConnectStore()
-  const me = await userMe(token)
-  console.log(me)
-
-  appendConnected({
-    name: MixinMessengerName,
-    icon: mx,
-    chain: MixinChainName,
-    chain_id: '',
-    address: me.identity_number || '',
-    token: token,
-  })
-
-  cStore.setConnectState(2);
-  setTimeout(() => {
-    cStore.afterConnect();
-  }, 1000);
-}
-
-export const fennec = (w: Wallet) => {
-
-}
-
-export const connectLastConnected = () => {
-  if (!localStorage.getItem('connected_wallets')) {
-    return
-  }
-  const connected_wallets = localStorage.getItem('connected_wallets');
-  if (connected_wallets == null) {
-    return
-  }
-  const connected = JSON.parse(connected_wallets)
-  connected.forEach(e => {
-    switch (e.name) {
-      case MetamaskName:
-        break;
-      case RabbyName:
-        break;
-      case WalletConnectName:
-        break;
-      case CoinbaseName:
-        break;
-      case UnisatName:
-        break;
-      case MixinMessengerName:
-        break;
-      case FennecName:
-        break;
-      default:
-    }
-  });
-}
-const walletConnectLastConnected = () => {
-
-}
-const unisatLastConnected = () => {
-  // check if unisat in the list
-  // if so, try to connect unisat
-  // works = connected, vice versa
-}
-const mixinMessengerLastConnected = async (c: ConnectedWallet) => {
-  // check if mixin messenger in the list
-  // if so, check if token works
-  // works = connected, vice versa
-
-  if (!c.token) {
-    return false
-  }
-  const me = await userMe(c.token)
-  if (!me) {
-    return false
-  }
-  return true
-}
-const fennecLastConnected = () => {
-
-}
 export const appendConnected = (c: ConnectedWallet) => {
   // 0. Add if localStorage doesn't exist
   // 1. Remove and append if old exist
@@ -307,4 +126,22 @@ const connectToLastConnected = () => {
   // 2. Exist, create state with value
   if (!localStorage.getItem("connected_wallets")) return;
   const connectedWallets = localStorage.getItem("connected_wallets");
+}
+
+const PayWithWallet = (w: Wallet, address: string, amount: string) => {
+  switch (w.name) {
+    case WalletConnectName:
+      CheckNetworkCorrect()
+      PayWalletConnect(address, amount, 1)
+      break;
+    case UnisatName:
+      PayUnisat(address, amount)
+      break;
+    case MixinMessengerName:
+      PayMixinMessenger(address, amount)
+      break;
+    case FennecName:
+      break;
+    default:
+  }
 }

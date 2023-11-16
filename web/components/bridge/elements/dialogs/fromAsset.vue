@@ -27,8 +27,8 @@
     <v-card
       :class="
         clsx(
-          'select-asset-card align-self-center rounded-xl pt-3 overflow-y-hidden',
-          mobile && 'mobile-card'
+          'align-self-center rounded-xl pt-3 overflow-y-hidden',
+          mobile ? 'mobile-card' : 'select-asset-card'
         )
       "
       elevation="3"
@@ -67,9 +67,7 @@ const { mobile } = useDisplay();
   backdrop-filter: blur(4px);
 }
 .mobile-card {
-  // height: calc(100vh);
+  height: 80vh;
   width: 100vw;
-  border-bottom-left-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
 }
 </style>
