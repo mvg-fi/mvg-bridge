@@ -8,8 +8,7 @@
     <v-card
       :class="
         clsx(
-          'select-asset-card align-self-center rounded-xl pt-3 overflow-y-hidden',
-          mobile && 'mobile-card'
+          'select-asset-card align-self-center rounded-xl pt-3 overflow-y-hidden'
         )
       "
       elevation="3"
@@ -27,8 +26,7 @@
     <v-card
       :class="
         clsx(
-          'align-self-center rounded-xl pt-3 overflow-y-hidden',
-          mobile ? 'mobile-card' : 'select-asset-card'
+          'align-self-center rounded-t-xl mobile-card pt-3 overflow-y-hidden'
         )
       "
       elevation="3"
