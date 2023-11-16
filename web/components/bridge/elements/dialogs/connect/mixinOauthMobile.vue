@@ -90,8 +90,8 @@
           elevation="0"
           @click="openInMixin"
           style="width: 128px"
-          :loading="!qrLoaded"
           :disabled="!qrLoaded"
+          :loading="!qrLoaded || clicked"
           class="rounded-pill ma-3 pa-0 bg-primary"
         >
           <span class="h7 text-background">{{ $t("open_in_mixin") }}</span>
@@ -118,15 +118,16 @@
         <span class="h7">
           {{ $t("don't_have_mixin_messenger") }}
         </span>
-        <a :href="MixinMessengerLink" target="_blank">
+        <!-- <a :href="MixinMessengerLink"> -->
           <v-btn
             elevation="0"
+            @click="openInMixin()"
             class="rounded-pill mt-3"
             style="background-color: var(--palette-black-10); width: 120px"
           >
             <span class="h7">{{ $t("install") }}</span>
           </v-btn>
-        </a>
+        <!-- </a> -->
       </div>
     </div>
   </v-sheet>
@@ -149,6 +150,7 @@ const cStore = useConnectStore();
 
 let qrLoaded = ref(false);
 let qrURL = ref("");
+let clicked = ref(false);
 let expanded = ref(false);
 let showQR = ref(false);
 
@@ -182,6 +184,7 @@ onUnmounted(() => {
 
 const openInMixin = () => {
   window.open(qrURL.value);
+  clicked.value = true;
 };
 </script>
 

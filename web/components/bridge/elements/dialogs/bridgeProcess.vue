@@ -46,7 +46,7 @@
       v-if="bStore.bridgeProcessState == 0"
       :class="
         clsx(
-          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card py-4 mobile-card'
+          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card-mobile py-4'
         )
       "
     >
@@ -61,8 +61,8 @@
       v-else-if="bStore.bridgeProcessState == 1"
       :class="
         clsx(
-          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card',
-          'mobile-card py-4'
+          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card-mobile',
+          'py-4'
         )
       "
     >
@@ -74,8 +74,8 @@
       v-else-if="bStore.bridgeProcessState == 2"
       :class="
         clsx(
-          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card',
-          'mobile-card py-4'
+          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card-mobile',
+          'py-4'
         )
       "
     >
