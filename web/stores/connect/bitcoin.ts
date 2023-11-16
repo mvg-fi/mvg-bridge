@@ -47,12 +47,12 @@ export const ConnectUnisat = async (w: Wallet) => {
     w.loading = false;
   }
 }
-export const PayUnisat = (toAddress: string, satoshis: string) => {
+export const PayUnisat = async (toAddress: string, satoshis: string) => {
   if (typeof window.unisat !== 'undefined') {
     console.log('UniSat Wallet is installed!');
   }
   try {
-    const tx = window.unisat.sendBitcoin(toAddress, satoshis)
+    const tx = await window.unisat.sendBitcoin(toAddress, satoshis)
     console.log('unisat pay tx:', tx)
   } catch (e) {
     console.log(e)

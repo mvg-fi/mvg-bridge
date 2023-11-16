@@ -4,6 +4,7 @@ import { CheckNetworkCorrect, PayWalletConnect, defaultEthereum } from "./ethere
 import { PayUnisat, defaultBitcoin } from "./bitcoin";
 import { PayMixinMessenger, defaultMixin } from "./mixin";
 import { FennecName, MixinMessengerName, UnisatName, WalletConnectName } from "~/helpers/constants";
+import type { Asset } from "~/types/asset";
 
 export * from './bitcoin';
 export * from './ethereum';
@@ -13,8 +14,9 @@ export const useConnectStore = defineStore('connect', {
   state: () => ({
     connected: false,
     connectDialog: false,
-    connectState: 0,      // 0 = connect view, 1 = mixin oauth view, 2 = success, 3 = failed/canceled
+    connectState: 0,      // 0 = connect view, 1 = mixin oauth view, 2 = success, 3 = not detected
     connectedWallets: [],
+    connecting: {},
 
     ethereumWallets: defaultEthereum,
     bitcoinWallets: defaultBitcoin,
@@ -128,10 +130,10 @@ const connectToLastConnected = () => {
   const connectedWallets = localStorage.getItem("connected_wallets");
 }
 
-const PayWithWallet = (w: Wallet, address: string, amount: string) => {
+export const PayWithWallet = (w: Wallet, address: string, amount: string, asset: Asset) => {
   switch (w.name) {
     case WalletConnectName:
-      CheckNetworkCorrect()
+      CheckNetworkCorrect(asset.asset_id)
       PayWalletConnect(address, amount, 1)
       break;
     case UnisatName:

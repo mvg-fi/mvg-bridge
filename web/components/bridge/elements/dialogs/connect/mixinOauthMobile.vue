@@ -95,13 +95,6 @@
           class="rounded-pill ma-3 pa-0 bg-primary"
         >
           <span class="h7 text-background">{{ $t("open_in_mixin") }}</span>
-          <!-- <v-progress-circular
-            color="background"
-            size="16"
-            indeterminate
-            width="2"
-            v-else
-          /> -->
         </v-btn>
       </div>
 
@@ -113,12 +106,11 @@
         </button>
       </div>
 
-      <div class="d-flex flex-column" v-else>
+      <div class="d-flex flex-column align-center" v-else>
         <!-- Install -->
         <span class="h7">
           {{ $t("don't_have_mixin_messenger") }}
         </span>
-        <!-- <a :href="MixinMessengerLink"> -->
           <v-btn
             elevation="0"
             @click="openInMixin()"
@@ -127,7 +119,6 @@
           >
             <span class="h7">{{ $t("install") }}</span>
           </v-btn>
-        <!-- </a> -->
       </div>
     </div>
   </v-sheet>

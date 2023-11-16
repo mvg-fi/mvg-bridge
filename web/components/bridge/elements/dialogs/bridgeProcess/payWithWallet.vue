@@ -8,7 +8,7 @@
 
   <div class="text-center pt-0 pb-4" v-else>
     <span class="h7m" style="font-size: 16px">
-      {{ $t("no_wallet_found", {"wallet_name": bStore.fromAsset.symbol}) }}
+      {{ $t("no_wallet_found", { wallet_name: bStore.fromAsset.symbol }) }}
     </span>
   </div>
 
@@ -16,7 +16,14 @@
     <div
       :key="w"
       v-for="w in payableWallets"
-      @click="console.log(w)"
+      @click="
+        PayWithWallet(
+          w,
+          address,
+          bStore.bridgeAmount?.toString(),
+          bStore.fromAsset
+        )
+      "
       style="border: 0.5px solid var(--palette-black-10)"
       class="px-4 py-2 my-3 d-flex flex-row align-center rounded-pill"
     >
@@ -35,7 +42,10 @@
       </div>
     </div>
   </div>
-  <div class="py-8 d-flex flex-column align-center justify-center text-center" v-else>
+  <div
+    class="py-8 d-flex flex-column align-center justify-center text-center"
+    v-else
+  >
     <!-- No wallet found -->
     <svg
       width="80"
@@ -102,8 +112,8 @@
 <script lang="ts" setup>
 import { shortenAddress } from "~/helpers/utils";
 import { useBridgeStore } from "~/stores/bridge/bridge";
-import { useConnectStore } from "~/stores/connect/connect";
 import type { ConnectedWallet } from "~/types/wallet";
+import { PayWithWallet, useConnectStore } from "~/stores/connect/connect";
 
 const bStore = useBridgeStore();
 const cStore = useConnectStore();

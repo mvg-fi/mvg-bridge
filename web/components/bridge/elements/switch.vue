@@ -1,5 +1,6 @@
 <template>
-  <div class="w-100" style="position: relative; top: -24px; height: 0px;">
+  <div class=" mx-2">
+    <div class="w-100" style="position: relative; top: -24px; height: 0px;">
     <div class="d-flex flex-row align-center">
       <hr class="line" />
       <v-icon @click="store.switch()" class="down pa-3" size="48px">
@@ -7,6 +8,7 @@
       </v-icon>
       <hr class="line" />
     </div>
+  </div>
   </div>
 </template>
 
