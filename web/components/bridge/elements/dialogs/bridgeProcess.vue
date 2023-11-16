@@ -39,6 +39,7 @@
   <v-bottom-sheet
     v-model="bStore.bridgeProcessDialog"
     class="dialog-blur"
+    content-class="elevation-0"
     v-else
   >
     <v-sheet

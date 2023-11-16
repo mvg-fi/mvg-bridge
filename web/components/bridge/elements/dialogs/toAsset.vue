@@ -22,7 +22,7 @@
     </v-card>
   </v-dialog>
 
-  <v-bottom-sheet v-model="store.toDialog" class="dialog-blur" v-else>
+  <v-bottom-sheet v-model="store.toDialog" class="dialog-blur" content-class="elevation-0" v-else>
     <v-card
       :class="
         clsx(

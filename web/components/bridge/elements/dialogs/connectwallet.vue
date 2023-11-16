@@ -31,7 +31,7 @@
     <Failed v-else-if="cStore.connectState === 3" />
   </v-dialog>
 
-  <v-bottom-sheet v-model="cStore.connectDialog" class="dialog-blur" v-else>
+  <v-bottom-sheet v-model="cStore.connectDialog" content-class="elevation-0" class="dialog-blur" v-else>
     <v-sheet
       v-if="cStore.connectState === 0"
       :class="

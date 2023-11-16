@@ -49,6 +49,7 @@
     </v-btn>
     <v-bottom-sheet
       v-model="mobileDialog"
+      content-class="elevation-0"
       transition="slide-y-reverse-transition"
       :class="clsx('d-flex justify-center dialog-blur')"
     >
