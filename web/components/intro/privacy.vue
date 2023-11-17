@@ -56,11 +56,11 @@
     </v-col>
     <v-col
       :cols="xl ? 6 : lg ? 6 : customMobile ? 8 : 4"
-      :class="clsx('pa-0', customMobile && 'mt-6 d-flex justify-center')"
+      :class="clsx('pa-0 d-flex justify-center', customMobile && 'mt-6')"
     >
       <v-img
         :src="safe"
-        :class="clsx(customMobile ? 'hero-img-mobile' : 'hero-img')"
+        :class="clsx(customMobile ? 'hero-img-mobile' : 'intro-imgs')"
       />
     </v-col>
   </v-row>
@@ -74,3 +74,7 @@ import safe from "@/assets/images/intro/safe.svg";
 
 const customMobile = computed(() => width.value <= 800);
 </script>
+
+<style>
+
+</style>

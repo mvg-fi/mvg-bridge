@@ -52,7 +52,7 @@
 
     <MixinOauth v-else-if="cStore.connectState === 1" />
     <Success v-else-if="cStore.connectState === 2" />
-    <Failed v-else-if="cStore.connectState === 3" />
+    <NotDetected v-else-if="cStore.connectState === 3" />
   </v-bottom-sheet>
 </template>
 
@@ -68,7 +68,7 @@ import Bitcoin from "~/components/bridge/elements/dialogs/connect/bitcoin.vue";
 import Mixin from "~/components/bridge/elements/dialogs/connect/mixin.vue";
 import MixinOauth from "~/components/bridge/elements/dialogs/connect/mixinOauth.vue";
 import Success from "~/components/bridge/elements/dialogs/connect/success.vue";
-import Failed from "~/components/bridge/elements/dialogs/connect/failed.vue";
+import NotDetected from "~/components/bridge/elements/dialogs/connect/notDetected.vue";
 
 const { mobile } = useDisplay();
 

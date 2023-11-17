@@ -17,13 +17,13 @@
       {{ props.w.name }}
     </span>
 
-    <div v-if="props.w.connected">
+    <div v-if="connected">
       <v-icon size="16" color="primary">
         <CheckIcon />
       </v-icon>
     </div>
 
-    <div v-if="props.w.loading">
+    <div v-if="loading">
       <v-progress-circular
         indeterminate
         color="primary"
@@ -36,10 +36,20 @@
 
 <script lang="ts" setup>
 import { CheckIcon } from "@heroicons/vue/24/outline";
+import { useConnectStore } from "~/stores/connect/connect";
+import type { Wallet } from "~/types/wallet";
 const props = defineProps(["w"]);
+const cStore = useConnectStore();
+const connected = computed(() => {
+  return cStore.connectedWallets.find((w: Wallet) => {
+    w.name === props.w.name;
+  });
+});
+const loading = computed(() => {
+  return cStore.connecting.name === props.w.name;
+});
 </script>
 
 
 <style lang="scss" scoped>
-
 </style>

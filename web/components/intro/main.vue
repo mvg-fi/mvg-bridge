@@ -118,6 +118,9 @@ const customMobile = computed(() => width.value <= 800);
   width: 300px;
   height: 200px;
 }
+.intro-imgs {
+  height: 336px;
+}
 .break-text {
   width: 488px;
   display: block;

@@ -98,7 +98,7 @@
     >
       <v-img
         :src="fast"
-        :class="clsx(customMobile ? 'hero-img-mobile' : 'hero-img')"
+        :class="clsx(customMobile ? 'hero-img-mobile' : 'intro-imgs')"
       />
     </v-col>
   </v-row>

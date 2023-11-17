@@ -62,20 +62,20 @@
         </div>
 
         <div class="d-flex flex-row align-center mt-1">
-          <span class="h7" style="overflow-wrap: break-word">
+          <span class="h7" style="overflow-wrap: break-word; width: 270px">
             {{ address }}
           </span>
         </div>
       </div>
       <Copy
         :copyText="address"
-        class="d-flex px-4 justify-center align-center"
+        class="d-flex flex-grow-1 pr-4 justify-end align-center"
       />
     </div>
 
     <!-- Memo -->
     <div
-      style="font-size: 12px; width: 340px"
+      style="font-size: 12px;"
       class="deposit-info d-flex flex-column my-2 mx-2 h7m text-black-darken-4"
     >
       <!-- <span v-if="bStore.fromAsset.deposit_entries[0].tag">
