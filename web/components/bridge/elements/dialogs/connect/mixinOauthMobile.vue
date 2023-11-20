@@ -113,7 +113,7 @@
         </span>
           <v-btn
             elevation="0"
-            @click="openInMixin()"
+            @click="installMixin()"
             class="rounded-pill mt-3"
             style="background-color: var(--palette-black-10); width: 120px"
           >
@@ -133,7 +133,7 @@ import { ChevronDownIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 import { mixinOauthSuccess, useConnectStore } from "~/stores/connect/connect";
 import {
   BridgeBotID,
-  MixinMessengerLink,
+  MixinMessengerInstall,
   OAuthScope,
 } from "~/helpers/constants";
 
@@ -177,6 +177,9 @@ const openInMixin = () => {
   window.open(qrURL.value);
   clicked.value = true;
 };
+const installMixin = () => {
+  window.open(MixinMessengerInstall)
+}
 </script>
 
 <style lang="scss" scoped>

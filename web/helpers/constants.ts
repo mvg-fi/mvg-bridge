@@ -25,7 +25,6 @@ export const MediaKitURL = 'https://mvg.fi/media-kit'
 export const SupportCenterURL = 'https://support.mvg.fi'
 
 
-export const MixinMessengerLink = 'https://mixin.one/mm' 
 export const MixinAPIBaseURL = 'https://api.mixin.one'
 
 // Names
@@ -36,6 +35,10 @@ export const CoinbaseName = "Coinbase"
 export const UnisatName = "Unisat"
 export const MixinMessengerName = "Mixin Messenger"
 export const FennecName = "Fennec"
+
+// Install links
+export const UnisatInstall = "https://unisat.io/download"
+export const MixinMessengerInstall = 'https://mixin.one/mm' 
 
 export const EthereumChainName = "Ethereum"
 export const BitcoinChainName = "Bitcoin"

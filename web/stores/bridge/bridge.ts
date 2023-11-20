@@ -28,7 +28,7 @@ export const useBridgeStore = defineStore('bridge', {
     bridgeProcessDialog: false,
     menuState: 0,               // 0 == Default, 1 == Language select
     recentCardState: 0,         // 0 == Not shown, 1 == show, 2 == extended
-    bridgeProcessState: 0,      // 0 == opened, 1 == show address, 2 == select wallet
+    bridgeProcessState: 0,      // 0 == opened, 1 == show address, 2 == select wallet, 3 == paid
   } as BridgeState),
   getters: {
     filteredItems: (state) => {

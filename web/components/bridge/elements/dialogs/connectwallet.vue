@@ -28,7 +28,7 @@
 
     <MixinOauth v-else-if="cStore.connectState === 1" />
     <Success v-else-if="cStore.connectState === 2" />
-    <Failed v-else-if="cStore.connectState === 3" />
+    <NotDetected v-else-if="cStore.connectState === 3" />
   </v-dialog>
 
   <v-bottom-sheet v-model="cStore.connectDialog" content-class="elevation-0" class="dialog-blur" v-else>

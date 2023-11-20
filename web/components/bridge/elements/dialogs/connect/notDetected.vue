@@ -36,8 +36,8 @@
           background-color: var(--palette-main-error);
         "
       >
-        <v-icon size="100">
-          <v-img :src="1"></v-img>
+        <v-icon size="100" style="color: var(--palette-background-1)">
+          <XMarkIcon />
         </v-icon>
       </div>
     </div>
@@ -79,12 +79,13 @@ import { useDisplay } from "vuetify";
 import { useConnectStore } from "~/stores/connect/connect";
 import { XCircleIcon } from "@heroicons/vue/24/outline";
 import { XMarkIcon } from "@heroicons/vue/20/solid";
+import { GetInstallLink } from "~/stores/connect/install";
 
 const { mobile } = useDisplay();
 const cStore = useConnectStore();
 const goInstall = () => {
-  
-}
+  GetInstallLink(cStore.connecting);
+};
 </script>
 
 <style lang="scss" scoped>

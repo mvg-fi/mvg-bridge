@@ -3,19 +3,16 @@
     v-model="input"
     v-maska:[options]
     :placeholder="$t('placeholder')"
-    class="text-field font-weight-bold w-100 h5m mr-3"
+    class="text-field font-weight-bold w-100 h5m mr-3 text-black"
   />
 <!--     @keyup="inputFunc"  -->
 </template>
 
 <script setup lang="ts">
-import clsx from "clsx";
 import { vMaska } from "maska";
-import { useDisplay } from "vuetify";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 import { filterInputEvents } from "~/helpers/utils";
 
-const { mobile } = useDisplay();
 const store = useBridgeStore();
 const options = {
   mask: "A.BBBBBBBB",

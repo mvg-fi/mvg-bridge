@@ -82,6 +82,19 @@
     >
       <PayWithWallet />
     </v-sheet>
+
+    <v-sheet
+      elevation="5"
+      v-else-if="bStore.bridgeProcessState == 3"
+      :class="
+        clsx(
+          'rounded-t-xl align-self-center overflow-y-auto bg-background bridge-process-card-mobile',
+          'py-4'
+        )
+      "
+    >
+      <!-- < /> -->
+    </v-sheet>
   </v-bottom-sheet>
 </template>
 

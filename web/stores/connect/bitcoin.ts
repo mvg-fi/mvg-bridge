@@ -19,8 +19,10 @@ export const defaultBitcoin = [
 
 export const ConnectUnisat = async (w: Wallet) => {
   const cStore = useConnectStore()
-  if (typeof window.unisat !== 'undefined') {
-    console.log('UniSat Wallet is installed!');
+  cStore.setConnecting(defaultBitcoin[0])
+  if (typeof window.unisat == 'undefined') {
+    cStore.setConnectState(3);
+    cStore.setConnecting({})
   }
   try {
     const result = await window.unisat.requestAccounts()
@@ -48,8 +50,9 @@ export const ConnectUnisat = async (w: Wallet) => {
   }
 }
 export const PayUnisat = async (toAddress: string, satoshis: string) => {
-  if (typeof window.unisat !== 'undefined') {
-    console.log('UniSat Wallet is installed!');
+  const cStore = useConnectStore()
+  if (typeof window.unisat == 'undefined') {
+    cStore.setConnectState(3)
   }
   try {
     const tx = await window.unisat.sendBitcoin(toAddress, satoshis)

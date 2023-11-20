@@ -65,7 +65,7 @@
       <span class="helper-text">
         {{ $t("don't_have_mixin_messenger") }}
       </span>
-      <a :href="MixinMessengerLink" target="_blank">
+      <a :href="MixinMessengerInstall" target="_blank">
         <v-btn
           elevation="0"
           class="rounded-pill mt-3"
@@ -91,7 +91,7 @@ import MixinOauthMobile from "./mixinOauthMobile.vue";
 import { mixinOauthSuccess, useConnectStore } from "~/stores/connect/connect";
 import {
   BridgeBotID,
-  MixinMessengerLink,
+  MixinMessengerInstall,
   OAuthScope,
 } from "~/helpers/constants";
 

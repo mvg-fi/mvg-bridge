@@ -135,7 +135,6 @@ const connectToLastConnected = () => {
 
 export const PayWithWallet = (w: Wallet, address: string, amount: string, asset: Asset) => {
   const cStore = useConnectStore()
-  cStore.setConnecting(w)
   switch (w.name) {
     case WalletConnectName:
       CheckNetworkCorrect(asset.asset_id)
@@ -151,5 +150,4 @@ export const PayWithWallet = (w: Wallet, address: string, amount: string, asset:
       break;
     default:
   }
-  cStore.setConnecting({})
 }

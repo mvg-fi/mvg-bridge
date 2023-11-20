@@ -5,6 +5,7 @@
         clsx(
           'd-flex',
           'flex-column',
+          'bg-black-darken-1',
           props.from ? 'input-top-bg' : 'input-down-bg'
         )
       "
@@ -22,7 +23,7 @@
 
       <div :class="clsx(mobile ? 'ml-4 mb-4':'ml-6 mb-4', 'h7m')">
         <span
-          style="color: var(--palette-black-50)"
+          class="text-black-darken-3"
           v-if="props.from ? store.bridgeAmount : store.receiveAmount"
         >
           ${{ props.from ? store.fromTotalPrice : store.toTotalPrice }}
@@ -61,12 +62,10 @@ watch(
 
 <style lang="scss" scoped>
 .input-top-bg {
-  background-color: var(--palette-black-5);
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
 }
 .input-down-bg {
-  background-color: var(--palette-black-5);
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
 }

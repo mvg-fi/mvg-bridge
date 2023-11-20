@@ -75,7 +75,7 @@
 
     <!-- Memo -->
     <div
-      style="font-size: 12px;"
+      style="font-size: 12px"
       class="deposit-info d-flex flex-column my-2 mx-2 h7m text-black-darken-4"
     >
       <!-- <span v-if="bStore.fromAsset.deposit_entries[0].tag">
@@ -105,7 +105,15 @@
       </span>
     </v-btn>
 
-    <v-btn class="confirm-btn rounded-pill" size="large" @click="confirmPaid">
+    <v-btn
+      class="confirm-btn rounded-pill"
+      size="large"
+      @click="
+        () => {
+          bStore.setBridgeProcessState(3);
+        }
+      "
+    >
       <span class="h7 text-background">
         {{ $t("ive_transferred") }}
       </span>
@@ -122,6 +130,4 @@ import { useBridgeStore } from "~/stores/bridge/bridge";
 const { mobile } = useDisplay();
 const bStore = useBridgeStore();
 const address = "asjdfiasjdfkasjdfkljaslkdfjqlwkjerkqwjeoijoi";
-
-const confirmPaid = () => {};
 </script>
