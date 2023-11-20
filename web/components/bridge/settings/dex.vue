@@ -11,7 +11,7 @@
     </span>
 
     <v-switch
-      v-model="model"
+      v-model="onlyUseDex"
       hide-details
       inset
       color="blue"
@@ -21,7 +21,11 @@
 </template>
 
 <script setup>
-const model = ref(false);
+import { storeToRefs } from 'pinia';
+import { useSettingsStore } from '~/stores/settings';
+
+const ss = useSettingsStore()
+const { onlyUseDex } = storeToRefs(ss)
 </script>
 
 <style>

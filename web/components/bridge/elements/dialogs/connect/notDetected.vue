@@ -51,7 +51,7 @@
           width: 120px;
           height: 38px;
         "
-        @click="cStore.setConnectState(0)"
+        @click="cStore.setConnectState(0); cStore.setConnecting({})"
         class="rounded-pill mr-4"
       >
         <span class="h7"> {{ $t("back") }} </span>
@@ -84,7 +84,7 @@ import { GetInstallLink } from "~/stores/connect/install";
 const { mobile } = useDisplay();
 const cStore = useConnectStore();
 const goInstall = () => {
-  GetInstallLink(cStore.connecting);
+  window.open(GetInstallLink(cStore.connecting));
 };
 </script>
 

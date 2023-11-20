@@ -22,7 +22,6 @@ export const ConnectUnisat = async (w: Wallet) => {
   cStore.setConnecting(defaultBitcoin[0])
   if (typeof window.unisat == 'undefined') {
     cStore.setConnectState(3);
-    cStore.setConnecting({})
   }
   try {
     const result = await window.unisat.requestAccounts()

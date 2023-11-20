@@ -70,6 +70,8 @@ export const defaultEthereum = [
   { name: CoinbaseName, icon: cb, loading: false, connected: false },
 ]
 
+export const isEvmName = (name: string) => { return name === MetamaskName || name === RabbyName || name === WalletConnectName || name === CoinbaseName }
+
 export const walletConnect = async (w: Wallet) => {
   const cStore = useConnectStore()
   const { open } = useWeb3Modal();

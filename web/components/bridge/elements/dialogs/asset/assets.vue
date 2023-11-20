@@ -23,7 +23,6 @@
           "
           @click="
             store.setAsset(props.from, item);
-            console.log('clicked');
           "
         >
           <v-icon style="width: 36px; height: 36px; position: reactive">

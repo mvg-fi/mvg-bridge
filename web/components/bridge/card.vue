@@ -19,7 +19,7 @@
           <Input :from="false" />
         </div>
 
-        <Receiver class="my-2" />
+        <Receiver v-if="showReceiver" class="my-2" />
         <Fees class="my-2" />
         <Confirm class="my-2" />
       </v-card>
@@ -36,8 +36,44 @@ import Fees from "~/components/bridge/elements/fees.vue";
 import Confirm from "~/components/bridge/elements/confirm.vue";
 import { useDisplay } from "vuetify";
 import clsx from "clsx";
+import { useSettingsStore } from "~/stores/settings";
+import { storeToRefs } from "pinia";
+import { useBridgeStore } from "~/stores/bridge/bridge";
+import { isEvmName, useConnectStore } from "~/stores/connect/connect";
+import { isEVMAsset } from "~/helpers/networks";
+
+const bs = useBridgeStore();
+const cs = useConnectStore();
+const ss = useSettingsStore();
+const { useCustomAddress } = storeToRefs(ss);
+const { fromAsset } = storeToRefs(bs);
+const { connectedWallets } = storeToRefs(cs);
 
 const { mobile } = useDisplay();
+
+const showReceiver = computed(() => {
+  // show when enabled
+  if (useCustomAddress) return true;
+
+  // receive asset not evm; show
+  if (!isEVMAsset(fromAsset)) return true;
+
+  if (connectedWallets.length == 0) return true;
+  let evmCount = 0;
+  connectedWallets.value.forEach((w) => {
+    if (isEvmName(w.name)) evmCount += 1;
+  });
+  // connected evm == 0; show
+  if (evmCount == 0) return true;
+  // connected evm == 1; don't show
+  if (evmCount == 1) return false;
+  // connected evm >= 2; show selector
+  if (evmCount >= 2) return true;
+});
+
+watch(showReceiver, () => {
+  console.log(showReceiver);
+});
 </script>
 
 <style lang="scss">

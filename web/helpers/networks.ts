@@ -6,6 +6,7 @@ import BinanceIcon from '~/assets/images/networks/binance.svg'
 import OptimismIcon from '~/assets/images/networks/optimism.svg'
 import ArbitrumIcon from '~/assets/images/networks/arbitrum.svg'
 import MVMIcon from '~/assets/images/networks/mvm.png'
+import type { Asset } from "~/types/asset"
 
 const BitcoinExplorerURL = 'https://bitcoinexplorer.org/'
 const EthereumExplorerURL = 'https://etherscan.io'
@@ -59,3 +60,20 @@ export const Networks: Network[] = [
     explorerURL: MVMExplorerURL,
   },
 ]
+
+export const isEVMAsset = (asset: Asset) => {
+  // determine if chain id is evm
+  switch(asset.chain_id){
+  // ETH
+  case '43d61dcd-e413-450d-80b8-101d5e903357':
+    return true;
+  // BNB
+  case '1949e683-6a08-49e2-b087-d6b72398588f':
+    return true;
+  // Polygon
+  case 'b7938396-3f94-4e0a-9179-d3440718156f':
+    return true;
+  default:
+    return false;
+  }
+}
