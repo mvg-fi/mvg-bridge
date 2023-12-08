@@ -101,8 +101,11 @@ export const useBridgeStore = defineStore('bridge', {
   actions: {
     switch() {
       const from = this.fromAsset
+      const fromUsd = this.bridgeUsdPrice
       this.fromAsset = this.toAsset
+      this.bridgeUsdPrice = this.receiveUsdPrice
       this.toAsset = from
+      this.receiveUsdPrice = fromUsd
     },
     switchSettingMode() {
       this.settingMode = !this.settingMode

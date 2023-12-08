@@ -6,27 +6,28 @@
           'd-flex',
           'flex-column',
           'bg-black-darken-1',
-          props.from ? 'input-top-bg' : 'input-down-bg'
+          from ? mobile ? 'input-top-bg-mobile': 'input-top-bg':'',
+          !from ? mobile ? 'input-down-bg-mobile': 'input-down-bg':''
         )
       "
     >
-      <div :class="clsx(mobile ? 'ml-4 mt-4' : 'ml-6 mt-4', 'h7m')">
+      <div :class="clsx(mobile ? 'ml-4 mt-4' : 'ml-6 mt-3', 'h7m')">
         <span style="opacity: 50%">
-          {{ props.from ? $t("you_pay") : $t("you_receive") }}
+          {{ from ? $t("you_pay") : $t("you_receive") }}
         </span>
       </div>
 
       <div :class="clsx(mobile ? 'ml-4' : 'ml-6', 'd-flex flex-row') ">
-        <TextField :from="props.from" />
-        <Asset :from="props.from" />
+        <TextField :from="from" />
+        <Asset :from="from" />
       </div>
 
-      <div :class="clsx(mobile ? 'ml-4 mb-4':'ml-6 mb-4', 'h7m')">
+      <div :class="clsx(mobile ? 'ml-4 mb-4':'ml-6 mb-3', 'h7m')">
         <span
-          class="text-black-darken-3"
-          v-if="props.from ? store.bridgeAmount : store.receiveAmount"
+	  style="opacity: 50%"
+          v-if="from ? store.bridgeAmount : store.receiveAmount"
         >
-          ${{ props.from ? store.fromTotalPrice : store.toTotalPrice }}
+          ${{ from ? store.fromTotalPrice : store.toTotalPrice }}
         </span>
         <span style="opacity: 0" v-else> $ </span>
       </div>
@@ -41,6 +42,7 @@ import Asset from "~/components/bridge/elements/input/asset.vue";
 import TextField from "~/components/bridge/elements/input/textfield.vue";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const props = defineProps(["from"]);
+const from = toRef(props, 'from')
 const store = useBridgeStore();
 const { mobile } = useDisplay();
 
@@ -68,5 +70,13 @@ watch(
 .input-down-bg {
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
+}
+.input-top-bg-mobile {
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+.input-down-bg-mobile {
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
 }
 </style>
