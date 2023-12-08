@@ -5,7 +5,7 @@
         :class="
           clsx(
             !mobile && 'bridge-card mt-10',
-            mobile && 'mobile-bridge-card mt-6',
+            mobile && 'mobile-bridge-card mt-10',
             'rounded-xl pa-0 d-flex flex-column'
           )
         "

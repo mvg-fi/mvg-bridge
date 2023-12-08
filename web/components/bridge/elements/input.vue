@@ -11,7 +11,7 @@
         )
       "
     >
-      <div :class="clsx(mobile ? 'ml-4 mt-4' : 'ml-6 mt-3', 'h7m')">
+      <div :class="clsx(mobile ? 'ml-4 mt-3' : 'ml-6 mt-3', 'h7m')">
         <span style="opacity: 50%">
           {{ from ? $t("you_pay") : $t("you_receive") }}
         </span>
@@ -22,7 +22,7 @@
         <Asset :from="from" />
       </div>
 
-      <div :class="clsx(mobile ? 'ml-4 mb-4':'ml-6 mb-3', 'h7m')">
+      <div :class="clsx(mobile ? 'ml-4 mb-3':'ml-6 mb-3', 'h7m')">
         <span
 	  style="opacity: 50%"
           v-if="from ? store.bridgeAmount : store.receiveAmount"
