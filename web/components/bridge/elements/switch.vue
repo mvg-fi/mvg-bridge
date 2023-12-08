@@ -3,7 +3,7 @@
     <div class="w-100" style="position: relative; top: -24px; height: 0px;">
     <div class="d-flex flex-row align-center">
       <hr class="line" />
-      <v-icon @click="store.switch()" class="down pa-3" size="48px">
+      <v-icon @click="store.switch()" class="down pa-2" size="40px">
         <ArrowSmallDownIcon />
       </v-icon>
       <hr class="line" />
@@ -13,8 +13,9 @@
 </template>
 
 <script setup>
-import { ArrowSmallDownIcon } from "@heroicons/vue/24/outline";
+import { useDisplay } from "vuetify";
 import { useBridgeStore } from "~/stores/bridge/bridge";
+import { ArrowSmallDownIcon } from "@heroicons/vue/24/outline";
 const store = useBridgeStore();
 </script>
 
