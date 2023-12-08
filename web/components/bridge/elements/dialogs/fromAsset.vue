@@ -65,7 +65,8 @@ const { mobile } = useDisplay();
   backdrop-filter: blur(4px);
 }
 .mobile-card {
-  height: 80vh;
+  height: 85vh;
+  height: 85svh;
   width: 100vw;
 }
 </style>
