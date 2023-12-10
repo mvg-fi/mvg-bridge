@@ -1,12 +1,12 @@
 <template>
   <Main />
-  <Fast class="bg-third" />
+  <Fast class="custom-input-bg" />
   <Price />
-  <Privacy class="bg-third" />
+  <Privacy class="custom-input-bg" />
   <Multichain />
-  <Safe class="bg-third" />
+  <Safe class="custom-input-bg" />
   <JoinUs />
-  <Footer class="bg-third"/>
+  <Footer class="custom-input-bg"/>
 </template>
 
 <script setup>

@@ -2,7 +2,7 @@
   <div
     :class="
       clsx(
-        'mx-2 rounded-xl d-flex align-center justify-center',
+        'mx-2 rounded-xl d-flex align-center justify-center custom-input-bg',
         mobile ? 'recipient-mobile' : 'recipient'
       )
     "
@@ -45,11 +45,9 @@ const clearReceiver = () => {
 }
 .recipient {
   height: 48px;
-  background-color: var(--palette-black-5);
 }
 .recipient-mobile {
   height: 40px;
-  background-color: var(--palette-black-5);
 }
 .search::placeholder {
   color: grey;

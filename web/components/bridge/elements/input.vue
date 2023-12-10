@@ -5,7 +5,7 @@
         clsx(
           'd-flex',
           'flex-column',
-          'bg-black-darken-1',
+          'custom-input-bg',
           from ? mobile ? 'input-top-bg-mobile': 'input-top-bg':'',
           !from ? mobile ? 'input-down-bg-mobile': 'input-down-bg':''
         )

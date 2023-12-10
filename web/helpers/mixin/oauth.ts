@@ -93,7 +93,7 @@ export default function authorize(
 
     if (opened) return false;
 
-    callbacks.onShowUrl?.("mixin://codes/" + data.code_id);
+    callbacks.onShowUrl?.("https://mixin.one/codes/" + data.code_id);
     opened = true;
 
     return false;
