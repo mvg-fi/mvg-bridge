@@ -6,8 +6,8 @@
           'd-flex',
           'flex-column',
           'custom-input-bg',
-          from ? mobile ? 'input-top-bg-mobile': 'input-top-bg':'',
-          !from ? mobile ? 'input-down-bg-mobile': 'input-down-bg':''
+          from ? (mobile ? 'input-top-bg-mobile' : 'input-top-bg') : '',
+          !from ? (mobile ? 'input-down-bg-mobile' : 'input-down-bg') : ''
         )
       "
     >
@@ -17,17 +17,17 @@
         </span>
       </div>
 
-      <div :class="clsx(mobile ? 'ml-4' : 'ml-6', 'd-flex flex-row') ">
+      <div :class="clsx(mobile ? 'ml-4' : 'ml-6', 'd-flex flex-row')">
         <TextField :from="from" />
         <Asset :from="from" />
       </div>
 
-      <div :class="clsx(mobile ? 'ml-4 mb-3':'ml-6 mb-3', 'h7m')">
+      <div :class="clsx(mobile ? 'ml-4 mb-3' : 'ml-6 mb-3', 'h7m')">
         <span
-	  style="opacity: 50%"
+          style="opacity: 50%"
           v-if="from ? store.bridgeAmount : store.receiveAmount"
         >
-          ${{ from ? store.fromTotalPrice : store.toTotalPrice }}
+          {{ from ? formatUSMoney(store.fromTotalPrice) : formatUSMoney(store.toTotalPrice) }}
         </span>
         <span style="opacity: 0" v-else> $ </span>
       </div>
@@ -40,9 +40,10 @@ import clsx from "clsx";
 import { useDisplay } from "vuetify";
 import Asset from "~/components/bridge/elements/input/asset.vue";
 import TextField from "~/components/bridge/elements/input/textfield.vue";
+import { formatUSMoney } from "~/helpers/utils";
 import { useBridgeStore } from "~/stores/bridge/bridge";
 const props = defineProps(["from"]);
-const from = toRef(props, 'from')
+const from = toRef(props, "from");
 const store = useBridgeStore();
 const { mobile } = useDisplay();
 

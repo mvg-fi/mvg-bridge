@@ -18,3 +18,7 @@ export const toHex = (num: string | number) => {
 	const val = Number(num);
 	return '0x' + val.toString(16);
 };
+
+export const formatUSMoney = (x: string | number) => {
+	return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(Number(x))
+}

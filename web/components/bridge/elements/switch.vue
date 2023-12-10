@@ -3,7 +3,7 @@
     <div class="w-100" style="position: relative; top: -24px; height: 0px;">
     <div class="d-flex flex-row align-center">
       <hr class="line" />
-      <v-icon @click="store.switch()" class="down pa-2" size="40px">
+      <v-icon @click="store.switch()" class="down custom-input-bg pa-2" size="40px">
         <ArrowSmallDownIcon />
       </v-icon>
       <hr class="line" />
@@ -30,11 +30,10 @@ const store = useBridgeStore();
 }
 .down {
   border-radius: 100%;
-  background-color: var(--palette-black-5);
-  border: 3px solid var(--palette-background-1);
+  border: 3px solid var(--palette-background-0);
 }
 .line {
-  border: 2px solid var(--palette-background-1);
+  border: 2px solid var(--palette-background-0);
   width: 258px;
 }
 </style>
